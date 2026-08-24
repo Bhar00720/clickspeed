@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite</title>
+    <meta name="description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
+    <meta name="keywords" content="click speed test, cps test, mouse polling rate test, keyboard ghosting test, gaming peripherals, hardware testing">
+    <link rel="canonical" href="https://clickspeedlab.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clickspeedlab.com/">
+    <meta property="og:title" content="Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite">
+    <meta property="og:description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite">
+    <meta name="twitter:description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Click Speed Lab",
+          "url": "https://clickspeedlab.com/",
+          "description": "Zero-Latency Gaming Peripheral Testing Suite",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Mouse Polling Rate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mouse polling rate is how often your mouse reports its position to the computer, measured in Hz. A higher polling rate means lower latency."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to improve Click Speed (CPS)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Improving CPS involves practicing techniques like jitter clicking or butterfly clicking, along with using a mouse that registers clicks accurately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Keyboard Ghosting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Keyboard ghosting occurs when certain combinations of keys are pressed simultaneously and not all of them register. Anti-ghosting or NKRO prevents this."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Background Atmosphere -->
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div class="glow-orb-orange"></div>
+    <div class="glow-orb-blue"></div>
+
+    <!-- Fixed Topnav -->
+    <header class="stitch-topnav">
+        <div class="topnav-left">
+            <a href="./" class="stitch-brand">
+                CLICK SPEED <span class="sub">LAB</span>
+            </a>
+            <nav class="stitch-navlinks">
+                <a href="./" class="stitch-navlink active">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="cps-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">CPS Click Speed Test</div>
+                                <div class="item-desc">Butterfly, Jitter & Drag clicking speeds</div>
+                            </div>
+                        </a>
+                        <a href="mouse-polling-rate-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency & latency</div>
+                            </div>
+                        </a>
+                        <a href="mouse-scroll-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Wheel Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault check</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="keyboard-ghosting-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Matrix & NKRO</div>
+                                <div class="item-desc">Simultaneous rollover & ghosting check</div>
+                            </div>
+                        </a>
+                        <a href="keyboard-ghosting-test/#apmCanvas" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">timer</span>
+                            <div class="item-content">
+                                <div class="item-title">APM & Hold Duration Latency</div>
+                                <div class="item-desc">Real-time actions per minute & switch hold</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="topnav-right">
+            <!-- Hardware Connection HUD Detector -->
+            <div class="connection-hud conn-type-wired" id="connection-hud" title="Click to inspect exact device via WebHID API">
+                <span class="material-symbols-outlined conn-icon" id="conn-icon">cable</span>
+                <span id="conn-label">USB 2.0/3.0 HID</span>
+                <span class="conn-dot"></span>
+            </div>
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
+                <span class="material-symbols-outlined">palette</span>
+            </button>
+            <div class="status-pill">
+                <span class="dot"></span>
+                <span>SYSTEM: ONLINE</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="stitch-main">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            
+            <!-- Hero Section -->
+            <section style="position: relative; margin-bottom: 4rem; padding: 3rem 0;">
+                <div class="stitch-canvas-wrap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; overflow: hidden; border-radius: 12px; pointer-events: none;">
+                    <canvas id="hero-canvas"></canvas>
+                </div>
+                
+                <div style="position: relative; z-index: 1; padding-left: 2rem;">
+                    <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 3px; height: 90px; background: var(--primary);"></div>
+                    <div class="anim-badge-float" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; background: rgba(255,95,31,0.1); border: 1px solid var(--energy-border); padding: 4px 12px; border-radius: 20px;">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">bolt</span>
+                        SUB-MILLISECOND PERIPHERAL ENGINE
+                    </div>
+                    <h1 style="display: block; font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: white; margin: 0; line-height: 1.1;">
+                        <span class="anim-shimmer">ZERO-LATENCY</span><br>
+                        <span class="anim-glow-pulse" style="color: var(--primary); font-style: italic; border-right: 4px solid var(--primary); padding-right: 1rem; display: inline-block; margin-top: 0.5rem;">ENGINEERING ENGINE</span>
+                    </h1>
+                    <p style="border-left: 2px solid var(--surface-variant); padding-left: 1rem; color: var(--text-muted); max-width: 600px; margin: 2rem 0; font-size: 1.1rem; line-height: 1.6;">
+                        Calibrate, test, and optimize your gaming peripherals with microsecond precision. Identify hardware bottlenecks with zero latency.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Bento Grid -->
+            <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+                
+                <!-- Card 1 -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00ffcc;">
+                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(0, 255, 204, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #00ffcc;">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mouse</span>
+                        </div>
+                        <span class="tag-badge live" style="background: rgba(0, 255, 204, 0.1); color: #00ffcc; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">8000Hz LIVE</span>
+                    </div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">Mouse Polling</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Measure your mouse sensor's real-time polling rate</p>
+                    <a href="mouse-polling-rate-test/" class="kinetic-btn-blue" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; background: #00ffcc; color: black;">LAUNCH TESTER</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid var(--primary);">
+                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(255, 102, 0, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">keyboard</span>
+                        </div>
+                        <span class="tag-badge diag" style="background: rgba(255, 102, 0, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">DIAGNOSTIC</span>
+                    </div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">Keyboard NKRO</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Test how many simultaneous keys your keyboard can register</p>
+                    <a href="keyboard-ghosting-test/" class="kinetic-btn-orange" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box;">LAUNCH TESTER</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid white;">
+                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <span class="material-symbols-outlined">speed</span>
+                        </div>
+                        <span class="tag-badge peak" style="background: rgba(255, 255, 255, 0.1); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">PEAK</span>
+                    </div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">CPS Test</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Measure your click speed in clicks per second</p>
+                    <a href="cps-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; background: white; color: black;">LAUNCH TESTER</a>
+                
+                <!-- 4. Mouse Scroll Wheel Test Bento Card -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-left: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <div class="telemetry-icon-box" style="border-color: rgba(0,229,255,0.4); color: var(--aero-blue);">
+                                <span class="material-symbols-outlined">swap_vertical_circle</span>
+                            </div>
+                            <span class="status-pill" style="font-size: 0.65rem;">NEW MODULE</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Mouse Scroll Speed</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Test wheel speed (NPS/PPS), scroll distance in meters, and detect faulty mouse wheel encoders with reverse-scroll glitch detection.</p>
+                    </div>
+                    <a href="mouse-scroll-test/" class="kinetic-btn-orange" style="text-decoration: none; text-align: center; display: block; padding: 0.75rem 1rem; font-size: 0.85rem;">
+                        LAUNCH SCROLL TEST
+                    </a>
+                </div>
+            </div>
+
+            </section>
+
+            <!-- Sync Calculator -->
+            <section id="sync-calculator" style="margin-bottom: 4rem;">
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 2rem; border: 1px solid var(--surface-variant);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span class="material-symbols-outlined" style="color: var(--primary); font-size: 2rem;">tune</span>
+                        <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin: 0;">Display Sync Calculator</h2>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 600px;">Calculate the exact theoretical input latency and reports per frame based on your current hardware configuration.</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">MOUSE POLLING RATE</label>
+                                <select id="calc-polling" onchange="updateCalc()" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid var(--surface-variant); color: var(--text); padding: 0.8rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; outline: none;">
+                                    <option value="125">125 Hz (8ms)</option>
+                                    <option value="250">250 Hz (4ms)</option>
+                                    <option value="500">500 Hz (2ms)</option>
+                                    <option value="1000" selected>1000 Hz (1ms)</option>
+                                    <option value="2000">2000 Hz (0.5ms)</option>
+                                    <option value="4000">4000 Hz (0.25ms)</option>
+                                    <option value="8000">8000 Hz (0.125ms)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">MONITOR REFRESH RATE</label>
+                                <select id="calc-refresh" onchange="updateCalc()" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid var(--surface-variant); color: var(--text); padding: 0.8rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; outline: none;">
+                                    <option value="60">60 Hz (16.67ms)</option>
+                                    <option value="120">120 Hz (8.33ms)</option>
+                                    <option value="144" selected>144 Hz (6.94ms)</option>
+                                    <option value="240">240 Hz (4.17ms)</option>
+                                    <option value="360">360 Hz (2.78ms)</option>
+                                    <option value="540">540 Hz (1.85ms)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--surface-variant); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">THEORETICAL LATENCY</div>
+                                <div style="font-family: 'JetBrains Mono', monospace; font-size: 2rem; color: var(--primary); font-weight: bold;"><span id="calc-latency-out">1.00</span><span style="font-size: 1rem; color: var(--text-muted);">ms</span></div>
+                            </div>
+                            <div>
+                                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">REPORTS PER FRAME</div>
+                                <div style="font-family: 'JetBrains Mono', monospace; font-size: 2rem; color: #00ffcc; font-weight: bold;"><span id="calc-reports-out">6.94</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO FAQ Section -->
+            <section class="info-section" style="margin-bottom: 4rem;">
+                <h2 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--surface-variant); padding-bottom: 1rem;">Hardware Testing Methodology</h2>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background: rgba(255, 102, 0, 0.2); color: var(--primary); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">1</span>
+                            What is Mouse Polling Rate?
+                        </h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">Mouse polling rate dictates how frequently your device reports its position to the PC. Measured in Hertz (Hz), higher values like 1000Hz, 4000Hz, or 8000Hz mean the data is updated more often, reducing input lag. Our tester verifies if your hardware consistently maintains these peak rates under load.</p>
+                    </div>
+
+                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid #00ffcc; border-radius: 0 8px 8px 0;">
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background: rgba(0, 255, 204, 0.2); color: #00ffcc; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">2</span>
+                            How to optimize Click Speed (CPS)?
+                        </h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">Clicks Per Second (CPS) measures raw actuation speed. Improving it requires both mechanical practice (butterfly, jitter clicking) and low-latency switch hardware. Optical switches and zero-debounce firmware minimize actuation delay, allowing more rapid successive clicks to register.</p>
+                    </div>
+
+                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid white; border-radius: 0 8px 8px 0;">
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="background: rgba(255, 255, 255, 0.2); color: white; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">3</span>
+                            What is Keyboard Ghosting & NKRO?
+                        </h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">Ghosting occurs when simultaneous key presses fail to register due to matrix limitations. N-Key Rollover (NKRO) ensures that no matter how many keys are pressed concurrently, every input is captured. Our diagnostic tool maps out your keyboard matrix to detect any hidden rollover limitations.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Customization & Settings Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
+        </div>
+    </div>
+
+<!-- Footer with Expandable Other Tools Menu -->
+    <footer class="stitch-footer">
+        <div class="footer-left">
+            &copy; 2026 CLICK SPEED LAB | POWERED BY <a href="https://corelumetech.in" target="_blank" rel="noopener noreferrer">CORELUMETECH.IN</a>
+        </div>
+
+        <!-- Center: CoreLume Suite Expandable Tools Dropup Menu -->
+        <div class="footer-dropup" id="footer-tools-dropup">
+            <button class="footer-dropup-btn" id="footer-dropup-trigger" type="button">
+                <span class="live-dot"></span>
+                <span class="material-symbols-outlined icon">construction</span>
+                <span>OTHER TOOLS</span>
+                <span class="material-symbols-outlined arrow">expand_less</span>
+            </button>
+            <div class="footer-dropup-menu">
+                <div class="footer-dropup-header">
+                    <span class="material-symbols-outlined">apps</span>
+                    <span>CORELUME WEB TOOLS SUITE</span>
+                </div>
+                <div class="footer-tools-grid">
+                    <a href="https://calculator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00e5ff;">calculate</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Omni-Calculator</div>
+                            <div class="tool-desc">All-in-one math, finance & unit converter</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://text-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00ffa3;">format_shapes</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Text Utils</div>
+                            <div class="tool-desc">Case conversion, formatting & word statistics</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://password-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #ff5f1f;">lock</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Password Generator</div>
+                            <div class="tool-desc">High-entropy cryptographic passphrases</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://dev-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #c084fc;">code</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Dev Utils</div>
+                            <div class="tool-desc">JSON formatters, base64, regex & encoders</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://qr-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #38bdf8;">qr_code_2</span>
+                        <div class="tool-info">
+                            <div class="tool-name">QR Generator</div>
+                            <div class="tool-desc">Vector QR codes with custom styling & logos</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://color-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #f43f5e;">palette</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Color Master</div>
+                            <div class="tool-desc">Color palette generator, contrast & gradients</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-right" style="display: flex; align-items: center; gap: 14px;">
+            <a href="mailto:help@clickspeedlab.com" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">mail</span> help@clickspeedlab.com
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <span>SYSTEM STATUS: OPTIMAL</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Web Audio API Mechanical Click Synthesis
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playMechanicalClick() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            const filter = audioCtx.createBiquadFilter();
+
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.03);
+
+            filter.type = 'bandpass';
+            filter.frequency.value = 1000;
+
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.5, audioCtx.currentTime + 0.005);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.03);
+
+            osc.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            osc.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + 0.04);
+        }
+
+
+        // Sync Calculator Logic
+        function updateCalc() {
+            const hz = parseFloat(document.getElementById('calc-polling').value);
+            const fps = parseFloat(document.getElementById('calc-refresh').value);
+            
+            const latency = 1000 / hz;
+            const reports = hz / fps;
+            
+            document.getElementById('calc-latency-out').textContent = latency.toFixed(2);
+            document.getElementById('calc-reports-out').textContent = reports.toFixed(2);
+        }
+        
+        // Initial calculation
+        updateCalc();
+
+        // Canvas Hero Animation
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let gridPoints = [];
+
+        function resize() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width;
+            canvas.height = height;
+            initGrid();
+        }
+
+        function initGrid() {
+            gridPoints = [];
+            const spacing = 40;
+            for (let x = 0; x < width; x += spacing) {
+                for (let y = 0; y < height; y += spacing) {
+                    gridPoints.push({ x, y, glow: 0 });
+                }
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 102, 0, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 30; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw grid points
+            gridPoints.forEach(point => {
+                point.glow *= 0.9; // fade glow
+                
+                // Check distance to particles
+                particles.forEach(p => {
+                    const dx = p.x - point.x;
+                    const dy = p.y - point.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 60) {
+                        point.glow = Math.max(point.glow, 1 - (dist / 60));
+                    }
+                });
+                
+                if (point.glow > 0.05) {
+                    ctx.fillStyle = `rgba(0, 255, 204, ${point.glow * 0.5})`;
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        
+        // Start animation after a short delay to ensure layout is done
+        setTimeout(() => {
+            resize();
+            initParticles();
+            animate();
+        }, 100);
+
+    
+        // Theme Engine & Persistence
+        const themeBtn = document.getElementById('theme-toggle');
+        const themes = ['orange', 'cyan', 'emerald', 'purple'];
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('csl_theme', theme);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
+                applyTheme(themes[nextIdx]);
+            });
+        }
+        applyTheme(currentTheme);
+
+
+    // Comprehensive Customization & Switch Audio Engine
+    (function() {
+        const customizerModal = document.getElementById('customizer-modal');
+        const themeBtn = document.getElementById('theme-toggle');
+        const customizerClose = document.getElementById('customizer-close');
+        const customizerApply = document.getElementById('customizer-apply-btn');
+
+        if(themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => customizerModal.classList.add('show'));
+        }
+        if(customizerClose && customizerModal) {
+            customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        }
+        if(customizerApply && customizerModal) {
+            customizerApply.addEventListener('click', () => customizerModal.classList.remove('show'));
+        }
+
+        // State Manager
+        let prefs = {
+            theme: localStorage.getItem('csl_theme') || 'orange',
+            mode: localStorage.getItem('csl_mode') || 'dark',
+            kbSkin: localStorage.getItem('csl_kb_skin') || 'obsidian',
+            mouseSkin: localStorage.getItem('csl_mouse_skin') || 'obsidian',
+            sound: localStorage.getItem('csl_sound') || 'blue',
+            bg: localStorage.getItem('csl_bg') || 'grid'
+        };
+
+        function applyPreferences() {
+            // Theme & Light Mode
+            if (prefs.mode === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.removeAttribute('data-mode');
+                if (prefs.theme === 'orange') {
+                    document.documentElement.removeAttribute('data-theme');
+                } else {
+                    document.documentElement.setAttribute('data-theme', prefs.theme);
+                }
+            }
+
+            // Keyboard Skin
+            document.documentElement.setAttribute('data-kb-skin', prefs.kbSkin);
+
+            // Mouse Skin
+            document.documentElement.setAttribute('data-mouse-skin', prefs.mouseSkin);
+
+            // Background Mode
+            document.documentElement.setAttribute('data-bg', prefs.bg);
+
+            // Active button indicators in modal
+            document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+                if (prefs.mode === 'light' && b.dataset.mode === 'light') b.classList.add('active');
+                else if (prefs.mode !== 'light' && b.dataset.theme === prefs.theme) b.classList.add('active');
+                else b.classList.remove('active');
+            });
+            document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.kbskin === prefs.kbSkin);
+            });
+            document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.mouseskin === prefs.mouseSkin);
+            });
+            document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.sound === prefs.sound);
+            });
+            document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.bg === prefs.bg);
+            });
+
+            // Save to localStorage
+            localStorage.setItem('csl_theme', prefs.theme);
+            localStorage.setItem('csl_mode', prefs.mode);
+            localStorage.setItem('csl_kb_skin', prefs.kbSkin);
+            localStorage.setItem('csl_mouse_skin', prefs.mouseSkin);
+            localStorage.setItem('csl_sound', prefs.sound);
+            localStorage.setItem('csl_bg', prefs.bg);
+        }
+
+        // Pill Listeners
+        document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                if (b.dataset.mode === 'light') {
+                    prefs.mode = 'light';
+                } else {
+                    prefs.mode = 'dark';
+                    prefs.theme = b.dataset.theme;
+                }
+                applyPreferences();
+        document.addEventListener('pointerdown', () => { if (labAudioCtx && labAudioCtx.state === 'suspended') labAudioCtx.resume(); }, { once: true });
+        document.addEventListener('keydown', () => { if (labAudioCtx && labAudioCtx.state === 'suspended') labAudioCtx.resume(); }, { once: true });
+            });
+        });
+
+        document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.kbSkin = b.dataset.kbskin;
+                applyPreferences();
+            });
+        });
+
+        document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.mouseSkin = b.dataset.mouseskin;
+                applyPreferences();
+            });
+        });
+
+        document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.sound = b.dataset.sound;
+                applyPreferences();
+                window.playSwitchSound && window.playSwitchSound();
+            });
+        });
+
+        document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.bg = b.dataset.bg;
+                applyPreferences();
+            });
+        });
+
+        // Global High-Fidelity Audio Synthesis
+        let labAudioCtx = null;
+        window.playSwitchSound = function() {
+            const currentSound = localStorage.getItem('csl_sound') || (typeof prefs !== 'undefined' ? prefs.sound : 'blue');
+            if (currentSound === 'off') return;
+            if (!labAudioCtx) labAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (labAudioCtx.state === 'suspended') labAudioCtx.resume();
+            
+            const osc = labAudioCtx.createOscillator();
+            const gain = labAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(labAudioCtx.destination);
+            const now = labAudioCtx.currentTime;
+
+            if (currentSound === 'blue') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1900, now);
+                osc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.035);
+            } else if (currentSound === 'brown') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.045);
+                osc.start(now);
+                osc.stop(now + 0.045);
+            } else if (currentSound === 'red') {
+                // Crisp Linear Clack (Cherry Red / Gateron Red bottom-out)
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.038);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.038);
+                osc.start(now);
+                osc.stop(now + 0.038);
+            } else if (currentSound === 'cream') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.04);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            }
+        };
+
+        applyPreferences();
+    })();
+
+
+
+    // Hardware Connection & Interface Detection Engine (WebHID + Heuristic Profiling)
+    (function() {
+        const connHud = document.getElementById('connection-hud');
+        const connIcon = document.getElementById('conn-icon');
+        const connLabel = document.getElementById('conn-label');
+
+        let currentConnType = 'wired';
+        let deviceName = '';
+
+        function setConnection(type, label, icon) {
+            if (currentConnType === type && connLabel.textContent === label) return;
+            currentConnType = type;
+            
+            connHud.className = 'connection-hud conn-type-' + type + ' animate-change';
+            connIcon.textContent = icon;
+            connLabel.textContent = label;
+            
+            setTimeout(() => {
+                connHud.classList.remove('animate-change');
+            }, 500);
+        }
+
+        // 1. Pointer Heuristic Profiling (Touchpad vs Mouse vs Bluetooth vs RF Wireless)
+        let lastMoveTimes = [];
+        let fractionalCoords = 0;
+        let totalMoves = 0;
+
+        window.addEventListener('pointermove', (e) => {
+            if (e.pointerType === 'touch') {
+                setConnection('touch', 'TOUCH DIGITIZER', 'touch_app');
+                return;
+            }
+
+            totalMoves++;
+            // Precision trackpads often emit fractional coordinates (e.g. 124.35px)
+            if (e.clientX % 1 !== 0 || e.clientY % 1 !== 0) {
+                fractionalCoords++;
+            }
+
+            const now = performance.now();
+            lastMoveTimes.push(now);
+            if (lastMoveTimes.length > 50) lastMoveTimes.shift();
+
+            if (totalMoves > 30) {
+                // Trackpad check
+                if (fractionalCoords / totalMoves > 0.4) {
+                    setConnection('laptop', 'PRECISION TRACKPAD', 'laptop_mac');
+                    return;
+                }
+
+                // Frequency calculation
+                if (lastMoveTimes.length >= 20) {
+                    const intervals = [];
+                    for(let i=1; i<lastMoveTimes.length; i++) intervals.push(lastMoveTimes[i] - lastMoveTimes[i-1]);
+                    const avg = intervals.reduce((a,b)=>a+b,0)/intervals.length;
+                    const hz = Math.round(1000 / (avg || 1));
+
+                    if (hz > 1100) {
+                        setConnection('wired', `HIGH-SPEED USB (${hz}Hz)`, 'cable');
+                    } else if (hz >= 450 && hz <= 1050) {
+                        setConnection('24g', `2.4 GHz RF / USB (${hz}Hz)`, 'wifi_tethering');
+                    } else if (hz >= 100 && hz <= 150) {
+                        setConnection('bt', `BLUETOOTH BLE (${hz}Hz)`, 'bluetooth');
+                    } else if (hz < 100) {
+                        setConnection('laptop', 'INTEGRATED / STANDARD', 'laptop_mac');
+                    }
+                }
+            }
+        }, { passive: true });
+
+        // 2. Keyboard Heuristic Profiling
+        window.addEventListener('keydown', (e) => {
+            // Check for laptop-specific scan codes or integrated ACPI markers
+            if (e.key === 'Fn' || e.code === 'BrightnessUp' || e.code === 'BrightnessDown') {
+                setConnection('laptop', 'INTEGRATED LAPTOP KB', 'laptop_mac');
+            }
+        }, { passive: true });
+
+        // 3. Direct WebHID Hardware Inspection on Click
+        if (connHud) {
+            connHud.addEventListener('click', async () => {
+                if (navigator.hid && navigator.hid.requestDevice) {
+                    try {
+                        const devices = await navigator.hid.requestDevice({ filters: [] });
+                        if (devices && devices.length > 0) {
+                            const dev = devices[0];
+                            const name = dev.productName || 'USB HID DEVICE';
+                            let icon = 'cable';
+                            let type = 'wired';
+                            const lower = name.toLowerCase();
+
+                            if (lower.includes('wireless') || lower.includes('receiver') || lower.includes('dongle') || lower.includes('lightspeed')) {
+                                icon = 'wifi_tethering';
+                                type = '24g';
+                            } else if (lower.includes('bluetooth') || lower.includes('bt')) {
+                                icon = 'bluetooth';
+                                type = 'bt';
+                            }
+
+                            setConnection(type, name.toUpperCase(), icon);
+                        }
+                    } catch (err) {
+                        console.log('WebHID dialog dismissed:', err);
+                    }
+                }
+            });
+        }
+    })();
+
+
+
+    // Expandable Dropdown Menu Controller (Click & Touch Support)
+    (function() {
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            const btn = dropdown.querySelector('.nav-dropdown-btn');
+            if (!btn) return;
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!isOpen) dropdown.classList.add('open');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
+
+</script>
+
+
+</body>
+</html>
