@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite</title>
-    <meta name="description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
+    <title>Click Speed Test — Measure Your Clicks Per Second (CPS)</title>
+    <meta name="description" content="Test your mouse clicking speed with our free CPS test. Choose from 1, 5, 10, or 60-second modes. Improve your gaming reflexes and find out your clicks per second instantly.">
     <meta name="keywords" content="click speed test, cps test, mouse polling rate test, keyboard ghosting test, gaming peripherals, hardware testing">
     <link rel="canonical" href="https://clickspeedlab.com/">
     
@@ -22,6 +22,7 @@
     <meta name="twitter:description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
     
     <!-- Stylesheet -->
+        <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     
     <!-- JSON-LD -->
@@ -100,22 +101,36 @@
                         <a href="cps-test/" class="nav-dropdown-item ">
                             <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
                             <div class="item-content">
-                                <div class="item-title">CPS Click Speed Test</div>
-                                <div class="item-desc">Butterfly, Jitter & Drag clicking speeds</div>
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
                             </div>
                         </a>
                         <a href="mouse-polling-rate-test/" class="nav-dropdown-item ">
                             <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
                             <div class="item-content">
                                 <div class="item-title">Mouse Polling Rate (Hz)</div>
-                                <div class="item-desc">Sensor reporting frequency & latency</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
                             </div>
                         </a>
                         <a href="mouse-scroll-test/" class="nav-dropdown-item ">
-                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">swap_vertical_circle</span>
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
                             <div class="item-content">
-                                <div class="item-title">Scroll Speed & Wheel Encoder</div>
-                                <div class="item-desc">Notches/sec & reverse-scroll fault check</div>
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
                             </div>
                         </a>
                     </div>
@@ -136,11 +151,11 @@
                                 <div class="item-desc">Simultaneous rollover & ghosting check</div>
                             </div>
                         </a>
-                        <a href="keyboard-ghosting-test/#apmCanvas" class="nav-dropdown-item">
-                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">timer</span>
+                        <a href="spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
                             <div class="item-content">
-                                <div class="item-title">APM & Hold Duration Latency</div>
-                                <div class="item-desc">Real-time actions per minute & switch hold</div>
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
                             </div>
                         </a>
                     </div>
@@ -190,64 +205,113 @@
                 </div>
             </section>
 
-            <!-- Bento Grid -->
-            <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+            <!-- Bento Grid - Comprehensive Diagnostic Suite -->
+            <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
                 
-                <!-- Card 1 -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00ffcc;">
-                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(0, 255, 204, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #00ffcc;">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mouse</span>
-                        </div>
-                        <span class="tag-badge live" style="background: rgba(0, 255, 204, 0.1); color: #00ffcc; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">8000Hz LIVE</span>
-                    </div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">Mouse Polling</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Measure your mouse sensor's real-time polling rate</p>
-                    <a href="mouse-polling-rate-test/" class="kinetic-btn-blue" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; background: #00ffcc; color: black;">LAUNCH TESTER</a>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid var(--primary);">
-                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(255, 102, 0, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">keyboard</span>
-                        </div>
-                        <span class="tag-badge diag" style="background: rgba(255, 102, 0, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">DIAGNOSTIC</span>
-                    </div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">Keyboard NKRO</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Test how many simultaneous keys your keyboard can register</p>
-                    <a href="keyboard-ghosting-test/" class="kinetic-btn-orange" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box;">LAUNCH TESTER</a>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid white;">
-                    <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-                        <div class="telemetry-icon-box" style="width: 48px; height: 48px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <span class="material-symbols-outlined">speed</span>
-                        </div>
-                        <span class="tag-badge peak" style="background: rgba(255, 255, 255, 0.1); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">PEAK</span>
-                    </div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text);">CPS Test</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Measure your click speed in clicks per second</p>
-                    <a href="cps-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; background: white; color: black;">LAUNCH TESTER</a>
-                
-                <!-- 4. Mouse Scroll Wheel Test Bento Card -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-left: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
+                <!-- Card 1: Standard CPS Test -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                            <div class="telemetry-icon-box" style="border-color: rgba(0,229,255,0.4); color: var(--aero-blue);">
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(255, 95, 31, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                <span class="material-symbols-outlined">speed</span>
+                            </div>
+                            <span class="tag-badge peak" style="background: rgba(255, 95, 31, 0.15); color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">1s • 5s • 10s • 60s</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Standard CPS Test</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Benchmark raw clicks per second across 1, 5, 10, and 60-second time intervals with real-time velocity curves.</p>
+                    </div>
+                    <a href="cps-test/" class="kinetic-btn-orange" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem;">LAUNCH CPS TEST</a>
+                </div>
+
+                <!-- Card 2: Jitter Click Test -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00ffa3; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(0, 255, 163, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00ffa3;">
+                                <span class="material-symbols-outlined">vibration</span>
+                            </div>
+                            <span class="tag-badge live" style="background: rgba(0, 255, 163, 0.15); color: #00ffa3; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">TREMOR TRAINER</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Jitter Click Test</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Master forearm muscle tremors for Minecraft PVP. Track tremor stability and learn how to click faster safely.</p>
+                    </div>
+                    <a href="jitter-click-test/" class="kinetic-btn-emerald" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #00ffa3; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH JITTER TEST</a>
+                </div>
+
+                <!-- Card 3: Butterfly Click Test -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00e5ff; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(0, 229, 255, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00e5ff;">
+                                <span class="material-symbols-outlined">flutter</span>
+                            </div>
+                            <span class="tag-badge live" style="background: rgba(0, 229, 255, 0.15); color: #00e5ff; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">DOUBLE-CLICK</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Butterfly Click Test</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Double your CPS by alternating two fingers. Test hardware debounce settings and verify double-click actuation.</p>
+                    </div>
+                    <a href="butterfly-click-test/" class="kinetic-btn-blue" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #00e5ff; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH BUTTERFLY TEST</a>
+                </div>
+
+                <!-- Card 4: Mouse Polling Rate -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #38bdf8; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(56, 189, 248, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #38bdf8;">
+                                <span class="material-symbols-outlined">mouse</span>
+                            </div>
+                            <span class="tag-badge live" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">8000Hz LIVE</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Mouse Polling Rate (Hz)</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Measure your mouse sensor's real-time reporting rate, interval consistency, and microsecond latency.</p>
+                    </div>
+                    <a href="mouse-polling-rate-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #38bdf8; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH POLLING TEST</a>
+                </div>
+
+                <!-- Card 5: Mouse Scroll Wheel Speed -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #ff9900; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(255, 153, 0, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #ff9900;">
                                 <span class="material-symbols-outlined">swap_vertical_circle</span>
                             </div>
-                            <span class="status-pill" style="font-size: 0.65rem;">NEW MODULE</span>
+                            <span class="tag-badge diag" style="background: rgba(255, 153, 0, 0.15); color: #ff9900; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">ENCODER FAULT CHECK</span>
                         </div>
-                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Mouse Scroll Speed</h3>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Mouse Scroll Speed</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Test wheel speed (NPS/PPS), scroll distance in meters, and detect faulty mouse wheel encoders with reverse-scroll glitch detection.</p>
                     </div>
-                    <a href="mouse-scroll-test/" class="kinetic-btn-orange" style="text-decoration: none; text-align: center; display: block; padding: 0.75rem 1rem; font-size: 0.85rem;">
-                        LAUNCH SCROLL TEST
-                    </a>
+                    <a href="mouse-scroll-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #ff9900; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH SCROLL TEST</a>
                 </div>
-            </div>
+
+                <!-- Card 6: Keyboard NKRO & Matrix -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #c084fc; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(192, 132, 252, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #c084fc;">
+                                <span class="material-symbols-outlined">grid_view</span>
+                            </div>
+                            <span class="tag-badge diag" style="background: rgba(192, 132, 252, 0.15); color: #c084fc; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">NKRO MATRIX</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Keyboard NKRO & Ghosting</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Test simultaneous key rollover, ghosting collisions, APM speed, and switch hold duration latency in real-time.</p>
+                    </div>
+                    <a href="keyboard-ghosting-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #c084fc; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH KEYBOARD TEST</a>
+                </div>
+
+                <!-- Card 7: Spacebar Speed Test -->
+                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #f43f5e; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(244, 63, 94, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #f43f5e;">
+                                <span class="material-symbols-outlined">space_bar</span>
+                            </div>
+                            <span class="tag-badge live" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">TIKTOK VIRAL</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Spacebar Speed Test</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Take the viral spacebar challenge! Measure how many times you can hit the spacebar in 5, 10, or 30 seconds.</p>
+                    </div>
+                    <a href="spacebar-counter/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #f43f5e; color: #fff; font-weight: 800; border-radius: 6px;">LAUNCH SPACEBAR TEST</a>
+                </div>
 
             </section>
 
@@ -970,5 +1034,37 @@
 </script>
 
 
+
+    <!-- footer-tools-dropup-script -->
+    <script>
+    (function() {
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        const footerTrigger = document.getElementById('footer-dropup-trigger');
+        if (footerTrigger && footerDropup) {
+            footerTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                footerDropup.classList.toggle('open');
+            });
+            document.addEventListener('click', () => {
+                footerDropup.classList.remove('open');
+            });
+        }
+        
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            const btn = dropdown.querySelector('.nav-dropdown-btn');
+            if (!btn) return;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!isOpen) dropdown.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
+    </script>
+        
 </body>
 </html>

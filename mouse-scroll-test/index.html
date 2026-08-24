@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mouse Scroll Speed & Wheel Encoder Test | Click Speed Lab</title>
     <meta name="description" content="Test mouse scroll speed in notches/second, pixels/second, total scroll distance, and diagnose faulty mouse wheel encoders with reverse-scroll glitch detection.">
+        <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,22 +192,36 @@
                         <a href="../cps-test/" class="nav-dropdown-item ">
                             <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
                             <div class="item-content">
-                                <div class="item-title">CPS Click Speed Test</div>
-                                <div class="item-desc">Butterfly, Jitter & Drag clicking speeds</div>
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
                             </div>
                         </a>
                         <a href="../mouse-polling-rate-test/" class="nav-dropdown-item ">
                             <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
                             <div class="item-content">
                                 <div class="item-title">Mouse Polling Rate (Hz)</div>
-                                <div class="item-desc">Sensor reporting frequency & latency</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
                             </div>
                         </a>
                         <a href="../mouse-scroll-test/" class="nav-dropdown-item active">
-                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">swap_vertical_circle</span>
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
                             <div class="item-content">
-                                <div class="item-title">Scroll Speed & Wheel Encoder</div>
-                                <div class="item-desc">Notches/sec & reverse-scroll fault check</div>
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
                             </div>
                         </a>
                     </div>
@@ -227,11 +242,11 @@
                                 <div class="item-desc">Simultaneous rollover & ghosting check</div>
                             </div>
                         </a>
-                        <a href="../keyboard-ghosting-test/#apmCanvas" class="nav-dropdown-item">
-                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">timer</span>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
                             <div class="item-content">
-                                <div class="item-title">APM & Hold Duration Latency</div>
-                                <div class="item-desc">Real-time actions per minute & switch hold</div>
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
                             </div>
                         </a>
                     </div>
@@ -1209,5 +1224,37 @@
     })();
 
 </script>
+
+    <!-- footer-tools-dropup-script -->
+    <script>
+    (function() {
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        const footerTrigger = document.getElementById('footer-dropup-trigger');
+        if (footerTrigger && footerDropup) {
+            footerTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                footerDropup.classList.toggle('open');
+            });
+            document.addEventListener('click', () => {
+                footerDropup.classList.remove('open');
+            });
+        }
+        
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            const btn = dropdown.querySelector('.nav-dropdown-btn');
+            if (!btn) return;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!isOpen) dropdown.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
+    </script>
+        
 </body>
 </html>
