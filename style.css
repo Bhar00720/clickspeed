@@ -3785,15 +3785,7 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
   border: none !important; /* using filter drop-shadow for 3D */
 }
 
-/* Light Mode Overrides for Borders */
-[data-mode="light"] .kinetic-btn,
-[data-mode="light"] .kinetic-btn-orange,
-[data-mode="light"] .kinetic-btn-emerald,
-[data-mode="light"] .kinetic-btn-blue {
-   clip-path: none !important;
-   border-radius: 8px !important;
-   border: 1.5px solid currentColor !important;
-}
+
 
 /* ORANGE 3D BUTTON */
 .kinetic-btn-orange {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -698,12 +698,13 @@
     <script class="global-ui-script">
     (function() {
         // --- Theme Engine ---
-        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        let currentTheme = localStorage.getItem('csl_theme') || 'light';
         
         function applyTheme(theme) {
             currentTheme = theme;
             if (theme === 'orange') {
                 document.documentElement.removeAttribute('data-theme');
+                document.documentElement.removeAttribute('data-mode');
             } else if (theme === 'light') {
                 document.documentElement.setAttribute('data-mode', 'light');
                 document.documentElement.removeAttribute('data-theme');

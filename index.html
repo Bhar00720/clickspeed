@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,6 +128,16 @@
     <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <!-- AOS (Animate On Scroll) Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        @keyframes blinkCursor {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: var(--primary); }
+        }
+        #type-line-2 {
+            animation: blinkCursor 1s step-end infinite !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -1072,12 +1082,13 @@
     <script class="global-ui-script">
     (function() {
         // --- Theme Engine ---
-        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        let currentTheme = localStorage.getItem('csl_theme') || 'light';
         
         function applyTheme(theme) {
             currentTheme = theme;
             if (theme === 'orange') {
                 document.documentElement.removeAttribute('data-theme');
+                document.documentElement.removeAttribute('data-mode');
             } else if (theme === 'light') {
                 document.documentElement.setAttribute('data-mode', 'light');
                 document.documentElement.removeAttribute('data-theme');
@@ -1221,6 +1232,7 @@
 
         function drawMouseDetails(ctx, leftPressed, rightPressed, multiGrad) {
             ctx.save();
+            ctx.strokeStyle = multiGrad; // MULTICOLOR OUTLINE FOR BUTTONS AND WHEEL
             if (leftPressed) ctx.translate(0, 3);
             ctx.beginPath();
             ctx.moveTo(-6, -55);
@@ -1299,6 +1311,7 @@
         }
 
         function drawKeyboardKeys(ctx, keysPressedNow, fillGrad) {
+            ctx.strokeStyle = fillGrad; // MULTICOLOR OUTLINE FOR ALL KEYCAPS
             const unit = 21; 
             const gap = 3;   
             let startY = -56;
