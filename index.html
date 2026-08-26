@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect for Google Fonts (eliminates render-blocking @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     
     <!-- SEO Meta Tags -->
     <title>Click Speed Test — Measure Your Clicks Per Second (CPS)</title>
+    <meta name="theme-color" content="#FF5F1F">
+    <meta name="author" content="Click Speed Lab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="Test your mouse clicking speed with our free CPS test. Choose from 1, 5, 10, or 60-second modes. Improve your gaming reflexes and find out your clicks per second instantly.">
     <meta name="keywords" content="click speed test, cps test, mouse polling rate test, keyboard ghosting test, gaming peripherals, hardware testing">
     <link rel="canonical" href="https://clickspeedlab.com/">
-    
-    <!-- Open Graph -->
+
+        
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://clickspeedlab.com/">
-    <meta property="og:title" content="Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite">
-    <meta property="og:description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
-    
-    <!-- Twitter Cards -->
+    <meta property="og:title" content="Click Speed Test — Measure Your Clicks Per Second (CPS)">
+    <meta property="og:description" content="Free online CPS test with 1s, 5s, 10s, and 60-second modes. Includes jitter click test, butterfly click test, mouse polling rate tester, scroll wheel diagnostics, and keyboard NKRO matrix test.">
+    <meta property="og:image" content="https://clickspeedlab.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Click Speed Lab">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Click Speed Lab — Zero-Latency Gaming Peripheral Testing Suite">
-    <meta name="twitter:description" content="Ultimate suite for testing gaming peripheral performance. Features a zero-latency click speed test, mouse polling rate tester, and keyboard ghosting test.">
-    
-    <!-- Stylesheet -->
-        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="twitter:title" content="Click Speed Test — Measure Your Clicks Per Second (CPS)">
+    <meta name="twitter:description" content="Free online CPS test with 1s, 5s, 10s, and 60-second modes. Includes jitter click test, butterfly click test, mouse polling rate tester, scroll wheel diagnostics, and keyboard NKRO matrix test.">
+    <meta name="twitter:image" content="https://clickspeedlab.com/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
     
     <!-- JSON-LD -->
@@ -70,9 +83,51 @@
       ]
     }
     </script>
+    
+    <!-- SEO Foundation Schemas -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "logo": "https://clickspeedlab.com/og-image.jpg",
+      "sameAs": []
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "description": "Zero-Latency Gaming Peripheral Testing Suite — CPS Test, Jitter Click Test, Butterfly Click Test, Spacebar Counter, Mouse Polling Rate, Scroll Wheel Diagnostics, Keyboard NKRO Matrix Test",
+      "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://clickspeedlab.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+      }
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://clickspeedlab.com/"
+            }
+      ]
+}
+    </script>
     <!-- Monetag In-Page Push & Vignette Ads -->
     <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
     <!-- Background Atmosphere -->
@@ -187,7 +242,7 @@
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
             
             <!-- Hero Section -->
-            <section style="position: relative; margin-bottom: 4rem; padding: 3rem 0;">
+            <section data-aos="fade-down" data-aos-duration="900" style="position: relative; margin-bottom: 4rem; padding: 3rem 0;">
                 <div class="stitch-canvas-wrap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; overflow: hidden; border-radius: 12px; pointer-events: none;">
                     <canvas id="hero-canvas"></canvas>
                 </div>
@@ -212,7 +267,7 @@
             <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
                 
                 <!-- Card 1: Standard CPS Test -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="0" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(255, 95, 31, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
@@ -227,7 +282,7 @@
                 </div>
 
                 <!-- Card 2: Jitter Click Test -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00ffa3; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="100" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00ffa3; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(0, 255, 163, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00ffa3;">
@@ -242,7 +297,7 @@
                 </div>
 
                 <!-- Card 3: Butterfly Click Test -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00e5ff; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="200" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #00e5ff; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(0, 229, 255, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00e5ff;">
@@ -257,7 +312,7 @@
                 </div>
 
                 <!-- Card 4: Mouse Polling Rate -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #38bdf8; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="300" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #38bdf8; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(56, 189, 248, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #38bdf8;">
@@ -272,7 +327,7 @@
                 </div>
 
                 <!-- Card 5: Mouse Scroll Wheel Speed -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #ff9900; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="400" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #ff9900; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(255, 153, 0, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #ff9900;">
@@ -287,7 +342,7 @@
                 </div>
 
                 <!-- Card 6: Keyboard NKRO & Matrix -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #c084fc; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="500" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #c084fc; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(192, 132, 252, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #c084fc;">
@@ -302,7 +357,7 @@
                 </div>
 
                 <!-- Card 7: Spacebar Speed Test -->
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #f43f5e; display: flex; flex-direction: column; justify-content: space-between;">
+                <div data-aos="fade-up" data-aos-delay="600" data-tilt data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #f43f5e; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
                             <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(244, 63, 94, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #f43f5e;">
@@ -319,8 +374,8 @@
             </section>
 
             <!-- Sync Calculator -->
-            <section id="sync-calculator" style="margin-bottom: 4rem;">
-                <div class="telemetry-card clip-nick" style="background: var(--surface); padding: 2rem; border: 1px solid var(--surface-variant);">
+            <section id="sync-calculator" data-aos="fade-up" data-aos-duration="800" style="margin-bottom: 4rem;">
+                <div data-aos="fade-up" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 2rem; border: 1px solid var(--surface-variant);">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                         <span class="material-symbols-outlined" style="color: var(--primary); font-size: 2rem;">tune</span>
                         <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin: 0;">Display Sync Calculator</h2>
@@ -369,11 +424,11 @@
             </section>
 
             <!-- SEO FAQ Section -->
-            <section class="info-section" style="margin-bottom: 4rem;">
+            <section data-aos="fade-up" class="info-section" style="margin-bottom: 4rem;">
                 <h2 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--surface-variant); padding-bottom: 1rem;">Hardware Testing Methodology</h2>
                 
                 <div style="display: grid; gap: 1.5rem;">
-                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0;">
+                    <div data-aos="fade-up" class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0;">
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="background: rgba(255, 102, 0, 0.2); color: var(--primary); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">1</span>
                             What is Mouse Polling Rate?
@@ -381,7 +436,7 @@
                         <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">Mouse polling rate dictates how frequently your device reports its position to the PC. Measured in Hertz (Hz), higher values like 1000Hz, 4000Hz, or 8000Hz mean the data is updated more often, reducing input lag. Our tester verifies if your hardware consistently maintains these peak rates under load.</p>
                     </div>
 
-                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid #00ffcc; border-radius: 0 8px 8px 0;">
+                    <div data-aos="fade-up" class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid #00ffcc; border-radius: 0 8px 8px 0;">
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="background: rgba(0, 255, 204, 0.2); color: #00ffcc; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">2</span>
                             How to optimize Click Speed (CPS)?
@@ -389,7 +444,7 @@
                         <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">Clicks Per Second (CPS) measures raw actuation speed. Improving it requires both mechanical practice (butterfly, jitter clicking) and low-latency switch hardware. Optical switches and zero-debounce firmware minimize actuation delay, allowing more rapid successive clicks to register.</p>
                     </div>
 
-                    <div class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid white; border-radius: 0 8px 8px 0;">
+                    <div data-aos="fade-up" class="info-card" style="background: var(--surface); padding: 1.5rem; border-left: 4px solid white; border-radius: 0 8px 8px 0;">
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="background: rgba(255, 255, 255, 0.2); color: white; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold;">3</span>
                             What is Keyboard Ghosting & NKRO?
@@ -1069,5 +1124,77 @@
     })();
     </script>
         
+
+    <!-- Interactive Animation & FX Libraries -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 40
+                });
+            }
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card'), {
+                    max: 6,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.12,
+                    scale: 1.01
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Interactive Animation, Tilt & Scroll FX Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        (function() {
+            // Immediate AOS Init
+            function initAnimations() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-out-cubic',
+                        once: false,
+                        mirror: true,
+                        offset: 50
+                    });
+                }
+                if (typeof VanillaTilt !== 'undefined') {
+                    VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card, .mc-card, .graph-card, .telemetry-side-panel'), {
+                        max: 8,
+                        speed: 400,
+                        glare: true,
+                        "max-glare": 0.15,
+                        scale: 1.02
+                    });
+                }
+            }
+
+            // Parallax scroll effect on background glow orbs
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const orbOrange = document.querySelector('.glow-orb-orange');
+                const orbBlue = document.querySelector('.glow-orb-blue');
+                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
+                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
+            }, { passive: true });
+
+            initAnimations();
+            window.addEventListener('load', function() {
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            });
+        })();
+    </script>
+
 </body>
 </html>

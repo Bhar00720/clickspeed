@@ -1,0 +1,19 @@
+{
+  "name": "Click Speed Lab — Gaming Peripheral Testing Suite",
+  "short_name": "Click Speed Lab",
+  "description": "Zero-latency CPS test, jitter click test, butterfly click test, spacebar counter, mouse polling rate, scroll wheel diagnostics, and keyboard NKRO matrix test.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#FF5F1F",
+  "orientation": "any",
+  "categories": ["games", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect for Google Fonts (eliminates render-blocking @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <title>Keyboard Ghosting & NKRO Matrix Test — Click Speed Lab</title>
+    <meta name="theme-color" content="#FF5F1F">
+    <meta name="author" content="Click Speed Lab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="Test your keyboard for ghosting, key blocking, and N-Key Rollover (NKRO) capability with real-time matrix visualization, APM tracking, and latency diagnostics.">
     <meta name="keywords" content="keyboard ghosting test, nkro test, n-key rollover tester, keyboard matrix test, anti ghosting test">
     <link rel="canonical" href="https://clickspeedlab.com/keyboard-ghosting-test/">
     
-        <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+        
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clickspeedlab.com/keyboard-ghosting-test/">
+    <meta property="og:title" content="Keyboard Ghosting & NKRO Matrix Test">
+    <meta property="og:description" content="Test keyboard ghosting, simultaneous key rollover, APM speed, and switch hold duration latency with real-time matrix visualization.">
+    <meta property="og:image" content="https://clickspeedlab.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Click Speed Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Keyboard Ghosting & NKRO Matrix Test">
+    <meta name="twitter:description" content="Test keyboard ghosting, simultaneous key rollover, APM speed, and switch hold duration latency with real-time matrix visualization.">
+    <meta name="twitter:image" content="https://clickspeedlab.com/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
     <link rel="stylesheet" href="../style.css">
     
     <style>
@@ -199,9 +224,57 @@
     }
     </script>
 
+    
+    <!-- SEO Foundation Schemas -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "logo": "https://clickspeedlab.com/og-image.jpg",
+      "sameAs": []
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "description": "Zero-Latency Gaming Peripheral Testing Suite — CPS Test, Jitter Click Test, Butterfly Click Test, Spacebar Counter, Mouse Polling Rate, Scroll Wheel Diagnostics, Keyboard NKRO Matrix Test",
+      "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://clickspeedlab.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+      }
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://clickspeedlab.com/"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Keyboard Ghosting Test",
+                  "item": "https://clickspeedlab.com/keyboard-ghosting-test/"
+            }
+      ]
+}
+    </script>
     <!-- Monetag In-Page Push & Vignette Ads -->
     <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
     <div class="bg-grid"></div>
@@ -214,12 +287,83 @@
             <a href="../" class="stitch-brand">
                 CLICK SPEED <span class="sub">LAB</span>
             </a>
-            <ul class="stitch-navlinks" id="navLinks">
-                <li><a href="../" class="stitch-navlink"><span class="material-symbols-outlined">home</span> HOME HUB</a></li>
-                <li><a href="../cps-test/" class="stitch-navlink"><span class="material-symbols-outlined">speed</span> CPS TESTER</a></li>
-                <li><a href="../mouse-polling-rate-test/" class="stitch-navlink"><span class="material-symbols-outlined">mouse</span> MOUSE HZ</a></li>
-                <li><a href="./" class="stitch-navlink active"><span class="material-symbols-outlined">keyboard</span> KEYBOARD NKRO</a></li>
-            </ul>
+            <nav class="stitch-navlinks">
+                <a href="../" class="stitch-navlink ">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../cps-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn active" type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item active">
+                            <span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Matrix & NKRO</div>
+                                <div class="item-desc">Simultaneous rollover & ghosting check</div>
+                            </div>
+                        </a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
+                            <div class="item-content">
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
         </div>
         <div class="topnav-right">
             <!-- Hardware Connection HUD Detector -->
@@ -527,18 +671,18 @@
             </div>
         </div>
 
-        <section class="info-section">
+        <section data-aos="fade-up" class="info-section">
             <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">Mechanical Keyboard Ghosting, NKRO & Matrix Diagnostic Guide</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     <h3 style="color: var(--velocity-orange); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">What is Keyboard Ghosting?</h3>
                     <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Ghosting occurs when multiple keys are pressed simultaneously on a standard membrane or unoptimized keyboard matrix, and the controller registers an unpressed key (a "ghost"). Gaming keyboards use discrete diodes to guarantee anti-ghosting.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">6KRO vs Full NKRO</h3>
                     <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;"><strong>6KRO</strong> registers up to 6 simultaneous alphanumeric keys over standard USB HID descriptors. <strong>Full NKRO</strong> (N-Key Rollover) enables unlimited simultaneous keystrokes with discrete matrix scanning.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">Latency & Switch Diagnostics</h3>
                     <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">This tool measures real-time switch hold duration, actuation consistency, and key debounce timing to detect failing or double-clicking mechanical switches.</p>
                 </div>
@@ -1488,5 +1632,77 @@
     })();
     </script>
         
+
+    <!-- Interactive Animation & FX Libraries -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 40
+                });
+            }
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card'), {
+                    max: 6,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.12,
+                    scale: 1.01
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Interactive Animation, Tilt & Scroll FX Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        (function() {
+            // Immediate AOS Init
+            function initAnimations() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-out-cubic',
+                        once: false,
+                        mirror: true,
+                        offset: 50
+                    });
+                }
+                if (typeof VanillaTilt !== 'undefined') {
+                    VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card, .mc-card, .graph-card, .telemetry-side-panel'), {
+                        max: 8,
+                        speed: 400,
+                        glare: true,
+                        "max-glare": 0.15,
+                        scale: 1.02
+                    });
+                }
+            }
+
+            // Parallax scroll effect on background glow orbs
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const orbOrange = document.querySelector('.glow-orb-orange');
+                const orbBlue = document.querySelector('.glow-orb-blue');
+                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
+                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
+            }, { passive: true });
+
+            initAnimations();
+            window.addEventListener('load', function() {
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            });
+        })();
+    </script>
+
 </body>
 </html>

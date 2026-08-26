@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spacebar Counter & Speed Test — How Fast Can You Hit Space?</title>
+    <meta name="theme-color" content="#FF5F1F">
+    <meta name="author" content="Click Speed Lab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="Take the spacebar clicking challenge! Measure how many times you can hit the spacebar in 5, 10, or 30 seconds. Perfect your typing and gaming reflexes.">
     <link rel="canonical" href="https://clickspeedlab.com/spacebar-counter/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clickspeedlab.com/spacebar-counter/">
+    <meta property="og:title" content="Spacebar Counter & Speed Test — How Fast Can You Hit Space?">
+    <meta property="og:description" content="Take the viral TikTok spacebar challenge! Count your spacebar hits in 5, 10, or 30 seconds. Compete with friends and improve your keyboard speed.">
+    <meta property="og:image" content="https://clickspeedlab.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Click Speed Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spacebar Counter & Speed Test — How Fast Can You Hit Space?">
+    <meta name="twitter:description" content="Take the viral TikTok spacebar challenge! Count your spacebar hits in 5, 10, or 30 seconds. Compete with friends and improve your keyboard speed.">
+    <meta name="twitter:image" content="https://clickspeedlab.com/og-image.jpg">
+
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,9 +77,104 @@
             color: #ff5f1f;
         }
     </style>
+    
+    <!-- SEO Foundation Schemas -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "logo": "https://clickspeedlab.com/og-image.jpg",
+      "sameAs": []
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "description": "Zero-Latency Gaming Peripheral Testing Suite — CPS Test, Jitter Click Test, Butterfly Click Test, Spacebar Counter, Mouse Polling Rate, Scroll Wheel Diagnostics, Keyboard NKRO Matrix Test",
+      "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://clickspeedlab.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+      }
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://clickspeedlab.com/"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Spacebar Counter",
+                  "item": "https://clickspeedlab.com/spacebar-counter/"
+            }
+      ]
+}
+    </script>
+    
+    <!-- Page-Specific JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Spacebar Counter & Speed Test",
+          "url": "https://clickspeedlab.com/spacebar-counter/",
+          "description": "Take the spacebar clicking challenge! Measure how many times you can hit the spacebar in 5, 10, or 30 seconds.",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a good spacebar CPS score?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An average spacebar CPS is around 6-8 hits per second. Competitive players can reach 10-12 hits per second. The world record is over 15 hits per second."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I get faster at hitting the spacebar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use your thumb pad instead of the tip, keep your wrist relaxed, and practice short burst sessions of 5-10 seconds. Mechanical keyboards with low actuation force switches help significantly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the spacebar counter work on mobile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Our spacebar counter detects both physical keyboard spacebar presses and touchscreen taps, so you can use it on any device."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <!-- Monetag In-Page Push & Vignette Ads -->
     <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
     <div class="bg-grid"></div>
@@ -241,14 +357,14 @@
         </div>
 
         <!-- SEO Guide -->
-        <section class="info-section" style="margin-bottom: 4rem;">
+        <section data-aos="fade-up" class="info-section" style="margin-bottom: 4rem;">
             <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff;">Spacebar Speed Test Challenge Guide</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <div class="info-card">
+                <div data-aos="fade-up" class="info-card">
                     <h3 style="color: #f43f5e; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">What is a good Spacebar Speed?</h3>
                     <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Most typists and gamers average between 6.5 to 8.5 Hits Per Second (HPS). Using thumb vibrations or two-handed alternate tapping can push scores over 12-14+ HPS.</p>
                 </div>
-                <div class="info-card">
+                <div data-aos="fade-up" class="info-card">
                     <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">TikTok Spacebar Challenge</h3>
                     <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">The viral TikTok spacebar counter challenge tests how many spacebar actuations you can achieve in 5 or 10 seconds. Share your scorecard to compare reflexes!</p>
                 </div>
@@ -483,5 +599,77 @@
     })();
     </script>
         
+
+    <!-- Interactive Animation & FX Libraries -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 40
+                });
+            }
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card'), {
+                    max: 6,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.12,
+                    scale: 1.01
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Interactive Animation, Tilt & Scroll FX Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        (function() {
+            // Immediate AOS Init
+            function initAnimations() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-out-cubic',
+                        once: false,
+                        mirror: true,
+                        offset: 50
+                    });
+                }
+                if (typeof VanillaTilt !== 'undefined') {
+                    VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card, .mc-card, .graph-card, .telemetry-side-panel'), {
+                        max: 8,
+                        speed: 400,
+                        glare: true,
+                        "max-glare": 0.15,
+                        scale: 1.02
+                    });
+                }
+            }
+
+            // Parallax scroll effect on background glow orbs
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const orbOrange = document.querySelector('.glow-orb-orange');
+                const orbBlue = document.querySelector('.glow-orb-blue');
+                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
+                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
+            }, { passive: true });
+
+            initAnimations();
+            window.addEventListener('load', function() {
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            });
+        })();
+    </script>
+
 </body>
 </html>

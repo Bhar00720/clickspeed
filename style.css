@@ -6,8 +6,7 @@
    Icons : Google Material Symbols Outlined
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
-
+/* [SEO BOOST] Font @import moved to <link> tags in HTML <head> for faster LCP */
 /* ── Token Architecture ─────────────────────────────────── */
 :root {
   /* Obsidian Surfaces */
@@ -3551,4 +3550,366 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
   border-color: #0f172a !important;
   color: #000000 !important;
   box-shadow: 0 4px 18px rgba(255, 95, 31, 0.45) !important;
+}
+
+
+/* ==========================================================================
+   ELEVATED 3D MULTI-LAYER HOVER ENGINE & BUTTON POLISH
+   ========================================================================== */
+
+.kinetic-btn,
+.kinetic-btn-orange,
+.kinetic-btn-emerald,
+.kinetic-btn-blue,
+.kinetic-btn-purple {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 26px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.25s ease,
+              border-color 0.25s ease;
+  overflow: visible;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+}
+
+/* Pseudo-element wireframe expanding layer on hover */
+.kinetic-btn::before,
+.kinetic-btn-orange::before,
+.kinetic-btn-emerald::before,
+.kinetic-btn-blue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 1.5px solid currentColor;
+  opacity: 0;
+  transform: scale(0.92) translateZ(-1px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* Multi-layer Expansion on Hover */
+.kinetic-btn:hover::before,
+.kinetic-btn-orange:hover::before,
+.kinetic-btn-emerald:hover::before,
+.kinetic-btn-blue:hover::before {
+  opacity: 0.6;
+  transform: scale(1.08) translateZ(-1px);
+}
+
+.kinetic-btn-orange {
+  background: linear-gradient(135deg, #ff5f1f 0%, #e04a0e 100%);
+  color: #ffffff !important;
+  border-color: rgba(255, 95, 31, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 95, 31, 0.25), 0 2px 0 rgba(0,0,0,0.4);
+}
+
+.kinetic-btn-orange:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, #ff7236 0%, #ff5f1f 100%);
+  box-shadow: 0 4px 0 #9e3105,
+              0 10px 25px rgba(255, 95, 31, 0.5),
+              0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.kinetic-btn-emerald {
+  background: linear-gradient(135deg, #00ffa3 0%, #00d989 100%);
+  color: #050505 !important;
+  border-color: rgba(0, 255, 163, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 255, 163, 0.25), 0 2px 0 rgba(0,0,0,0.4);
+}
+
+.kinetic-btn-emerald:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, #33ffb5 0%, #00ffa3 100%);
+  box-shadow: 0 4px 0 #00995e,
+              0 10px 25px rgba(0, 255, 163, 0.5),
+              0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.kinetic-btn-blue {
+  background: linear-gradient(135deg, #00e5ff 0%, #00b4cc 100%);
+  color: #050505 !important;
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 229, 255, 0.25), 0 2px 0 rgba(0,0,0,0.4);
+}
+
+.kinetic-btn-blue:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, #33ebff 0%, #00e5ff 100%);
+  box-shadow: 0 4px 0 #008099,
+              0 10px 25px rgba(0, 229, 255, 0.5),
+              0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Card 3D Lift & Tilt Enhancement */
+.telemetry-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.telemetry-card:hover {
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7),
+              0 0 25px rgba(255, 95, 31, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   LIGHT STUDIO THEME COMPLETE CORNER & BORDER RECTIFICATION
+   ========================================================================== */
+
+[data-mode="light"] .clip-nick,
+[data-mode="light"] .clip-slant,
+[data-mode="light"] .clip-slant-reverse,
+[data-mode="light"] .telemetry-card,
+[data-mode="light"] .kinetic-btn,
+[data-mode="light"] .kinetic-btn-orange,
+[data-mode="light"] .kinetic-btn-emerald,
+[data-mode="light"] .kinetic-btn-blue {
+  clip-path: none !important;
+  border-radius: 12px !important;
+}
+
+[data-mode="light"] .telemetry-card {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-mode="light"] .telemetry-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0,0,0,0.05) !important;
+}
+
+[data-mode="light"] .kinetic-btn-orange {
+  background: linear-gradient(135deg, #ff5f1f 0%, #ea4f11 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 95, 31, 0.6) !important;
+  box-shadow: 0 3px 8px rgba(255, 95, 31, 0.25) !important;
+  border-radius: 8px !important;
+}
+
+[data-mode="light"] .kinetic-btn-orange:hover {
+  background: linear-gradient(135deg, #ff6c2e 0%, #ff5f1f 100%) !important;
+  box-shadow: 0 4px 0 #b33907,
+              0 8px 20px rgba(255, 95, 31, 0.35) !important;
+}
+
+[data-mode="light"] .kinetic-btn-emerald {
+  background: linear-gradient(135deg, #05c980 0%, #00ad6b 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(0, 173, 107, 0.6) !important;
+  box-shadow: 0 3px 8px rgba(0, 173, 107, 0.25) !important;
+  border-radius: 8px !important;
+}
+
+[data-mode="light"] .kinetic-btn-emerald:hover {
+  background: linear-gradient(135deg, #08dc8d 0%, #05c980 100%) !important;
+  box-shadow: 0 4px 0 #007347,
+              0 8px 20px rgba(0, 173, 107, 0.35) !important;
+}
+
+[data-mode="light"] .kinetic-btn-blue {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(2, 132, 199, 0.6) !important;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.25) !important;
+  border-radius: 8px !important;
+}
+
+[data-mode="light"] .kinetic-btn-blue:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+  box-shadow: 0 4px 0 #075985,
+              0 8px 20px rgba(2, 132, 199, 0.35) !important;
+}
+
+
+/* ==========================================================================
+   MASTER 3D MULTI-LAYER EXPAND & SHRINK ELEVATION ENGINE
+   ========================================================================== */
+
+.kinetic-btn,
+.kinetic-btn-orange,
+.kinetic-btn-emerald,
+.kinetic-btn-blue,
+.kinetic-btn-purple,
+.btn-scorecard-download,
+.btn-manual-start {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  padding: 14px 26px !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  clip-path: none !important;
+  transform: translateY(0) scale(1) translateZ(0) !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.25s ease,
+              border-color 0.25s ease !important;
+  transform-style: preserve-3d !important;
+  will-change: transform, box-shadow !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+/* Multi-layer expanding boundary wireframe */
+.kinetic-btn::before,
+.kinetic-btn-orange::before,
+.kinetic-btn-emerald::before,
+.kinetic-btn-blue::before,
+.btn-scorecard-download::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: -3px !important;
+  border-radius: 11px !important;
+  border: 1.5px solid currentColor !important;
+  opacity: 0 !important;
+  transform: scale(0.85) translateZ(-10px) !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.35s ease !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* Multi-Layer Base Styling */
+.kinetic-btn-orange {
+  background: linear-gradient(135deg, #ff5f1f 0%, #d84507 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 95, 31, 0.6) !important;
+  box-shadow: 0 4px 0 #942b03,
+              0 6px 16px rgba(255, 95, 31, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.kinetic-btn-orange:hover,
+[data-mode="light"] .kinetic-btn-orange:hover {
+  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
+  background: linear-gradient(135deg, #ff7a42 0%, #ff5f1f 100%) !important;
+  border-color: #ff9161 !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 4px 0 #b33907,                           /* 3D Slab Wall Layer 1 */
+    0 8px 0 #732303,                           /* 3D Deep Wall Layer 2 */
+    0 14px 28px rgba(255, 95, 31, 0.6),       /* Elevated Radiant Glow Layer 3 */
+    0 24px 45px rgba(0, 0, 0, 0.45) !important;/* Ambient Ground Shadow Layer 4 */
+}
+
+.kinetic-btn-orange:hover::before {
+  opacity: 0.8 !important;
+  transform: scale(1.08) translateZ(-10px) !important;
+  box-shadow: 0 0 20px rgba(255, 95, 31, 0.7) !important;
+}
+
+.kinetic-btn-emerald {
+  background: linear-gradient(135deg, #00ffa3 0%, #00b875 100%) !important;
+  color: #050505 !important;
+  border: 1.5px solid rgba(0, 255, 163, 0.6) !important;
+  box-shadow: 0 4px 0 #007a4e,
+              0 6px 16px rgba(0, 255, 163, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.kinetic-btn-emerald:hover,
+[data-mode="light"] .kinetic-btn-emerald:hover {
+  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
+  background: linear-gradient(135deg, #38ffb8 0%, #00ffa3 100%) !important;
+  border-color: #70ffcb !important;
+  color: #000000 !important;
+  box-shadow: 
+    0 4px 0 #00995e,
+    0 8px 0 #005937,
+    0 14px 28px rgba(0, 255, 163, 0.6),
+    0 24px 45px rgba(0, 0, 0, 0.45) !important;
+}
+
+.kinetic-btn-emerald:hover::before {
+  opacity: 0.8 !important;
+  transform: scale(1.08) translateZ(-10px) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 163, 0.7) !important;
+}
+
+.kinetic-btn-blue {
+  background: linear-gradient(135deg, #00e5ff 0%, #009cb0 100%) !important;
+  color: #050505 !important;
+  border: 1.5px solid rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 4px 0 #006c7a,
+              0 6px 16px rgba(0, 229, 255, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.kinetic-btn-blue:hover,
+[data-mode="light"] .kinetic-btn-blue:hover {
+  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
+  background: linear-gradient(135deg, #47eeff 0%, #00e5ff 100%) !important;
+  border-color: #85f3ff !important;
+  color: #000000 !important;
+  box-shadow: 
+    0 4px 0 #008fa3,
+    0 8px 0 #005663,
+    0 14px 28px rgba(0, 229, 255, 0.6),
+    0 24px 45px rgba(0, 0, 0, 0.45) !important;
+}
+
+.kinetic-btn-blue:hover::before {
+  opacity: 0.8 !important;
+  transform: scale(1.08) translateZ(-10px) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.7) !important;
+}
+
+/* Button Active Physical Compression */
+.kinetic-btn:active,
+.kinetic-btn-orange:active,
+.kinetic-btn-emerald:active,
+.kinetic-btn-blue:active {
+  transform: translateY(3px) scale(0.97) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3) !important;
+  transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+}
+
+/* Bento & Telemetry Card 3D Depth */
+.telemetry-card {
+  clip-path: none !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+[data-mode="light"] .telemetry-card {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-mode="light"] .telemetry-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
 }
