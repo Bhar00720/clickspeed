@@ -211,17 +211,13 @@
             </nav>
         </div>
         <div class="topnav-right">
-            <div class="connection-hud conn-type-wired" id="connection-hud">
-                <span class="material-symbols-outlined conn-icon" id="conn-icon">cable</span>
-                <span id="conn-label">USB 2.0/3.0 HID</span>
-                <span class="conn-dot"></span>
-            </div>
-            <button class="topnav-icon-btn" id="theme-toggle" title="Customize Themes & Audio">
+
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
                 <span class="material-symbols-outlined">palette</span>
             </button>
             <div class="status-pill">
-                <span class="dot"></span>
-                <span>BUTTERFLY ENGINE: READY</span>
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
             </div>
         </div>
     </header>
@@ -469,22 +465,7 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        clickZone.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            if (!isTesting) startTest();
-            const now = performance.now();
-            if (clickTimes.length > 0) {
-                if (now - clickTimes[clickTimes.length - 1] < 25) {
-                    doubleClicks++;
-                    valDoubles.textContent = doubleClicks;
-                }
-            }
-            clicks++;
-            clickTimes.push(now);
-            valActuations.textContent = clicks;
-
-            if (window.playSwitchSound) window.playSwitchSound();
-        });
+        
 
         function startTest() {
             isTesting = true;
@@ -688,6 +669,108 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             });
         })();
+    </script>
+
+
+    <!-- Customization & Settings Modal (GLOBAL) -->
+    <div class="custom-modal-backdrop" id="global-customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION</h2>
+                </div>
+                <button id="global-customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="global-pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+            
+            <button class="kinetic-btn-orange" id="global-customizer-save" style="width: 100%; margin-top: 10px;">SAVE PREFERENCES</button>
+        </div>
+    </div>
+
+
+    
+    
+
+    <!-- GLOBAL UI & THEME ENGINE -->
+    <script class="global-ui-script">
+    (function() {
+        // --- Theme Engine ---
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else if (theme === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.removeAttribute('data-mode');
+            }
+            localStorage.setItem('csl_theme', theme);
+            
+            // Update pills if they exist
+            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
+                p.classList.remove('active');
+                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
+                else if (p.dataset.theme === theme) p.classList.add('active');
+            });
+        }
+        
+        applyTheme(currentTheme);
+
+        // --- Customizer Modal Logic ---
+        const themeBtn = document.getElementById('theme-toggle');
+        // Prefer the original customizer if it exists, otherwise use the global one
+        const customizerModal = document.getElementById('customizer-modal') || document.getElementById('global-customizer-modal');
+        const customizerClose = document.getElementById('customizer-close') || document.getElementById('global-customizer-close');
+        const customizerSave = document.getElementById('customizer-save') || document.getElementById('global-customizer-save');
+
+        if (themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => {
+                customizerModal.classList.add('show');
+            });
+        }
+        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
+
+        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const t = e.target.dataset.theme;
+                const m = e.target.dataset.mode;
+                if (t) applyTheme(t);
+                if (m) applyTheme(m);
+            });
+        });
+
+        
+        // --- Dropdowns ---
+        document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parent = btn.parentElement;
+                const wasOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!wasOpen) parent.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
     </script>
 
 </body>

@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect for Google Fonts (eliminates render-blocking @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+    <title>Reaction Time Test - Measure Your Reflexes | Click Speed Lab</title>
+    <meta name="theme-color" content="#FF5F1F">
+    <meta name="author" content="Click Speed Lab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="Test your reaction time and reflexes in milliseconds. Find out if you have the reaction speed of a pro gamer with our accurate reaction time test.">
+    <meta name="keywords" content="cps test, click speed test, clicks per second, jitter click test, butterfly click test, click velocity">
+    <link rel="canonical" href="https://clickspeedlab.com/reaction-time-test/">
+    
+        
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clickspeedlab.com/cps-test/">
+    <meta property="og:title" content="CPS Test — Free Click Speed Test Online">
+    <meta property="og:description" content="Measure your clicks per second with our zero-latency CPS tester. Supports 1s, 5s, 10s, and 60s intervals with real-time velocity graphs, rank badges, and technique detection.">
+    <meta property="og:image" content="https://clickspeedlab.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Click Speed Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPS Test — Free Click Speed Test Online">
+    <meta name="twitter:description" content="Measure your clicks per second with our zero-latency CPS tester. Supports 1s, 5s, 10s, and 60s intervals with real-time velocity graphs, rank badges, and technique detection.">
+    <meta name="twitter:image" content="https://clickspeedlab.com/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        .clickzone-stage {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            background: radial-gradient(circle at center, #1a1a26 0%, #0a0a10 100%);
+            border: 1px solid rgba(255, 95, 31, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .clickzone-stage:hover {
+            border-color: rgba(255, 95, 31, 0.6);
+            box-shadow: 0 20px 60px rgba(255, 95, 31, 0.15), inset 0 1px 1px rgba(255,255,255,0.15);
+        }
+        .clickzone-stage:active {
+            transform: scale(0.998);
+        }
+
+        .click-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 95, 31, 0.8) 0%, rgba(255, 95, 31, 0) 70%);
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple-anim 0.4s ease-out forwards;
+            pointer-events: none;
+            z-index: 15;
+        }
+        @keyframes ripple-anim {
+            to {
+                transform: translate(-50%, -50%) scale(4);
+                opacity: 0;
+            }
+        }
+
+        .zone-prompt {
+            position: absolute;
+            z-index: 20;
+            text-align: center;
+            pointer-events: none;
+            background: rgba(5, 5, 10, 0.6);
+            padding: 16px 28px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+        }
+        .zone-main {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 20px rgba(255,95,31,0.6);
+        }
+        .zone-sub {
+            color: var(--aero-blue);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-top: 6px;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+    
+        /* Viral Challenge Banner */
+        .challenge-active-banner {
+            background: linear-gradient(90deg, rgba(255,95,31,0.15), rgba(0,229,255,0.15));
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            animation: pulse-glow 2s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 10px rgba(255,95,31,0.2); }
+            to { box-shadow: 0 0 25px rgba(255,95,31,0.5); }
+        }
+
+        /* Modal Share Buttons */
+        .modal-share-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+        .btn-share {
+            padding: 9px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.05);
+            color: var(--signal-white);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-share:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            background: rgba(255,95,31,0.15);
+            color: #fff;
+        }
+        .btn-scorecard-download {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(0, 255, 163, 0.2) 100%);
+            border: 1px solid #00e5ff;
+            color: #00e5ff !important;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: 0.78rem;
+            cursor: pointer;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            transition: all 0.25s;
+        }
+        .btn-scorecard-download:hover {
+            background: linear-gradient(135deg, #00e5ff 0%, #00ffa3 100%);
+            color: #000 !important;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+    </style>
+
+    <!-- Comprehensive JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "CPS Test - Click Speed Lab",
+          "url": "https://clickspeedlab.com/cps-test/",
+          "description": "Professional zero-latency click speed test measuring Clicks Per Second (CPS) with real-time velocity curves, butterfly/jitter mode benchmarks, and performance ranks.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a good CPS score in Click Speed Tests?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An average casual player clicks between 6.0 and 8.0 CPS. Competitive gamers using butterfly clicking or jitter clicking reach between 10.0 and 16.0 CPS, while advanced drag-clicking techniques can exceed 20+ CPS."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Butterfly Clicking vs Jitter Clicking?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Butterfly clicking involves alternating two fingers on a single mouse button to double click frequency. Jitter clicking involves vibrating arm and hand muscles to generate rapid burst clicks on the switch."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does mouse debounce time affect CPS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Lower debounce time (0ms - 4ms) allows the mouse switch to register rapid successive actuations and double clicks, whereas higher debounce times filter out rapid clicks to prevent accidental double-clicks."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    
+    <!-- SEO Foundation Schemas -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "logo": "https://clickspeedlab.com/og-image.jpg",
+      "sameAs": []
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com",
+      "description": "Zero-Latency Gaming Peripheral Testing Suite — CPS Test, Jitter Click Test, Butterfly Click Test, Spacebar Counter, Mouse Polling Rate, Scroll Wheel Diagnostics, Keyboard NKRO Matrix Test",
+      "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://clickspeedlab.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+      }
+}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://clickspeedlab.com/"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "CPS Test",
+                  "item": "https://clickspeedlab.com/cps-test/"
+            }
+      ]
+}
+    </script>
+    <!-- Monetag In-Page Push & Vignette Ads -->
+    <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div class="glow-orb-orange"></div>
+    <div class="glow-orb-blue"></div>
+
+    <header class="stitch-topnav">
+        <div class="topnav-left">
+            <a href="../" class="stitch-brand">
+                CLICK SPEED <span class="sub">LAB</span>
+            </a>
+            <nav class="stitch-navlinks">
+                <a href="../" class="stitch-navlink ">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn active" type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../cps-test/" class="nav-dropdown-item active">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Matrix & NKRO</div>
+                                <div class="item-desc">Simultaneous rollover & ghosting check</div>
+                            </div>
+                        </a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
+                            <div class="item-content">
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="topnav-right">
+
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
+                <span class="material-symbols-outlined">palette</span>
+            </button>
+            <div class="status-pill">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+        </div>
+    </header>
+
+    <main class="stitch-main">
+        <div class="page-header">
+            <div class="page-header-top">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="telemetry-icon-box" style="border-color: rgba(255,95,31,0.4); color: var(--velocity-orange);">
+                        <span class="material-symbols-outlined">speed</span>
+                    </div>
+                    <div>
+                        <h1 style="font-family: 'Sora', sans-serif; font-size: 2.2rem; font-weight: 900; margin: 0; color: #fff;">REACTION TIME TEST</h1>
+                        <div class="page-header-subtitle" style="margin-top: 4px;">REAL-TIME CLICK VELOCITY, BURST SPEED & JITTER CALIBRATION</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Status Banner -->
+        <div class="test-status-banner">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="status-badge-indicator ready" id="cpsStatusBadge">
+                    <span style="width: 8px; height: 8px; background: #00e5ff; border-radius: 50%; display: inline-block;"></span>
+                    <span id="cpsStatusText">STATUS: READY / CLICK ON THE MOUSE TO ENGAGE</span>
+                </span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="kinetic-btn-orange" id="btnManualStart">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">play_arrow</span> START TEST
+                </button>
+                <button class="kinetic-btn-outline" id="btnManualReset">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">restart_alt</span> RESET
+                </button>
+            </div>
+        </div>
+
+        <div class="toolbar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">INPUT MODE:</span>
+                <div class="mode-pills" id="input-mode-pills" style="display: flex; gap: 4px; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+                    <button class="kinetic-btn active" data-mode="left">Left Click (LMB)</button>
+                    <button class="kinetic-btn" data-mode="right">Right Click (RMB)</button>
+                    <button class="kinetic-btn" data-mode="space">Spacebar Test</button>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="kinetic-btn-outline active" id="audio-toggle">
+                    <span class="material-symbols-outlined">volume_up</span> ACOUSTICS: ON
+                </button>
+                <button class="kinetic-btn-outline" id="vs-cpu-toggle">
+                    <span class="material-symbols-outlined">smart_toy</span> VS CPU: OFF
+                </button>
+            </div>
+        </div>
+
+        <!-- Duration Selector Pills -->
+        <div class="duration-selector" style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">TEST DURATION:</span>
+            </div>
+            <div class="mode-pills" id="duration-pills" style="display: flex; gap: 6px; flex-wrap: wrap; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <button class="kinetic-btn" data-duration="1">1s</button>
+                <button class="kinetic-btn" data-duration="3">3s</button>
+                <button class="kinetic-btn" data-duration="5">5s</button>
+                <button class="kinetic-btn active" data-duration="10">10s (Official)</button>
+                <button class="kinetic-btn" data-duration="15">15s</button>
+                <button class="kinetic-btn" data-duration="30">30s</button>
+                <button class="kinetic-btn" data-duration="60">60s</button>
+                <button class="kinetic-btn" data-duration="100">100s</button>
+            </div>
+        </div>
+
+        <!-- Metrics Bar -->
+        <div class="metrics-bar" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <div data-aos="fade-up" data-tilt class="telemetry-card" style="border-top: 3px solid #ff5f1f; padding: 18px 20px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px;">TIME REMAINING</div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="stat-huge" id="stat-time" style="font-size: 2.2rem; font-weight: 800; color: #fff;">10.0</div>
+                    <span class="stat-unit" style="font-family: var(--font-mono); color: var(--text-muted); margin-left: 4px;">s</span>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-tilt class="telemetry-card" style="border-top: 3px solid #00e5ff; padding: 18px 20px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px;">TOTAL CLICKS</div>
+                <div class="stat-huge" id="stat-clicks" style="font-size: 2.2rem; font-weight: 800; color: #fff;">0</div>
+            </div>
+            <div data-aos="fade-up" data-tilt class="telemetry-card" style="border-top: 3px solid #00ffa3; padding: 18px 20px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px;">CURRENT CPS</div>
+                <div class="stat-huge" id="stat-cps" style="font-size: 2.2rem; font-weight: 800; color: #00ffa3;">0.0</div>
+            </div>
+            <div data-aos="fade-up" data-tilt class="telemetry-card" style="border-top: 3px solid #ffffff; padding: 18px 20px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px;">PEAK BURST</div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="stat-huge" id="stat-peak" style="font-size: 2.2rem; font-weight: 800; color: #fff;">0.0</div>
+                    <span class="stat-unit" style="font-family: var(--font-mono); color: var(--text-muted); margin-left: 4px;">cps</span>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-tilt class="telemetry-card" style="border-top: 3px solid #a78bfa; padding: 18px 20px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px;">CONSISTENCY</div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="stat-huge" id="stat-consistency" style="font-size: 2.2rem; font-weight: 800; color: #a78bfa;">100</div>
+                    <span class="stat-unit" style="font-family: var(--font-mono); color: var(--text-muted); margin-left: 4px;">%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Click Zone Stage with 3D Mouse -->
+        <div class="clickzone-stage" id="clickzone">
+            <canvas id="mouse-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.2;"></canvas>
+            
+            <div class="css-3d-mouse-wrap" id="mouse-3d-wrap">
+                <div class="css-3d-mouse" id="mouse-3d-obj">
+                    <div class="m-btn m-btn-l" id="m3d-l"></div>
+                    <div class="m-btn m-btn-r" id="m3d-r"></div>
+                    <div class="m-wheel-housing"><div class="m-wheel"></div></div>
+                    <div class="m-logo">CSL</div>
+                    <div class="m-rgb-strip"></div>
+                </div>
+            </div>
+
+            <div class="zone-prompt" id="zone-prompt">
+                <div class="zone-main">CLICK HERE TO ENGAGE TEST</div>
+                <div class="zone-sub" id="zone-sub">10 SECOND OFFICIAL DURATION</div>
+            </div>
+        </div>
+
+        <!-- VS CPU Race Container -->
+        <div class="race-container" id="race-container" style="display: none; margin-bottom: 24px; background: rgba(14,14,18,0.7); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <h3 style="margin: 0; font-family: var(--font-heading); color: #fff; font-size: 1.1rem;">PLAYER VS BOT CPS RACE</h3>
+                <div class="mode-pills" id="cpu-difficulty-pills" style="display: flex; gap: 4px; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 6px;">
+                    <button class="kinetic-btn active" data-difficulty="5">Easy (5 CPS)</button>
+                    <button class="kinetic-btn" data-difficulty="8">Medium (8 CPS)</button>
+                    <button class="kinetic-btn" data-difficulty="12">Hard (12 CPS)</button>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 6px; color: var(--velocity-orange);">
+                    <span>YOU (PLAYER)</span>
+                    <span id="race-player-cps">0.0 CPS</span>
+                </div>
+                <div style="width: 100%; height: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden;">
+                    <div id="race-bar-player" style="width: 0%; height: 100%; background: var(--velocity-orange); transition: width 0.1s linear;"></div>
+                </div>
+            </div>
+            
+            <div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 6px; color: var(--aero-blue);">
+                    <span>AI SIMULATOR</span>
+                    <span id="race-cpu-cps">0.0 CPS</span>
+                </div>
+                <div style="width: 100%; height: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden;">
+                    <div id="race-bar-cpu" style="width: 0%; height: 100%; background: var(--aero-blue); transition: width 0.1s linear;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Velocity Graph -->
+        <div class="graph-card" style="background: rgba(14,14,18,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+            <div class="graph-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span style="font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; color: #fff;">LIVE CLICK VELOCITY CURVE</span>
+                <span id="debounce-warning" style="display: none; background: rgba(255,68,68,0.2); color: #ff4444; border: 1px solid rgba(255,68,68,0.4); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-family: var(--font-mono);">
+                    ⚠️ DOUBLE-CLICK DEBOUNCE DETECTED (&lt;20ms)
+                </span>
+            </div>
+            <canvas id="graph-canvas" style="width: 100%; height: 120px; display: block; border-radius: 4px; background: rgba(0,0,0,0.3);"></canvas>
+        </div>
+
+        <!-- Collapsible Session History -->
+        <div style="background: rgba(14,14,18,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px 20px; margin-bottom: 32px;">
+            <div id="history-toggle" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none;">
+                <span style="font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; color: #fff;">SESSION TEST HISTORY</span>
+                <span class="material-symbols-outlined" id="history-icon" style="color: var(--text-muted);">expand_more</span>
+            </div>
+            <div id="history-body" style="display: none; margin-top: 16px;">
+                <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.8rem;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); text-align: left;">
+                            <th style="padding: 8px 0;">#</th>
+                            <th>CPS</th>
+                            <th>CLICKS</th>
+                            <th>DURATION</th>
+                            <th>RANK</th>
+                            <th>DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <section data-aos="fade-up" class="info-section">
+            <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">Click Speed Techniques & CPS Ranking Tiers</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: var(--velocity-orange); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Regular Clicking</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Standard finger actuation delivering steady 6-9 CPS. Highly accurate for precision aiming in FPS titles.</p>
+                </div>
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Butterfly Clicking</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Alternating two fingers on the same mouse button to register 15-25 CPS. Requires low debounce switches.</p>
+                </div>
+                <div data-aos="fade-up" class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Jitter Clicking</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Vibrating forearm muscles to trigger rapid 11-16 CPS bursts without dual-finger alternating techniques.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom Result Modal -->
+    <div class="custom-modal-backdrop" id="result-modal">
+        <div class="custom-modal-card">
+            <div id="modal-rank-badge" class="rank-badge-container"></div>
+            <div id="modal-rank" style="display: inline-block; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800; padding: 6px 18px; border-radius: 20px; border: 1px solid #ff5f1f; color: #ff5f1f; margin-bottom: 16px; letter-spacing: 0.1em;">
+                GODLIKE RANK
+            </div>
+            
+            <div style="font-family: var(--font-mono); font-size: 4rem; font-weight: 800; color: #fff; line-height: 1;" id="modal-score">12.4</div>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">CLICKS PER SECOND (CPS)</div>
+            
+            <div style="background: rgba(255,255,255,0.04); border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--aero-blue); margin-bottom: 8px;" id="modal-percentile-text">You are faster than 92% of players</div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                    <div id="modal-percentile-fill" style="height: 100%; width: 92%; background: var(--aero-blue);"></div>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; text-align: left; font-family: var(--font-mono); font-size: 0.8rem;">
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px;">
+                    <div style="color: var(--text-muted); font-size: 0.65rem;">TOTAL CLICKS</div>
+                    <div id="modal-total-clicks" style="color: #fff; font-size: 1.1rem; font-weight: 700;">124</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px;">
+                    <div style="color: var(--text-muted); font-size: 0.65rem;">TEST DURATION</div>
+                    <div id="modal-duration" style="color: #fff; font-size: 1.1rem; font-weight: 700;">10s</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px;">
+                    <div style="color: var(--text-muted); font-size: 0.65rem;">PEAK BURST</div>
+                    <div id="modal-peak" style="color: #fff; font-size: 1.1rem; font-weight: 700;">14.2 cps</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px;">
+                    <div style="color: var(--text-muted); font-size: 0.65rem;">ACTUATION CONSISTENCY</div>
+                    <div id="modal-consistency" style="color: #fff; font-size: 1.1rem; font-weight: 700;">94%</div>
+                </div>
+            </div>
+            
+            
+            <!-- Scorecard Download & Social Sharing Suite -->
+            <button class="btn-scorecard-download" id="btn-download-scorecard" type="button">
+                <span class="material-symbols-outlined">download</span>
+                DOWNLOAD PNG SCORECARD
+            </button>
+
+            <div class="modal-share-grid">
+                <a href="#" target="_blank" class="btn-share" id="share-twitter" title="Share score on X (Twitter)">
+                    <span>𝕏 Share</span>
+                </a>
+                <a href="#" target="_blank" class="btn-share" id="share-whatsapp" title="Share score on WhatsApp">
+                    <span>💬 WhatsApp</span>
+                </a>
+                <a href="#" target="_blank" class="btn-share" id="share-reddit" title="Share score on Reddit">
+                    <span>🔴 Reddit</span>
+                </a>
+                <button class="btn-share" id="btn-copy-discord" type="button" title="Copy Discord markdown score">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">content_copy</span>
+                    <span id="copy-discord-text">Discord / MD</span>
+                </button>
+            </div>
+
+            <button class="kinetic-btn-orange" id="modal-restart" style="width: 100%; padding: 14px; font-size: 0.9rem;">
+                TEST AGAIN
+            </button>
+        </div>
+    </div>
+
+        <!-- Footer -->
+    
+    <!-- Customization & Settings Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
+        </div>
+    </div>
+
+<!-- Footer with Expandable Other Tools Menu -->
+    <footer class="stitch-footer">
+        <div class="footer-left">
+            &copy; 2026 CLICK SPEED LAB | POWERED BY <a href="https://corelumetech.in" target="_blank" rel="noopener noreferrer">CORELUMETECH.IN</a>
+        </div>
+
+        <!-- Center: CoreLume Suite Expandable Tools Dropup Menu -->
+        <div class="footer-dropup" id="footer-tools-dropup">
+            <button class="footer-dropup-btn" id="footer-dropup-trigger" type="button">
+                <span class="live-dot"></span>
+                <span class="material-symbols-outlined icon">construction</span>
+                <span>OTHER TOOLS</span>
+                <span class="material-symbols-outlined arrow">expand_less</span>
+            </button>
+            <div class="footer-dropup-menu">
+                <div class="footer-dropup-header">
+                    <span class="material-symbols-outlined">apps</span>
+                    <span>CORELUME WEB TOOLS SUITE</span>
+                </div>
+                <div class="footer-tools-grid">
+                    <a href="https://calculator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00e5ff;">calculate</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Omni-Calculator</div>
+                            <div class="tool-desc">All-in-one math, finance & unit converter</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://text-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00ffa3;">format_shapes</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Text Utils</div>
+                            <div class="tool-desc">Case conversion, formatting & word statistics</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://password-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #ff5f1f;">lock</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Password Generator</div>
+                            <div class="tool-desc">High-entropy cryptographic passphrases</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://dev-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #c084fc;">code</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Dev Utils</div>
+                            <div class="tool-desc">JSON formatters, base64, regex & encoders</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://qr-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #38bdf8;">qr_code_2</span>
+                        <div class="tool-info">
+                            <div class="tool-name">QR Generator</div>
+                            <div class="tool-desc">Vector QR codes with custom styling & logos</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://color-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #f43f5e;">palette</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Color Master</div>
+                            <div class="tool-desc">Color palette generator, contrast & gradients</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-right" style="display: flex; align-items: center; gap: 14px;">
+            <a href="mailto:help@clickspeedlab.com" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">mail</span> help@clickspeedlab.com
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <span>SYSTEM STATUS: OPTIMAL</span>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        let isTesting = false;
+        let testDuration = 10;
+        let timeRemaining = 10;
+        let clicks = 0;
+        let startTime = 0;
+        let timerInterval = null;
+        let inputMode = 'left';
+        let audioEnabled = true;
+        let vsCpuEnabled = false;
+        let cpuDifficulty = 5;
+        let cpuClicks = 0;
+        let cpuInterval = null;
+
+        let cpsHistory = [];
+        let lastSecondClicks = [];
+        let clickTimes = [];
+
+        const statTime = document.getElementById('stat-time');
+        const statClicks = document.getElementById('stat-clicks');
+        const statCps = document.getElementById('stat-cps');
+        const statPeak = document.getElementById('stat-peak');
+        const statConsistency = document.getElementById('stat-consistency');
+        const clickzone = document.getElementById('clickzone');
+        const zonePrompt = document.getElementById('zone-prompt');
+        const zoneSub = document.getElementById('zone-sub');
+        const debounceWarning = document.getElementById('debounce-warning');
+        const resultModal = document.getElementById('result-modal');
+        const raceContainer = document.getElementById('race-container');
+        
+        const cpsStatusBadge = document.getElementById('cpsStatusBadge');
+        const cpsStatusText = document.getElementById('cpsStatusText');
+        const btnManualStart = document.getElementById('btnManualStart');
+        const btnManualReset = document.getElementById('btnManualReset');
+
+        const m3dObj = document.getElementById('mouse-3d-obj');
+        const m3dL = document.getElementById('m3d-l');
+        const m3dR = document.getElementById('m3d-r');
+        
+        const graphCanvas = document.getElementById('graph-canvas');
+        const gCtx = graphCanvas.getContext('2d');
+        const mouseCanvas = document.getElementById('mouse-canvas');
+        const mCtx = mouseCanvas.getContext('2d');
+
+        function playClickSound() {
+            if (!audioEnabled) return;
+            if (window.playSwitchSound) {
+                window.playSwitchSound();
+            }
+        }
+
+        function resizeCanvases() {
+            const dpr = window.devicePixelRatio || 1;
+            const mRect = clickzone.getBoundingClientRect();
+            mouseCanvas.width = mRect.width * dpr;
+            mouseCanvas.height = mRect.height * dpr;
+            mCtx.scale(dpr, dpr);
+
+            const gRect = graphCanvas.getBoundingClientRect();
+            graphCanvas.width = gRect.width * dpr;
+            graphCanvas.height = 120 * dpr;
+            gCtx.scale(dpr, dpr);
+            drawGraph();
+        }
+        window.addEventListener('resize', resizeCanvases);
+
+        function drawGraph() {
+            const dpr = window.devicePixelRatio || 1;
+            const w = graphCanvas.width / dpr;
+            const h = graphCanvas.height / dpr;
+            gCtx.clearRect(0, 0, w, h);
+            
+            const isLight = document.documentElement.getAttribute('data-mode') === 'light';
+            
+            // Grid Lines
+            gCtx.strokeStyle = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)';
+            gCtx.lineWidth = 1;
+            for(let i = 0; i < h; i += 30) {
+                gCtx.beginPath();
+                gCtx.moveTo(0, i);
+                gCtx.lineTo(w, i);
+                gCtx.stroke();
+            }
+
+            if (cpsHistory.length < 2) {
+                // Baseline & Interactive Guide
+                gCtx.beginPath();
+                gCtx.strokeStyle = isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)';
+                gCtx.setLineDash([4, 4]);
+                gCtx.moveTo(0, h - 20);
+                gCtx.lineTo(w, h - 20);
+                gCtx.stroke();
+                gCtx.setLineDash([]);
+                
+                gCtx.fillStyle = isLight ? '#475569' : 'rgba(255,255,255,0.4)';
+                gCtx.font = '11px "JetBrains Mono", monospace';
+                gCtx.textAlign = 'center';
+                gCtx.fillText('CLICK ON MOUSE TO ENGAGE & PLOT REAL-TIME VELOCITY CURVE', w / 2, h / 2 + 4);
+                return;
+            }
+
+            const maxVal = Math.max(...cpsHistory, 15);
+            const step = w / (cpsHistory.length - 1);
+            
+            gCtx.beginPath();
+            gCtx.strokeStyle = isLight ? '#ff5f1f' : '#00ffa3';
+            gCtx.lineWidth = 3;
+            
+            for (let i = 0; i < cpsHistory.length; i++) {
+                const x = i * step;
+                const y = h - (cpsHistory[i] / maxVal) * (h - 20) - 10;
+                if (i === 0) gCtx.moveTo(x, y);
+                else gCtx.lineTo(x, y);
+            }
+            gCtx.stroke();
+            
+            gCtx.lineTo(w, h);
+            gCtx.lineTo(0, h);
+            const grad = gCtx.createLinearGradient(0,0,0,h);
+            if (isLight) {
+                grad.addColorStop(0, 'rgba(255, 95, 31, 0.25)');
+                grad.addColorStop(1, 'rgba(255, 95, 31, 0)');
+            } else {
+                grad.addColorStop(0, 'rgba(0, 255, 163, 0.3)');
+                grad.addColorStop(1, 'rgba(0, 255, 163, 0)');
+            }
+            gCtx.fillStyle = grad;
+            gCtx.fill();
+        }
+
+        // Parallax Mouse movement
+        document.addEventListener('mousemove', (e) => {
+            if (!m3dObj) return;
+            const rect = clickzone.getBoundingClientRect();
+            const x = e.clientX - (rect.left + rect.width / 2);
+            const y = e.clientY - (rect.top + rect.height / 2);
+            const rotX = Math.max(-25, Math.min(25, -y / 15));
+            const rotY = Math.max(-25, Math.min(25, x / 15));
+            m3dObj.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        });
+
+        function spawnRipple(e) {
+            const rect = clickzone.getBoundingClientRect();
+            const x = (e.clientX || (rect.left + rect.width / 2)) - rect.left;
+            const y = (e.clientY || (rect.top + rect.height / 2)) - rect.top;
+            const ripple = document.createElement('div');
+            ripple.className = 'click-ripple';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.width = '60px';
+            ripple.style.height = '60px';
+            clickzone.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 400);
+        }
+
+        function startTest() {
+            if (isTesting) return;
+            isTesting = true;
+            clicks = 0;
+            cpuClicks = 0;
+            clickTimes = [];
+            cpsHistory = [];
+            lastSecondClicks = [];
+            startTime = performance.now();
+            timeRemaining = testDuration;
+            
+            zonePrompt.style.display = 'none';
+            debounceWarning.style.display = 'none';
+            
+            cpsStatusBadge.className = 'status-badge-indicator running';
+            cpsStatusText.textContent = 'STATUS: TESTING IN PROGRESS... CLICK RAPIDLY!';
+            btnManualStart.style.display = 'none';
+
+            if (vsCpuEnabled) {
+                cpuInterval = setInterval(() => {
+                    cpuClicks++;
+                    updateRaceUI();
+                }, 1000 / cpuDifficulty);
+            }
+            
+            timerInterval = setInterval(updateTest, 20);
+        }
+
+        function updateTest() {
+            const now = performance.now();
+            const elapsed = (now - startTime) / 1000;
+            timeRemaining = Math.max(0, testDuration - elapsed);
+            
+            statTime.textContent = timeRemaining.toFixed(1);
+            
+            while (lastSecondClicks.length > 0 && now - lastSecondClicks[0] > 1000) {
+                lastSecondClicks.shift();
+            }
+            
+            const currentCps = elapsed > 0 ? clicks / elapsed : 0;
+            const rollingCps = lastSecondClicks.length;
+            
+            if (Math.floor(elapsed * 10) % 5 === 0) {
+                cpsHistory.push(rollingCps);
+                if(cpsHistory.length > 80) cpsHistory.shift();
+                drawGraph();
+            }
+
+            statCps.textContent = currentCps.toFixed(2);
+            if (vsCpuEnabled) updateRaceUI();
+            
+            if (timeRemaining <= 0) {
+                endTest();
+            }
+        }
+
+        function updateRaceUI() {
+            const maxClicks = Math.max(testDuration * 12, clicks, cpuClicks);
+            const pPct = Math.min(100, (clicks / maxClicks) * 100);
+            const cPct = Math.min(100, (cpuClicks / maxClicks) * 100);
+            
+            document.getElementById('race-bar-player').style.width = pPct + '%';
+            document.getElementById('race-bar-cpu').style.width = cPct + '%';
+            
+            const elapsed = Math.max(0.1, (performance.now() - startTime)/1000);
+            document.getElementById('race-player-cps').textContent = (clicks/elapsed).toFixed(1) + ' CPS';
+            document.getElementById('race-cpu-cps').textContent = (cpuClicks/elapsed).toFixed(1) + ' CPS';
+        }
+
+        function registerClick(e) {
+            if (e && e.type !== 'keydown') e.preventDefault();
+            
+            if (!isTesting) {
+                startTest();
+            }
+            
+            const now = performance.now();
+            if (clickTimes.length > 0) {
+                const diff = now - clickTimes[clickTimes.length - 1];
+                if (diff < 20) {
+                    debounceWarning.style.display = 'inline-block';
+                }
+            }
+
+            clicks++;
+            clickTimes.push(now);
+            lastSecondClicks.push(now);
+            
+            statClicks.textContent = clicks;
+            playClickSound();
+            spawnRipple(e);
+            
+            const rollingCps = lastSecondClicks.length;
+            const currentPeak = parseFloat(statPeak.textContent);
+            if (rollingCps > currentPeak) {
+                statPeak.textContent = rollingCps.toFixed(1);
+            }
+        }
+
+        function getRank(cps) {
+            if (cps < 5) return { 
+                name: 'TURTLE', 
+                color: '#64748b', 
+                svg: `<svg viewBox="0 0 100 100" class="rank-badge-svg turtle-anim" width="90" height="90">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="6,4" opacity="0.6"/>
+                        <ellipse cx="50" cy="52" rx="30" ry="24" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+                        <path d="M50 32 L40 45 L60 45 Z" fill="#475569" stroke="#94a3b8"/>
+                        <path d="M35 48 L25 58 L45 58 Z" fill="#475569" stroke="#94a3b8"/>
+                        <path d="M65 48 L55 58 L75 58 Z" fill="#475569" stroke="#94a3b8"/>
+                        <circle cx="50" cy="24" r="10" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="46" cy="22" r="2" fill="#00ffa3"/>
+                        <circle cx="54" cy="22" r="2" fill="#00ffa3"/>
+                        <circle cx="22" cy="42" r="6" fill="#334155" stroke="#94a3b8"/>
+                        <circle cx="78" cy="42" r="6" fill="#334155" stroke="#94a3b8"/>
+                        <circle cx="26" cy="68" r="6" fill="#334155" stroke="#94a3b8"/>
+                        <circle cx="74" cy="68" r="6" fill="#334155" stroke="#94a3b8"/>
+                      </svg>`
+            };
+            if (cps <= 7.5) return { 
+                name: 'GAMER', 
+                color: '#00ffa3', 
+                svg: `<svg viewBox="0 0 100 100" class="rank-badge-svg gamer-anim" width="90" height="90">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#00ffa3" stroke-width="3" opacity="0.4" stroke-dasharray="10,5"/>
+                        <rect x="22" y="32" width="56" height="38" rx="14" fill="#0a2e1f" stroke="#00ffa3" stroke-width="3"/>
+                        <path d="M38 42 L38 60 M29 51 L47 51" stroke="#00ffa3" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="63" cy="45" r="4" fill="#00ffa3"/>
+                        <circle cx="71" cy="53" r="4" fill="#00ffa3"/>
+                        <circle cx="50" cy="50" r="6" fill="rgba(0,255,163,0.3)"/>
+                      </svg>`
+            };
+            if (cps <= 10) return { 
+                name: 'PRO', 
+                color: '#00e5ff', 
+                svg: `<svg viewBox="0 0 100 100" class="rank-badge-svg pro-anim" width="90" height="90">
+                        <polygon points="50,5 92,28 92,72 50,95 8,72 8,28" fill="#062833" stroke="#00e5ff" stroke-width="3"/>
+                        <path d="M54 18 L34 50 L48 50 L42 82 L66 46 L52 46 Z" fill="#00e5ff" stroke="#ffffff" stroke-width="1.5"/>
+                      </svg>`
+            };
+            if (cps <= 13) return { 
+                name: 'MASTER', 
+                color: '#c084fc', 
+                svg: `<svg viewBox="0 0 100 100" class="rank-badge-svg master-anim" width="90" height="90">
+                        <circle cx="50" cy="50" r="44" fill="#200d38" stroke="#c084fc" stroke-width="3"/>
+                        <path d="M22 65 L22 40 L36 52 L50 30 L64 52 L78 40 L78 65 Z" fill="#a855f7" stroke="#e9d5ff" stroke-width="2"/>
+                        <circle cx="50" cy="26" r="4" fill="#facc15"/>
+                        <circle cx="22" cy="36" r="3.5" fill="#facc15"/>
+                        <circle cx="78" cy="36" r="3.5" fill="#facc15"/>
+                        <rect x="22" y="66" width="56" height="8" rx="2" fill="#c084fc"/>
+                      </svg>`
+            };
+            return { 
+                name: 'GODLIKE', 
+                color: '#ff5f1f', 
+                svg: `<svg viewBox="0 0 100 100" class="rank-badge-svg godlike-anim" width="90" height="90">
+                        <circle cx="50" cy="50" r="46" fill="#361005" stroke="#ff5f1f" stroke-width="3.5" stroke-dasharray="12,4"/>
+                        <polygon points="50,10 62,35 90,38 68,58 75,86 50,71 25,86 32,58 10,38 38,35" fill="#ff5f1f" stroke="#ffedd5" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="10" fill="#ffffff" filter="drop-shadow(0 0 8px #ff5f1f)"/>
+                      </svg>`
+            };
+        }
+
+        function erf(x) {
+            const sign = (x >= 0) ? 1 : -1;
+            x = Math.abs(x);
+            const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+            const t = 1.0 / (1.0 + p * x);
+            const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+            return sign * y;
+        }
+
+        function getPercentile(cps) {
+            const mean = 7.5, sigma = 2.5;
+            let p = 0.5 * (1 + erf((cps - mean) / (Math.sqrt(2) * sigma)));
+            p = Math.max(0.01, Math.min(0.999, p));
+            return (p * 100).toFixed(1);
+        }
+
+        
+        // ── Social Sharing & Scorecard Generator Logic ──
+        function updateShareLinks(score, rank, duration, peak) {
+            const shareText = "⚡ I just scored " + score + " CPS (" + rank + ") on Click Speed Lab in " + duration + "s! Peak: " + peak + " CPS. Can you beat me?";
+            const challengeUrl = "https://clickspeedlab.com/cps-test/?challenge=" + score + "&mode=" + duration + "s";
+            
+            const twBtn = document.getElementById('share-twitter');
+            if (twBtn) {
+                twBtn.href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent(challengeUrl) + "&hashtags=CPSTest,Gaming,ClickSpeed";
+            }
+            
+            const waBtn = document.getElementById('share-whatsapp');
+            if (waBtn) {
+                waBtn.href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText + " " + challengeUrl);
+            }
+
+            const rdBtn = document.getElementById('share-reddit');
+            if (rdBtn) {
+                rdBtn.href = "https://reddit.com/submit?title=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent(challengeUrl);
+            }
+
+            const copyBtn = document.getElementById('btn-copy-discord');
+            if (copyBtn) {
+                copyBtn.onclick = function() {
+                    const mdText = "**⚡ CPS TEST RESULT**\n> **Score:** " + score + " CPS (" + rank + ")\n> **Duration:** " + duration + "s | **Peak:** " + peak + " CPS\n> **Challenge Link:** <" + challengeUrl + ">";
+                    navigator.clipboard.writeText(mdText).then(() => {
+                        const copyLabel = document.getElementById('copy-discord-text');
+                        if (copyLabel) copyLabel.textContent = 'COPIED!';
+                        setTimeout(() => {
+                            if (copyLabel) copyLabel.textContent = 'Discord / MD';
+                        }, 2000);
+                    });
+                };
+            }
+
+            const dlBtn = document.getElementById('btn-download-scorecard');
+            if (dlBtn) {
+                dlBtn.onclick = function() {
+                    generateScorecardImage(score, rank, duration, peak);
+                };
+            }
+        }
+
+        function generateScorecardImage(score, rank, duration, peak) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#050508';
+            ctx.fillRect(0, 0, 1200, 630);
+
+            // Grid Pattern
+            ctx.strokeStyle = 'rgba(255, 95, 31, 0.08)';
+            ctx.lineWidth = 1;
+            for(let x = 0; x < 1200; x += 40) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 630); ctx.stroke();
+            }
+            for(let y = 0; y < 630; y += 40) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(1200, y); ctx.stroke();
+            }
+
+            // Glow Border
+            ctx.strokeStyle = '#ff5f1f';
+            ctx.lineWidth = 6;
+            ctx.strokeRect(30, 30, 1140, 570);
+
+            // Header Brand
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '900 36px "Sora", sans-serif';
+            ctx.fillText('CLICK SPEED', 70, 95);
+            ctx.fillStyle = '#ff5f1f';
+            ctx.fillText('LAB', 315, 95);
+
+            ctx.fillStyle = 'rgba(255,255,255,0.6)';
+            ctx.font = '600 18px "JetBrains Mono", monospace';
+            ctx.fillText('OFFICIAL HARDWARE BENCHMARK SCORECARD', 70, 130);
+
+            // Main Score
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '900 130px "JetBrains Mono", monospace';
+            ctx.fillText(score, 70, 320);
+
+            ctx.fillStyle = '#ff5f1f';
+            ctx.font = '800 32px "JetBrains Mono", monospace';
+            ctx.fillText('CLICKS PER SECOND', 70, 370);
+
+            // Rank Badge Box
+            ctx.fillStyle = 'rgba(255, 95, 31, 0.15)';
+            ctx.fillRect(70, 420, 260, 60);
+            ctx.strokeStyle = '#ff5f1f';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(70, 420, 260, 60);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '800 24px "JetBrains Mono", monospace';
+            ctx.fillText(String(rank).toUpperCase(), 95, 458);
+
+            // Stats Cards on Right
+            const stats = [
+                { label: 'TEST DURATION', val: duration + ' SECONDS' },
+                { label: 'PEAK VELOCITY', val: peak + ' CPS' },
+                { label: 'INPUT LATENCY', val: '< 0.125ms (ZERO-DELAY)' },
+                { label: 'VERIFIED ON', val: 'CLICKSPEEDLAB.COM' }
+            ];
+
+            stats.forEach((st, i) => {
+                const sy = 180 + (i * 95);
+                ctx.fillStyle = 'rgba(255,255,255,0.04)';
+                ctx.fillRect(680, sy, 450, 75);
+                ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(680, sy, 450, 75);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '700 14px "JetBrains Mono", monospace';
+                ctx.fillText(st.label, 705, sy + 30);
+
+                ctx.fillStyle = '#00ffa3';
+                ctx.font = '800 22px "JetBrains Mono", monospace';
+                ctx.fillText(st.val, 705, sy + 58);
+            });
+
+            // Download Trigger
+            const link = document.createElement('a');
+            link.download = 'clickspeedlab-score-' + score + 'cps.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function endTest() {
+            clearInterval(timerInterval);
+            clearInterval(cpuInterval);
+            isTesting = false;
+            
+            cpsStatusBadge.className = 'status-badge-indicator completed';
+            cpsStatusText.textContent = 'STATUS: TEST COMPLETED';
+            btnManualStart.style.display = 'inline-flex';
+
+            const finalCps = clicks / testDuration;
+            
+            let consistency = 100;
+            if (clickTimes.length > 2) {
+                const intervals = [];
+                for(let i=1; i<clickTimes.length; i++) intervals.push(clickTimes[i]-clickTimes[i-1]);
+                const avgInterval = intervals.reduce((a,b)=>a+b,0)/intervals.length;
+                const variance = intervals.reduce((a,b)=>a+Math.pow(b-avgInterval,2),0)/intervals.length;
+                const stdDev = Math.sqrt(variance);
+                consistency = Math.max(0, Math.min(100, Math.round(100 - (stdDev / avgInterval * 100))));
+            }
+            statConsistency.textContent = consistency;
+
+            const rank = getRank(finalCps);
+            const date = new Date().toLocaleDateString();
+            const historyObj = { cps: finalCps.toFixed(2), clicks, duration: testDuration, rank: rank.name, date };
+            let history = JSON.parse(localStorage.getItem('csl_cps_history') || '[]');
+            history.unshift(historyObj);
+            if (history.length > 10) history.pop();
+            localStorage.setItem('csl_cps_history', JSON.stringify(history));
+            renderHistory();
+
+            document.getElementById('modal-score').textContent = finalCps.toFixed(2);
+            document.getElementById('modal-rank-badge').innerHTML = rank.svg;
+            document.getElementById('modal-rank').textContent = rank.name + ' RANK';
+            document.getElementById('modal-rank').style.color = rank.color;
+            document.getElementById('modal-rank').style.borderColor = rank.color;
+            document.getElementById('modal-rank').style.background = rank.color + '22';
+
+            const pct = getPercentile(finalCps);
+            document.getElementById('modal-percentile-text').textContent = `You are faster than ${pct}% of players`;
+            document.getElementById('modal-percentile-fill').style.width = pct + '%';
+
+            document.getElementById('modal-total-clicks').textContent = clicks;
+            document.getElementById('modal-duration').textContent = testDuration + 's';
+            document.getElementById('modal-peak').textContent = statPeak.textContent + ' cps';
+            document.getElementById('modal-consistency').textContent = consistency + '%';
+
+            // Confetti Celebration on High Score
+            if (typeof confetti !== 'undefined') {
+                if (finalCps >= 14) {
+                    confetti({ particleCount: 160, spread: 100, origin: { y: 0.6 } });
+                } else if (finalCps >= 9) {
+                    confetti({ particleCount: 75, spread: 70, origin: { y: 0.6 } });
+                }
+            }
+
+            updateShareLinks(finalCps.toFixed(2), rank.name, testDuration, statPeak.textContent);
+
+            resultModal.classList.add('show');
+        }
+
+        function resetTest() {
+            clearInterval(timerInterval);
+            clearInterval(cpuInterval);
+            isTesting = false;
+            clicks = 0;
+            cpuClicks = 0;
+            clickTimes = [];
+            cpsHistory = [];
+            timeRemaining = testDuration;
+            
+            statTime.textContent = timeRemaining.toFixed(1);
+            statClicks.textContent = '0';
+            statCps.textContent = '0.0';
+            statPeak.textContent = '0.0';
+            statConsistency.textContent = '100';
+            
+            cpsStatusBadge.className = 'status-badge-indicator ready';
+            cpsStatusText.textContent = 'STATUS: READY / CLICK ON THE MOUSE TO ENGAGE';
+            btnManualStart.style.display = 'inline-flex';
+
+            zonePrompt.style.display = 'block';
+            resultModal.classList.remove('show');
+            drawGraph();
+            updateRaceUI();
+        }
+
+        function getRankMeta(rankName) {
+            const map = {
+                'TURTLE': { color: '#64748b', bg: 'rgba(100,116,139,0.18)', border: 'rgba(100,116,139,0.4)', icon: '🐢' },
+                'GAMER': { color: '#00ffa3', bg: 'rgba(0,255,163,0.18)', border: 'rgba(0,255,163,0.4)', icon: '🎮' },
+                'PRO': { color: '#00e5ff', bg: 'rgba(0,229,255,0.18)', border: 'rgba(0,229,255,0.4)', icon: '⚡' },
+                'MASTER': { color: '#c084fc', bg: 'rgba(192,132,252,0.18)', border: 'rgba(192,132,252,0.4)', icon: '👑' },
+                'GODLIKE': { color: '#ff5f1f', bg: 'rgba(255,95,31,0.18)', border: 'rgba(255,95,31,0.4)', icon: '🔥' }
+            };
+            return map[rankName] || { color: '#ff5f1f', bg: 'rgba(255,95,31,0.18)', border: 'rgba(255,95,31,0.4)', icon: '🔥' };
+        }
+
+        function renderHistory() {
+            const tbody = document.getElementById('history-tbody');
+            const history = JSON.parse(localStorage.getItem('csl_cps_history') || '[]');
+            if (history.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="padding: 12px 0; color: var(--text-muted); text-align: center;">No test records yet. Complete a test to see results!</td></tr>';
+                return;
+            }
+            tbody.innerHTML = history.map((h, i) => {
+                const meta = getRankMeta(h.rank);
+                return `
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px 0; color: #fff;">${i+1}</td>
+                    <td style="padding: 10px 0; color: var(--velocity-orange); font-weight: bold;">${h.cps}</td>
+                    <td style="padding: 10px 0; color: #fff;">${h.clicks}</td>
+                    <td style="padding: 10px 0; color: var(--text-muted);">${h.duration}s</td>
+                    <td style="padding: 10px 0;">
+                        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 12px; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; background: ${meta.bg}; color: ${meta.color}; border: 1px solid ${meta.border};">
+                            <span>${meta.icon}</span>
+                            <span>${h.rank}</span>
+                        </span>
+                    </td>
+                    <td style="padding: 10px 0; color: var(--text-muted);">${h.date}</td>
+                </tr>
+                `;
+            }).join('');
+        }
+
+        document.querySelectorAll('#duration-pills button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (isTesting) return;
+                document.querySelectorAll('#duration-pills button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                testDuration = parseInt(btn.dataset.duration);
+                zoneSub.textContent = `${testDuration} SECOND DURATION`;
+                resetTest();
+            });
+        });
+
+        document.querySelectorAll('#input-mode-pills button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('#input-mode-pills button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                inputMode = btn.dataset.mode;
+            });
+        });
+
+        document.querySelectorAll('#cpu-difficulty-pills button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('#cpu-difficulty-pills button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                cpuDifficulty = parseInt(btn.dataset.difficulty);
+            });
+        });
+
+        document.getElementById('audio-toggle').addEventListener('click', (e) => {
+            audioEnabled = !audioEnabled;
+            e.currentTarget.innerHTML = audioEnabled ? 
+                '<span class="material-symbols-outlined">volume_up</span> ACOUSTICS: ON' : 
+                '<span class="material-symbols-outlined">volume_off</span> ACOUSTICS: OFF';
+            e.currentTarget.classList.toggle('active', audioEnabled);
+        });
+
+        document.getElementById('vs-cpu-toggle').addEventListener('click', (e) => {
+            vsCpuEnabled = !vsCpuEnabled;
+            e.currentTarget.innerHTML = vsCpuEnabled ? 
+                '<span class="material-symbols-outlined">smart_toy</span> VS CPU: ON' : 
+                '<span class="material-symbols-outlined">smart_toy</span> VS CPU: OFF';
+            e.currentTarget.classList.toggle('active', vsCpuEnabled);
+            raceContainer.style.display = vsCpuEnabled ? 'block' : 'none';
+        });
+
+        document.getElementById('history-toggle').addEventListener('click', () => {
+            const body = document.getElementById('history-body');
+            const icon = document.getElementById('history-icon');
+            if (body.style.display === 'none') {
+                body.style.display = 'block';
+                icon.textContent = 'expand_less';
+            } else {
+                body.style.display = 'none';
+                icon.textContent = 'expand_more';
+            }
+        });
+
+        btnManualStart.addEventListener('click', () => {
+            if(!isTesting) startTest();
+        });
+        btnManualReset.addEventListener('click', resetTest);
+        document.getElementById('modal-restart').addEventListener('click', resetTest);
+
+        clickzone.addEventListener('mousedown', (e) => {
+            if (inputMode === 'left' && e.button === 0) {
+                m3dL.classList.add('pressed');
+                registerClick(e);
+            }
+            if (inputMode === 'right' && e.button === 2) {
+                m3dR.classList.add('pressed');
+                registerClick(e);
+            }
+        });
+        
+        window.addEventListener('mouseup', () => {
+            m3dL.classList.remove('pressed');
+            m3dR.classList.remove('pressed');
+        });
+        
+        clickzone.addEventListener('contextmenu', e => {
+            if (inputMode === 'right') e.preventDefault();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (inputMode === 'space' && e.code === 'Space') {
+                if (e.repeat) return;
+                e.preventDefault();
+                m3dL.classList.add('pressed');
+                registerClick(e);
+            }
+        });
+        document.addEventListener('keyup', (e) => {
+            if (inputMode === 'space' && e.code === 'Space') {
+                m3dL.classList.remove('pressed');
+            }
+        });
+
+        setTimeout(() => {
+            resizeCanvases();
+            renderHistory();
+        }, 100);
+    })();
+    
+        // Theme Engine & Persistence
+        const themeBtn = document.getElementById('theme-toggle');
+        const themes = ['orange', 'cyan', 'emerald', 'purple'];
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('csl_theme', theme);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
+                applyTheme(themes[nextIdx]);
+            });
+        }
+        applyTheme(currentTheme);
+
+
+    // Comprehensive Customization & Switch Audio Engine
+    (function() {
+        const customizerModal = document.getElementById('customizer-modal');
+        const themeBtn = document.getElementById('theme-toggle');
+        const customizerClose = document.getElementById('customizer-close');
+        const customizerApply = document.getElementById('customizer-apply-btn');
+
+        if(themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => customizerModal.classList.add('show'));
+        }
+        if(customizerClose && customizerModal) {
+            customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        }
+        if(customizerApply && customizerModal) {
+            customizerApply.addEventListener('click', () => customizerModal.classList.remove('show'));
+        }
+
+        // State Manager
+        let prefs = {
+            theme: localStorage.getItem('csl_theme') || 'orange',
+            mode: localStorage.getItem('csl_mode') || 'dark',
+            kbSkin: localStorage.getItem('csl_kb_skin') || 'obsidian',
+            mouseSkin: localStorage.getItem('csl_mouse_skin') || 'obsidian',
+            sound: localStorage.getItem('csl_sound') || 'blue',
+            bg: localStorage.getItem('csl_bg') || 'grid'
+        };
+
+        function applyPreferences() {
+            // Theme & Light Mode
+            if (prefs.mode === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.removeAttribute('data-mode');
+                if (prefs.theme === 'orange') {
+                    document.documentElement.removeAttribute('data-theme');
+                } else {
+                    document.documentElement.setAttribute('data-theme', prefs.theme);
+                }
+            }
+
+            // Keyboard Skin
+            document.documentElement.setAttribute('data-kb-skin', prefs.kbSkin);
+
+            // Mouse Skin
+            document.documentElement.setAttribute('data-mouse-skin', prefs.mouseSkin);
+
+            // Background Mode
+            document.documentElement.setAttribute('data-bg', prefs.bg);
+
+            // Active button indicators in modal
+            document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+                if (prefs.mode === 'light' && b.dataset.mode === 'light') b.classList.add('active');
+                else if (prefs.mode !== 'light' && b.dataset.theme === prefs.theme) b.classList.add('active');
+                else b.classList.remove('active');
+            });
+            document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.kbskin === prefs.kbSkin);
+            });
+            document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.mouseskin === prefs.mouseSkin);
+            });
+            document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.sound === prefs.sound);
+            });
+            document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+                b.classList.toggle('active', b.dataset.bg === prefs.bg);
+            });
+
+            // Save to localStorage
+            localStorage.setItem('csl_theme', prefs.theme);
+            localStorage.setItem('csl_mode', prefs.mode);
+            localStorage.setItem('csl_kb_skin', prefs.kbSkin);
+            localStorage.setItem('csl_mouse_skin', prefs.mouseSkin);
+            localStorage.setItem('csl_sound', prefs.sound);
+            localStorage.setItem('csl_bg', prefs.bg);
+        }
+
+        // Pill Listeners
+        document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                if (b.dataset.mode === 'light') {
+                    prefs.mode = 'light';
+                } else {
+                    prefs.mode = 'dark';
+                    prefs.theme = b.dataset.theme;
+                }
+                applyPreferences();
+        document.addEventListener('pointerdown', () => { if (labAudioCtx && labAudioCtx.state === 'suspended') labAudioCtx.resume(); }, { once: true });
+        document.addEventListener('keydown', () => { if (labAudioCtx && labAudioCtx.state === 'suspended') labAudioCtx.resume(); }, { once: true });
+            });
+        });
+
+        document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.kbSkin = b.dataset.kbskin;
+                applyPreferences();
+            });
+        });
+
+        document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.mouseSkin = b.dataset.mouseskin;
+                applyPreferences();
+            });
+        });
+
+        document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.sound = b.dataset.sound;
+                applyPreferences();
+                window.playSwitchSound && window.playSwitchSound();
+            });
+        });
+
+        document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+            b.addEventListener('click', () => {
+                prefs.bg = b.dataset.bg;
+                applyPreferences();
+            });
+        });
+
+        // Global High-Fidelity Audio Synthesis
+        let labAudioCtx = null;
+        window.playSwitchSound = function() {
+            const currentSound = localStorage.getItem('csl_sound') || (typeof prefs !== 'undefined' ? prefs.sound : 'blue');
+            if (currentSound === 'off') return;
+            if (!labAudioCtx) labAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (labAudioCtx.state === 'suspended') labAudioCtx.resume();
+            
+            const osc = labAudioCtx.createOscillator();
+            const gain = labAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(labAudioCtx.destination);
+            const now = labAudioCtx.currentTime;
+
+            if (currentSound === 'blue') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1900, now);
+                osc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.035);
+            } else if (currentSound === 'brown') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.045);
+                osc.start(now);
+                osc.stop(now + 0.045);
+            } else if (currentSound === 'red') {
+                // Crisp Linear Clack (Cherry Red / Gateron Red bottom-out)
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.038);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.038);
+                osc.start(now);
+                osc.stop(now + 0.038);
+            } else if (currentSound === 'cream') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.04);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            }
+        };
+
+        applyPreferences();
+    })();
+
+
+
+    </script>
+
+    <!-- footer-tools-dropup-script -->
+    <script>
+    (function() {
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        const footerTrigger = document.getElementById('footer-dropup-trigger');
+        if (footerTrigger && footerDropup) {
+            footerTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                footerDropup.classList.toggle('open');
+            });
+            document.addEventListener('click', () => {
+                footerDropup.classList.remove('open');
+            });
+        }
+        
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            const btn = dropdown.querySelector('.nav-dropdown-btn');
+            if (!btn) return;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!isOpen) dropdown.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
+    </script>
+        
+
+    <!-- Interactive Animation & FX Libraries -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 40
+                });
+            }
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card'), {
+                    max: 6,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.12,
+                    scale: 1.01
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Interactive Animation, Tilt & Scroll FX Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        (function() {
+            // Immediate AOS Init
+            function initAnimations() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-out-cubic',
+                        once: false,
+                        mirror: true,
+                        offset: 50
+                    });
+                }
+                if (typeof VanillaTilt !== 'undefined') {
+                    VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card, .mc-card, .graph-card, .telemetry-side-panel'), {
+                        max: 8,
+                        speed: 400,
+                        glare: true,
+                        "max-glare": 0.15,
+                        scale: 1.02
+                    });
+                }
+            }
+
+            // Parallax scroll effect on background glow orbs
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const orbOrange = document.querySelector('.glow-orb-orange');
+                const orbBlue = document.querySelector('.glow-orb-blue');
+                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
+                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
+            }, { passive: true });
+
+            initAnimations();
+            window.addEventListener('load', function() {
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            });
+        })();
+    </script>
+
+
+    
+    
+
+    <!-- GLOBAL UI & THEME ENGINE -->
+    <script class="global-ui-script">
+    (function() {
+        // --- Theme Engine ---
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else if (theme === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.removeAttribute('data-mode');
+            }
+            localStorage.setItem('csl_theme', theme);
+            
+            // Update pills if they exist
+            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
+                p.classList.remove('active');
+                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
+                else if (p.dataset.theme === theme) p.classList.add('active');
+            });
+        }
+        
+        applyTheme(currentTheme);
+
+        // --- Customizer Modal Logic ---
+        const themeBtn = document.getElementById('theme-toggle');
+        // Prefer the original customizer if it exists, otherwise use the global one
+        const customizerModal = document.getElementById('customizer-modal') || document.getElementById('global-customizer-modal');
+        const customizerClose = document.getElementById('customizer-close') || document.getElementById('global-customizer-close');
+        const customizerSave = document.getElementById('customizer-save') || document.getElementById('global-customizer-save');
+
+        if (themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => {
+                customizerModal.classList.add('show');
+            });
+        }
+        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
+
+        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const t = e.target.dataset.theme;
+                const m = e.target.dataset.mode;
+                if (t) applyTheme(t);
+                if (m) applyTheme(m);
+            });
+        });
+
+        
+        // --- Dropdowns ---
+        document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parent = btn.parentElement;
+                const wasOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!wasOpen) parent.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+    })();
+    </script>
+
+</body>
+</html>

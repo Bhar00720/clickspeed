@@ -1563,6 +1563,8 @@ button { font-family: inherit; }
 }
 .custom-modal-card {
     background: #111118;
+    max-height: 90vh;
+    overflow-y: auto;
     border: 1px solid rgba(255, 95, 31, 0.4);
     border-radius: 12px;
     padding: 32px;
@@ -3742,8 +3744,10 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
 }
 
 
+
+
 /* ==========================================================================
-   MASTER 3D MULTI-LAYER EXPAND & SHRINK ELEVATION ENGINE
+   TRUE ARCADE 3D LIFT BUTTON (WITH CUT CORNERS)
    ========================================================================== */
 
 .kinetic-btn,
@@ -3766,150 +3770,113 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
   letter-spacing: 0.12em !important;
   padding: 14px 26px !important;
   text-decoration: none !important;
-  border-radius: 8px !important;
-  clip-path: none !important;
+  
+  /* The signature cut corner */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%) !important;
+  border-radius: 0 !important;
+  
   transform: translateY(0) scale(1) translateZ(0) !important;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
               background 0.25s ease,
               border-color 0.25s ease !important;
-  transform-style: preserve-3d !important;
-  will-change: transform, box-shadow !important;
   overflow: visible !important;
   z-index: 1 !important;
+  border: none !important; /* using filter drop-shadow for 3D */
 }
 
-/* Multi-layer expanding boundary wireframe */
-.kinetic-btn::before,
-.kinetic-btn-orange::before,
-.kinetic-btn-emerald::before,
-.kinetic-btn-blue::before,
-.btn-scorecard-download::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: -3px !important;
-  border-radius: 11px !important;
-  border: 1.5px solid currentColor !important;
-  opacity: 0 !important;
-  transform: scale(0.85) translateZ(-10px) !important;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 0.35s ease !important;
-  pointer-events: none !important;
-  z-index: -1 !important;
+/* Light Mode Overrides for Borders */
+[data-mode="light"] .kinetic-btn,
+[data-mode="light"] .kinetic-btn-orange,
+[data-mode="light"] .kinetic-btn-emerald,
+[data-mode="light"] .kinetic-btn-blue {
+   clip-path: none !important;
+   border-radius: 8px !important;
+   border: 1.5px solid currentColor !important;
 }
 
-/* Multi-Layer Base Styling */
+/* ORANGE 3D BUTTON */
 .kinetic-btn-orange {
-  background: linear-gradient(135deg, #ff5f1f 0%, #d84507 100%) !important;
+  background: linear-gradient(180deg, #ff7a42 0%, #ff5f1f 100%) !important;
   color: #ffffff !important;
-  border: 1.5px solid rgba(255, 95, 31, 0.6) !important;
-  box-shadow: 0 4px 0 #942b03,
-              0 6px 16px rgba(255, 95, 31, 0.3),
-              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  filter: drop-shadow(0 5px 0 #b33907) drop-shadow(0 8px 6px rgba(0,0,0,0.4)) !important;
 }
 
 .kinetic-btn-orange:hover,
 [data-mode="light"] .kinetic-btn-orange:hover {
-  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
-  background: linear-gradient(135deg, #ff7a42 0%, #ff5f1f 100%) !important;
-  border-color: #ff9161 !important;
-  color: #ffffff !important;
-  box-shadow: 
-    0 4px 0 #b33907,                           /* 3D Slab Wall Layer 1 */
-    0 8px 0 #732303,                           /* 3D Deep Wall Layer 2 */
-    0 14px 28px rgba(255, 95, 31, 0.6),       /* Elevated Radiant Glow Layer 3 */
-    0 24px 45px rgba(0, 0, 0, 0.45) !important;/* Ambient Ground Shadow Layer 4 */
+  transform: translateY(-4px) !important;
+  background: linear-gradient(180deg, #ff8c5a 0%, #ff6d33 100%) !important;
+  filter: drop-shadow(0 9px 0 #b33907) drop-shadow(0 15px 15px rgba(255, 95, 31, 0.5)) !important;
 }
 
-.kinetic-btn-orange:hover::before {
-  opacity: 0.8 !important;
-  transform: scale(1.08) translateZ(-10px) !important;
-  box-shadow: 0 0 20px rgba(255, 95, 31, 0.7) !important;
+.kinetic-btn-orange:active,
+[data-mode="light"] .kinetic-btn-orange:active {
+  transform: translateY(5px) !important;
+  filter: drop-shadow(0 0px 0 #b33907) !important;
 }
 
+/* EMERALD 3D BUTTON */
 .kinetic-btn-emerald {
-  background: linear-gradient(135deg, #00ffa3 0%, #00b875 100%) !important;
+  background: linear-gradient(180deg, #38ffb8 0%, #00ffa3 100%) !important;
   color: #050505 !important;
-  border: 1.5px solid rgba(0, 255, 163, 0.6) !important;
-  box-shadow: 0 4px 0 #007a4e,
-              0 6px 16px rgba(0, 255, 163, 0.3),
-              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  filter: drop-shadow(0 5px 0 #00995e) drop-shadow(0 8px 6px rgba(0,0,0,0.4)) !important;
 }
 
 .kinetic-btn-emerald:hover,
 [data-mode="light"] .kinetic-btn-emerald:hover {
-  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
-  background: linear-gradient(135deg, #38ffb8 0%, #00ffa3 100%) !important;
-  border-color: #70ffcb !important;
-  color: #000000 !important;
-  box-shadow: 
-    0 4px 0 #00995e,
-    0 8px 0 #005937,
-    0 14px 28px rgba(0, 255, 163, 0.6),
-    0 24px 45px rgba(0, 0, 0, 0.45) !important;
+  transform: translateY(-4px) !important;
+  background: linear-gradient(180deg, #66ffcb 0%, #33ffb5 100%) !important;
+  filter: drop-shadow(0 9px 0 #00995e) drop-shadow(0 15px 15px rgba(0, 255, 163, 0.5)) !important;
 }
 
-.kinetic-btn-emerald:hover::before {
-  opacity: 0.8 !important;
-  transform: scale(1.08) translateZ(-10px) !important;
-  box-shadow: 0 0 20px rgba(0, 255, 163, 0.7) !important;
+.kinetic-btn-emerald:active,
+[data-mode="light"] .kinetic-btn-emerald:active {
+  transform: translateY(5px) !important;
+  filter: drop-shadow(0 0px 0 #00995e) !important;
 }
 
+/* BLUE 3D BUTTON */
 .kinetic-btn-blue {
-  background: linear-gradient(135deg, #00e5ff 0%, #009cb0 100%) !important;
+  background: linear-gradient(180deg, #47eeff 0%, #00e5ff 100%) !important;
   color: #050505 !important;
-  border: 1.5px solid rgba(0, 229, 255, 0.6) !important;
-  box-shadow: 0 4px 0 #006c7a,
-              0 6px 16px rgba(0, 229, 255, 0.3),
-              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  filter: drop-shadow(0 5px 0 #008fa3) drop-shadow(0 8px 6px rgba(0,0,0,0.4)) !important;
 }
 
 .kinetic-btn-blue:hover,
 [data-mode="light"] .kinetic-btn-blue:hover {
-  transform: translateY(-6px) scale(1.03) translateZ(10px) !important;
-  background: linear-gradient(135deg, #47eeff 0%, #00e5ff 100%) !important;
-  border-color: #85f3ff !important;
-  color: #000000 !important;
-  box-shadow: 
-    0 4px 0 #008fa3,
-    0 8px 0 #005663,
-    0 14px 28px rgba(0, 229, 255, 0.6),
-    0 24px 45px rgba(0, 0, 0, 0.45) !important;
+  transform: translateY(-4px) !important;
+  background: linear-gradient(180deg, #70f2ff 0%, #33ebff 100%) !important;
+  filter: drop-shadow(0 9px 0 #008fa3) drop-shadow(0 15px 15px rgba(0, 229, 255, 0.5)) !important;
 }
 
-.kinetic-btn-blue:hover::before {
-  opacity: 0.8 !important;
-  transform: scale(1.08) translateZ(-10px) !important;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.7) !important;
+.kinetic-btn-blue:active,
+[data-mode="light"] .kinetic-btn-blue:active {
+  transform: translateY(5px) !important;
+  filter: drop-shadow(0 0px 0 #008fa3) !important;
 }
 
-/* Button Active Physical Compression */
-.kinetic-btn:active,
-.kinetic-btn-orange:active,
-.kinetic-btn-emerald:active,
-.kinetic-btn-blue:active {
-  transform: translateY(3px) scale(0.97) !important;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3) !important;
-  transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+/* GENERAL KINETIC BUTTON */
+.kinetic-btn {
+  background: linear-gradient(180deg, #2e3b4e 0%, #1e293b 100%) !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 5px 0 #020617) drop-shadow(0 8px 6px rgba(0,0,0,0.4)) !important;
+}
+.kinetic-btn:hover {
+  transform: translateY(-4px) !important;
+  background: linear-gradient(180deg, #3a4b63 0%, #2e3b4e 100%) !important;
+  filter: drop-shadow(0 9px 0 #020617) drop-shadow(0 15px 15px rgba(0, 0, 0, 0.5)) !important;
+}
+.kinetic-btn:active {
+  transform: translateY(5px) !important;
+  filter: drop-shadow(0 0px 0 #020617) !important;
 }
 
-/* Bento & Telemetry Card 3D Depth */
-.telemetry-card {
-  clip-path: none !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-  transform-style: preserve-3d;
-  will-change: transform;
-}
 
-[data-mode="light"] .telemetry-card {
-  background: #ffffff !important;
-  border: 1.5px solid #e2e8f0 !important;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
-}
-
-[data-mode="light"] .telemetry-card:hover {
-  border-color: #cbd5e1 !important;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+/* KILL UGLY EXPANDING PSEUDO-ELEMENTS */
+.kinetic-btn::before,
+.kinetic-btn-orange::before,
+.kinetic-btn-emerald::before,
+.kinetic-btn-blue::before,
+.kinetic-btn-purple::before {
+  display: none !important;
 }

@@ -130,6 +130,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
+
+    <!-- Global 3D Isometric Background Canvas -->
+    <canvas id="global-3d-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; pointer-events: none; opacity: 0.8;"></canvas>
+
     <!-- Background Atmosphere -->
     <div class="bg-grid"></div>
     <div class="scanline"></div>
@@ -221,18 +225,13 @@
             </nav>
         </div>
         <div class="topnav-right">
-            <!-- Hardware Connection HUD Detector -->
-            <div class="connection-hud conn-type-wired" id="connection-hud" title="Click to inspect exact device via WebHID API">
-                <span class="material-symbols-outlined conn-icon" id="conn-icon">cable</span>
-                <span id="conn-label">USB 2.0/3.0 HID</span>
-                <span class="conn-dot"></span>
-            </div>
+
             <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
                 <span class="material-symbols-outlined">palette</span>
             </button>
             <div class="status-pill">
-                <span class="dot"></span>
-                <span>SYSTEM: ONLINE</span>
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
             </div>
         </div>
     </header>
@@ -253,9 +252,9 @@
                         <span class="material-symbols-outlined" style="font-size: 1rem;">bolt</span>
                         SUB-MILLISECOND PERIPHERAL ENGINE
                     </div>
-                    <h1 style="display: block; font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: white; margin: 0; line-height: 1.1;">
-                        <span class="anim-shimmer">ZERO-LATENCY</span><br>
-                        <span class="anim-glow-pulse" style="color: var(--primary); font-style: italic; border-right: 4px solid var(--primary); padding-right: 1rem; display: inline-block; margin-top: 0.5rem;">ENGINEERING ENGINE</span>
+                    <h1 id="hero-title" style="display: block; font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: white; margin: 0; line-height: 1.1; min-height: 2.5em;">
+                        <span class="anim-shimmer" id="type-line-1"></span><br>
+                        <span class="anim-glow-pulse" id="type-line-2" style="color: var(--primary); font-style: italic; border-right: 4px solid var(--primary); padding-right: 0.5rem; display: inline-block; margin-top: 0.5rem;"></span>
                     </h1>
                     <p style="border-left: 2px solid var(--surface-variant); padding-left: 1rem; color: var(--text-muted); max-width: 600px; margin: 2rem 0; font-size: 1.1rem; line-height: 1.6;">
                         Calibrate, test, and optimize your gaming peripherals with microsecond precision. Identify hardware bottlenecks with zero latency.
@@ -323,7 +322,7 @@
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Mouse Polling Rate (Hz)</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Measure your mouse sensor's real-time reporting rate, interval consistency, and microsecond latency.</p>
                     </div>
-                    <a href="mouse-polling-rate-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #38bdf8; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH POLLING TEST</a>
+                    <a href="mouse-polling-rate-test/" class="kinetic-btn-orange" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #38bdf8; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH POLLING TEST</a>
                 </div>
 
                 <!-- Card 5: Mouse Scroll Wheel Speed -->
@@ -338,7 +337,7 @@
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Mouse Scroll Speed</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Test wheel speed (NPS/PPS), scroll distance in meters, and detect faulty mouse wheel encoders with reverse-scroll glitch detection.</p>
                     </div>
-                    <a href="mouse-scroll-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #ff9900; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH SCROLL TEST</a>
+                    <a href="mouse-scroll-test/" class="kinetic-btn-emerald" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #ff9900; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH SCROLL TEST</a>
                 </div>
 
                 <!-- Card 6: Keyboard NKRO & Matrix -->
@@ -353,7 +352,7 @@
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Keyboard NKRO & Ghosting</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Test simultaneous key rollover, ghosting collisions, APM speed, and switch hold duration latency in real-time.</p>
                     </div>
-                    <a href="keyboard-ghosting-test/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #c084fc; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH KEYBOARD TEST</a>
+                    <a href="keyboard-ghosting-test/" class="kinetic-btn-blue" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #c084fc; color: #000; font-weight: 800; border-radius: 6px;">LAUNCH KEYBOARD TEST</a>
                 </div>
 
                 <!-- Card 7: Spacebar Speed Test -->
@@ -368,10 +367,25 @@
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Spacebar Speed Test</h3>
                         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Take the viral spacebar challenge! Measure how many times you can hit the spacebar in 5, 10, or 30 seconds.</p>
                     </div>
-                    <a href="spacebar-counter/" class="kinetic-btn" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #f43f5e; color: #fff; font-weight: 800; border-radius: 6px;">LAUNCH SPACEBAR TEST</a>
+                    <a href="spacebar-counter/" class="kinetic-btn-orange" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem; background: #f43f5e; color: #fff; font-weight: 800; border-radius: 6px;">LAUNCH SPACEBAR TEST</a>
                 </div>
 
-            </section>
+            
+                <!-- Card 8: Reaction Time Test -->
+                <div data-aos="fade-up" data-aos-delay="0" data-tilt class="telemetry-card clip-nick" style="background: var(--surface); padding: 1.5rem; position: relative; border-top: 2px solid #e11d48; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="telemetry-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem;">
+                            <div class="telemetry-icon-box" style="width: 44px; height: 44px; background: rgba(225, 29, 72, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #e11d48;">
+                                <span class="material-symbols-outlined">timer</span>
+                            </div>
+                            <span class="tag-badge peak" style="background: rgba(225, 29, 72, 0.15); color: #e11d48; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; font-weight: bold;">ms</span>
+                        </div>
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text);">Reaction Time Test</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;">Measure your visual reflexes in milliseconds. Do you have the reaction speed of an esports pro gamer?</p>
+                    </div>
+                    <a href="reaction-time-test/" class="kinetic-btn-emerald" style="display: block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box; padding: 0.75rem;">MEASURE REFLEXES</a>
+                </div>
+</section>
 
             <!-- Sync Calculator -->
             <section id="sync-calculator" data-aos="fade-up" data-aos-duration="800" style="margin-bottom: 4rem;">
@@ -758,28 +772,7 @@
         }, 100);
 
     
-        // Theme Engine & Persistence
-        const themeBtn = document.getElementById('theme-toggle');
-        const themes = ['orange', 'cyan', 'emerald', 'purple'];
-        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
-
-        function applyTheme(theme) {
-            currentTheme = theme;
-            if (theme === 'orange') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-            localStorage.setItem('csl_theme', theme);
-        }
-
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
-                applyTheme(themes[nextIdx]);
-            });
-        }
-        applyTheme(currentTheme);
+        
 
 
     // Comprehensive Customization & Switch Audio Engine
@@ -959,137 +952,7 @@
 
 
 
-    // Hardware Connection & Interface Detection Engine (WebHID + Heuristic Profiling)
-    (function() {
-        const connHud = document.getElementById('connection-hud');
-        const connIcon = document.getElementById('conn-icon');
-        const connLabel = document.getElementById('conn-label');
-
-        let currentConnType = 'wired';
-        let deviceName = '';
-
-        function setConnection(type, label, icon) {
-            if (currentConnType === type && connLabel.textContent === label) return;
-            currentConnType = type;
-            
-            connHud.className = 'connection-hud conn-type-' + type + ' animate-change';
-            connIcon.textContent = icon;
-            connLabel.textContent = label;
-            
-            setTimeout(() => {
-                connHud.classList.remove('animate-change');
-            }, 500);
-        }
-
-        // 1. Pointer Heuristic Profiling (Touchpad vs Mouse vs Bluetooth vs RF Wireless)
-        let lastMoveTimes = [];
-        let fractionalCoords = 0;
-        let totalMoves = 0;
-
-        window.addEventListener('pointermove', (e) => {
-            if (e.pointerType === 'touch') {
-                setConnection('touch', 'TOUCH DIGITIZER', 'touch_app');
-                return;
-            }
-
-            totalMoves++;
-            // Precision trackpads often emit fractional coordinates (e.g. 124.35px)
-            if (e.clientX % 1 !== 0 || e.clientY % 1 !== 0) {
-                fractionalCoords++;
-            }
-
-            const now = performance.now();
-            lastMoveTimes.push(now);
-            if (lastMoveTimes.length > 50) lastMoveTimes.shift();
-
-            if (totalMoves > 30) {
-                // Trackpad check
-                if (fractionalCoords / totalMoves > 0.4) {
-                    setConnection('laptop', 'PRECISION TRACKPAD', 'laptop_mac');
-                    return;
-                }
-
-                // Frequency calculation
-                if (lastMoveTimes.length >= 20) {
-                    const intervals = [];
-                    for(let i=1; i<lastMoveTimes.length; i++) intervals.push(lastMoveTimes[i] - lastMoveTimes[i-1]);
-                    const avg = intervals.reduce((a,b)=>a+b,0)/intervals.length;
-                    const hz = Math.round(1000 / (avg || 1));
-
-                    if (hz > 1100) {
-                        setConnection('wired', `HIGH-SPEED USB (${hz}Hz)`, 'cable');
-                    } else if (hz >= 450 && hz <= 1050) {
-                        setConnection('24g', `2.4 GHz RF / USB (${hz}Hz)`, 'wifi_tethering');
-                    } else if (hz >= 100 && hz <= 150) {
-                        setConnection('bt', `BLUETOOTH BLE (${hz}Hz)`, 'bluetooth');
-                    } else if (hz < 100) {
-                        setConnection('laptop', 'INTEGRATED / STANDARD', 'laptop_mac');
-                    }
-                }
-            }
-        }, { passive: true });
-
-        // 2. Keyboard Heuristic Profiling
-        window.addEventListener('keydown', (e) => {
-            // Check for laptop-specific scan codes or integrated ACPI markers
-            if (e.key === 'Fn' || e.code === 'BrightnessUp' || e.code === 'BrightnessDown') {
-                setConnection('laptop', 'INTEGRATED LAPTOP KB', 'laptop_mac');
-            }
-        }, { passive: true });
-
-        // 3. Direct WebHID Hardware Inspection on Click
-        if (connHud) {
-            connHud.addEventListener('click', async () => {
-                if (navigator.hid && navigator.hid.requestDevice) {
-                    try {
-                        const devices = await navigator.hid.requestDevice({ filters: [] });
-                        if (devices && devices.length > 0) {
-                            const dev = devices[0];
-                            const name = dev.productName || 'USB HID DEVICE';
-                            let icon = 'cable';
-                            let type = 'wired';
-                            const lower = name.toLowerCase();
-
-                            if (lower.includes('wireless') || lower.includes('receiver') || lower.includes('dongle') || lower.includes('lightspeed')) {
-                                icon = 'wifi_tethering';
-                                type = '24g';
-                            } else if (lower.includes('bluetooth') || lower.includes('bt')) {
-                                icon = 'bluetooth';
-                                type = 'bt';
-                            }
-
-                            setConnection(type, name.toUpperCase(), icon);
-                        }
-                    } catch (err) {
-                        console.log('WebHID dialog dismissed:', err);
-                    }
-                }
-            });
-        }
-    })();
-
-
-
-    // Expandable Dropdown Menu Controller (Click & Touch Support)
-    (function() {
-        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-            const btn = dropdown.querySelector('.nav-dropdown-btn');
-            if (!btn) return;
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = dropdown.classList.contains('open');
-                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-                if (!isOpen) dropdown.classList.add('open');
-            });
-        });
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        });
-    })();
-
-</script>
+    </script>
 
 
 
@@ -1153,6 +1016,11 @@
 
 
     <!-- Interactive Animation, Tilt & Scroll FX Engine -->
+    
+    
+    
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -1194,6 +1062,520 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             });
         })();
+    </script>
+
+
+    
+    
+
+    <!-- GLOBAL UI & THEME ENGINE -->
+    <script class="global-ui-script">
+    (function() {
+        // --- Theme Engine ---
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else if (theme === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.removeAttribute('data-mode');
+            }
+            localStorage.setItem('csl_theme', theme);
+            
+            // Update pills if they exist
+            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
+                p.classList.remove('active');
+                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
+                else if (p.dataset.theme === theme) p.classList.add('active');
+            });
+        }
+        
+        applyTheme(currentTheme);
+
+        // --- Customizer Modal Logic ---
+        const themeBtn = document.getElementById('theme-toggle');
+        // Prefer the original customizer if it exists, otherwise use the global one
+        const customizerModal = document.getElementById('customizer-modal') || document.getElementById('global-customizer-modal');
+        const customizerClose = document.getElementById('customizer-close') || document.getElementById('global-customizer-close');
+        const customizerSave = document.getElementById('customizer-save') || document.getElementById('global-customizer-save');
+
+        if (themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => {
+                customizerModal.classList.add('show');
+            });
+        }
+        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
+
+        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const t = e.target.dataset.theme;
+                const m = e.target.dataset.mode;
+                if (t) applyTheme(t);
+                if (m) applyTheme(m);
+            });
+        });
+
+        
+        // --- Dropdowns ---
+        
+    })();
+    </script>
+
+
+    
+    
+    
+    
+    
+    
+    <!-- 3D Wireframe Background Engine (INTERACTION MULTICOLOR) -->
+    <script class="global-3d-bg-engine">
+    (function() {
+        const canvas = document.getElementById('global-3d-bg');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let scrollY = 0;
+        
+        let mouseState = { left: false, right: false, scrollOffset: 0 };
+        let activeKeys = []; 
+
+        window.addEventListener('mousedown', (e) => {
+            if (e.button === 0) mouseState.left = true;
+            if (e.button === 2) mouseState.right = true;
+        });
+        window.addEventListener('mouseup', (e) => {
+            if (e.button === 0) mouseState.left = false;
+            if (e.button === 2) mouseState.right = false;
+        });
+        window.addEventListener('wheel', (e) => {
+            mouseState.scrollOffset += (e.deltaY > 0 ? 1 : -1) * 2;
+        }, { passive: true });
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width * window.devicePixelRatio;
+            canvas.height = height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+        }, { passive: true });
+
+        const kbLayout = [
+            { u: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2], labels: ['Esc','1','2','3','4','5','6','7','8','9','0','-','=','Bksp'] },
+            { u: [1.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.5], labels: ['Tab','Q','W','E','R','T','Y','U','I','O','P','[',']','\\'] },
+            { u: [1.75, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.25], labels: ['Caps','A','S','D','F','G','H','J','K','L',';','\'','Enter'] },
+            { u: [2.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.75], labels: ['Shift','Z','X','C','V','B','N','M',',','.','/','Shift'] },
+            { u: [1.25, 1.25, 1.25, 6.25, 1.25, 1.25, 1.25, 1.25], labels: ['Ctrl','Win','Alt','Space','Alt','Fn','Men','Ctrl'] }
+        ];
+
+        const charToKey = {};
+        let kIdx = 0;
+        kbLayout.forEach(row => {
+            row.labels.forEach(label => {
+                charToKey[label.toUpperCase()] = kIdx;
+                kIdx++;
+            });
+        });
+        charToKey[' '] = charToKey['Space'];
+        charToKey['-'] = charToKey['-'];
+
+        window.triggerCanvasKey = (char) => {
+            const up = char.toUpperCase();
+            if (charToKey[up] !== undefined) {
+                activeKeys.push({ index: charToKey[up], time: performance.now() });
+            }
+        };
+
+        function drawMouseCase(ctx) {
+            ctx.beginPath();
+            ctx.moveTo(35, -60);
+            ctx.bezierCurveTo(65, -60, 75, -20, 75, 25); 
+            ctx.bezierCurveTo(75, 80, 50, 100, 0, 100);    
+            ctx.bezierCurveTo(-50, 100, -75, 80, -75, 25); 
+            ctx.bezierCurveTo(-75, -20, -65, -60, -35, -60); 
+            ctx.closePath();
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(65, -10); ctx.bezierCurveTo(70, 10, 70, 35, 60, 65);
+            ctx.moveTo(-65, -10); ctx.bezierCurveTo(-70, 10, -70, 35, -60, 65);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.roundRect(-80, 10, 8, 15, 2);
+            ctx.roundRect(-80, 30, 8, 15, 2);
+            ctx.stroke();
+        }
+
+        function drawMouseDetails(ctx, leftPressed, rightPressed, multiGrad) {
+            ctx.save();
+            if (leftPressed) ctx.translate(0, 3);
+            ctx.beginPath();
+            ctx.moveTo(-6, -55);
+            ctx.lineTo(-32, -55);
+            ctx.bezierCurveTo(-55, -55, -65, -20, -65, 10);
+            ctx.lineTo(-6, 20);
+            ctx.closePath();
+            if (leftPressed) {
+                ctx.fillStyle = multiGrad; // MULTI COLOR FILL
+                ctx.globalAlpha = 0.9;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1.0;
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.save();
+            if (rightPressed) ctx.translate(0, 3);
+            ctx.beginPath();
+            ctx.moveTo(6, -55);
+            ctx.lineTo(32, -55);
+            ctx.bezierCurveTo(55, -55, 65, -20, 65, 10);
+            ctx.lineTo(6, 20);
+            ctx.closePath();
+            if (rightPressed) {
+                ctx.fillStyle = multiGrad; // MULTI COLOR FILL
+                ctx.globalAlpha = 0.9;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1.0;
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.roundRect(-9, -40, 18, 32, 5);
+            ctx.stroke();
+
+            ctx.beginPath();
+            for(let i=0; i<6; i++) {
+                let y = -35 + ((i * 5 + mouseState.scrollOffset) % 30);
+                if (y < -35) y += 30; 
+                if (y >= -38 && y <= -10) {
+                    ctx.moveTo(-6, y);
+                    ctx.lineTo(6, y);
+                }
+            }
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.roundRect(-5, 0, 10, 8, 2);
+            ctx.roundRect(-5, 12, 10, 8, 2);
+            ctx.stroke();
+
+            ctx.beginPath();
+            const cy = 65;
+            for (let i = 0; i < 6; i++) {
+                const angle = (i * Math.PI) / 3;
+                ctx.lineTo(Math.cos(angle)*15, cy + Math.sin(angle)*15);
+            }
+            ctx.closePath();
+            ctx.moveTo(-8, cy); ctx.lineTo(8, cy);
+            ctx.stroke();
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.globalAlpha = 0.2;
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+        }
+
+        function drawKeyboardCase(ctx) {
+            ctx.beginPath();
+            ctx.roundRect(-175, -70, 350, 140, 12);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.roundRect(-168, -63, 336, 126, 6);
+            ctx.stroke();
+        }
+
+        function drawKeyboardKeys(ctx, keysPressedNow, fillGrad) {
+            const unit = 21; 
+            const gap = 3;   
+            let startY = -56;
+            let keyIndex = 0;
+
+            ctx.font = 'bold 7px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            for(let r=0; r<kbLayout.length; r++) {
+                const row = kbLayout[r];
+                let startX = -162; 
+                
+                for(let c=0; c<row.u.length; c++) {
+                    const u = row.u[c];
+                    const label = row.labels[c];
+                    const keyWidth = (u * unit) - gap;
+                    const keyHeight = unit - gap;
+                    
+                    const isPressed = keysPressedNow.includes(keyIndex);
+                    
+                    ctx.save();
+                    if (isPressed) {
+                        ctx.translate(0, 5); 
+                        ctx.fillStyle = fillGrad; // MULTI COLOR FILL
+                        ctx.globalAlpha = 0.95; 
+                    }
+
+                    ctx.beginPath();
+                    ctx.roundRect(startX, startY, keyWidth, keyHeight, 4);
+                    if (isPressed) ctx.fill();
+                    ctx.stroke();
+
+                    ctx.globalAlpha = isPressed ? 1.0 : 0.4;
+                    ctx.beginPath();
+                    ctx.roundRect(startX + 3, startY + 2, keyWidth - 6, keyHeight - 6, 2);
+                    ctx.stroke();
+
+                    if (!isPressed) {
+                        ctx.globalAlpha = 0.8;
+                        ctx.fillStyle = ctx.strokeStyle;
+                    } else {
+                        ctx.fillStyle = '#000'; // Black text on glowing bright neon
+                    }
+                    ctx.fillText(label, startX + keyWidth/2, startY + keyHeight/2);
+
+                    ctx.restore();
+                    
+                    startX += (u * unit);
+                    keyIndex++;
+                }
+                startY += unit;
+            }
+        }
+
+        let time = 0;
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            time += 0.04; 
+            const now = performance.now();
+            
+            activeKeys = activeKeys.filter(k => now - k.time < 150);
+            const keysPressedNow = activeKeys.map(k => k.index);
+            
+            const rootStyle = getComputedStyle(document.documentElement);
+            const rawPrimary = rootStyle.getPropertyValue('--primary').trim() || '#ff5f1f';
+            let r=255, g=95, b=31;
+            if (rawPrimary.startsWith('#') && rawPrimary.length === 7) {
+                r = parseInt(rawPrimary.substring(1,3), 16);
+                g = parseInt(rawPrimary.substring(3,5), 16);
+                b = parseInt(rawPrimary.substring(5,7), 16);
+            }
+            
+            // RGB to HSL
+            let rNorm = r/255, gNorm = g/255, bNorm = b/255;
+            let cMax = Math.max(rNorm, gNorm, bNorm), cMin = Math.min(rNorm, gNorm, bNorm);
+            let d = cMax - cMin;
+            let h = 0;
+            if (d !== 0) {
+                if (cMax === rNorm) h = ((gNorm - bNorm) / d) % 6;
+                else if (cMax === gNorm) h = (bNorm - rNorm) / d + 2;
+                else h = (rNorm - gNorm) / d + 4;
+            }
+            h = Math.round(h * 60);
+            if (h < 0) h += 360;
+            let l = (cMax + cMin) / 2;
+            let s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1));
+            s = Math.round(s * 100);
+            l = Math.round(l * 100);
+
+            const isLight = document.documentElement.getAttribute('data-mode') === 'light';
+            const baseAlpha = isLight ? 0.6 : 1.0; 
+            
+            // Single color for borders
+            const colorTop = `rgba(${r},${g},${b}, ${baseAlpha})`;
+            
+            // Multi-Color Gradient exclusively for HIGHLIGHTS & INTERACTIONS
+            const activeGrad = ctx.createLinearGradient(-150, -150, 150, 150);
+            activeGrad.addColorStop(0, `hsla(${(h + 45) % 360}, 100%, 65%, 1.0)`);
+            activeGrad.addColorStop(0.5, `hsla(${h}, 100%, 65%, 1.0)`);
+            activeGrad.addColorStop(1, `hsla(${(h - 45 + 360) % 360}, 100%, 65%, 1.0)`);
+            
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            
+            const mX = width - 120; 
+            const mY = height * 0.5 - scrollY * 0.1 + Math.cos(time*0.2)*10;
+            const mRot = 0.1; 
+            
+            const kX = width * 0.25;
+            const kY = height * 0.65 - scrollY * 0.15 + Math.cos(time*0.4)*15;
+            const kRot = -0.15;
+            
+            // --- RENDER KEYBOARD ---
+            ctx.save();
+            ctx.translate(kX, kY);
+            ctx.scale(1.5, 1.5);
+            ctx.transform(1, 0.4, -0.6, 1, 0, 0); 
+            ctx.rotate(kRot);
+            
+            ctx.lineWidth = 1.5;
+            
+            // Base Color Borders
+            for(let layer = 0; layer < 3; layer++) {
+                ctx.save();
+                ctx.translate(0, (2 - layer) * 8); 
+                
+                if (layer === 2) {
+                    ctx.strokeStyle = colorTop;
+                    ctx.shadowColor = colorTop;
+                    ctx.shadowBlur = 15;
+                    drawKeyboardCase(ctx);
+                    drawKeyboardKeys(ctx, keysPressedNow, activeGrad); // Pass grad just for fill
+                } else if (layer === 1) {
+                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.4})`; 
+                    drawKeyboardCase(ctx);
+                } else {
+                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.15})`; 
+                    drawKeyboardCase(ctx);
+                }
+                ctx.restore();
+            }
+            ctx.restore();
+
+            // --- DATA CABLE (Twiggle Loop & Double Stroke) ---
+            ctx.save();
+            
+            const kbWorldX = kX + 80;
+            const kbWorldY = kY - 90;
+            
+            const p0 = {x: kbWorldX, y: kbWorldY};
+            const loopCenter = {x: width * 0.5, y: height * 0.35 + Math.cos(time)*20};
+            const pEnd = {x: width * 0.6, y: height * 0.45}; 
+            
+            function drawCablePath() {
+                ctx.moveTo(p0.x, p0.y);
+                ctx.bezierCurveTo(p0.x + 100, p0.y - 100, loopCenter.x - 100, loopCenter.y - 100, loopCenter.x, loopCenter.y - 40);
+                ctx.bezierCurveTo(loopCenter.x + 100, loopCenter.y - 40, loopCenter.x + 100, loopCenter.y + 40, loopCenter.x, loopCenter.y + 40);
+                ctx.bezierCurveTo(loopCenter.x - 100, loopCenter.y + 40, loopCenter.x - 100, loopCenter.y - 40, loopCenter.x, loopCenter.y);
+                ctx.bezierCurveTo(loopCenter.x + 50, loopCenter.y + 40, pEnd.x - 50, pEnd.y - 50, pEnd.x, pEnd.y);
+            }
+
+            ctx.beginPath();
+            drawCablePath();
+            ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.25})`; // Base color jacket
+            ctx.lineWidth = 10;
+            ctx.stroke();
+
+            ctx.beginPath();
+            drawCablePath();
+            ctx.strokeStyle = activeGrad; // Multi-color active data core!
+            ctx.lineWidth = 3;
+            ctx.setLineDash([8, 12]);
+            ctx.lineDashOffset = -time * 40; 
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            ctx.translate(pEnd.x, pEnd.y);
+            ctx.rotate(0.5);
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(-20, -12);
+            ctx.lineTo(-12, 0);
+            ctx.lineTo(-20, 12);
+            ctx.closePath();
+            ctx.fillStyle = activeGrad; // Multi-color arrow
+            ctx.shadowColor = colorTop;
+            ctx.shadowBlur = 20;
+            ctx.fill();
+            ctx.restore();
+
+            // --- RENDER MOUSE ---
+            ctx.save();
+            ctx.translate(mX, mY);
+            ctx.scale(1.6, 1.6);
+            ctx.transform(1, 0.4, -0.6, 1, 0, 0); 
+            ctx.rotate(mRot);
+            
+            ctx.lineWidth = 1.5;
+            
+            for(let layer = 0; layer < 3; layer++) {
+                ctx.save();
+                ctx.translate(0, (2 - layer) * 8);
+                
+                if (layer === 2) {
+                    ctx.strokeStyle = colorTop;
+                    ctx.shadowColor = colorTop;
+                    ctx.shadowBlur = 25;
+                    drawMouseCase(ctx);
+                    drawMouseDetails(ctx, mouseState.left, mouseState.right, activeGrad);
+                } else if (layer === 1) {
+                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.4})`;
+                    drawMouseCase(ctx);
+                } else {
+                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.15})`;
+                    drawMouseCase(ctx);
+                }
+                ctx.restore();
+            }
+            
+            ctx.restore();
+
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    })();
+    </script>
+
+
+
+
+
+
+
+
+    <!-- Typing Animation Engine -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const line1 = "ZERO-LATENCY";
+        const line2 = "ENGINEERING ENGINE";
+        const el1 = document.getElementById("type-line-1");
+        const el2 = document.getElementById("type-line-2");
+        let i1 = 0, i2 = 0;
+        
+        function typeWriter() {
+            if (i1 < line1.length) {
+                const char = line1.charAt(i1);
+                el1.textContent += char;
+                if(window.triggerCanvasKey) window.triggerCanvasKey(char);
+                i1++;
+                setTimeout(typeWriter, 80);
+            } else if (i2 < line2.length) {
+                if (i2 === 0 && !window.pausedTyping) {
+                    window.pausedTyping = true;
+                    setTimeout(typeWriter, 300);
+                    return;
+                }
+                const char = line2.charAt(i2);
+                el2.textContent += char;
+                if(window.triggerCanvasKey) window.triggerCanvasKey(char);
+                i2++;
+                setTimeout(typeWriter, 80);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY === 0 && (i1 === line1.length && i2 === line2.length)) {
+                el1.textContent = "";
+                el2.textContent = "";
+                i1 = 0; i2 = 0; window.pausedTyping = false;
+                setTimeout(typeWriter, 300);
+            }
+        });
+    });
     </script>
 
 </body>

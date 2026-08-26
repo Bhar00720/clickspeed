@@ -372,18 +372,13 @@
             </nav>
         </div>
         <div class="topnav-right">
-            <!-- Hardware Connection HUD Detector -->
-            <div class="connection-hud conn-type-wired" id="connection-hud" title="Click to inspect exact device via WebHID API">
-                <span class="material-symbols-outlined conn-icon" id="conn-icon">cable</span>
-                <span id="conn-label">USB 2.0/3.0 HID</span>
-                <span class="conn-dot"></span>
-            </div>
-            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--on-surface); border-radius: 6px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
-                <span class="material-symbols-outlined" style="font-size: 18px;">palette</span>
+
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
+                <span class="material-symbols-outlined">palette</span>
             </button>
             <div class="status-pill">
-                <span class="dot"></span>
-                <span>CALIBRATED: 0.00ms DELAY</span>
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
             </div>
         </div>
     </header>
@@ -1511,28 +1506,7 @@
         }, 100);
     })();
     
-        // Theme Engine & Persistence
-        const themeBtn = document.getElementById('theme-toggle');
-        const themes = ['orange', 'cyan', 'emerald', 'purple'];
-        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
-
-        function applyTheme(theme) {
-            currentTheme = theme;
-            if (theme === 'orange') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-            localStorage.setItem('csl_theme', theme);
-        }
-
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
-                applyTheme(themes[nextIdx]);
-            });
-        }
-        applyTheme(currentTheme);
+        
 
 
     // Comprehensive Customization & Switch Audio Engine
@@ -1712,137 +1686,7 @@
 
 
 
-    // Hardware Connection & Interface Detection Engine (WebHID + Heuristic Profiling)
-    (function() {
-        const connHud = document.getElementById('connection-hud');
-        const connIcon = document.getElementById('conn-icon');
-        const connLabel = document.getElementById('conn-label');
-
-        let currentConnType = 'wired';
-        let deviceName = '';
-
-        function setConnection(type, label, icon) {
-            if (currentConnType === type && connLabel.textContent === label) return;
-            currentConnType = type;
-            
-            connHud.className = 'connection-hud conn-type-' + type + ' animate-change';
-            connIcon.textContent = icon;
-            connLabel.textContent = label;
-            
-            setTimeout(() => {
-                connHud.classList.remove('animate-change');
-            }, 500);
-        }
-
-        // 1. Pointer Heuristic Profiling (Touchpad vs Mouse vs Bluetooth vs RF Wireless)
-        let lastMoveTimes = [];
-        let fractionalCoords = 0;
-        let totalMoves = 0;
-
-        window.addEventListener('pointermove', (e) => {
-            if (e.pointerType === 'touch') {
-                setConnection('touch', 'TOUCH DIGITIZER', 'touch_app');
-                return;
-            }
-
-            totalMoves++;
-            // Precision trackpads often emit fractional coordinates (e.g. 124.35px)
-            if (e.clientX % 1 !== 0 || e.clientY % 1 !== 0) {
-                fractionalCoords++;
-            }
-
-            const now = performance.now();
-            lastMoveTimes.push(now);
-            if (lastMoveTimes.length > 50) lastMoveTimes.shift();
-
-            if (totalMoves > 30) {
-                // Trackpad check
-                if (fractionalCoords / totalMoves > 0.4) {
-                    setConnection('laptop', 'PRECISION TRACKPAD', 'laptop_mac');
-                    return;
-                }
-
-                // Frequency calculation
-                if (lastMoveTimes.length >= 20) {
-                    const intervals = [];
-                    for(let i=1; i<lastMoveTimes.length; i++) intervals.push(lastMoveTimes[i] - lastMoveTimes[i-1]);
-                    const avg = intervals.reduce((a,b)=>a+b,0)/intervals.length;
-                    const hz = Math.round(1000 / (avg || 1));
-
-                    if (hz > 1100) {
-                        setConnection('wired', `HIGH-SPEED USB (${hz}Hz)`, 'cable');
-                    } else if (hz >= 450 && hz <= 1050) {
-                        setConnection('24g', `2.4 GHz RF / USB (${hz}Hz)`, 'wifi_tethering');
-                    } else if (hz >= 100 && hz <= 150) {
-                        setConnection('bt', `BLUETOOTH BLE (${hz}Hz)`, 'bluetooth');
-                    } else if (hz < 100) {
-                        setConnection('laptop', 'INTEGRATED / STANDARD', 'laptop_mac');
-                    }
-                }
-            }
-        }, { passive: true });
-
-        // 2. Keyboard Heuristic Profiling
-        window.addEventListener('keydown', (e) => {
-            // Check for laptop-specific scan codes or integrated ACPI markers
-            if (e.key === 'Fn' || e.code === 'BrightnessUp' || e.code === 'BrightnessDown') {
-                setConnection('laptop', 'INTEGRATED LAPTOP KB', 'laptop_mac');
-            }
-        }, { passive: true });
-
-        // 3. Direct WebHID Hardware Inspection on Click
-        if (connHud) {
-            connHud.addEventListener('click', async () => {
-                if (navigator.hid && navigator.hid.requestDevice) {
-                    try {
-                        const devices = await navigator.hid.requestDevice({ filters: [] });
-                        if (devices && devices.length > 0) {
-                            const dev = devices[0];
-                            const name = dev.productName || 'USB HID DEVICE';
-                            let icon = 'cable';
-                            let type = 'wired';
-                            const lower = name.toLowerCase();
-
-                            if (lower.includes('wireless') || lower.includes('receiver') || lower.includes('dongle') || lower.includes('lightspeed')) {
-                                icon = 'wifi_tethering';
-                                type = '24g';
-                            } else if (lower.includes('bluetooth') || lower.includes('bt')) {
-                                icon = 'bluetooth';
-                                type = 'bt';
-                            }
-
-                            setConnection(type, name.toUpperCase(), icon);
-                        }
-                    } catch (err) {
-                        console.log('WebHID dialog dismissed:', err);
-                    }
-                }
-            });
-        }
-    })();
-
-
-
-    // Expandable Dropdown Menu Controller (Click & Touch Support)
-    (function() {
-        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-            const btn = dropdown.querySelector('.nav-dropdown-btn');
-            if (!btn) return;
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = dropdown.classList.contains('open');
-                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-                if (!isOpen) dropdown.classList.add('open');
-            });
-        });
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        });
-    })();
-
-</script>
+    </script>
 
     <!-- footer-tools-dropup-script -->
     <script>
@@ -1945,6 +1789,69 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             });
         })();
+    </script>
+
+
+    
+    
+
+    <!-- GLOBAL UI & THEME ENGINE -->
+    <script class="global-ui-script">
+    (function() {
+        // --- Theme Engine ---
+        let currentTheme = localStorage.getItem('csl_theme') || 'orange';
+        
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else if (theme === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.removeAttribute('data-mode');
+            }
+            localStorage.setItem('csl_theme', theme);
+            
+            // Update pills if they exist
+            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
+                p.classList.remove('active');
+                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
+                else if (p.dataset.theme === theme) p.classList.add('active');
+            });
+        }
+        
+        applyTheme(currentTheme);
+
+        // --- Customizer Modal Logic ---
+        const themeBtn = document.getElementById('theme-toggle');
+        // Prefer the original customizer if it exists, otherwise use the global one
+        const customizerModal = document.getElementById('customizer-modal') || document.getElementById('global-customizer-modal');
+        const customizerClose = document.getElementById('customizer-close') || document.getElementById('global-customizer-close');
+        const customizerSave = document.getElementById('customizer-save') || document.getElementById('global-customizer-save');
+
+        if (themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => {
+                customizerModal.classList.add('show');
+            });
+        }
+        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
+
+        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const t = e.target.dataset.theme;
+                const m = e.target.dataset.mode;
+                if (t) applyTheme(t);
+                if (m) applyTheme(m);
+            });
+        });
+
+        
+        // --- Dropdowns ---
+        
+    })();
     </script>
 
 </body>
