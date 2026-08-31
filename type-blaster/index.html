@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Blaster — Free Typing Speed Game Online | Click Speed Lab</title>
+    <meta name="description" content="Destroy enemy data packets by typing words in this free online arcade typing game. Improve your typing speed and accuracy through 10+ waves of increasingly difficult challenges.">
+    <meta name="keywords" content="typing game, typing speed game, typing practice game, type to destroy, typing test game, typing defense game, keyboard game">
+    
+    <link rel="canonical" href="https://clickspeedlab.com/type-blaster/">
+    
+    <meta property="og:title" content="Type Blaster — Free Typing Speed Game Online | Click Speed Lab">
+    <meta property="og:description" content="Destroy enemy data packets by typing words in this free online arcade typing game. Improve your typing speed and accuracy through 10+ waves of increasingly difficult challenges.">
+    <meta property="og:url" content="https://clickspeedlab.com/type-blaster/">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Type Blaster — Free Typing Speed Game Online">
+    <meta name="twitter:description" content="Destroy enemy data packets by typing words in this free online arcade typing game. Improve your typing speed and accuracy.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Monetag ads scripts -->
+    <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Type Blaster Game",
+      "url": "https://clickspeedlab.com/type-blaster/",
+      "description": "An arcade typing defense game where you destroy incoming data packets by typing out words on them.",
+      "applicationCategory": "GameApplication",
+      "genre": "Typing Game",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Type Blaster improve typing speed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Type Blaster forces you to type quickly under pressure. The descending data packets train both your reaction time and muscle memory, resulting in a higher overall WPM (Words Per Minute)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good WPM score for a beginner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For beginners, a score between 30 to 40 WPM is considered average. Consistent practice with typing games can quickly boost this to 50-60 WPM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many lives do I get in the game?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You start with 3 lives. If a data packet reaches the bottom defense line, you lose one life. The game ends when you lose all your lives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do capitalization and punctuation matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the base waves of Type Blaster, all text is lowercase letters without punctuation. In boss waves, you may need to type spaces, but the letters remain standard alphabet characters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play this on a mobile device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Type Blaster requires a physical keyboard to play effectively and captures direct keystrokes, it is best experienced on a desktop or laptop device."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://clickspeedlab.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Type Blaster",
+        "item": "https://clickspeedlab.com/type-blaster/"
+      }]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Click Speed Lab",
+      "url": "https://clickspeedlab.com/",
+      "logo": "https://clickspeedlab.com/favicon.svg"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://clickspeedlab.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://clickspeedlab.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <style>
+        .page-header {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .page-header .icon {
+            font-size: 3rem;
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+        }
+        .page-header h1 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -1px;
+            color: var(--text);
+        }
+        .page-header p {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .metrics-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+        }
+        [data-theme="orange"] .metrics-bar, [data-theme="cyan"] .metrics-bar, [data-theme="emerald"] .metrics-bar, [data-theme="purple"] .metrics-bar {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+        .metric-value {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        .metric-value.highlight {
+            color: #a78bfa;
+        }
+        
+        .lives-container {
+            display: flex;
+            gap: 6px;
+        }
+        .life-heart {
+            color: #ff4444;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .life-heart.broken {
+            color: var(--border);
+            opacity: 0.3;
+        }
+
+        .diff-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: rgba(0,0,0,0.05);
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        [data-theme="orange"] .diff-btn, [data-theme="cyan"] .diff-btn, [data-theme="emerald"] .diff-btn, [data-theme="purple"] .diff-btn {
+            background: rgba(255,255,255,0.05);
+        }
+        .diff-btn:hover {
+            border-color: #a78bfa;
+            color: #a78bfa;
+        }
+        .diff-btn.active {
+            background: rgba(167,139,250,0.15);
+            border-color: #a78bfa;
+            color: #a78bfa;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            width: 100%;
+            height: max(500px, 60vh);
+            background: #0a0a10;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay-ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(10, 10, 16, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 10;
+        }
+
+        .overlay-ui.hidden {
+            display: none;
+        }
+
+        .wave-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 4rem;
+            color: #a78bfa;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+            z-index: 5;
+        }
+        .wave-text.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .input-display {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .target-word {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+        
+        .typed-char {
+            color: #00ffa3;
+            text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
+        }
+        .untyped-char {
+            color: var(--text-muted);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .history-section, .info-section {
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .history-table th, .history-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .history-table th {
+            background: rgba(0,0,0,0.02);
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        [data-theme="orange"] .history-table th, [data-theme="cyan"] .history-table th, [data-theme="emerald"] .history-table th, [data-theme="purple"] .history-table th {
+            background: rgba(255,255,255,0.02);
+        }
+        .history-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .info-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+        }
+        .info-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .card-badge {
+            position: absolute;
+            top: -12px;
+            left: 1.5rem;
+            background: #a78bfa;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* Result Modal Styles */
+        .result-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .result-stat-box {
+            background: rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        [data-theme="orange"] .result-stat-box, [data-theme="cyan"] .result-stat-box, [data-theme="emerald"] .result-stat-box, [data-theme="purple"] .result-stat-box {
+            background: rgba(255,255,255,0.03);
+        }
+        .rank-display {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(167, 139, 250, 0.05);
+        }
+        .rank-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #a78bfa;
+            letter-spacing: 2px;
+        }
+
+        /* Graph container */
+        .chart-container {
+            width: 100%;
+            height: 150px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div class="glow-orb-orange" style="background: radial-gradient(circle, rgba(167,139,250,0.15) 0%, transparent 70%);"></div>
+    <div class="glow-orb-blue" style="background: radial-gradient(circle, rgba(0,229,255,0.1) 0%, transparent 70%);"></div>
+    
+    <header class="stitch-topnav">
+        <div class="topnav-left">
+            <a href="../" class="stitch-brand">CLICK SPEED <span class="sub">LAB</span></a>
+            <nav class="stitch-navlinks">
+                <a href="../" class="stitch-navlink"><span class="material-symbols-outlined">dashboard</span><span>OVERVIEW</span></a>
+                <!-- Mouse Tests Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn" type="button">
+                        <span class="material-symbols-outlined">mouse</span><span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../cps-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span><div class="item-content"><div class="item-title">Standard CPS Test</div><div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div></div></a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span><div class="item-content"><div class="item-title">Jitter Click Test</div><div class="item-desc">Arm muscle tremor technique & safety guide</div></div></a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span><div class="item-content"><div class="item-title">Butterfly Click Test</div><div class="item-desc">Two-finger alternating double-click benchmark</div></div></a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span><div class="item-content"><div class="item-title">Mouse Polling Rate (Hz)</div><div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div></div></a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span><div class="item-content"><div class="item-title">Scroll Speed & Encoder</div><div class="item-desc">Notches/sec & reverse-scroll fault detector</div></div></a>
+                    </div>
+                </div>
+                <!-- Keyboard Tests Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn" type="button">
+                        <span class="material-symbols-outlined">keyboard</span><span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span><div class="item-content"><div class="item-title">Keyboard Matrix & NKRO</div><div class="item-desc">Simultaneous rollover & ghosting check</div></div></a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span><div class="item-content"><div class="item-title">Spacebar Speed Test</div><div class="item-desc">Spacebar counter & TikTok challenge benchmark</div></div></a>
+                    </div>
+                </div>
+                <!-- Games Dropdown (NEW) -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn active" type="button">
+                        <span class="material-symbols-outlined">sports_esports</span><span>GAMES</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../aim-trainer/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span><div class="item-content"><div class="item-title">Aim Trainer</div><div class="item-desc">Flick, tracking & precision aim drills</div></div></a>
+                        <a href="../mouse-precision-game/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span><div class="item-content"><div class="item-title">Mouse Precision Game</div><div class="item-desc">Steady-hand maze navigation challenge</div></div></a>
+                        <a href="../wasd-warrior/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span><div class="item-content"><div class="item-title">WASD Warrior</div><div class="item-desc">Left-hand gaming key reaction trainer</div></div></a>
+                        <a href="../type-blaster/" class="nav-dropdown-item active"><span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span><div class="item-content"><div class="item-title">Type Blaster</div><div class="item-desc">Arcade typing defense game</div></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="topnav-right">
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
+                <span class="material-symbols-outlined">palette</span>
+            </button>
+            <div class="status-pill"><span class="status-dot"></span>SYSTEM ONLINE</div>
+        </div>
+    </header>
+
+    <main class="stitch-main">
+        <div class="page-header" data-aos="fade-down">
+            <span class="material-symbols-outlined icon">rocket_launch</span>
+            <h1>TYPE BLASTER</h1>
+            <p>ARCADE TYPING DEFENSE — DESTROY DATA PACKETS WITH YOUR KEYBOARD</p>
+        </div>
+
+        <div class="game-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div class="difficulty-pills" id="difficulty-selector" style="display: flex; gap: 8px;">
+                    <button data-diff="easy" class="diff-btn">EASY</button>
+                    <button data-diff="normal" class="diff-btn active">NORMAL</button>
+                    <button data-diff="hard" class="diff-btn">HARD</button>
+                    <button data-diff="insane" class="diff-btn">INSANE</button>
+                </div>
+                <div class="action-buttons" style="display: flex; gap: 8px;">
+                    <button id="btn-start" class="kinetic-btn-orange" style="background:#a78bfa; color:#fff; border-color:#a78bfa; padding: 8px 16px; font-size: 0.8rem;">START GAME</button>
+                    <button id="btn-reset" class="kinetic-btn-outline" style="border-color: #ff4444; color: #ff4444; padding: 8px 16px; font-size: 0.8rem;">ABORT MISSION</button>
+                </div>
+            </div>
+
+            <div class="metrics-bar">
+                <div class="metric">
+                    <span class="metric-label">WAVE</span>
+                    <span class="metric-value highlight" id="ui-wave">1</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">SCORE</span>
+                    <span class="metric-value" id="ui-score">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">WPM</span>
+                    <span class="metric-value" id="ui-wpm">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">COMBO</span>
+                    <span class="metric-value" id="ui-combo" style="color: #00ffa3;">x1</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">LIVES</span>
+                    <div class="lives-container" id="ui-lives">
+                        <span class="material-symbols-outlined life-heart">favorite</span>
+                        <span class="material-symbols-outlined life-heart">favorite</span>
+                        <span class="material-symbols-outlined life-heart">favorite</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="game-canvas"></canvas>
+                <div id="wave-banner" class="wave-text">WAVE 1 INCOMING</div>
+                <div id="start-overlay" class="overlay-ui">
+                    <h2 style="font-family:'Sora',sans-serif; color:#fff; font-size: 2rem; margin-bottom:1rem;">TYPE BLASTER</h2>
+                    <p style="font-family:'JetBrains Mono',monospace; color:#aaa; margin-bottom: 1rem; text-align:center; max-width:400px; line-height: 1.5;">
+                        Type the words on descending packets to destroy them before they reach the defense line. Press any key to start.
+                    </p>
+                    <div style="font-family:'JetBrains Mono',monospace; color:#00ffa3; font-size: 0.85rem; padding: 10px; border: 1px solid rgba(0,255,163,0.3); border-radius: 8px; background: rgba(0,255,163,0.05); text-align: center;">
+                        <span style="display:block; margin-bottom: 4px;">TAB = switch target</span>
+                        <span>BACKSPACE = correct typos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-display" id="input-display">
+                <div class="metric-label">CURRENT TARGET (OR PRESS TAB)</div>
+                <div class="target-word" id="ui-target-word">
+                    <span class="untyped-char">WAITING...</span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="wpm-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="history-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--text);">
+                <span class="material-symbols-outlined" style="vertical-align: middle; color: #a78bfa;">history</span>
+                Mission Log
+            </h2>
+            <div style="overflow-x: auto;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>WAVE REACHED</th>
+                            <th>SCORE</th>
+                            <th>WPM</th>
+                            <th>ACCURACY</th>
+                            <th>RANK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body">
+                        <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No logs found. Play a round!</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="info-section" data-aos="fade-up" data-aos-delay="300">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text);">
+                <span class="material-symbols-outlined" style="vertical-align: middle; color: #a78bfa;">school</span>
+                Typing Speed Intel
+            </h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="card-badge">01</div>
+                    <h3><span class="material-symbols-outlined">speed</span> Reaction & Speed</h3>
+                    <p>Type Blaster forces you to type quickly under pressure. The descending data packets train both your reaction time and muscle memory, resulting in a higher overall WPM (Words Per Minute).</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge">02</div>
+                    <h3><span class="material-symbols-outlined">done_all</span> Accuracy Matters</h3>
+                    <p>Hitting the right keys the first time is essential. Making a mistake means you lose time fixing it while packets continue to descend. Aim for high accuracy to maintain your combo multiplier.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge">03</div>
+                    <h3><span class="material-symbols-outlined">sports_score</span> WPM Benchmarks</h3>
+                    <p>For beginners, 30-40 WPM is average. Consistent practice can boost this to 50-60 WPM. Professional typists and gamers often hit 90-120+ WPM. Use this tool to benchmark your progress.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge">04</div>
+                    <h3><span class="material-symbols-outlined">keyboard</span> Touch Typing</h3>
+                    <p>To reach higher waves, learn to touch type—typing without looking at the keyboard. Feel the home row (ASDF JKL;) and train your fingers to reach the keys instinctively.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Customizer Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 420px;">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">
+                <span class="material-symbols-outlined" style="vertical-align: middle; color: var(--primary);">palette</span>
+                Lab Theme
+            </h2>
+            <div id="pref-theme-pills" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px;">
+                <button data-theme="orange" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,95,31,0.4); background: rgba(255,95,31,0.1); color: #ff5f1f; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟠 OBSIDIAN</button>
+                <button data-theme="cyan" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,229,255,0.4); background: rgba(0,229,255,0.1); color: #00e5ff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🔵 CYBER</button>
+                <button data-theme="emerald" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,255,163,0.4); background: rgba(0,255,163,0.1); color: #00ffa3; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟢 EMERALD</button>
+                <button data-theme="purple" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(167,139,250,0.4); background: rgba(167,139,250,0.1); color: #a78bfa; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟣 NEON</button>
+                <button data-mode="light" class="active" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); color: #ffffff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">⚪ LIGHT</button>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button id="customizer-save" class="kinetic-btn-orange" style="flex: 1; padding: 10px;">SAVE</button>
+                <button id="customizer-close" class="kinetic-btn-outline" style="flex: 1; padding: 10px;">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="custom-modal-backdrop" id="result-modal">
+        <div class="custom-modal-card" style="max-width: 480px;">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; margin-bottom: 8px; text-align: center; color: var(--text);">GAME OVER</h2>
+            <p style="text-align: center; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); margin-bottom: 20px;">Defense line breached.</p>
+            
+            <div class="rank-display">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">ACHIEVED RANK</div>
+                <div class="rank-title" id="res-rank">ROOKIE</div>
+            </div>
+
+            <div class="result-stats-grid">
+                <div class="result-stat-box">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">WAVE REACHED</div>
+                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-wave">1</div>
+                </div>
+                <div class="result-stat-box">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">SCORE</div>
+                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-score">0</div>
+                </div>
+                <div class="result-stat-box">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">FINAL WPM</div>
+                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-wpm">0</div>
+                </div>
+                <div class="result-stat-box">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">ACCURACY</div>
+                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-acc">100%</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-top: 1rem;">
+                <button id="btn-play-again" class="kinetic-btn-orange" style="flex: 2; background: #a78bfa; border-color: #a78bfa;">PLAY AGAIN</button>
+                <button id="btn-share" class="kinetic-btn-outline" style="flex: 1;">SHARE</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="stitch-footer">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888;">CLICK SPEED LAB v3.1</span>
+            <span style="color: #333;">|</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #666;">ZERO-LATENCY ENGINE</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #555;">© 2025 Click Speed Lab. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    
+    <script class="global-ui-script">
+    (function() {
+        document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.closest('.nav-dropdown');
+                const isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                if (!isOpen) dropdown.classList.add('open');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        });
+
+        let currentTheme = localStorage.getItem('csl_theme') || 'light';
+        function applyTheme(theme) {
+            currentTheme = theme;
+            if (theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+                document.documentElement.removeAttribute('data-mode');
+            } else if (theme === 'light') {
+                document.documentElement.setAttribute('data-mode', 'light');
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.removeAttribute('data-mode');
+            }
+            localStorage.setItem('csl_theme', theme);
+            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
+                p.classList.remove('active');
+                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
+                else if (p.dataset.theme === theme) p.classList.add('active');
+            });
+        }
+        applyTheme(currentTheme);
+
+        const themeBtn = document.getElementById('theme-toggle');
+        const customizerModal = document.getElementById('customizer-modal');
+        const customizerClose = document.getElementById('customizer-close');
+        const customizerSave = document.getElementById('customizer-save');
+        if (themeBtn && customizerModal) {
+            themeBtn.addEventListener('click', () => customizerModal.classList.add('show'));
+        }
+        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
+        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
+        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const t = e.target.dataset.theme;
+                const m = e.target.dataset.mode;
+                if (t) applyTheme(t);
+                if (m) applyTheme(m);
+            });
+        });
+    })();
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof AOS !== 'undefined') AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 40 });
+        
+        // --- Game Setup ---
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const wpmCanvas = document.getElementById('wpm-chart');
+        const wpmCtx = wpmCanvas.getContext('2d');
+        
+        function resize() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const wpmRect = wpmCanvas.parentElement.getBoundingClientRect();
+            
+            // Handle HiDPI
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            
+            wpmCanvas.width = wpmRect.width * dpr;
+            wpmCanvas.height = wpmRect.height * dpr;
+            wpmCtx.scale(dpr, dpr);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Audio Context
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        
+        function playSound(type) {
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            const now = audioCtx.currentTime;
+            
+            if (type === 'tick') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1000, now);
+                gainNode.gain.setValueAtTime(0.1, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.02);
+                osc.start(now);
+                osc.stop(now + 0.02);
+            } else if (type === 'pow') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(500, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.05);
+                gainNode.gain.setValueAtTime(0.2, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                osc.start(now);
+                osc.stop(now + 0.05);
+            } else if (type === 'alarm') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(120, now);
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.linearRampToValueAtTime(0, now + 0.2);
+                osc.start(now);
+                osc.stop(now + 0.2);
+            }
+        }
+
+        // --- Data ---
+        const wordLists = {
+            easy: ['code','fast','type','hack','data','fire','send','byte','loop','port','ping','root','zero','null','void','load','save','read','edit','move'],
+            normal: ['quick','laser','shield','turbo','boost','crash','debug','pixel','queue','stack','merge','clone','cache','proxy','spawn','parse'],
+            hard: ['quantum','execute','decrypt','compile','protocol','firewall','overflow','terminal','database','keyboard','function','variable'],
+            insane: ['algorithm','interface','processor','rendering','framework','bandwidth','benchmark','malicious','encryption','vulnerability','architecture'],
+            boss: ['hack the system','sudo make coffee','git push force','stack overflow','kernel panic']
+        };
+
+        const diffConfig = {
+            easy: { speed: 15, list: 'easy', count: 1, lives: 5 },
+            normal: { speed: 25, list: 'normal', count: 2, lives: 3 },
+            hard: { speed: 35, list: 'hard', count: 3, lives: 2 },
+            insane: { speed: 50, list: 'insane', count: 4, lives: 1 }
+        };
+        let currentDifficulty = 'normal';
+
+        // --- State ---
+        let state = {
+            playing: false,
+            wave: 1,
+            score: 0,
+            lives: 3,
+            combo: 1,
+            packets: [],
+            particles: [],
+            popups: [],
+            stars: [],
+            targetIndex: -1,
+            keystrokes: 0,
+            correctKeystrokes: 0,
+            startTime: 0,
+            wpmHistory: [],
+            waveStartTime: 0,
+            lastFrameTime: performance.now(),
+            shake: 0,
+            animId: null
+        };
+
+        // Init Stars
+        for(let i=0; i<100; i++){
+            state.stars.push({
+                x: Math.random() * 1000,
+                y: Math.random() * 450,
+                s: Math.random() * 1.5 + 0.5,
+                v: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function getWaveConfig(wave) {
+            const base = diffConfig[currentDifficulty];
+            if (wave % 5 === 0) return { count: base.count, list: 'boss', speed: base.speed + (wave * 2) };
+            return { count: base.count, list: base.list, speed: base.speed + (wave * 2) };
+        }
+
+        function spawnWave() {
+            state.packets = [];
+            state.targetIndex = -1;
+            const config = getWaveConfig(state.wave);
+            
+            const w = canvas.width / (window.devicePixelRatio||1);
+            const segment = w / config.count;
+
+            for (let i = 0; i < config.count; i++) {
+                const words = wordLists[config.list];
+                const word = words[Math.floor(Math.random() * words.length)];
+                
+                let x = (segment * i) + (segment / 2) + (Math.random() * 40 - 20);
+                x = Math.max(80, Math.min(w - 80, x));
+                
+                state.packets.push({
+                    word: word,
+                    typed: '',
+                    x: x,
+                    y: -50 - (Math.random() * 50),
+                    speed: config.speed + (Math.random() * 10),
+                    scale: 0,
+                    spawnTime: performance.now()
+                });
+            }
+            updateTargetUI();
+        }
+
+        function determineTargetIndex() {
+            if (state.packets.length === 0) return -1;
+            // Target the one lowest on screen that has no typing, or keep current if it has typing
+            if (state.targetIndex !== -1 && state.packets[state.targetIndex] && state.packets[state.targetIndex].typed.length > 0) {
+                return state.targetIndex;
+            }
+            
+            let maxObj = -1;
+            let maxY = -999;
+            for (let i=0; i<state.packets.length; i++) {
+                if (state.packets[i].y > maxY) {
+                    maxY = state.packets[i].y;
+                    maxObj = i;
+                }
+            }
+            return maxObj;
+        }
+
+        function updateTargetUI() {
+            const uiWord = document.getElementById('ui-target-word');
+            if (state.targetIndex === -1 || !state.packets[state.targetIndex]) {
+                uiWord.innerHTML = '<span class="untyped-char">WAITING...</span>';
+                return;
+            }
+            
+            const p = state.packets[state.targetIndex];
+            let html = '';
+            for(let i=0; i<p.word.length; i++) {
+                if (i < p.typed.length) {
+                    html += `<span class="typed-char">${p.word[i]}</span>`;
+                } else {
+                    html += `<span class="untyped-char">${p.word[i]}</span>`;
+                }
+            }
+            uiWord.innerHTML = html;
+        }
+
+        function createExplosion(x, y) {
+            for(let i=0; i<20; i++){
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 100 + 50;
+                state.particles.push({
+                    x: x, y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: 1,
+                    color: '#a78bfa'
+                });
+            }
+        }
+
+        function createPopup(x, y, text, color='#fff') {
+            state.popups.push({
+                x, y, text, color, life: 1
+            });
+        }
+
+        function triggerMiss() {
+            playSound('alarm');
+            state.lives--;
+            state.combo = 1;
+            state.shake = 10;
+            updateUI();
+            
+            const hearts = document.querySelectorAll('.life-heart');
+            if (hearts[state.lives]) {
+                hearts[state.lives].classList.add('broken');
+            }
+
+            if (state.lives <= 0) {
+                gameOver();
+            }
+        }
+
+        function getRank(wave) {
+            if(wave <= 2) return 'TURTLE';
+            if(wave <= 4) return 'ROOKIE';
+            if(wave <= 6) return 'GAMER';
+            if(wave <= 8) return 'PRO';
+            if(wave <= 10) return 'MASTER';
+            return 'GODLIKE';
+        }
+
+        function updateUI() {
+            document.getElementById('ui-wave').innerText = state.wave;
+            document.getElementById('ui-score').innerText = state.score;
+            document.getElementById('ui-combo').innerText = 'x' + state.combo;
+            
+            // Calc WPM
+            if (state.playing) {
+                const minutes = (performance.now() - state.startTime) / 60000;
+                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
+                document.getElementById('ui-wpm').innerText = wpm;
+            }
+        }
+
+        function showWaveBanner(text, callback) {
+            const banner = document.getElementById('wave-banner');
+            banner.innerText = text;
+            banner.classList.add('show');
+            setTimeout(() => {
+                banner.classList.remove('show');
+                if(callback) setTimeout(callback, 300);
+            }, 2000);
+        }
+
+        function drawGraph() {
+            const w = wpmCanvas.width / (window.devicePixelRatio||1);
+            const h = wpmCanvas.height / (window.devicePixelRatio||1);
+            
+            wpmCtx.clearRect(0,0,w,h);
+            if(state.wpmHistory.length < 2) return;
+            
+            wpmCtx.beginPath();
+            wpmCtx.strokeStyle = '#a78bfa';
+            wpmCtx.lineWidth = 2;
+            
+            const maxWpm = Math.max(...state.wpmHistory, 50);
+            const step = w / (state.wpmHistory.length - 1);
+            
+            state.wpmHistory.forEach((val, i) => {
+                const x = i * step;
+                const y = h - (val / maxWpm) * (h - 20) - 10;
+                if(i===0) wpmCtx.moveTo(x,y);
+                else wpmCtx.lineTo(x,y);
+            });
+            wpmCtx.stroke();
+            
+            // fill
+            wpmCtx.lineTo(w, h);
+            wpmCtx.lineTo(0, h);
+            wpmCtx.fillStyle = 'rgba(167, 139, 250, 0.1)';
+            wpmCtx.fill();
+        }
+
+        function loop(now) {
+            if (!state.playing) return;
+            const dt = (now - state.lastFrameTime) / 1000;
+            state.lastFrameTime = now;
+            
+            const cw = canvas.width / (window.devicePixelRatio||1);
+            const ch = canvas.height / (window.devicePixelRatio||1);
+            
+            ctx.clearRect(0, 0, cw, ch);
+            
+            // Shake
+            if (state.shake > 0) {
+                ctx.save();
+                ctx.translate((Math.random()-0.5)*state.shake, (Math.random()-0.5)*state.shake);
+                state.shake -= dt * 30;
+                if(state.shake < 0) state.shake = 0;
+            }
+            
+            // Stars
+            ctx.fillStyle = '#ffffff';
+            state.stars.forEach(s => {
+                s.y -= s.v * (dt*60);
+                if(s.y < 0) { s.y = ch; s.x = Math.random() * cw; }
+                ctx.globalAlpha = 0.3 + (s.v * 0.5);
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.s, 0, Math.PI*2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            // Defense Line
+            const lineY = ch - 40;
+            ctx.beginPath();
+            ctx.setLineDash([10, 10]);
+            ctx.moveTo(0, lineY);
+            ctx.lineTo(cw, lineY);
+            ctx.strokeStyle = '#ff4444';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Packets
+            for (let i = state.packets.length - 1; i >= 0; i--) {
+                const p = state.packets[i];
+                p.y += p.speed * dt;
+                
+                if (p.scale < 1) p.scale += dt * 3;
+                if (p.scale > 1) p.scale = 1;
+                
+                // Draw Packet
+                ctx.save();
+                ctx.translate(p.x, p.y + Math.sin(now/200 + i)*5);
+                ctx.scale(p.scale, p.scale);
+                
+                const isTarget = (i === state.targetIndex);
+                
+                // Hex shape roughly
+                ctx.beginPath();
+                ctx.moveTo(-40, -15);
+                ctx.lineTo(40, -15);
+                ctx.lineTo(50, 0);
+                ctx.lineTo(40, 15);
+                ctx.lineTo(-40, 15);
+                ctx.lineTo(-50, 0);
+                ctx.closePath();
+                
+                ctx.fillStyle = isTarget ? 'rgba(167, 139, 250, 0.2)' : 'rgba(255,255,255,0.05)';
+                ctx.fill();
+                ctx.strokeStyle = isTarget ? '#a78bfa' : '#444';
+                ctx.lineWidth = isTarget ? 2 : 1;
+                ctx.stroke();
+                
+                // Text
+                ctx.font = '700 16px "JetBrains Mono"';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                const typedW = ctx.measureText(p.typed).width;
+                const untyped = p.word.substring(p.typed.length);
+                const untypedW = ctx.measureText(untyped).width;
+                const totalW = typedW + untypedW;
+                
+                let startX = -totalW/2;
+                
+                ctx.fillStyle = '#00ffa3';
+                ctx.fillText(p.typed, startX + typedW/2, 2);
+                
+                ctx.fillStyle = '#ccc';
+                ctx.fillText(untyped, startX + typedW + untypedW/2, 2);
+                
+                ctx.restore();
+                
+                // Miss check
+                if (p.y > lineY) {
+                    state.packets.splice(i, 1);
+                    triggerMiss();
+                    if(state.targetIndex === i) state.targetIndex = -1;
+                    else if(state.targetIndex > i) state.targetIndex--;
+                    updateTargetUI();
+                }
+            }
+            
+            // Particles
+            for(let i=state.particles.length-1; i>=0; i--){
+                const p = state.particles[i];
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.life -= dt;
+                if(p.life <= 0) {
+                    state.particles.splice(i,1);
+                    continue;
+                }
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2, 0, Math.PI*2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+            
+            // Popups
+            for(let i=state.popups.length-1; i>=0; i--){
+                const p = state.popups[i];
+                p.y -= 50 * dt;
+                p.life -= dt;
+                if(p.life <= 0) {
+                    state.popups.splice(i,1);
+                    continue;
+                }
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = p.color;
+                ctx.font = '700 18px Sora';
+                ctx.textAlign = 'center';
+                ctx.fillText(p.text, p.x, p.y);
+            }
+            ctx.globalAlpha = 1;
+            
+            if (state.shake > 0) ctx.restore();
+
+            // Next wave check
+            if (state.packets.length === 0 && state.lives > 0) {
+                state.wave++;
+                state.targetIndex = -1;
+                updateTargetUI();
+                
+                const minutes = (performance.now() - state.startTime) / 60000;
+                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
+                state.wpmHistory.push(wpm);
+                drawGraph();
+
+                state.playing = false; // pause briefly
+                showWaveBanner(`WAVE ${state.wave}`, () => {
+                    if(state.lives > 0) {
+                        state.playing = true;
+                        state.lastFrameTime = performance.now();
+                        spawnWave();
+                        requestAnimationFrame(loop);
+                    }
+                });
+            } else {
+                // Ensure target index is valid
+                if (state.targetIndex === -1 && state.packets.length > 0) {
+                    state.targetIndex = determineTargetIndex();
+                    updateTargetUI();
+                }
+            }
+            
+            updateUI();
+            
+            // Re-calc WPM roughly every second for graph dynamically
+            if(Math.floor(now/1000) > Math.floor(state.lastFrameTime/1000)) {
+                const minutes = (performance.now() - state.startTime) / 60000;
+                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
+                if(state.wpmHistory.length === 0 || state.wpmHistory[state.wpmHistory.length-1] !== wpm) {
+                    // Update last point if same wave, or add logic
+                }
+            }
+
+            if(state.playing) {
+                if (state.animId) cancelAnimationFrame(state.animId);
+                state.animId = requestAnimationFrame(loop);
+            }
+        }
+
+        // Keydown handling
+        document.addEventListener('keydown', (e) => {
+            // Start game on any key if overlay is visible
+            const overlay = document.getElementById('start-overlay');
+            if (!state.playing && !overlay.classList.contains('hidden')) {
+                if (['Tab', 'Backspace', 'Shift', 'Control', 'Alt', 'Meta'].includes(e.key)) return;
+                e.preventDefault();
+                startGame();
+                return;
+            }
+
+            if (!state.playing) return;
+            
+            // Tab targets next
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                if(state.packets.length > 1) {
+                    state.targetIndex = (state.targetIndex + 1) % state.packets.length;
+                    updateTargetUI();
+                }
+                return;
+            }
+
+            // Backspace corrects typos
+            if (e.key === 'Backspace') {
+                e.preventDefault();
+                if (state.targetIndex !== -1 && state.packets[state.targetIndex]) {
+                    const p = state.packets[state.targetIndex];
+                    if (p.typed.length > 0) {
+                        p.typed = p.typed.slice(0, -1);
+                        state.correctKeystrokes = Math.max(0, state.correctKeystrokes - 1); // rough correction
+                        updateTargetUI();
+                    }
+                }
+                return;
+            }
+
+            if (e.key.length !== 1) return; // Only printable chars
+            
+            e.preventDefault();
+            const char = e.key.toLowerCase();
+            state.keystrokes++;
+            
+            // Auto-target if -1
+            if (state.targetIndex === -1 && state.packets.length > 0) {
+                state.targetIndex = determineTargetIndex();
+            }
+            
+            if (state.targetIndex !== -1 && state.packets[state.targetIndex]) {
+                const p = state.packets[state.targetIndex];
+                const expected = p.word[p.typed.length];
+                
+                if (char === expected) {
+                    playSound('tick');
+                    p.typed += char;
+                    state.correctKeystrokes++;
+                    
+                    if (p.typed === p.word) {
+                        // Word complete
+                        playSound('pow');
+                        createExplosion(p.x, p.y);
+                        
+                        let pts = 100 * state.combo;
+                        const timeTaken = performance.now() - p.spawnTime;
+                        if(timeTaken < 2000) pts += 50; // speed bonus
+                        
+                        state.score += pts;
+                        state.combo++;
+                        
+                        createPopup(p.x, p.y, `+${pts}`, '#00ffa3');
+                        
+                        state.packets.splice(state.targetIndex, 1);
+                        state.targetIndex = determineTargetIndex();
+                    }
+                    updateTargetUI();
+                } else {
+                    // Mistake reset combo
+                    state.combo = 1;
+                    updateUI();
+                }
+            } else {
+                // No target, attempt to find one that starts with char
+                for (let i=0; i<state.packets.length; i++) {
+                    if (state.packets[i].word[0] === char) {
+                        state.targetIndex = i;
+                        const p = state.packets[i];
+                        playSound('tick');
+                        p.typed += char;
+                        state.correctKeystrokes++;
+                        updateTargetUI();
+                        break;
+                    }
+                }
+            }
+        });
+
+        // Difficulty Selector
+        document.querySelectorAll('.diff-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (state.playing) return; // Don't change mid-game
+                document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentDifficulty = btn.dataset.diff;
+                
+                // Update UI lives display based on selected diff
+                const lives = diffConfig[currentDifficulty].lives;
+                const lc = document.getElementById('ui-lives');
+                lc.innerHTML = '';
+                for(let i=0; i<lives; i++) {
+                    lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
+                }
+            });
+        });
+
+        function startGame() {
+            document.getElementById('start-overlay').classList.add('hidden');
+            
+            // Setup Lives based on difficulty
+            const initialLives = diffConfig[currentDifficulty].lives;
+            const lc = document.getElementById('ui-lives');
+            lc.innerHTML = '';
+            for(let i=0; i<initialLives; i++) {
+                lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
+            }
+            
+            if (state.animId) cancelAnimationFrame(state.animId);
+            
+            state = {
+                ...state,
+                playing: true,
+                wave: 1,
+                score: 0,
+                lives: initialLives,
+                combo: 1,
+                packets: [],
+                particles: [],
+                popups: [],
+                targetIndex: -1,
+                keystrokes: 0,
+                correctKeystrokes: 0,
+                startTime: performance.now(),
+                wpmHistory: [],
+                shake: 0,
+                lastFrameTime: performance.now()
+            };
+            
+            // audio context resume
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            
+            updateUI();
+            
+            showWaveBanner('WAVE 1', () => {
+                state.lastFrameTime = performance.now();
+                spawnWave();
+                state.animId = requestAnimationFrame(loop);
+            });
+        }
+        
+        function gameOver() {
+            state.playing = false;
+            if (state.animId) cancelAnimationFrame(state.animId);
+            
+            const minutes = (performance.now() - state.startTime) / 60000;
+            const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
+            const acc = state.keystrokes > 0 ? Math.round((state.correctKeystrokes / state.keystrokes) * 100) : 0;
+            const rank = getRank(state.wave);
+            
+            document.getElementById('res-wave').innerText = state.wave;
+            document.getElementById('res-score').innerText = state.score;
+            document.getElementById('res-wpm').innerText = wpm;
+            document.getElementById('res-acc').innerText = acc + '%';
+            document.getElementById('res-rank').innerText = rank;
+            
+            document.getElementById('result-modal').classList.add('show');
+            
+            // Save history
+            const hist = JSON.parse(localStorage.getItem('csl_typeblaster_history') || '[]');
+            hist.unshift({
+                date: new Date().toLocaleDateString(),
+                wave: state.wave,
+                score: state.score,
+                wpm: wpm,
+                acc: acc,
+                rank: rank
+            });
+            if(hist.length > 10) hist.pop();
+            localStorage.setItem('csl_typeblaster_history', JSON.stringify(hist));
+            
+            loadHistory();
+        }
+        
+        function loadHistory() {
+            const hist = JSON.parse(localStorage.getItem('csl_typeblaster_history') || '[]');
+            const tbody = document.getElementById('history-body');
+            
+            if(hist.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No logs found. Play a round!</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            hist.forEach(h => {
+                html += `<tr>
+                    <td>${h.date}</td>
+                    <td>${h.wave}</td>
+                    <td style="color: #a78bfa; font-weight:700;">${h.score}</td>
+                    <td>${h.wpm}</td>
+                    <td>${h.acc}%</td>
+                    <td style="font-weight:700;">${h.rank}</td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        document.getElementById('btn-start').addEventListener('click', startGame);
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            if(state.playing) {
+                state.playing = false;
+                if (state.animId) cancelAnimationFrame(state.animId);
+                document.getElementById('start-overlay').classList.remove('hidden');
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                document.getElementById('ui-target-word').innerHTML = '<span class="untyped-char">WAITING...</span>';
+            }
+        });
+        document.getElementById('btn-play-again').addEventListener('click', () => {
+            document.getElementById('result-modal').classList.remove('show');
+            startGame();
+        });
+
+        loadHistory();
+        // Initial draw for canvas background
+        ctx.fillStyle = '#0a0a10';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    });
+    </script>
+</body>
+</html>

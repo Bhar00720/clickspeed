@@ -1,0 +1,2240 @@
+<!doctype html>
+<html lang="en" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>
+      Aim Trainer Online — Free Flick & Tracking Aim Drills | Click Speed Lab
+    </title>
+    <meta
+      name="description"
+      content="Train your mouse aim with our free online aim trainer. Practice flick shots, smooth tracking, precision micro-adjustments, and reflex reactions with real-time accuracy metrics."
+    />
+    <meta
+      name="keywords"
+      content="aim trainer, aim trainer online, aim test, flick shot trainer, mouse aim practice, tracking aim trainer"
+    />
+    <link rel="canonical" href="https://clickspeedlab.com/aim-trainer/" />
+
+    <meta
+      property="og:title"
+      content="Aim Trainer Online — Free Flick & Tracking Aim Drills"
+    />
+    <meta
+      property="og:description"
+      content="Train your mouse aim with our free online aim trainer. Practice flick shots, smooth tracking, precision micro-adjustments, and reflex reactions with real-time accuracy metrics."
+    />
+    <meta property="og:url" content="https://clickspeedlab.com/aim-trainer/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Aim Trainer Online — Free Flick & Tracking Aim Drills"
+    />
+    <meta
+      name="twitter:description"
+      content="Train your mouse aim with our free online aim trainer. Practice flick shots, smooth tracking, precision micro-adjustments, and reflex reactions with real-time accuracy metrics."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <script>
+      (function (s) {
+        ((s.dataset.zone = "11641934"),
+          (s.src = "https://nap5k.com/tag.min.js"));
+      })(
+        [document.documentElement, document.body]
+          .filter(Boolean)
+          .pop()
+          .appendChild(document.createElement("script")),
+      );
+    </script>
+    <script>
+      (function (s) {
+        ((s.dataset.zone = "11641938"),
+          (s.src = "https://n6wxm.com/vignette.min.js"));
+      })(
+        [document.documentElement, document.body]
+          .filter(Boolean)
+          .pop()
+          .appendChild(document.createElement("script")),
+      );
+    </script>
+
+    <style>
+      .page-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header h1 {
+        font-family: "Sora", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--text-main);
+      }
+      .page-header h1 .material-symbols-outlined {
+        font-size: 3rem;
+        color: #ff4444;
+      }
+      .page-header p {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+
+      .mode-selector {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+      .mode-pill {
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text-main);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .mode-pill.active {
+        border-color: var(--primary);
+        background: rgba(var(--primary-rgb), 0.1);
+        color: var(--primary);
+        box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.2);
+      }
+
+      .game-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+      }
+      .timer-display {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .telemetry-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+      }
+      @media (max-width: 768px) {
+        .telemetry-grid {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+      .telemetry-card {
+        text-align: center;
+        flex: 1;
+      }
+      .telemetry-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+      }
+      .telemetry-value {
+        font-family: "Sora", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      .game-area-container {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        min-height: 450px;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: #0a0a0a;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        cursor: crosshair;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+      .game-area-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      canvas#gameCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .overlay-msg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Sora", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+        z-index: 10;
+        text-align: center;
+      }
+
+      canvas#graphCanvas {
+        width: 100%;
+        height: 150px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .history-section {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .history-table-wrapper {
+        overflow-x: auto;
+        margin-top: 1rem;
+      }
+      .history-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+      }
+      .history-table th,
+      .history-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-main);
+      }
+      .history-table th {
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .faq-section {
+        margin-top: 3rem;
+      }
+      .info-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .info-card h3 {
+        font-family: "Sora", sans-serif;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .info-badge {
+        background: var(--primary);
+        color: var(--bg);
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      .info-card p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .kinetic-btn {
+        padding: 12px 24px;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.2s;
+      }
+      .kinetic-btn-primary {
+        background: var(--primary);
+        color: var(--bg);
+      }
+      .kinetic-btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+      }
+      .kinetic-btn-outline {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-main);
+      }
+      .kinetic-btn-outline:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Aim Trainer",
+        "url": "https://clickspeedlab.com/aim-trainer/",
+        "description": "Train your mouse aim with our free online aim trainer. Practice flick shots, smooth tracking, precision micro-adjustments, and reflex reactions.",
+        "applicationCategory": "GameApplication",
+        "genre": "Action, Aiming",
+        "operatingSystem": "Any"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://clickspeedlab.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aim Trainer",
+            "item": "https://clickspeedlab.com/aim-trainer/"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an Aim Trainer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An aim trainer is a specialized tool or game designed to help players improve their mouse accuracy, reaction time, and tracking skills for competitive FPS and RTS games."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Flick Shot training work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Flick training spawns targets randomly across the screen. You must quickly snap your cursor to the target and click, building muscle memory for fast, accurate movements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Tracking Aim?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tracking aim involves keeping your crosshair locked onto a moving target. Our tracking mode simulates this by having a target move in unpredictable patterns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the rank calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ranks are calculated based on your accuracy and performance in the specific mode. Ranks range from Turtle to Godlike, requiring >90% accuracy for the top tier."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do aim trainers actually help?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, consistent practice with aim trainers improves hand-eye coordination, reaction times, and muscle memory, which directly translates to better in-game performance."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div class="glow-orb-orange"></div>
+    <div class="glow-orb-blue"></div>
+
+    <header class="stitch-topnav">
+      <div class="topnav-left">
+        <a href="../" class="stitch-brand"
+          >CLICK SPEED <span class="sub">LAB</span></a
+        >
+        <nav class="stitch-navlinks">
+          <a href="../" class="stitch-navlink"
+            ><span class="material-symbols-outlined">dashboard</span
+            ><span>OVERVIEW</span></a
+          >
+          <!-- Mouse Tests Dropdown -->
+          <div class="nav-dropdown">
+            <button class="stitch-navlink nav-dropdown-btn" type="button">
+              <span class="material-symbols-outlined">mouse</span
+              ><span>MOUSE TESTS</span>
+              <span class="material-symbols-outlined nav-arrow"
+                >expand_more</span
+              >
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="../cps-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: var(--primary)"
+                  >speed</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Standard CPS Test</div>
+                  <div class="item-desc">
+                    Benchmark clicks per second in 1s, 5s, 10s, 60s
+                  </div>
+                </div></a
+              >
+              <a href="../jitter-click-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #00ffa3"
+                  >vibration</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Jitter Click Test</div>
+                  <div class="item-desc">
+                    Arm muscle tremor technique & safety guide
+                  </div>
+                </div></a
+              >
+              <a href="../butterfly-click-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #00e5ff"
+                  >flutter</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Butterfly Click Test</div>
+                  <div class="item-desc">
+                    Two-finger alternating double-click benchmark
+                  </div>
+                </div></a
+              >
+              <a href="../mouse-polling-rate-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: var(--aero-blue)"
+                  >track_changes</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Mouse Polling Rate (Hz)</div>
+                  <div class="item-desc">
+                    Sensor reporting frequency (1000Hz - 8000Hz)
+                  </div>
+                </div></a
+              >
+              <a href="../mouse-scroll-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #ff9900"
+                  >swap_vertical_circle</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Scroll Speed & Encoder</div>
+                  <div class="item-desc">
+                    Notches/sec & reverse-scroll fault detector
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <!-- Keyboard Tests Dropdown -->
+          <div class="nav-dropdown">
+            <button class="stitch-navlink nav-dropdown-btn" type="button">
+              <span class="material-symbols-outlined">keyboard</span
+              ><span>KEYBOARD TESTS</span>
+              <span class="material-symbols-outlined nav-arrow"
+                >expand_more</span
+              >
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="../keyboard-ghosting-test/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #c084fc"
+                  >grid_view</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Keyboard Matrix & NKRO</div>
+                  <div class="item-desc">
+                    Simultaneous rollover & ghosting check
+                  </div>
+                </div></a
+              >
+              <a href="../spacebar-counter/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #f43f5e"
+                  >space_bar</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Spacebar Speed Test</div>
+                  <div class="item-desc">
+                    Spacebar counter & TikTok challenge benchmark
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <!-- Games Dropdown -->
+          <div class="nav-dropdown open">
+            <button
+              class="stitch-navlink nav-dropdown-btn active"
+              type="button"
+            >
+              <span class="material-symbols-outlined">sports_esports</span
+              ><span>GAMES</span>
+              <span class="material-symbols-outlined nav-arrow"
+                >expand_more</span
+              >
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="../aim-trainer/" class="nav-dropdown-item active"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #ff4444"
+                  >my_location</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Aim Trainer</div>
+                  <div class="item-desc">
+                    Flick, tracking & precision aim drills
+                  </div>
+                </div></a
+              >
+              <a href="../mouse-precision-game/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #00ffa3"
+                  >route</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Mouse Precision Game</div>
+                  <div class="item-desc">
+                    Steady-hand maze navigation challenge
+                  </div>
+                </div></a
+              >
+              <a href="../wasd-warrior/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #00e5ff"
+                  >gamepad</span
+                >
+                <div class="item-content">
+                  <div class="item-title">WASD Warrior</div>
+                  <div class="item-desc">
+                    Left-hand gaming key reaction trainer
+                  </div>
+                </div></a
+              >
+              <a href="../type-blaster/" class="nav-dropdown-item"
+                ><span
+                  class="material-symbols-outlined item-icon"
+                  style="color: #a78bfa"
+                  >rocket_launch</span
+                >
+                <div class="item-content">
+                  <div class="item-title">Type Blaster</div>
+                  <div class="item-desc">Arcade typing defense game</div>
+                </div></a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="topnav-right">
+        <button
+          class="topnav-icon-btn"
+          id="theme-toggle"
+          title="Switch Theme Palette"
+          style="cursor: pointer"
+        >
+          <span class="material-symbols-outlined">palette</span>
+        </button>
+        <div class="status-pill">
+          <span class="status-dot"></span>SYSTEM ONLINE
+        </div>
+      </div>
+    </header>
+
+    <main class="stitch-main">
+      <div class="page-header" data-aos="fade-down">
+        <h1>
+          <span class="material-symbols-outlined" style="color: #ff4444"
+            >my_location</span
+          >
+          AIM TRAINER
+        </h1>
+        <p>PRECISION TARGET ACQUISITION & FLICK SPEED CALIBRATION</p>
+      </div>
+
+      <div
+        class="mode-selector"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        style="margin-bottom: 12px"
+      >
+        <button class="mode-pill active" data-mode="flick">FLICK SHOT</button>
+        <button class="mode-pill" data-mode="tracking">TRACKING</button>
+        <button class="mode-pill" data-mode="precision">PRECISION</button>
+        <button class="mode-pill" data-mode="reflex">REFLEX</button>
+      </div>
+
+      <div
+        class="duration-selector"
+        id="duration-selector"
+        data-aos="fade-up"
+        data-aos-delay="125"
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 24px;
+          flex-wrap: wrap;
+        "
+      >
+        <button class="mode-pill duration-pill" data-duration="10">10s</button>
+        <button class="mode-pill duration-pill" data-duration="15">15s</button>
+        <button class="mode-pill duration-pill active" data-duration="30">
+          30s
+        </button>
+        <button class="mode-pill duration-pill" data-duration="60">60s</button>
+      </div>
+
+      <div class="game-controls" data-aos="fade-up" data-aos-delay="150">
+        <div>
+          <button id="start-btn" class="kinetic-btn kinetic-btn-primary">
+            <span
+              class="material-symbols-outlined"
+              style="vertical-align: middle; margin-right: 4px"
+              >play_arrow</span
+            >
+            START DRILL
+          </button>
+          <button
+            id="reset-btn"
+            class="kinetic-btn kinetic-btn-outline"
+            style="margin-left: 8px"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="vertical-align: middle; margin-right: 4px"
+              >refresh</span
+            >
+            RESET
+          </button>
+        </div>
+        <div class="timer-display" id="timer-display">30.0s</div>
+      </div>
+
+      <div class="telemetry-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="telemetry-card">
+          <div class="telemetry-label" id="metric1-label">SCORE</div>
+          <div class="telemetry-value" id="metric1-val">0</div>
+        </div>
+        <div class="telemetry-card">
+          <div class="telemetry-label" id="metric2-label">ACCURACY</div>
+          <div class="telemetry-value" id="metric2-val">0%</div>
+        </div>
+        <div class="telemetry-card">
+          <div class="telemetry-label" id="metric3-label">AVG TIME</div>
+          <div class="telemetry-value" id="metric3-val">0ms</div>
+        </div>
+        <div class="telemetry-card">
+          <div class="telemetry-label" id="metric4-label">HITS/MISSES</div>
+          <div class="telemetry-value" id="metric4-val">0 / 0</div>
+        </div>
+      </div>
+
+      <div class="game-area-container" data-aos="zoom-in" data-aos-delay="250">
+        <canvas id="gameCanvas"></canvas>
+        <div id="overlay-msg" class="overlay-msg">
+          CLICK START
+          <div
+            id="instruction-text"
+            style="
+              font-size: 1rem;
+              font-weight: 600;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              margin-top: 16px;
+              color: var(--text-muted);
+              max-width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+              line-height: 1.4;
+            "
+          >
+            FLICK: Click targets as fast as possible. Targets spawn randomly.
+          </div>
+        </div>
+      </div>
+
+      <canvas id="graphCanvas" data-aos="fade-up" data-aos-delay="300"></canvas>
+
+      <div class="history-section" data-aos="fade-up" data-aos-delay="350">
+        <h2
+          style="
+            font-family: &quot;Sora&quot;, sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          "
+        >
+          <span class="material-symbols-outlined">history</span> SESSION HISTORY
+        </h2>
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>DATE</th>
+                <th>MODE</th>
+                <th>SCORE</th>
+                <th>ACCURACY</th>
+                <th>AVG TIME</th>
+                <th>RANK</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="faq-section" data-aos="fade-up" data-aos-delay="400">
+        <div class="info-card">
+          <h3><span class="info-badge">1</span> What is an Aim Trainer?</h3>
+          <p>
+            An aim trainer is a specialized tool or game designed to help
+            players improve their mouse accuracy, reaction time, and tracking
+            skills for competitive FPS and RTS games.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>
+            <span class="info-badge">2</span> How does Flick Shot training work?
+          </h3>
+          <p>
+            Flick training spawns targets randomly across the screen. You must
+            quickly snap your cursor to the target and click, building muscle
+            memory for fast, accurate movements.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3><span class="info-badge">3</span> What is Tracking Aim?</h3>
+          <p>
+            Tracking aim involves keeping your crosshair locked onto a moving
+            target. Our tracking mode simulates this by having a target move in
+            unpredictable patterns.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3><span class="info-badge">4</span> How is the rank calculated?</h3>
+          <p>
+            Ranks are calculated based on your accuracy and performance in the
+            specific mode. Ranks range from Turtle to Godlike, requiring >90%
+            accuracy for the top tier.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Result Modal -->
+    <div class="custom-modal-backdrop" id="result-modal">
+      <div
+        class="custom-modal-card"
+        style="max-width: 500px; text-align: center"
+      >
+        <h2
+          style="
+            font-family: &quot;Sora&quot;, sans-serif;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+          "
+          id="result-title"
+        >
+          DRILL COMPLETE
+        </h2>
+        <div
+          id="result-rank"
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 24px;
+          "
+        >
+          RANK: PRO
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+            text-align: left;
+          "
+        >
+          <div
+            style="
+              background: var(--bg);
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border);
+            "
+          >
+            <div
+              style="
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                font-family: &quot;JetBrains Mono&quot;;
+              "
+            >
+              MODE
+            </div>
+            <div
+              id="res-mode"
+              style="
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--text-main);
+                font-family: &quot;Sora&quot;;
+              "
+            >
+              FLICK
+            </div>
+          </div>
+          <div
+            style="
+              background: var(--bg);
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border);
+            "
+          >
+            <div
+              style="
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                font-family: &quot;JetBrains Mono&quot;;
+              "
+            >
+              SCORE
+            </div>
+            <div
+              id="res-score"
+              style="
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--text-main);
+                font-family: &quot;Sora&quot;;
+              "
+            >
+              0
+            </div>
+          </div>
+          <div
+            style="
+              background: var(--bg);
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border);
+            "
+          >
+            <div
+              style="
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                font-family: &quot;JetBrains Mono&quot;;
+              "
+            >
+              ACCURACY
+            </div>
+            <div
+              id="res-acc"
+              style="
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--text-main);
+                font-family: &quot;Sora&quot;;
+              "
+            >
+              0%
+            </div>
+          </div>
+          <div
+            style="
+              background: var(--bg);
+              padding: 12px;
+              border-radius: 8px;
+              border: 1px solid var(--border);
+            "
+          >
+            <div
+              style="
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                font-family: &quot;JetBrains Mono&quot;;
+              "
+            >
+              AVG TIME
+            </div>
+            <div
+              id="res-time"
+              style="
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--text-main);
+                font-family: &quot;Sora&quot;;
+              "
+            >
+              0ms
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px">
+          <button
+            id="modal-download"
+            class="kinetic-btn kinetic-btn-primary"
+            style="flex: 1"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="vertical-align: middle"
+              >download</span
+            >
+            SCORECARD
+          </button>
+          <button
+            id="modal-close"
+            class="kinetic-btn kinetic-btn-outline"
+            style="flex: 1"
+          >
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customizer Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+      <div class="custom-modal-card" style="max-width: 420px">
+        <h2
+          style="
+            font-family: &quot;Sora&quot;, sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+          "
+        >
+          <span
+            class="material-symbols-outlined"
+            style="vertical-align: middle; color: var(--primary)"
+            >palette</span
+          >
+          Lab Theme
+        </h2>
+        <div
+          id="pref-theme-pills"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+          "
+        >
+          <button
+            data-theme="orange"
+            style="
+              padding: 10px;
+              border-radius: 6px;
+              border: 1px solid rgba(255, 95, 31, 0.4);
+              background: rgba(255, 95, 31, 0.1);
+              color: #ff5f1f;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.75rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            🟠 OBSIDIAN
+          </button>
+          <button
+            data-theme="cyan"
+            style="
+              padding: 10px;
+              border-radius: 6px;
+              border: 1px solid rgba(0, 229, 255, 0.4);
+              background: rgba(0, 229, 255, 0.1);
+              color: #00e5ff;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.75rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            🔵 CYBER
+          </button>
+          <button
+            data-theme="emerald"
+            style="
+              padding: 10px;
+              border-radius: 6px;
+              border: 1px solid rgba(0, 255, 163, 0.4);
+              background: rgba(0, 255, 163, 0.1);
+              color: #00ffa3;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.75rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            🟢 EMERALD
+          </button>
+          <button
+            data-theme="purple"
+            style="
+              padding: 10px;
+              border-radius: 6px;
+              border: 1px solid rgba(167, 139, 250, 0.4);
+              background: rgba(167, 139, 250, 0.1);
+              color: #a78bfa;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.75rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            🟣 NEON
+          </button>
+          <button
+            data-mode="light"
+            class="active"
+            style="
+              padding: 10px;
+              border-radius: 6px;
+              border: 1px solid rgba(255, 255, 255, 0.4);
+              background: rgba(255, 255, 255, 0.1);
+              color: #ffffff;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.75rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            ⚪ LIGHT
+          </button>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button
+            id="customizer-save"
+            class="kinetic-btn-primary kinetic-btn"
+            style="flex: 1; padding: 10px"
+          >
+            SAVE
+          </button>
+          <button
+            id="customizer-close"
+            class="kinetic-btn-outline kinetic-btn"
+            style="flex: 1; padding: 10px"
+          >
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="stitch-footer">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.7rem;
+            color: #888;
+          "
+          >CLICK SPEED LAB v3.1</span
+        >
+        <span style="color: #333">|</span>
+        <span
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.7rem;
+            color: #666;
+          "
+          >ZERO-LATENCY ENGINE</span
+        >
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.65rem;
+            color: #555;
+          "
+          >© 2025 Click Speed Lab. All rights reserved.</span
+        >
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script class="global-ui-script">
+      (function () {
+        // Dropdown toggle
+        document.querySelectorAll(".nav-dropdown-btn").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const dropdown = this.closest(".nav-dropdown");
+            const isOpen = dropdown.classList.contains("open");
+            document
+              .querySelectorAll(".nav-dropdown")
+              .forEach((d) => d.classList.remove("open"));
+            if (!isOpen) dropdown.classList.add("open");
+          });
+        });
+        document.addEventListener("click", () => {
+          document
+            .querySelectorAll(".nav-dropdown")
+            .forEach((d) => d.classList.remove("open"));
+        });
+
+        // Theme Engine
+        let currentTheme = localStorage.getItem("csl_theme") || "light";
+        function applyTheme(theme) {
+          currentTheme = theme;
+          if (theme === "orange") {
+            document.documentElement.removeAttribute("data-theme");
+            document.documentElement.removeAttribute("data-mode");
+          } else if (theme === "light") {
+            document.documentElement.setAttribute("data-mode", "light");
+            document.documentElement.removeAttribute("data-theme");
+          } else {
+            document.documentElement.setAttribute("data-theme", theme);
+            document.documentElement.removeAttribute("data-mode");
+          }
+          localStorage.setItem("csl_theme", theme);
+          document
+            .querySelectorAll('[id$="pref-theme-pills"] button')
+            .forEach((p) => {
+              p.classList.remove("active");
+              if (theme === "light" && p.dataset.mode === "light")
+                p.classList.add("active");
+              else if (p.dataset.theme === theme) p.classList.add("active");
+            });
+        }
+        applyTheme(currentTheme);
+
+        // Customizer Modal
+        const themeBtn = document.getElementById("theme-toggle");
+        const customizerModal = document.getElementById("customizer-modal");
+        const customizerClose = document.getElementById("customizer-close");
+        const customizerSave = document.getElementById("customizer-save");
+        if (themeBtn && customizerModal) {
+          themeBtn.addEventListener("click", () =>
+            customizerModal.classList.add("show"),
+          );
+        }
+        if (customizerClose)
+          customizerClose.addEventListener("click", () =>
+            customizerModal.classList.remove("show"),
+          );
+        if (customizerSave)
+          customizerSave.addEventListener("click", () =>
+            customizerModal.classList.remove("show"),
+          );
+        document
+          .querySelectorAll('[id$="pref-theme-pills"] button')
+          .forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              const t = e.target.dataset.theme;
+              const m = e.target.dataset.mode;
+              if (t) applyTheme(t);
+              if (m) applyTheme(m);
+            });
+          });
+      })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof AOS !== "undefined")
+          AOS.init({
+            duration: 800,
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 40,
+          });
+        if (typeof VanillaTilt !== "undefined")
+          VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 6,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.12,
+            scale: 1.01,
+          });
+
+        // Audio Context
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        function playSound(type) {
+          if (audioCtx.state === "suspended") audioCtx.resume();
+          const osc = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          osc.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+
+          const now = audioCtx.currentTime;
+          if (type === "hit") {
+            osc.type = "triangle";
+            osc.frequency.setValueAtTime(800, now);
+            gainNode.gain.setValueAtTime(0.1, now);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.start(now);
+            osc.stop(now + 0.05);
+          } else if (type === "miss") {
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(200, now);
+            gainNode.gain.setValueAtTime(0.1, now);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+            osc.start(now);
+            osc.stop(now + 0.1);
+          } else if (type === "start") {
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(400, now);
+            osc.frequency.exponentialRampToValueAtTime(800, now + 0.3);
+            gainNode.gain.setValueAtTime(0.1, now);
+            gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
+            osc.start(now);
+            osc.stop(now + 0.3);
+          } else if (type === "end") {
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(800, now);
+            osc.frequency.exponentialRampToValueAtTime(300, now + 0.5);
+            gainNode.gain.setValueAtTime(0.1, now);
+            gainNode.gain.linearRampToValueAtTime(0, now + 0.5);
+            osc.start(now);
+            osc.stop(now + 0.5);
+          }
+        }
+
+        // Game State
+        const state = {
+          mode: "flick", // flick, tracking, precision, reflex
+          status: "idle", // idle, playing, ended
+          timeRemaining: 30,
+          duration: 30,
+          score: 0,
+          hits: 0,
+          misses: 0,
+          targetsTotal: 0,
+          startTime: 0,
+          lastFrame: 0,
+          target: null,
+          particles: [],
+          accuracyHistory: [],
+          cursorX: -100,
+          cursorY: -100,
+          cursorPath: [], // for tracking trail
+          trackingTimeOn: 0,
+          trackingFramesTotal: 0,
+          reflexTimes: [],
+          reflexState: "wait", // wait, flash
+          reflexSpawnTime: 0,
+          reflexRound: 0,
+          precisionRound: 0,
+          precisionSpawnTime: 0,
+        };
+
+        // DOM Elements
+        const modePills = document.querySelectorAll(".mode-pill:not(.duration-pill)");
+        const startBtn = document.getElementById("start-btn");
+        const resetBtn = document.getElementById("reset-btn");
+        const timerDisplay = document.getElementById("timer-display");
+        const overlayMsg = document.getElementById("overlay-msg");
+
+        const m1L = document.getElementById("metric1-label");
+        const m1V = document.getElementById("metric1-val");
+        const m2L = document.getElementById("metric2-label");
+        const m2V = document.getElementById("metric2-val");
+        const m3L = document.getElementById("metric3-label");
+        const m3V = document.getElementById("metric3-val");
+        const m4L = document.getElementById("metric4-label");
+        const m4V = document.getElementById("metric4-val");
+
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const graphCanvas = document.getElementById("graphCanvas");
+        const graphCtx = graphCanvas.getContext("2d");
+
+        // Resize Canvas
+        function resize() {
+          const rect = canvas.parentElement.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+          const grect = graphCanvas.parentElement.getBoundingClientRect();
+          graphCanvas.width = grect.width;
+          // fixed height for graph
+          graphCanvas.height = 150;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        // Mode Switching
+        modePills.forEach((pill) => {
+          pill.addEventListener("click", (e) => {
+            if (state.status === "playing") return;
+            modePills.forEach((p) => p.classList.remove("active"));
+            e.target.classList.add("active");
+            state.mode = e.target.dataset.mode;
+            resetGame();
+            updateLabels();
+          });
+        });
+
+        const durationPills = document.querySelectorAll(".duration-pill");
+        durationPills.forEach((pill) => {
+          pill.addEventListener("click", (e) => {
+            if (state.status === "playing") return;
+            durationPills.forEach((p) => p.classList.remove("active"));
+            e.target.classList.add("active");
+            if (state.mode === "flick" || state.mode === "tracking") {
+              state.duration = parseInt(e.target.dataset.duration);
+              timerDisplay.textContent = state.duration.toFixed(1) + "s";
+              resetGame();
+            }
+          });
+        });
+
+        function updateLabels() {
+          const instText = document.getElementById("instruction-text");
+          const durSel = document.getElementById("duration-selector");
+
+          let activeDur = 30;
+          const activePill = document.querySelector(".duration-pill.active");
+          if (activePill) activeDur = parseInt(activePill.dataset.duration);
+
+          if (state.mode === "flick") {
+            m1L.textContent = "SCORE";
+            m2L.textContent = "ACCURACY";
+            m3L.textContent = "AVG TIME";
+            m4L.textContent = "HITS/MISSES";
+            if (durSel) durSel.style.display = "flex";
+            state.duration = activeDur;
+            timerDisplay.textContent = state.duration.toFixed(1) + "s";
+            if (instText)
+              instText.textContent =
+                "FLICK: Click targets as fast as possible. Targets spawn randomly.";
+          } else if (state.mode === "tracking") {
+            m1L.textContent = "SCORE";
+            m2L.textContent = "TIME ON TARGET";
+            m3L.textContent = "AVG DIST";
+            m4L.textContent = "FRAMES";
+            if (durSel) durSel.style.display = "flex";
+            state.duration = activeDur;
+            timerDisplay.textContent = state.duration.toFixed(1) + "s";
+            if (instText)
+              instText.textContent =
+                "TRACKING: Keep your cursor on the moving target to score.";
+          } else if (state.mode === "precision") {
+            m1L.textContent = "SCORE";
+            m2L.textContent = "ACCURACY";
+            m3L.textContent = "AVG SIZE";
+            m4L.textContent = "TARGETS";
+            if (durSel) durSel.style.display = "none";
+            timerDisplay.textContent = "20 TGT";
+            state.duration = 20; // 20 targets
+            if (instText)
+              instText.textContent =
+                "PRECISION: Click shrinking targets. Smaller = more points.";
+          } else if (state.mode === "reflex") {
+            m1L.textContent = "AVG REACTION";
+            m2L.textContent = "BEST TIME";
+            m3L.textContent = "ACCURACY";
+            m4L.textContent = "ROUNDS";
+            if (durSel) durSel.style.display = "none";
+            timerDisplay.textContent = "15 RND";
+            state.duration = 15; // 15 rounds
+            if (instText)
+              instText.textContent =
+                "REFLEX: Wait... then click the target when it flashes.";
+          }
+        }
+
+        // Theme colors
+        function getThemeColor() {
+          const root = document.documentElement;
+          const theme =
+            root.getAttribute("data-theme") || root.getAttribute("data-mode");
+          if (theme === "emerald") return "#00ffa3";
+          if (theme === "cyan") return "#00e5ff";
+          if (theme === "purple") return "#a78bfa";
+          if (theme === "light") return "#ff5f1f"; // default to primary
+          return "#ff5f1f"; // orange/default
+        }
+
+        function createTarget() {
+          const pad = 40;
+          if (state.mode === "flick") {
+            state.target = {
+              x: pad + Math.random() * (canvas.width - pad * 2),
+              y: pad + Math.random() * (canvas.height - pad * 2),
+              r: 30,
+              spawnTime: performance.now(),
+              scale: 0,
+            };
+          } else if (state.mode === "tracking") {
+            state.target = {
+              x: canvas.width / 2,
+              y: canvas.height / 2,
+              r: 35,
+              vx: (Math.random() > 0.5 ? 1 : -1) * (100 + Math.random() * 50),
+              vy: (Math.random() > 0.5 ? 1 : -1) * (100 + Math.random() * 50),
+              baseSpeed: 100,
+            };
+          } else if (state.mode === "precision") {
+            state.target = {
+              x: pad + 30 + Math.random() * (canvas.width - pad * 2 - 60),
+              y: pad + 30 + Math.random() * (canvas.height - pad * 2 - 60),
+              r: 60,
+              spawnTime: performance.now(),
+            };
+          } else if (state.mode === "reflex") {
+            state.target = null;
+            state.reflexState = "wait";
+            state.reflexSpawnTime =
+              performance.now() + 1000 + Math.random() * 3000;
+          }
+        }
+
+        function spawnParticles(x, y, color) {
+          for (let i = 0; i < 15; i++) {
+            state.particles.push({
+              x: x,
+              y: y,
+              vx: (Math.random() - 0.5) * 10,
+              vy: (Math.random() - 0.5) * 10,
+              life: 1,
+              color: color,
+            });
+          }
+        }
+
+        function spawnMiss(x, y) {
+          state.particles.push({
+            x: x,
+            y: y,
+            type: "miss",
+            life: 1,
+          });
+        }
+
+        // Game Loop
+        let animFrame;
+        function loop(timestamp) {
+          if (state.status !== "playing") return;
+          const dt = (timestamp - state.lastFrame) / 1000;
+          state.lastFrame = timestamp;
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          const color = getThemeColor();
+
+          // Update mode logic
+          if (state.mode === "flick") {
+            const tr = state.duration - (timestamp - state.startTime) / 1000;
+            if (tr <= 0) {
+              endGame();
+              return;
+            }
+            timerDisplay.textContent = tr.toFixed(1) + "s";
+
+            if (state.target) {
+              if (state.target.scale < 1) state.target.scale += dt * 5;
+              if (state.target.scale > 1) state.target.scale = 1;
+
+              const pulse = 1 + 0.1 * Math.sin(timestamp / 150);
+              ctx.beginPath();
+              ctx.arc(
+                state.target.x,
+                state.target.y,
+                state.target.r * state.target.scale * pulse,
+                0,
+                Math.PI * 2,
+              );
+              ctx.fillStyle = color;
+              ctx.fill();
+              ctx.shadowBlur = 25;
+              ctx.shadowColor = color;
+              ctx.fill();
+              ctx.shadowBlur = 0;
+            }
+          } else if (state.mode === "tracking") {
+            const tr = state.duration - (timestamp - state.startTime) / 1000;
+            if (tr <= 0) {
+              endGame();
+              return;
+            }
+            timerDisplay.textContent = tr.toFixed(1) + "s";
+
+            if (state.target) {
+              // Speed up over time
+              const speedMult = 1 + ((30 - tr) / 30) * 1.5;
+
+              state.target.x += state.target.vx * dt * speedMult;
+              state.target.y += state.target.vy * dt * speedMult;
+
+              // Bounce
+              if (state.target.x < state.target.r) {
+                state.target.x = state.target.r;
+                state.target.vx *= -1;
+              }
+              if (state.target.x > canvas.width - state.target.r) {
+                state.target.x = canvas.width - state.target.r;
+                state.target.vx *= -1;
+              }
+              if (state.target.y < state.target.r) {
+                state.target.y = state.target.r;
+                state.target.vy *= -1;
+              }
+              if (state.target.y > canvas.height - state.target.r) {
+                state.target.y = canvas.height - state.target.r;
+                state.target.vy *= -1;
+              }
+
+              const dist = Math.hypot(
+                state.cursorX - state.target.x,
+                state.cursorY - state.target.y,
+              );
+              const onTarget = dist <= state.target.r;
+              if (onTarget) {
+                state.trackingTimeOn += dt;
+              }
+
+              const pulse = 1 + 0.1 * Math.sin(timestamp / 150);
+              ctx.beginPath();
+              ctx.arc(
+                state.target.x,
+                state.target.y,
+                state.target.r * pulse,
+                0,
+                Math.PI * 2,
+              );
+              ctx.fillStyle = onTarget ? color : "#333";
+              ctx.fill();
+              if (onTarget) {
+                ctx.shadowBlur = 25;
+                ctx.shadowColor = color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+              }
+
+              // Add some jitter
+              state.target.vx += (Math.random() - 0.5) * 50 * dt;
+              state.target.vy += (Math.random() - 0.5) * 50 * dt;
+
+              // Check hover
+              const dx = state.cursorX - state.target.x;
+              const dy = state.cursorY - state.target.y;
+              const dist2 = Math.sqrt(dx * dx + dy * dy);
+
+              state.trackingFramesTotal++;
+              if (dist2 <= state.target.r) {
+                state.trackingTimeOn++;
+                state.score += 10;
+                ctx.fillStyle = color;
+                ctx.shadowColor = color;
+              } else {
+                ctx.fillStyle = "rgba(255,255,255,0.2)";
+                ctx.shadowColor = "transparent";
+              }
+
+              ctx.beginPath();
+              ctx.arc(
+                state.target.x,
+                state.target.y,
+                state.target.r,
+                0,
+                Math.PI * 2,
+              );
+              ctx.shadowBlur = 10;
+              ctx.fill();
+              ctx.shadowBlur = 0;
+
+              // Trail
+              state.cursorPath.push({
+                x: state.cursorX,
+                y: state.cursorY,
+                a: 1,
+              });
+              if (state.cursorPath.length > 20) state.cursorPath.shift();
+
+              ctx.beginPath();
+              for (let i = 0; i < state.cursorPath.length; i++) {
+                const p = state.cursorPath[i];
+                p.a -= dt * 2;
+                if (i === 0) ctx.moveTo(p.x, p.y);
+                else ctx.lineTo(p.x, p.y);
+              }
+              ctx.strokeStyle = `rgba(255,255,255,0.5)`;
+              ctx.lineWidth = 2;
+              ctx.stroke();
+
+              // Update UI
+              m1V.textContent = state.score;
+              m2V.textContent =
+                (
+                  (state.trackingTimeOn / state.trackingFramesTotal) *
+                  100
+                ).toFixed(1) + "%";
+              m4V.textContent = state.trackingFramesTotal;
+            }
+          } else if (state.mode === "precision") {
+            if (state.precisionRound >= state.duration && !state.target) {
+              endGame();
+              return;
+            }
+            timerDisplay.textContent =
+              state.duration - state.precisionRound + " TGT";
+
+            if (state.target) {
+              const life = (timestamp - state.target.spawnTime) / 3000;
+              if (life >= 1) {
+                // Missed
+                state.misses++;
+                state.targetsTotal++;
+                playSound("miss");
+                spawnMiss(state.target.x, state.target.y);
+                state.target = null;
+                state.precisionRound++;
+                if (state.precisionRound < state.duration) createTarget();
+                updatePrecisionUI();
+              } else {
+                // Shrink
+                state.target.r = 60 - 52 * life;
+                ctx.beginPath();
+                ctx.arc(
+                  state.target.x,
+                  state.target.y,
+                  state.target.r,
+                  0,
+                  Math.PI * 2,
+                );
+                ctx.fillStyle = color;
+                ctx.fill();
+              }
+            }
+          } else if (state.mode === "reflex") {
+            if (
+              state.reflexRound >= state.duration &&
+              state.reflexState === "wait"
+            ) {
+              endGame();
+              return;
+            }
+            timerDisplay.textContent =
+              state.duration - state.reflexRound + " RND";
+
+            if (state.reflexState === "wait") {
+              if (timestamp >= state.reflexSpawnTime) {
+                state.reflexState = "flash";
+                const pad = 30;
+                state.target = {
+                  x: pad + Math.random() * (canvas.width - pad * 2),
+                  y: pad + Math.random() * (canvas.height - pad * 2),
+                  r: 30,
+                  spawnTime: timestamp,
+                };
+              } else {
+                // Crosshair
+                ctx.strokeStyle = "rgba(255,255,255,0.3)";
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(canvas.width / 2 - 10, canvas.height / 2);
+                ctx.lineTo(canvas.width / 2 + 10, canvas.height / 2);
+                ctx.moveTo(canvas.width / 2, canvas.height / 2 - 10);
+                ctx.lineTo(canvas.width / 2, canvas.height / 2 + 10);
+                ctx.stroke();
+              }
+            } else if (state.reflexState === "flash") {
+              const life = timestamp - state.target.spawnTime;
+              if (life > 600) {
+                // Missed (too slow)
+                state.misses++;
+                playSound("miss");
+                spawnMiss(state.target.x, state.target.y);
+                state.reflexState = "wait";
+                state.target = null;
+                state.reflexRound++;
+                state.reflexSpawnTime = timestamp + 1000 + Math.random() * 2000;
+                updateReflexUI();
+              } else {
+                ctx.beginPath();
+                ctx.arc(
+                  state.target.x,
+                  state.target.y,
+                  state.target.r,
+                  0,
+                  Math.PI * 2,
+                );
+                ctx.fillStyle = color;
+                ctx.fill();
+              }
+            }
+          }
+
+          // Draw Particles
+          for (let i = state.particles.length - 1; i >= 0; i--) {
+            const p = state.particles[i];
+            p.life -= dt * 2;
+            if (p.life <= 0) {
+              state.particles.splice(i, 1);
+              continue;
+            }
+
+            if (p.type === "miss") {
+              ctx.strokeStyle = `rgba(255,68,68,${p.life})`;
+              ctx.lineWidth = 3;
+              ctx.beginPath();
+              ctx.moveTo(p.x - 10, p.y - 10);
+              ctx.lineTo(p.x + 10, p.y + 10);
+              ctx.moveTo(p.x + 10, p.y - 10);
+              ctx.lineTo(p.x - 10, p.y + 10);
+              ctx.stroke();
+            } else {
+              p.x += p.vx;
+              p.y += p.vy;
+              ctx.fillStyle = p.color
+                .replace("rgb", "rgba")
+                .replace(")", `, ${p.life})`);
+              if (p.color.startsWith("#"))
+                ctx.fillStyle =
+                  p.color +
+                  Math.floor(p.life * 255)
+                    .toString(16)
+                    .padStart(2, "0");
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+
+          // Graph Update (throttle)
+          if (state.mode === "flick" || state.mode === "tracking") {
+            if (Math.random() < 0.1) {
+              let acc = 0;
+              if (state.mode === "flick")
+                acc =
+                  state.hits + state.misses > 0
+                    ? (state.hits / (state.hits + state.misses)) * 100
+                    : 0;
+              if (state.mode === "tracking")
+                acc =
+                  state.trackingFramesTotal > 0
+                    ? (state.trackingTimeOn / state.trackingFramesTotal) * 100
+                    : 0;
+              state.accuracyHistory.push(acc);
+              if (state.accuracyHistory.length > 100)
+                state.accuracyHistory.shift();
+              drawGraph();
+            }
+          }
+
+          animFrame = requestAnimationFrame(loop);
+        }
+
+        canvas.addEventListener("mousemove", (e) => {
+          const rect = canvas.getBoundingClientRect();
+          state.cursorX = e.clientX - rect.left;
+          state.cursorY = e.clientY - rect.top;
+        });
+
+        canvas.addEventListener("mousedown", (e) => {
+          if (state.status !== "playing") return;
+          const rect = canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          if (state.mode === "flick") {
+            state.targetsTotal++;
+            if (state.target) {
+              const dx = x - state.target.x;
+              const dy = y - state.target.y;
+              if (
+                Math.sqrt(dx * dx + dy * dy) <=
+                state.target.r * state.target.scale
+              ) {
+                // Hit
+                state.hits++;
+                state.score += 100;
+                const rt = performance.now() - state.target.spawnTime;
+                state.reflexTimes.push(rt);
+                playSound("hit");
+                spawnParticles(state.target.x, state.target.y, getThemeColor());
+                createTarget();
+              } else {
+                state.misses++;
+                playSound("miss");
+                spawnMiss(x, y);
+              }
+            }
+            updateFlickUI();
+          } else if (state.mode === "precision") {
+            if (state.target) {
+              const dx = x - state.target.x;
+              const dy = y - state.target.y;
+              if (Math.sqrt(dx * dx + dy * dy) <= state.target.r) {
+                state.hits++;
+                state.targetsTotal++;
+                const pts = Math.floor((60 - state.target.r) * 10);
+                state.score += pts;
+                state.reflexTimes.push(state.target.r); // use reflexTimes for size
+                playSound("hit");
+                spawnParticles(state.target.x, state.target.y, getThemeColor());
+              } else {
+                state.misses++;
+                state.targetsTotal++;
+                playSound("miss");
+                spawnMiss(x, y);
+              }
+              state.target = null;
+              state.precisionRound++;
+              if (state.precisionRound < state.duration) createTarget();
+              updatePrecisionUI();
+            }
+          } else if (state.mode === "reflex") {
+            if (state.reflexState === "flash" && state.target) {
+              const dx = x - state.target.x;
+              const dy = y - state.target.y;
+              if (Math.sqrt(dx * dx + dy * dy) <= state.target.r) {
+                state.hits++;
+                const rt = performance.now() - state.target.spawnTime;
+                state.reflexTimes.push(rt);
+                playSound("hit");
+                spawnParticles(state.target.x, state.target.y, getThemeColor());
+              } else {
+                state.misses++;
+                playSound("miss");
+                spawnMiss(x, y);
+              }
+              state.target = null;
+              state.reflexState = "wait";
+              state.reflexRound++;
+              state.reflexSpawnTime =
+                performance.now() + 1000 + Math.random() * 2000;
+              updateReflexUI();
+            } else if (state.reflexState === "wait") {
+              // False start
+              state.misses++;
+              playSound("miss");
+              spawnMiss(x, y);
+              updateReflexUI();
+            }
+          }
+        });
+
+        function updateFlickUI() {
+          m1V.textContent = state.score;
+          const total = state.hits + state.misses;
+          const acc = total > 0 ? (state.hits / total) * 100 : 0;
+          m2V.textContent = acc.toFixed(1) + "%";
+          const avgTime =
+            state.reflexTimes.length > 0
+              ? state.reflexTimes.reduce((a, b) => a + b) /
+                state.reflexTimes.length
+              : 0;
+          m3V.textContent = avgTime.toFixed(0) + "ms";
+          m4V.textContent = state.hits + " / " + state.misses;
+        }
+
+        function updatePrecisionUI() {
+          m1V.textContent = state.score;
+          const total = state.hits + state.misses;
+          const acc = total > 0 ? (state.hits / total) * 100 : 0;
+          m2V.textContent = acc.toFixed(1) + "%";
+          const avgSize =
+            state.reflexTimes.length > 0
+              ? state.reflexTimes.reduce((a, b) => a + b) /
+                state.reflexTimes.length
+              : 0;
+          m3V.textContent = avgSize.toFixed(1) + "px";
+          m4V.textContent = state.precisionRound + "/" + state.duration;
+          state.accuracyHistory.push(acc);
+          drawGraph();
+        }
+
+        function updateReflexUI() {
+          const avgTime =
+            state.reflexTimes.length > 0
+              ? state.reflexTimes.reduce((a, b) => a + b) /
+                state.reflexTimes.length
+              : 0;
+          m1V.textContent = avgTime.toFixed(0) + "ms";
+          const bestTime =
+            state.reflexTimes.length > 0 ? Math.min(...state.reflexTimes) : 0;
+          m2V.textContent = bestTime.toFixed(0) + "ms";
+          const total = state.hits + state.misses;
+          const acc = total > 0 ? (state.hits / total) * 100 : 0;
+          m3V.textContent = acc.toFixed(1) + "%";
+          m4V.textContent = state.reflexRound + "/" + state.duration;
+          state.accuracyHistory.push(avgTime); // plot time for reflex
+          drawGraph();
+        }
+
+        function drawGraph() {
+          graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+          if (state.accuracyHistory.length === 0) return;
+
+          graphCtx.beginPath();
+          const w = graphCanvas.width;
+          const h = graphCanvas.height;
+          const max = state.mode === "reflex" ? 1000 : 100;
+
+          for (let i = 0; i < state.accuracyHistory.length; i++) {
+            const x = (i / (state.accuracyHistory.length - 1 || 1)) * w;
+            let val = state.accuracyHistory[i];
+            if (val > max) val = max;
+            const y = h - (val / max) * h;
+
+            if (i === 0) graphCtx.moveTo(x, y);
+            else graphCtx.lineTo(x, y);
+          }
+          graphCtx.strokeStyle = getThemeColor();
+          graphCtx.lineWidth = 2;
+          graphCtx.stroke();
+
+          // Fill
+          graphCtx.lineTo(w, h);
+          graphCtx.lineTo(0, h);
+          graphCtx.fillStyle = getThemeColor() + "20"; // 20 hex opacity
+          graphCtx.fill();
+        }
+
+        function startGame() {
+          if (state.status === "playing") return;
+          state.status = "playing";
+          state.startTime = performance.now();
+          state.lastFrame = state.startTime;
+          state.score = 0;
+          state.hits = 0;
+          state.misses = 0;
+          state.targetsTotal = 0;
+          state.particles = [];
+          state.accuracyHistory = [];
+          state.cursorPath = [];
+          state.trackingTimeOn = 0;
+          state.trackingFramesTotal = 0;
+          state.reflexTimes = [];
+          state.reflexRound = 0;
+          state.precisionRound = 0;
+
+          overlayMsg.style.display = "none";
+          playSound("start");
+          createTarget();
+          animFrame = requestAnimationFrame(loop);
+
+          if (state.mode === "flick") updateFlickUI();
+          if (state.mode === "tracking") updateLabels();
+          if (state.mode === "precision") updatePrecisionUI();
+          if (state.mode === "reflex") updateReflexUI();
+        }
+
+        function resetGame() {
+          state.status = "idle";
+          cancelAnimationFrame(animFrame);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+          overlayMsg.style.display = "block";
+          overlayMsg.textContent = "CLICK START";
+
+          m1V.textContent = "0";
+          m2V.textContent = "0%";
+          m3V.textContent = "0ms";
+          m4V.textContent = "0";
+        }
+
+        function getRank(acc) {
+          if (acc < 20) return "TURTLE";
+          if (acc < 40) return "ROOKIE";
+          if (acc < 60) return "GAMER";
+          if (acc < 75) return "PRO";
+          if (acc < 90) return "MASTER";
+          return "GODLIKE";
+        }
+
+        function endGame() {
+          state.status = "ended";
+          cancelAnimationFrame(animFrame);
+          playSound("end");
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          overlayMsg.style.display = "block";
+          overlayMsg.textContent = "DRILL COMPLETE";
+
+          let acc = 0,
+            score = state.score,
+            avg = 0;
+          if (state.mode === "flick") {
+            const total = state.hits + state.misses;
+            acc = total > 0 ? (state.hits / total) * 100 : 0;
+            avg =
+              state.reflexTimes.length > 0
+                ? state.reflexTimes.reduce((a, b) => a + b) /
+                  state.reflexTimes.length
+                : 0;
+          } else if (state.mode === "tracking") {
+            acc =
+              state.trackingFramesTotal > 0
+                ? (state.trackingTimeOn / state.trackingFramesTotal) * 100
+                : 0;
+            avg = 0;
+          } else if (state.mode === "precision") {
+            const total = state.hits + state.misses;
+            acc = total > 0 ? (state.hits / total) * 100 : 0;
+            avg =
+              state.reflexTimes.length > 0
+                ? state.reflexTimes.reduce((a, b) => a + b) /
+                  state.reflexTimes.length
+                : 0;
+          } else if (state.mode === "reflex") {
+            const total = state.hits + state.misses;
+            acc = total > 0 ? (state.hits / total) * 100 : 0;
+            avg =
+              state.reflexTimes.length > 0
+                ? state.reflexTimes.reduce((a, b) => a + b) /
+                  state.reflexTimes.length
+                : 0;
+            score = avg; // lower is better
+          }
+
+          const rank = getRank(acc);
+
+          // Confetti
+          if (rank === "MASTER" || rank === "GODLIKE") {
+            confetti({
+              particleCount: 150,
+              spread: 80,
+              origin: { y: 0.6 },
+              colors: ["#ff5f1f", "#00ffa3", "#00e5ff"],
+            });
+          }
+
+          // Save history
+          const hist = JSON.parse(
+            localStorage.getItem("csl_aim_history") || "[]",
+          );
+          const record = {
+            date: new Date().toLocaleDateString(),
+            mode: state.mode.toUpperCase(),
+            score: score.toFixed(0),
+            acc: acc.toFixed(1) + "%",
+            avg: avg.toFixed(0) + (state.mode === "precision" ? "px" : "ms"),
+            rank: rank,
+          };
+          hist.unshift(record);
+          if (hist.length > 10) hist.pop();
+          localStorage.setItem("csl_aim_history", JSON.stringify(hist));
+          renderHistory();
+
+          // Show Modal
+          document.getElementById("res-mode").textContent =
+            state.mode.toUpperCase();
+          document.getElementById("res-score").textContent = score.toFixed(0);
+          document.getElementById("res-acc").textContent = acc.toFixed(1) + "%";
+          document.getElementById("res-time").textContent = record.avg;
+          document.getElementById("result-rank").textContent = "RANK: " + rank;
+          document.getElementById("result-modal").classList.add("show");
+        }
+
+        function renderHistory() {
+          const tbody = document.getElementById("history-tbody");
+          const hist = JSON.parse(
+            localStorage.getItem("csl_aim_history") || "[]",
+          );
+          tbody.innerHTML = "";
+          hist.forEach((h) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                    <td>${h.date}</td>
+                    <td>${h.mode}</td>
+                    <td>${h.score}</td>
+                    <td>${h.acc}</td>
+                    <td>${h.avg}</td>
+                    <td style="color:var(--primary); font-weight:700;">${h.rank}</td>
+                `;
+            tbody.appendChild(tr);
+          });
+        }
+
+        startBtn.addEventListener("click", startGame);
+        resetBtn.addEventListener("click", resetGame);
+
+        document.getElementById("modal-close").addEventListener("click", () => {
+          document.getElementById("result-modal").classList.remove("show");
+          resetGame();
+        });
+
+        // Scorecard Generation
+        document
+          .getElementById("modal-download")
+          .addEventListener("click", () => {
+            const off = document.createElement("canvas");
+            off.width = 1200;
+            off.height = 630;
+            const octx = off.getContext("2d");
+
+            // BG
+            octx.fillStyle = "#0a0a0a";
+            octx.fillRect(0, 0, 1200, 630);
+
+            // Grid
+            octx.strokeStyle = "#333";
+            octx.lineWidth = 1;
+            for (let i = 0; i < 1200; i += 40) {
+              octx.beginPath();
+              octx.moveTo(i, 0);
+              octx.lineTo(i, 630);
+              octx.stroke();
+            }
+            for (let i = 0; i < 630; i += 40) {
+              octx.beginPath();
+              octx.moveTo(0, i);
+              octx.lineTo(1200, i);
+              octx.stroke();
+            }
+
+            // Text
+            octx.fillStyle = "#fff";
+            octx.font = "bold 60px Sora";
+            octx.textAlign = "center";
+            octx.fillText(
+              "AIM TRAINER - " + state.mode.toUpperCase(),
+              600,
+              150,
+            );
+
+            octx.fillStyle = "#ff5f1f";
+            octx.font = "bold 80px JetBrains Mono";
+            octx.fillText(
+              document.getElementById("result-rank").textContent,
+              600,
+              280,
+            );
+
+            octx.fillStyle = "#aaa";
+            octx.font = "40px JetBrains Mono";
+            octx.fillText(
+              `SCORE: ${document.getElementById("res-score").textContent} | ACC: ${document.getElementById("res-acc").textContent}`,
+              600,
+              420,
+            );
+            octx.fillText(
+              `AVG: ${document.getElementById("res-time").textContent}`,
+              600,
+              480,
+            );
+
+            octx.font = "30px JetBrains Mono";
+            octx.fillText("clickspeedlab.com", 600, 580);
+
+            const link = document.createElement("a");
+            link.download = `aim-trainer-${state.mode}-${Date.now()}.png`;
+            link.href = off.toDataURL("image/png");
+            link.click();
+          });
+
+        // Init
+        renderHistory();
+        updateLabels();
+      });
+    </script>
+  </body>
+</html>
