@@ -1,73 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://clickspeedlab.com/</loc>
+    <loc>https://www.clickspeedlab.com/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/cps-test/</loc>
+    <loc>https://www.clickspeedlab.com/cps-test/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.clickspeedlab.com/kohi-click-test/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.clickspeedlab.com/drag-click-test/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.clickspeedlab.com/reaction-time-test/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.clickspeedlab.com/jitter-click-test/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/jitter-click-test/</loc>
+    <loc>https://www.clickspeedlab.com/butterfly-click-test/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/butterfly-click-test/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://clickspeedlab.com/spacebar-counter/</loc>
+    <loc>https://www.clickspeedlab.com/spacebar-counter/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/mouse-polling-rate-test/</loc>
+    <loc>https://www.clickspeedlab.com/mouse-polling-rate-test/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/mouse-scroll-test/</loc>
+    <loc>https://www.clickspeedlab.com/mouse-scroll-test/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/keyboard-ghosting-test/</loc>
+    <loc>https://www.clickspeedlab.com/keyboard-ghosting-test/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/aim-trainer/</loc>
+    <loc>https://www.clickspeedlab.com/aim-trainer/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/mouse-precision-game/</loc>
+    <loc>https://www.clickspeedlab.com/mouse-precision-game/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/wasd-warrior/</loc>
+    <loc>https://www.clickspeedlab.com/wasd-warrior/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://clickspeedlab.com/type-blaster/</loc>
+    <loc>https://www.clickspeedlab.com/type-blaster/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

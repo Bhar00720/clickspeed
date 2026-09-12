@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Type Blaster — Free Typing Speed Game Online | Click Speed Lab</title>
-    <meta name="description" content="Destroy enemy data packets by typing words in this free online arcade typing game. Improve your typing speed and accuracy through 10+ waves of increasingly difficult challenges.">
+    <title>Type Blaster: Online Typing Speed Game | Click Speed Lab</title>
+    <meta name="description" content="Test your typing speed and accuracy in Type Blaster. Destroy incoming data packets with rapid keystrokes in this retro-styled typing reflex arcade game.">
     <meta name="keywords" content="typing game, typing speed game, typing practice game, type to destroy, typing test game, typing defense game, keyboard game">
     
-    <link rel="canonical" href="https://clickspeedlab.com/type-blaster/">
+    <link rel="canonical" href="https://www.clickspeedlab.com/type-blaster/">
     
     <meta property="og:title" content="Type Blaster — Free Typing Speed Game Online | Click Speed Lab">
     <meta property="og:description" content="Destroy enemy data packets by typing words in this free online arcade typing game. Improve your typing speed and accuracy through 10+ waves of increasingly difficult challenges.">
-    <meta property="og:url" content="https://clickspeedlab.com/type-blaster/">
+    <meta property="og:url" content="https://www.clickspeedlab.com/type-blaster/">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
     <link rel="manifest" href="../manifest.json">
     <link rel="stylesheet" href="../style.css">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
 
     <!-- Monetag ads scripts -->
     <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Type Blaster Game",
-      "url": "https://clickspeedlab.com/type-blaster/",
+      "url": "https://www.clickspeedlab.com/type-blaster/",
       "description": "An arcade typing defense game where you destroy incoming data packets by typing out words on them.",
       "applicationCategory": "GameApplication",
       "genre": "Typing Game",
@@ -107,12 +107,12 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://clickspeedlab.com/"
+        "item": "https://www.clickspeedlab.com/"
       },{
         "@type": "ListItem",
         "position": 2,
         "name": "Type Blaster",
-        "item": "https://clickspeedlab.com/type-blaster/"
+        "item": "https://www.clickspeedlab.com/type-blaster/"
       }]
     }
     </script>
@@ -122,8 +122,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Click Speed Lab",
-      "url": "https://clickspeedlab.com/",
-      "logo": "https://clickspeedlab.com/favicon.svg"
+      "url": "https://www.clickspeedlab.com/",
+      "logo": "https://www.clickspeedlab.com/favicon.svg"
     }
     </script>
 
@@ -131,10 +131,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": "https://clickspeedlab.com/",
+      "url": "https://www.clickspeedlab.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://clickspeedlab.com/search?q={search_term_string}",
+        "target": "https://www.clickspeedlab.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -462,6 +462,55 @@
             margin-bottom: 1.5rem;
         }
         
+    
+        #btn-start {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        #btn-start:hover {
+            box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
+            filter: brightness(1.1);
+        }
+        #btn-start:active {
+            transform: scale(0.96) translateY(1px);
+        }
+        #btn-start.is-running {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+            border-color: #10b981 !important;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5) !important;
+            color: #ffffff !important;
+        }
+        #btn-reset {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        #btn-reset:hover {
+            background: rgba(255, 68, 68, 0.15) !important;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3) !important;
+        }
+        #btn-reset:active {
+            transform: scale(0.96) translateY(1px);
+        }
+        .selectors-locked {
+            opacity: 0.5 !important;
+            pointer-events: none !important;
+            filter: grayscale(0.2);
+            transition: opacity 0.2s ease;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -474,45 +523,145 @@
         <div class="topnav-left">
             <a href="../" class="stitch-brand">CLICK SPEED <span class="sub">LAB</span></a>
             <nav class="stitch-navlinks">
-                <a href="../" class="stitch-navlink"><span class="material-symbols-outlined">dashboard</span><span>OVERVIEW</span></a>
-                <!-- Mouse Tests Dropdown -->
+                <a href="../" class="stitch-navlink ">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
                 <div class="nav-dropdown">
-                    <button class="stitch-navlink nav-dropdown-btn" type="button">
-                        <span class="material-symbols-outlined">mouse</span><span>MOUSE TESTS</span>
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
                         <span class="material-symbols-outlined nav-arrow">expand_more</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="../cps-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span><div class="item-content"><div class="item-title">Standard CPS Test</div><div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div></div></a>
-                        <a href="../jitter-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span><div class="item-content"><div class="item-title">Jitter Click Test</div><div class="item-desc">Arm muscle tremor technique & safety guide</div></div></a>
-                        <a href="../butterfly-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span><div class="item-content"><div class="item-title">Butterfly Click Test</div><div class="item-desc">Two-finger alternating double-click benchmark</div></div></a>
-                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span><div class="item-content"><div class="item-title">Mouse Polling Rate (Hz)</div><div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div></div></a>
-                        <a href="../mouse-scroll-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span><div class="item-content"><div class="item-title">Scroll Speed & Encoder</div><div class="item-desc">Notches/sec & reverse-scroll fault detector</div></div></a>
+                        <a href="../cps-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../kohi-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #e11d48;">swords</span>
+                            <div class="item-content">
+                                <div class="item-title">Kohi Click Test (PvP)</div>
+                                <div class="item-desc">10-second Minecraft PvP combat standard</div>
+                            </div>
+                        </a>
+                        <a href="../drag-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #8b5cf6;">swipe</span>
+                            <div class="item-content">
+                                <div class="item-title">Drag Click Test</div>
+                                <div class="item-desc">Surface friction & switch bounce benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../reaction-time-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f59e0b;">timer</span>
+                            <div class="item-content">
+                                <div class="item-title">Reaction Time Test</div>
+                                <div class="item-desc">Visual reflex stopwatch & millisecond reaction</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <!-- Keyboard Tests Dropdown -->
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
                 <div class="nav-dropdown">
-                    <button class="stitch-navlink nav-dropdown-btn" type="button">
-                        <span class="material-symbols-outlined">keyboard</span><span>KEYBOARD TESTS</span>
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
                         <span class="material-symbols-outlined nav-arrow">expand_more</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span><div class="item-content"><div class="item-title">Keyboard Matrix & NKRO</div><div class="item-desc">Simultaneous rollover & ghosting check</div></div></a>
-                        <a href="../spacebar-counter/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span><div class="item-content"><div class="item-title">Spacebar Speed Test</div><div class="item-desc">Spacebar counter & TikTok challenge benchmark</div></div></a>
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Matrix & NKRO</div>
+                                <div class="item-desc">Simultaneous rollover & ghosting check</div>
+                            </div>
+                        </a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
+                            <div class="item-content">
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <!-- Games Dropdown (NEW) -->
+
+                <!-- Games Dropdown -->
                 <div class="nav-dropdown">
                     <button class="stitch-navlink nav-dropdown-btn active" type="button">
-                        <span class="material-symbols-outlined">sports_esports</span><span>GAMES</span>
+                        <span class="material-symbols-outlined">sports_esports</span>
+                        <span>GAMES</span>
                         <span class="material-symbols-outlined nav-arrow">expand_more</span>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a href="../aim-trainer/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span><div class="item-content"><div class="item-title">Aim Trainer</div><div class="item-desc">Flick, tracking & precision aim drills</div></div></a>
-                        <a href="../mouse-precision-game/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span><div class="item-content"><div class="item-title">Mouse Precision Game</div><div class="item-desc">Steady-hand maze navigation challenge</div></div></a>
-                        <a href="../wasd-warrior/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span><div class="item-content"><div class="item-title">WASD Warrior</div><div class="item-desc">Left-hand gaming key reaction trainer</div></div></a>
-                        <a href="../type-blaster/" class="nav-dropdown-item active"><span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span><div class="item-content"><div class="item-title">Type Blaster</div><div class="item-desc">Arcade typing defense game</div></div></a>
+                        <a href="../aim-trainer/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span>
+                            <div class="item-content">
+                                <div class="item-title">Aim Trainer</div>
+                                <div class="item-desc">Flick, tracking & precision aim drills</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-precision-game/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Precision Game</div>
+                                <div class="item-desc">Steady-hand maze navigation challenge</div>
+                            </div>
+                        </a>
+                        <a href="../wasd-warrior/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span>
+                            <div class="item-content">
+                                <div class="item-title">WASD Warrior</div>
+                                <div class="item-desc">Left-hand gaming key reaction trainer</div>
+                            </div>
+                        </a>
+                        <a href="../type-blaster/" class="nav-dropdown-item active">
+                            <span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span>
+                            <div class="item-content">
+                                <div class="item-title">Type Blaster</div>
+                                <div class="item-desc">Arcade typing defense game</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
+            
+                <button class="fullscreen-btn" onclick="document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()" title="Toggle Fullscreen">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                </button>
             </nav>
         </div>
         <div class="topnav-right">
@@ -524,23 +673,48 @@
     </header>
 
     <main class="stitch-main">
-        <div class="page-header" data-aos="fade-down">
+        <div class="page-header">
             <span class="material-symbols-outlined icon">rocket_launch</span>
             <h1>TYPE BLASTER</h1>
             <p>ARCADE TYPING DEFENSE — DESTROY DATA PACKETS WITH YOUR KEYBOARD</p>
         </div>
 
-        <div class="game-container" data-aos="fade-up" data-aos-delay="100">
-            <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div class="difficulty-pills" id="difficulty-selector" style="display: flex; gap: 8px;">
-                    <button data-diff="easy" class="diff-btn">EASY</button>
-                    <button data-diff="normal" class="diff-btn active">NORMAL</button>
-                    <button data-diff="hard" class="diff-btn">HARD</button>
-                    <button data-diff="insane" class="diff-btn">INSANE</button>
+        <div class="game-container">
+            <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 10px;">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">DIFFICULTY:</span>
+                    <div class="difficulty-pills" id="difficulty-selector" style="display: flex; gap: 6px;">
+                        <button data-diff="easy" class="diff-btn">EASY</button>
+                        <button data-diff="normal" class="diff-btn active">NORMAL</button>
+                        <button data-diff="hard" class="diff-btn">HARD</button>
+                        <button data-diff="insane" class="diff-btn">INSANE</button>
+                    </div>
                 </div>
                 <div class="action-buttons" style="display: flex; gap: 8px;">
                     <button id="btn-start" class="kinetic-btn-orange" style="background:#a78bfa; color:#fff; border-color:#a78bfa; padding: 8px 16px; font-size: 0.8rem;">START GAME</button>
                     <button id="btn-reset" class="kinetic-btn-outline" style="border-color: #ff4444; color: #ff4444; padding: 8px 16px; font-size: 0.8rem;">ABORT MISSION</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Category & Length Filter Toolbar -->
+            <div class="filter-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 16px; background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">DICTIONARY:</span>
+                    <div class="mode-pills" id="category-selector" style="display: flex; gap: 4px; flex-wrap: wrap;">
+                        <button data-cat="tech" class="diff-btn active" style="font-size: 0.72rem; padding: 4px 10px;">TECH & CODE</button>
+                        <button data-cat="english" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">COMMON ENGLISH</button>
+                        <button data-cat="gaming" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">GAMING & SCI-FI</button>
+                        <button data-cat="phrases" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">QUOTES & PHRASES</button>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">WORD LENGTH:</span>
+                    <div class="mode-pills" id="length-selector" style="display: flex; gap: 4px; flex-wrap: wrap;">
+                        <button data-len="all" class="diff-btn active" style="font-size: 0.72rem; padding: 4px 10px;">ALL</button>
+                        <button data-len="short" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">SHORT (3-5)</button>
+                        <button data-len="med" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">MED (5-8)</button>
+                        <button data-len="long" class="diff-btn" style="font-size: 0.72rem; padding: 4px 10px;">LONG (8+)</button>
+                    </div>
                 </div>
             </div>
 
@@ -598,7 +772,7 @@
             </div>
         </div>
 
-        <div class="history-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="history-section">
             <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--text);">
                 <span class="material-symbols-outlined" style="vertical-align: middle; color: #a78bfa;">history</span>
                 Mission Log
@@ -622,7 +796,7 @@
             </div>
         </div>
 
-        <div class="info-section" data-aos="fade-up" data-aos-delay="300">
+        <div class="info-section">
             <h2 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text);">
                 <span class="material-symbols-outlined" style="vertical-align: middle; color: #a78bfa;">school</span>
                 Typing Speed Intel
@@ -652,28 +826,8 @@
         </div>
     </main>
 
-    <!-- Customizer Modal -->
-    <div class="custom-modal-backdrop" id="customizer-modal">
-        <div class="custom-modal-card" style="max-width: 420px;">
-            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">
-                <span class="material-symbols-outlined" style="vertical-align: middle; color: var(--primary);">palette</span>
-                Lab Theme
-            </h2>
-            <div id="pref-theme-pills" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px;">
-                <button data-theme="orange" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,95,31,0.4); background: rgba(255,95,31,0.1); color: #ff5f1f; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟠 OBSIDIAN</button>
-                <button data-theme="cyan" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,229,255,0.4); background: rgba(0,229,255,0.1); color: #00e5ff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🔵 CYBER</button>
-                <button data-theme="emerald" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,255,163,0.4); background: rgba(0,255,163,0.1); color: #00ffa3; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟢 EMERALD</button>
-                <button data-theme="purple" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(167,139,250,0.4); background: rgba(167,139,250,0.1); color: #a78bfa; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟣 NEON</button>
-                <button data-mode="light" class="active" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); color: #ffffff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">⚪ LIGHT</button>
-            </div>
-            <div style="display: flex; gap: 8px;">
-                <button id="customizer-save" class="kinetic-btn-orange" style="flex: 1; padding: 10px;">SAVE</button>
-                <button id="customizer-close" class="kinetic-btn-outline" style="flex: 1; padding: 10px;">CLOSE</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Result Modal -->
+    
+        <!-- Result Modal -->
     <div class="custom-modal-backdrop" id="result-modal">
         <div class="custom-modal-card" style="max-width: 480px;">
             <h2 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; margin-bottom: 8px; text-align: center; color: var(--text);">GAME OVER</h2>
@@ -684,186 +838,450 @@
                 <div class="rank-title" id="res-rank">ROOKIE</div>
             </div>
 
-            <div class="result-stats-grid">
-                <div class="result-stat-box">
+            <div class="result-stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                <div class="result-stat-box" style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
                     <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">WAVE REACHED</div>
                     <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-wave">1</div>
                 </div>
-                <div class="result-stat-box">
+                <div class="result-stat-box" style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
                     <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">SCORE</div>
                     <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-score">0</div>
                 </div>
-                <div class="result-stat-box">
+                <div class="result-stat-box" style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
                     <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">FINAL WPM</div>
                     <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-wpm">0</div>
                 </div>
-                <div class="result-stat-box">
+                <div class="result-stat-box" style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
                     <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">ACCURACY</div>
                     <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text);" id="res-acc">100%</div>
                 </div>
             </div>
 
             <div style="display: flex; gap: 8px; margin-top: 1rem;">
-                <button id="btn-play-again" class="kinetic-btn-orange" style="flex: 2; background: #a78bfa; border-color: #a78bfa;">PLAY AGAIN</button>
-                <button id="btn-share" class="kinetic-btn-outline" style="flex: 1;">SHARE</button>
+                <button id="btn-play-again" class="kinetic-btn-orange" style="flex: 2; background: #a78bfa; border-color: #a78bfa; padding: 12px; font-weight: 800; cursor: pointer;">PLAY AGAIN</button>
+                <button id="btn-share" class="kinetic-btn-outline" style="flex: 1; padding: 12px; font-weight: 700; cursor: pointer;">SHARE</button>
             </div>
         </div>
     </div>
 
+    <!-- Footer with Expandable Other Tools Menu -->
+        <!-- Unified CoreLume Footer -->
     <footer class="stitch-footer">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888;">CLICK SPEED LAB v3.1</span>
-            <span style="color: #333;">|</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #666;">ZERO-LATENCY ENGINE</span>
+        <div class="footer-left">
+            &copy; 2026 CLICK SPEED LAB | POWERED BY <a href="https://corelumetech.in" target="_blank" rel="noopener noreferrer">CORELUMETECH.IN</a>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #555;">© 2025 Click Speed Lab. All rights reserved.</span>
+
+        <!-- Center: CoreLume Suite Expandable Tools Dropup Menu -->
+        <div class="footer-dropup footer-tools-dropup" id="footer-tools-dropup">
+            <button class="footer-dropup-btn" id="footer-dropup-trigger" type="button">
+                <span class="live-dot"></span>
+                <span class="material-symbols-outlined icon">construction</span>
+                <span>OTHER TOOLS</span>
+                <span class="material-symbols-outlined arrow">expand_less</span>
+            </button>
+            <div class="footer-dropup-menu">
+                <div class="footer-dropup-header">
+                    <span class="material-symbols-outlined">apps</span>
+                    <span>CORELUME WEB TOOLS SUITE</span>
+                </div>
+                <div class="footer-tools-grid">
+                    <a href="https://calculator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00e5ff;">calculate</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Omni-Calculator</div>
+                            <div class="tool-desc">All-in-one math, finance & unit converter</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://text-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00ffa3;">format_shapes</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Text Utils</div>
+                            <div class="tool-desc">Case conversion, formatting & word statistics</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://password-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #ff5f1f;">lock</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Password Generator</div>
+                            <div class="tool-desc">High-entropy cryptographic passphrases</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://dev-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #c084fc;">code</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Dev Utils</div>
+                            <div class="tool-desc">JSON formatters, base64, regex & encoders</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://qr-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #38bdf8;">qr_code_2</span>
+                        <div class="tool-info">
+                            <div class="tool-name">QR Generator</div>
+                            <div class="tool-desc">Vector QR codes with custom styling & logos</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://color-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #f43f5e;">palette</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Color Master</div>
+                            <div class="tool-desc">Color palette generator, contrast & gradients</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-right" style="display: flex; align-items: center; gap: 14px;">
+            <a href="mailto:help@clickspeedlab.com" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">mail</span> help@clickspeedlab.com
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <span>SYSTEM STATUS: OPTIMAL</span>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    
-    <script class="global-ui-script">
-    (function() {
-        document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const dropdown = this.closest('.nav-dropdown');
-                const isOpen = dropdown.classList.contains('open');
-                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-                if (!isOpen) dropdown.classList.add('open');
-            });
-        });
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        });
+<!-- Customizer Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
 
-        let currentTheme = localStorage.getItem('csl_theme') || 'light';
-        function applyTheme(theme) {
-            currentTheme = theme;
-            if (theme === 'orange') {
-                document.documentElement.removeAttribute('data-theme');
-                document.documentElement.removeAttribute('data-mode');
-            } else if (theme === 'light') {
-                document.documentElement.setAttribute('data-mode', 'light');
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
+        </div>
+    </div>
+
+    <script class="global-ui-script">
+(function() {
+    // --- 1. TopNav & Footer Dropdowns ---
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        const btn = dropdown.querySelector('.nav-dropdown-btn');
+        if (!btn) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.blur();
+            const isOpen = dropdown.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            if (!isOpen) dropdown.classList.add('open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        if (footerDropup) footerDropup.classList.remove('open');
+    });
+
+    const footerTrigger = document.getElementById('footer-dropup-trigger');
+    const footerDropup = document.getElementById('footer-tools-dropup');
+    if (footerTrigger && footerDropup) {
+        footerTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            footerDropup.classList.toggle('open');
+        });
+    }
+
+    // --- 2. Customizer Modal Open / Close ---
+    const customizerModal = document.getElementById('customizer-modal');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const customizerCloseBtn = document.getElementById('customizer-close');
+    const customizerApplyBtn = document.getElementById('customizer-apply-btn');
+    const customizerSaveBtn = document.getElementById('customizer-save');
+
+    function openCustomizer() {
+        if (customizerModal) {
+            updateModalPills();
+            customizerModal.classList.add('show');
+        }
+    }
+    function closeCustomizer() {
+        if (customizerModal) {
+            customizerModal.classList.remove('show');
+        }
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', openCustomizer);
+    if (customizerCloseBtn) customizerCloseBtn.addEventListener('click', closeCustomizer);
+    if (customizerApplyBtn) customizerApplyBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+    if (customizerSaveBtn) customizerSaveBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+
+    if (customizerModal) {
+        customizerModal.addEventListener('click', (e) => {
+            if (e.target === customizerModal) closeCustomizer();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeCustomizer();
+    });
+
+    // --- 3. Preferences & Switch Acoustics Audio Synthesis ---
+    let labAudioCtx = null;
+    window.playSwitchSound = function(soundOverride) {
+        const currentSound = soundOverride || prefs.sound;
+        if (currentSound === 'off') return;
+        try {
+            if (!labAudioCtx) labAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (labAudioCtx.state === 'suspended') labAudioCtx.resume();
+            
+            const osc = labAudioCtx.createOscillator();
+            const gain = labAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(labAudioCtx.destination);
+            const now = labAudioCtx.currentTime;
+
+            if (currentSound === 'blue') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1900, now);
+                osc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.035);
+            } else if (currentSound === 'brown') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.045);
+                osc.start(now);
+                osc.stop(now + 0.045);
+            } else if (currentSound === 'red') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.038);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.038);
+                osc.start(now);
+                osc.stop(now + 0.038);
+            } else if (currentSound === 'cream') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.04);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            }
+        } catch (err) {
+            // AudioContext not allowed or not supported
+        }
+    };
+
+    // State Manager
+    let prefs = {
+        theme: localStorage.getItem('csl_theme') || 'light',
+        mode: localStorage.getItem('csl_mode') || 'light',
+        kbSkin: localStorage.getItem('csl_kb_skin') || 'obsidian',
+        mouseSkin: localStorage.getItem('csl_mouse_skin') || 'obsidian',
+        sound: localStorage.getItem('csl_sound') || 'blue',
+        bg: localStorage.getItem('csl_bg') || 'grid'
+    };
+
+    // Reconcile mode & theme
+    if (prefs.mode === 'light' || prefs.theme === 'light') {
+        prefs.mode = 'light';
+        prefs.theme = 'light';
+    }
+
+    function updateModalPills() {
+        document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+            if (prefs.mode === 'light' && b.dataset.mode === 'light') b.classList.add('active');
+            else if (prefs.mode !== 'light' && b.dataset.theme === prefs.theme) b.classList.add('active');
+            else b.classList.remove('active');
+        });
+        document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.kbskin === prefs.kbSkin);
+        });
+        document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.mouseskin === prefs.mouseSkin);
+        });
+        document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.sound === prefs.sound);
+        });
+        document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.bg === prefs.bg);
+        });
+    }
+
+    function applyPreferences() {
+        // 1. Theme & Mode
+        if (prefs.mode === 'light') {
+            document.documentElement.setAttribute('data-mode', 'light');
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            document.documentElement.removeAttribute('data-mode');
+            if (prefs.theme === 'orange') {
                 document.documentElement.removeAttribute('data-theme');
             } else {
-                document.documentElement.setAttribute('data-theme', theme);
-                document.documentElement.removeAttribute('data-mode');
+                document.documentElement.setAttribute('data-theme', prefs.theme);
             }
-            localStorage.setItem('csl_theme', theme);
-            document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
-                p.classList.remove('active');
-                if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
-                else if (p.dataset.theme === theme) p.classList.add('active');
-            });
         }
-        applyTheme(currentTheme);
 
-        const themeBtn = document.getElementById('theme-toggle');
-        const customizerModal = document.getElementById('customizer-modal');
-        const customizerClose = document.getElementById('customizer-close');
-        const customizerSave = document.getElementById('customizer-save');
-        if (themeBtn && customizerModal) {
-            themeBtn.addEventListener('click', () => customizerModal.classList.add('show'));
-        }
-        if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
-        if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
-        document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const t = e.target.dataset.theme;
-                const m = e.target.dataset.mode;
-                if (t) applyTheme(t);
-                if (m) applyTheme(m);
-            });
+        // 2. Skins & Atmospheres
+        document.documentElement.setAttribute('data-kb-skin', prefs.kbSkin);
+        document.documentElement.setAttribute('data-mouse-skin', prefs.mouseSkin);
+        document.documentElement.setAttribute('data-bg', prefs.bg);
+
+        // 3. Update pill UI
+        updateModalPills();
+
+        // 4. Save to localStorage
+        localStorage.setItem('csl_theme', prefs.theme);
+        localStorage.setItem('csl_mode', prefs.mode);
+        localStorage.setItem('csl_kb_skin', prefs.kbSkin);
+        localStorage.setItem('csl_mouse_skin', prefs.mouseSkin);
+        localStorage.setItem('csl_sound', prefs.sound);
+        localStorage.setItem('csl_bg', prefs.bg);
+    }
+
+    // Pill Click Listeners
+    document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (b.dataset.mode === 'light') {
+                prefs.mode = 'light';
+                prefs.theme = 'light';
+            } else {
+                prefs.mode = 'dark';
+                prefs.theme = b.dataset.theme;
+            }
+            applyPreferences();
         });
-    })();
-    </script>
+    });
+
+    document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.kbSkin = b.dataset.kbskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.mouseSkin = b.dataset.mouseskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.sound = b.dataset.sound;
+            applyPreferences();
+            window.playSwitchSound(prefs.sound);
+        });
+    });
+
+    document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.bg = b.dataset.bg;
+            applyPreferences();
+        });
+    });
+
+    // Initialize on load
+    applyPreferences();
+})();
+</script>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        if (typeof AOS !== 'undefined') AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 40 });
-        
-        // --- Game Setup ---
+        // --- Game Elements ---
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
         const wpmCanvas = document.getElementById('wpm-chart');
         const wpmCtx = wpmCanvas.getContext('2d');
-        
-        function resize() {
-            const rect = canvas.parentElement.getBoundingClientRect();
-            const wpmRect = wpmCanvas.parentElement.getBoundingClientRect();
-            
-            // Handle HiDPI
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            ctx.scale(dpr, dpr);
-            
-            wpmCanvas.width = wpmRect.width * dpr;
-            wpmCanvas.height = wpmRect.height * dpr;
-            wpmCtx.scale(dpr, dpr);
-        }
-        window.addEventListener('resize', resize);
-        resize();
+        const btnStart = document.getElementById('btn-start');
+        const btnReset = document.getElementById('btn-reset');
+        const startOverlay = document.getElementById('start-overlay');
+        const diffContainer = document.getElementById('difficulty-selector');
+        const catContainer = document.getElementById('category-selector');
+        const lenContainer = document.getElementById('length-selector');
+        const filterBar = document.querySelector('.filter-bar');
+        const controlsBar = document.querySelector('.controls-bar');
 
-        // Audio Context
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const audioCtx = new AudioContext();
-        
-        function playSound(type) {
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            osc.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            
-            const now = audioCtx.currentTime;
-            
-            if (type === 'tick') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(1000, now);
-                gainNode.gain.setValueAtTime(0.1, now);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.02);
-                osc.start(now);
-                osc.stop(now + 0.02);
-            } else if (type === 'pow') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(500, now);
-                osc.frequency.exponentialRampToValueAtTime(100, now + 0.05);
-                gainNode.gain.setValueAtTime(0.2, now);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
-                osc.start(now);
-                osc.stop(now + 0.05);
-            } else if (type === 'alarm') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(120, now);
-                gainNode.gain.setValueAtTime(0.3, now);
-                gainNode.gain.linearRampToValueAtTime(0, now + 0.2);
-                osc.start(now);
-                osc.stop(now + 0.2);
-            }
-        }
-
-        // --- Data ---
-        const wordLists = {
-            easy: ['code','fast','type','hack','data','fire','send','byte','loop','port','ping','root','zero','null','void','load','save','read','edit','move'],
-            normal: ['quick','laser','shield','turbo','boost','crash','debug','pixel','queue','stack','merge','clone','cache','proxy','spawn','parse'],
-            hard: ['quantum','execute','decrypt','compile','protocol','firewall','overflow','terminal','database','keyboard','function','variable'],
-            insane: ['algorithm','interface','processor','rendering','framework','bandwidth','benchmark','malicious','encryption','vulnerability','architecture'],
-            boss: ['hack the system','sudo make coffee','git push force','stack overflow','kernel panic']
-        };
-
-        const diffConfig = {
-            easy: { speed: 15, list: 'easy', count: 1, lives: 5 },
-            normal: { speed: 25, list: 'normal', count: 2, lives: 3 },
-            hard: { speed: 35, list: 'hard', count: 3, lives: 2 },
-            insane: { speed: 50, list: 'insane', count: 4, lives: 1 }
-        };
         let currentDifficulty = 'normal';
+        let currentCategory = 'tech';
+        let currentLength = 'all';
 
-        // --- State ---
         let state = {
             playing: false,
             wave: 1,
@@ -877,6 +1295,7 @@
             targetIndex: -1,
             keystrokes: 0,
             correctKeystrokes: 0,
+            wpm: 0,
             startTime: 0,
             wpmHistory: [],
             waveStartTime: 0,
@@ -886,7 +1305,7 @@
         };
 
         // Init Stars
-        for(let i=0; i<100; i++){
+        for(let i = 0; i < 100; i++) {
             state.stars.push({
                 x: Math.random() * 1000,
                 y: Math.random() * 450,
@@ -895,10 +1314,169 @@
             });
         }
 
+        function resize() {
+            if (!canvas.parentElement || !wpmCanvas.parentElement) return;
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const wpmRect = wpmCanvas.parentElement.getBoundingClientRect();
+            
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            
+            wpmCanvas.width = wpmRect.width * dpr;
+            wpmCanvas.height = wpmRect.height * dpr;
+            wpmCtx.scale(dpr, dpr);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Audio Context
+        const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        try {
+            if (AudioCtxClass) audioCtx = new AudioCtxClass();
+        } catch(e) {}
+        
+        function playSound(type) {
+            if (!audioCtx) return;
+            try {
+                if(audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                const now = audioCtx.currentTime;
+                
+                if (type === 'tick') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(1000, now);
+                    gainNode.gain.setValueAtTime(0.08, now);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.02);
+                    osc.start(now);
+                    osc.stop(now + 0.02);
+                } else if (type === 'pow') {
+                    osc.type = 'square';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.exponentialRampToValueAtTime(120, now + 0.06);
+                    gainNode.gain.setValueAtTime(0.18, now);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.06);
+                    osc.start(now);
+                    osc.stop(now + 0.06);
+                } else if (type === 'alarm') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(120, now);
+                    gainNode.gain.setValueAtTime(0.25, now);
+                    gainNode.gain.linearRampToValueAtTime(0, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                } else if (type === 'start') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.15);
+                    gainNode.gain.setValueAtTime(0.15, now);
+                    gainNode.gain.linearRampToValueAtTime(0.01, now + 0.15);
+                    osc.start(now);
+                    osc.stop(now + 0.15);
+                }
+            } catch(e) {}
+        }
+
+        // Dictionaries
+        const dictionaries = {
+            tech: [
+                'code', 'fast', 'type', 'hack', 'data', 'byte', 'loop', 'port', 'ping', 'root', 'null', 'void', 'load', 'save', 'sync', 'push', 'pull', 'node', 'core', 'host',
+                'cache', 'proxy', 'stack', 'queue', 'merge', 'clone', 'patch', 'debug', 'pixel', 'route', 'token', 'cloud', 'query', 'react', 'redux', 'async', 'await', 'scope',
+                'kernel', 'buffer', 'socket', 'thread', 'server', 'client', 'driver', 'memory', 'string', 'binary', 'docker', 'python', 'script', 'lambda', 'schema', 'module',
+                'quantum', 'execute', 'decrypt', 'compile', 'runtime', 'terminal', 'database', 'keyboard', 'function', 'variable', 'payload', 'protocol', 'hardware', 'frontend', 'backend',
+                'algorithm', 'interface', 'processor', 'rendering', 'framework', 'bandwidth', 'benchmark', 'malicious', 'firewall', 'subroutine', 'middleware', 'repository', 'cryptography', 'hypervisor'
+            ],
+            english: [
+                'sun', 'sky', 'sea', 'air', 'wind', 'rain', 'star', 'moon', 'glow', 'fire', 'ice', 'wave', 'bird', 'tree', 'leaf', 'rose', 'gold', 'blue', 'pure', 'true',
+                'river', 'cloud', 'stone', 'water', 'earth', 'light', 'sound', 'flame', 'spark', 'shadow', 'forest', 'desert', 'valley', 'island', 'breeze', 'meadow', 'silver', 'winter',
+                'crystal', 'journey', 'whisper', 'freedom', 'horizon', 'mystery', 'silence', 'destiny', 'miracle', 'harmony', 'courage', 'morning', 'twilight', 'emerald', 'sapphire', 'infinite',
+                'adventure', 'beautiful', 'brilliant', 'celestial', 'discovery', 'radiance', 'wonderland', 'resilient', 'serendipity', 'magnificent', 'constellation', 'extraordinary', 'illumination', 'unforgettable'
+            ],
+            gaming: [
+                'ace', 'bot', 'aim', 'lag', 'fps', 'pro', 'clan', 'loot', 'buff', 'nerf', 'drop', 'heal', 'dash', 'spin', 'jump', 'kill', 'tank', 'mana', 'boss', 'raid',
+                'shield', 'sniper', 'stealth', 'strike', 'combat', 'armor', 'respawn', 'potion', 'glitch', 'blaster', 'hunter', 'rogue', 'knight', 'shrine', 'dungeon', 'damage', 'vector', 'invader',
+                'critical', 'warrior', 'cyberpunk', 'parrying', 'valkyrie', 'headshot', 'artifact', 'guardian', 'champions', 'berserker', 'overdrive', 'shuriken', 'reloading', 'teleport',
+                'hyperdrive', 'invincible', 'annihilator', 'juggernaut', 'bloodbath', 'resurrection', 'sharpshooter', 'cataclysmic', 'annihilation', 'invisibility', 'spellcaster'
+            ],
+            phrases: [
+                'stay focused', 'level up', 'break limits', 'never give up', 'full speed', 'aim for stars', 'press forward', 'quick reflex', 'type to win', 'game over',
+                'code is poetry', 'speed of light', 'master your craft', 'practice makes perfect', 'unlock your power', 'keep on typing', 'victory is yours', 'hack the planet', 'stay hungry stay foolish', 'zero latency flow'
+            ]
+        };
+
+        const diffConfig = {
+            easy: { speed: 18, count: 1, lives: 5 },
+            normal: { speed: 28, count: 2, lives: 3 },
+            hard: { speed: 42, count: 3, lives: 2 },
+            insane: { speed: 60, count: 4, lives: 1 }
+        };
+
+        // Wire up difficulty buttons
+        if (diffContainer) {
+            diffContainer.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (state.playing) return;
+                    diffContainer.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentDifficulty = btn.dataset.diff;
+                    const lives = diffConfig[currentDifficulty].lives;
+                    const lc = document.getElementById('ui-lives');
+                    if (lc) {
+                        lc.innerHTML = '';
+                        for(let i=0; i<lives; i++) {
+                            lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
+                        }
+                    }
+                });
+            });
+        }
+
+        // Wire up Category selector
+        if (catContainer) {
+            catContainer.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (state.playing) return;
+                    catContainer.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.cat;
+                });
+            });
+        }
+
+        // Wire up Length selector
+        if (lenContainer) {
+            lenContainer.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (state.playing) return;
+                    lenContainer.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLength = btn.dataset.len;
+                });
+            });
+        }
+
+        function getFilteredWords() {
+            let pool = dictionaries[currentCategory] || dictionaries.tech;
+            if (currentLength === 'short') {
+                return pool.filter(w => w.length <= 5);
+            } else if (currentLength === 'med') {
+                return pool.filter(w => w.length >= 5 && w.length <= 8);
+            } else if (currentLength === 'long') {
+                return pool.filter(w => w.length >= 8);
+            }
+            return pool;
+        }
+
         function getWaveConfig(wave) {
             const base = diffConfig[currentDifficulty];
-            if (wave % 5 === 0) return { count: base.count, list: 'boss', speed: base.speed + (wave * 2) };
-            return { count: base.count, list: base.list, speed: base.speed + (wave * 2) };
+            if (wave % 5 === 0) return { count: Math.min(2, base.count), isBoss: true, speed: base.speed + (wave * 2) };
+            return { count: base.count, isBoss: false, speed: base.speed + (wave * 2.2) };
         }
 
         function spawnWave() {
@@ -906,39 +1484,48 @@
             state.targetIndex = -1;
             const config = getWaveConfig(state.wave);
             
-            const w = canvas.width / (window.devicePixelRatio||1);
+            const w = canvas.width / (window.devicePixelRatio || 1);
             const segment = w / config.count;
 
+            let words = getFilteredWords();
+            if (words.length === 0) words = dictionaries[currentCategory] || dictionaries.tech;
+
             for (let i = 0; i < config.count; i++) {
-                const words = wordLists[config.list];
-                const word = words[Math.floor(Math.random() * words.length)];
+                let word;
+                if (config.isBoss) {
+                    const bossPool = dictionaries.phrases;
+                    word = bossPool[Math.floor(Math.random() * bossPool.length)];
+                } else {
+                    word = words[Math.floor(Math.random() * words.length)];
+                }
                 
-                let x = (segment * i) + (segment / 2) + (Math.random() * 40 - 20);
-                x = Math.max(80, Math.min(w - 80, x));
+                const approxHalfW = Math.max(50, word.length * 5.5 + 20);
+                let x = (segment * i) + (segment / 2) + (Math.random() * 30 - 15);
+                x = Math.max(approxHalfW + 15, Math.min(w - approxHalfW - 15, x));
                 
                 state.packets.push({
                     word: word,
                     typed: '',
                     x: x,
                     y: -50 - (Math.random() * 50),
-                    speed: config.speed + (Math.random() * 10),
+                    speed: config.speed + (Math.random() * 8),
                     scale: 0,
-                    spawnTime: performance.now()
+                    spawnTime: performance.now(),
+                    isBoss: config.isBoss
                 });
             }
+            state.targetIndex = determineTargetIndex();
             updateTargetUI();
         }
 
         function determineTargetIndex() {
             if (state.packets.length === 0) return -1;
-            // Target the one lowest on screen that has no typing, or keep current if it has typing
             if (state.targetIndex !== -1 && state.packets[state.targetIndex] && state.packets[state.targetIndex].typed.length > 0) {
                 return state.targetIndex;
             }
-            
-            let maxObj = -1;
+            let maxObj = 0;
             let maxY = -999;
-            for (let i=0; i<state.packets.length; i++) {
+            for (let i = 0; i < state.packets.length; i++) {
                 if (state.packets[i].y > maxY) {
                     maxY = state.packets[i].y;
                     maxObj = i;
@@ -947,60 +1534,18 @@
             return maxObj;
         }
 
-        function updateTargetUI() {
-            const uiWord = document.getElementById('ui-target-word');
-            if (state.targetIndex === -1 || !state.packets[state.targetIndex]) {
-                uiWord.innerHTML = '<span class="untyped-char">WAITING...</span>';
+        function showWaveBanner(text, callback) {
+            const banner = document.getElementById('wave-banner');
+            if (!banner) {
+                if (callback) callback();
                 return;
             }
-            
-            const p = state.packets[state.targetIndex];
-            let html = '';
-            for(let i=0; i<p.word.length; i++) {
-                if (i < p.typed.length) {
-                    html += `<span class="typed-char">${p.word[i]}</span>`;
-                } else {
-                    html += `<span class="untyped-char">${p.word[i]}</span>`;
-                }
-            }
-            uiWord.innerHTML = html;
-        }
-
-        function createExplosion(x, y) {
-            for(let i=0; i<20; i++){
-                const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 100 + 50;
-                state.particles.push({
-                    x: x, y: y,
-                    vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed,
-                    life: 1,
-                    color: '#a78bfa'
-                });
-            }
-        }
-
-        function createPopup(x, y, text, color='#fff') {
-            state.popups.push({
-                x, y, text, color, life: 1
-            });
-        }
-
-        function triggerMiss() {
-            playSound('alarm');
-            state.lives--;
-            state.combo = 1;
-            state.shake = 10;
-            updateUI();
-            
-            const hearts = document.querySelectorAll('.life-heart');
-            if (hearts[state.lives]) {
-                hearts[state.lives].classList.add('broken');
-            }
-
-            if (state.lives <= 0) {
-                gameOver();
-            }
+            banner.innerText = text;
+            banner.classList.add('show');
+            setTimeout(() => {
+                banner.classList.remove('show');
+                if (callback) setTimeout(callback, 300);
+            }, 1600);
         }
 
         function getRank(wave) {
@@ -1012,34 +1557,106 @@
             return 'GODLIKE';
         }
 
-        function updateUI() {
-            document.getElementById('ui-wave').innerText = state.wave;
-            document.getElementById('ui-score').innerText = state.score;
-            document.getElementById('ui-combo').innerText = 'x' + state.combo;
-            
-            // Calc WPM
-            if (state.playing) {
-                const minutes = (performance.now() - state.startTime) / 60000;
-                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
-                document.getElementById('ui-wpm').innerText = wpm;
+        function createExplosion(x, y) {
+            for(let i = 0; i < 22; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 120 + 40;
+                state.particles.push({
+                    x: x, y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: 1,
+                    color: Math.random() > 0.5 ? '#a78bfa' : '#00ffa3'
+                });
             }
         }
 
-        function showWaveBanner(text, callback) {
-            const banner = document.getElementById('wave-banner');
-            banner.innerText = text;
-            banner.classList.add('show');
-            setTimeout(() => {
-                banner.classList.remove('show');
-                if(callback) setTimeout(callback, 300);
-            }, 2000);
+        function createPopup(x, y, text, color = '#00ffa3') {
+            state.popups.push({
+                x, y, text, color, life: 1
+            });
+        }
+
+        function updateUI() {
+            const elWave = document.getElementById('ui-wave');
+            const elScore = document.getElementById('ui-score');
+            const elWpm = document.getElementById('ui-wpm');
+            const elCombo = document.getElementById('ui-combo');
+            if (elWave) elWave.innerText = state.wave;
+            if (elScore) elScore.innerText = state.score;
+            if (elWpm) elWpm.innerText = state.wpm;
+            if (elCombo) elCombo.innerText = 'x' + state.combo;
+        }
+
+        function updateTargetUI() {
+            const targetEl = document.getElementById('ui-target-word');
+            if (!targetEl) return;
+            if (state.targetIndex === -1 || !state.packets[state.targetIndex]) {
+                targetEl.innerHTML = '<span class="untyped-char">TYPE TO ENGAGE</span>';
+                return;
+            }
+            const p = state.packets[state.targetIndex];
+            let html = '';
+            for(let i = 0; i < p.word.length; i++) {
+                if(i < p.typed.length) {
+                    html += '<span class="typed-char">' + (p.word[i] === ' ' ? '&nbsp;' : p.word[i]) + '</span>';
+                } else {
+                    html += '<span class="untyped-char">' + (p.word[i] === ' ' ? '&nbsp;' : p.word[i]) + '</span>';
+                }
+            }
+            targetEl.innerHTML = html;
+        }
+
+        function triggerHit(packetIndex, speedBonus) {
+            if (!state.packets[packetIndex]) return;
+            const p = state.packets[packetIndex];
+            playSound('pow');
+            
+            let pts = 100 * state.combo;
+            if (speedBonus) pts += 50;
+            state.score += pts;
+            state.combo++;
+            
+            createExplosion(p.x, p.y);
+            createPopup(p.x, p.y, '+' + pts + (speedBonus ? ' SPEED!' : ''), '#00ffa3');
+            
+            state.packets.splice(packetIndex, 1);
+            state.targetIndex = determineTargetIndex();
+            updateTargetUI();
+            updateUI();
+            
+            if(state.packets.length === 0) {
+                state.wave++;
+                showWaveBanner('WAVE ' + state.wave, () => {
+                    spawnWave();
+                });
+            }
+        }
+
+        function triggerMiss() {
+            playSound('alarm');
+            state.lives--;
+            state.combo = 1;
+            state.shake = 10;
+            
+            const lc = document.getElementById('ui-lives');
+            if(lc && lc.children.length > 0) {
+                lc.removeChild(lc.lastElementChild);
+            }
+            
+            updateUI();
+            
+            if(state.lives <= 0) {
+                gameOver();
+            }
         }
 
         function drawGraph() {
-            const w = wpmCanvas.width / (window.devicePixelRatio||1);
-            const h = wpmCanvas.height / (window.devicePixelRatio||1);
+            if (!wpmCanvas || !wpmCtx) return;
+            const w = wpmCanvas.width / (window.devicePixelRatio || 1);
+            const h = wpmCanvas.height / (window.devicePixelRatio || 1);
             
-            wpmCtx.clearRect(0,0,w,h);
+            wpmCtx.clearRect(0, 0, w, h);
             if(state.wpmHistory.length < 2) return;
             
             wpmCtx.beginPath();
@@ -1052,44 +1669,45 @@
             state.wpmHistory.forEach((val, i) => {
                 const x = i * step;
                 const y = h - (val / maxWpm) * (h - 20) - 10;
-                if(i===0) wpmCtx.moveTo(x,y);
-                else wpmCtx.lineTo(x,y);
+                if(i === 0) wpmCtx.moveTo(x, y);
+                else wpmCtx.lineTo(x, y);
             });
             wpmCtx.stroke();
             
-            // fill
             wpmCtx.lineTo(w, h);
             wpmCtx.lineTo(0, h);
             wpmCtx.fillStyle = 'rgba(167, 139, 250, 0.1)';
             wpmCtx.fill();
         }
 
-        function loop(now) {
+        // Loop
+        function loop(time) {
             if (!state.playing) return;
-            const dt = (now - state.lastFrameTime) / 1000;
-            state.lastFrameTime = now;
+            const dt = Math.min((time - state.lastFrameTime) / 1000, 0.1);
+            state.lastFrameTime = time;
             
-            const cw = canvas.width / (window.devicePixelRatio||1);
-            const ch = canvas.height / (window.devicePixelRatio||1);
+            const cw = canvas.width / (window.devicePixelRatio || 1);
+            const ch = canvas.height / (window.devicePixelRatio || 1);
             
             ctx.clearRect(0, 0, cw, ch);
             
-            // Shake
+            // Screen Shake
             if (state.shake > 0) {
                 ctx.save();
-                ctx.translate((Math.random()-0.5)*state.shake, (Math.random()-0.5)*state.shake);
-                state.shake -= dt * 30;
-                if(state.shake < 0) state.shake = 0;
+                const sx = (Math.random() - 0.5) * state.shake;
+                const sy = (Math.random() - 0.5) * state.shake;
+                ctx.translate(sx, sy);
+                state.shake -= dt * 20;
             }
             
             // Stars
             ctx.fillStyle = '#ffffff';
             state.stars.forEach(s => {
-                s.y -= s.v * (dt*60);
-                if(s.y < 0) { s.y = ch; s.x = Math.random() * cw; }
+                s.y -= s.v;
+                if(s.y < 0) s.y = ch;
                 ctx.globalAlpha = 0.3 + (s.v * 0.5);
                 ctx.beginPath();
-                ctx.arc(s.x, s.y, s.s, 0, Math.PI*2);
+                ctx.arc(s.x, s.y, s.s, 0, Math.PI * 2);
                 ctx.fill();
             });
             ctx.globalAlpha = 1;
@@ -1105,7 +1723,8 @@
             ctx.stroke();
             ctx.setLineDash([]);
             
-            // Packets
+            // Packets Rendering
+            const now = performance.now();
             for (let i = state.packets.length - 1; i >= 0; i--) {
                 const p = state.packets[i];
                 p.y += p.speed * dt;
@@ -1113,89 +1732,100 @@
                 if (p.scale < 1) p.scale += dt * 3;
                 if (p.scale > 1) p.scale = 1;
                 
-                // Draw Packet
                 ctx.save();
-                ctx.translate(p.x, p.y + Math.sin(now/200 + i)*5);
+                ctx.translate(p.x, p.y + Math.sin(now / 200 + i) * 5);
                 ctx.scale(p.scale, p.scale);
                 
                 const isTarget = (i === state.targetIndex);
                 
-                // Hex shape roughly
+                ctx.font = '700 15px "JetBrains Mono", monospace';
+                const totalW = ctx.measureText(p.word).width;
+                const halfW = Math.max(50, (totalW / 2) + 20);
+                const h = 17;
+                
                 ctx.beginPath();
-                ctx.moveTo(-40, -15);
-                ctx.lineTo(40, -15);
-                ctx.lineTo(50, 0);
-                ctx.lineTo(40, 15);
-                ctx.lineTo(-40, 15);
-                ctx.lineTo(-50, 0);
+                ctx.moveTo(-halfW + 10, -h);
+                ctx.lineTo(halfW - 10, -h);
+                ctx.lineTo(halfW + 8, 0);
+                ctx.lineTo(halfW - 10, h);
+                ctx.lineTo(-halfW + 10, h);
+                ctx.lineTo(-halfW - 8, 0);
                 ctx.closePath();
                 
-                ctx.fillStyle = isTarget ? 'rgba(167, 139, 250, 0.2)' : 'rgba(255,255,255,0.05)';
-                ctx.fill();
-                ctx.strokeStyle = isTarget ? '#a78bfa' : '#444';
+                if (p.isBoss) {
+                    ctx.fillStyle = isTarget ? 'rgba(244, 63, 94, 0.3)' : 'rgba(244, 63, 94, 0.1)';
+                    ctx.strokeStyle = isTarget ? '#f43f5e' : 'rgba(244, 63, 94, 0.5)';
+                } else {
+                    ctx.fillStyle = isTarget ? 'rgba(167, 139, 250, 0.25)' : 'rgba(255, 255, 255, 0.05)';
+                    ctx.strokeStyle = isTarget ? '#a78bfa' : 'rgba(255, 255, 255, 0.18)';
+                }
                 ctx.lineWidth = isTarget ? 2 : 1;
+                ctx.fill();
                 ctx.stroke();
                 
-                // Text
-                ctx.font = '700 16px "JetBrains Mono"';
+                if (isTarget) {
+                    ctx.shadowColor = p.isBoss ? '#f43f5e' : '#a78bfa';
+                    ctx.shadowBlur = 10;
+                }
+                
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 
                 const typedW = ctx.measureText(p.typed).width;
                 const untyped = p.word.substring(p.typed.length);
                 const untypedW = ctx.measureText(untyped).width;
-                const totalW = typedW + untypedW;
                 
-                let startX = -totalW/2;
+                let startX = -totalW / 2;
                 
                 ctx.fillStyle = '#00ffa3';
-                ctx.fillText(p.typed, startX + typedW/2, 2);
+                ctx.fillText(p.typed, startX + typedW / 2, 1);
                 
-                ctx.fillStyle = '#ccc';
-                ctx.fillText(untyped, startX + typedW + untypedW/2, 2);
+                ctx.fillStyle = isTarget ? '#ffffff' : '#cbd5e1';
+                ctx.fillText(untyped, startX + typedW + untypedW / 2, 1);
                 
+                ctx.shadowBlur = 0;
                 ctx.restore();
                 
                 // Miss check
                 if (p.y > lineY) {
                     state.packets.splice(i, 1);
                     triggerMiss();
-                    if(state.targetIndex === i) state.targetIndex = -1;
+                    if(state.targetIndex === i) state.targetIndex = determineTargetIndex();
                     else if(state.targetIndex > i) state.targetIndex--;
                     updateTargetUI();
                 }
             }
             
             // Particles
-            for(let i=state.particles.length-1; i>=0; i--){
+            for(let i = state.particles.length - 1; i >= 0; i--) {
                 const p = state.particles[i];
                 p.x += p.vx * dt;
                 p.y += p.vy * dt;
                 p.life -= dt;
                 if(p.life <= 0) {
-                    state.particles.splice(i,1);
+                    state.particles.splice(i, 1);
                     continue;
                 }
                 ctx.globalAlpha = p.life;
                 ctx.fillStyle = p.color;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI*2);
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
                 ctx.fill();
             }
             ctx.globalAlpha = 1;
             
             // Popups
-            for(let i=state.popups.length-1; i>=0; i--){
+            for(let i = state.popups.length - 1; i >= 0; i--) {
                 const p = state.popups[i];
                 p.y -= 50 * dt;
                 p.life -= dt;
                 if(p.life <= 0) {
-                    state.popups.splice(i,1);
+                    state.popups.splice(i, 1);
                     continue;
                 }
                 ctx.globalAlpha = p.life;
-                ctx.fillStyle = p.color;
-                ctx.font = '700 18px Sora';
+                ctx.fillStyle = p.color || '#fff';
+                ctx.font = '700 13px "JetBrains Mono", monospace';
                 ctx.textAlign = 'center';
                 ctx.fillText(p.text, p.x, p.y);
             }
@@ -1203,68 +1833,35 @@
             
             if (state.shake > 0) ctx.restore();
 
-            // Next wave check
-            if (state.packets.length === 0 && state.lives > 0) {
-                state.wave++;
-                state.targetIndex = -1;
-                updateTargetUI();
-                
-                const minutes = (performance.now() - state.startTime) / 60000;
-                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
-                state.wpmHistory.push(wpm);
-                drawGraph();
-
-                state.playing = false; // pause briefly
-                showWaveBanner(`WAVE ${state.wave}`, () => {
-                    if(state.lives > 0) {
-                        state.playing = true;
-                        state.lastFrameTime = performance.now();
-                        spawnWave();
-                        requestAnimationFrame(loop);
-                    }
-                });
-            } else {
-                // Ensure target index is valid
-                if (state.targetIndex === -1 && state.packets.length > 0) {
-                    state.targetIndex = determineTargetIndex();
-                    updateTargetUI();
+            // Realtime WPM calculation
+            const elapsedMin = (performance.now() - state.startTime) / 60000;
+            if (elapsedMin > 0.05) {
+                state.wpm = Math.round((state.correctKeystrokes / 5) / elapsedMin);
+                if (Math.floor(elapsedMin * 60) % 2 === 0) {
+                    state.wpmHistory.push(state.wpm);
+                    if (state.wpmHistory.length > 50) state.wpmHistory.shift();
+                    drawGraph();
                 }
             }
-            
             updateUI();
-            
-            // Re-calc WPM roughly every second for graph dynamically
-            if(Math.floor(now/1000) > Math.floor(state.lastFrameTime/1000)) {
-                const minutes = (performance.now() - state.startTime) / 60000;
-                const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
-                if(state.wpmHistory.length === 0 || state.wpmHistory[state.wpmHistory.length-1] !== wpm) {
-                    // Update last point if same wave, or add logic
-                }
-            }
 
-            if(state.playing) {
-                if (state.animId) cancelAnimationFrame(state.animId);
-                state.animId = requestAnimationFrame(loop);
-            }
+            state.animId = requestAnimationFrame(loop);
         }
 
-        // Keydown handling
-        document.addEventListener('keydown', (e) => {
-            // Start game on any key if overlay is visible
-            const overlay = document.getElementById('start-overlay');
-            if (!state.playing && !overlay.classList.contains('hidden')) {
-                if (['Tab', 'Backspace', 'Shift', 'Control', 'Alt', 'Meta'].includes(e.key)) return;
-                e.preventDefault();
-                startGame();
+        // Keydown Handler
+        window.addEventListener('keydown', (e) => {
+            if (!state.playing) {
+                if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault();
+                    startGame();
+                }
                 return;
             }
 
-            if (!state.playing) return;
-            
-            // Tab targets next
+            // Tab switches target
             if (e.key === 'Tab') {
                 e.preventDefault();
-                if(state.packets.length > 1) {
+                if (state.packets.length > 1) {
                     state.targetIndex = (state.targetIndex + 1) % state.packets.length;
                     updateTargetUI();
                 }
@@ -1278,20 +1875,19 @@
                     const p = state.packets[state.targetIndex];
                     if (p.typed.length > 0) {
                         p.typed = p.typed.slice(0, -1);
-                        state.correctKeystrokes = Math.max(0, state.correctKeystrokes - 1); // rough correction
+                        state.correctKeystrokes = Math.max(0, state.correctKeystrokes - 1);
                         updateTargetUI();
                     }
                 }
                 return;
             }
 
-            if (e.key.length !== 1) return; // Only printable chars
+            if (e.key.length !== 1) return;
             
             e.preventDefault();
             const char = e.key.toLowerCase();
             state.keystrokes++;
             
-            // Auto-target if -1
             if (state.targetIndex === -1 && state.packets.length > 0) {
                 state.targetIndex = determineTargetIndex();
             }
@@ -1306,31 +1902,17 @@
                     state.correctKeystrokes++;
                     
                     if (p.typed === p.word) {
-                        // Word complete
-                        playSound('pow');
-                        createExplosion(p.x, p.y);
-                        
-                        let pts = 100 * state.combo;
                         const timeTaken = performance.now() - p.spawnTime;
-                        if(timeTaken < 2000) pts += 50; // speed bonus
-                        
-                        state.score += pts;
-                        state.combo++;
-                        
-                        createPopup(p.x, p.y, `+${pts}`, '#00ffa3');
-                        
-                        state.packets.splice(state.targetIndex, 1);
-                        state.targetIndex = determineTargetIndex();
+                        triggerHit(state.targetIndex, timeTaken < 2000);
+                    } else {
+                        updateTargetUI();
                     }
-                    updateTargetUI();
                 } else {
-                    // Mistake reset combo
                     state.combo = 1;
                     updateUI();
                 }
             } else {
-                // No target, attempt to find one that starts with char
-                for (let i=0; i<state.packets.length; i++) {
+                for (let i = 0; i < state.packets.length; i++) {
                     if (state.packets[i].word[0] === char) {
                         state.targetIndex = i;
                         const p = state.packets[i];
@@ -1344,33 +1926,32 @@
             }
         });
 
-        // Difficulty Selector
-        document.querySelectorAll('.diff-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (state.playing) return; // Don't change mid-game
-                document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentDifficulty = btn.dataset.diff;
-                
-                // Update UI lives display based on selected diff
-                const lives = diffConfig[currentDifficulty].lives;
-                const lc = document.getElementById('ui-lives');
-                lc.innerHTML = '';
-                for(let i=0; i<lives; i++) {
-                    lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
-                }
-            });
-        });
+        function setButtonActiveState(running) {
+            if (running) {
+                btnStart.classList.add('is-running');
+                btnStart.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px; animation:spin 1.5s linear infinite;">sync</span> MISSION RUNNING';
+                if (filterBar) filterBar.classList.add('selectors-locked');
+                if (diffContainer) diffContainer.classList.add('selectors-locked');
+                btnReset.style.opacity = '1';
+            } else {
+                btnStart.classList.remove('is-running');
+                btnStart.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px;">play_arrow</span> START GAME';
+                if (filterBar) filterBar.classList.remove('selectors-locked');
+                if (diffContainer) diffContainer.classList.remove('selectors-locked');
+            }
+        }
 
         function startGame() {
-            document.getElementById('start-overlay').classList.add('hidden');
+            if (state.playing) return;
+            if (startOverlay) startOverlay.classList.add('hidden');
             
-            // Setup Lives based on difficulty
             const initialLives = diffConfig[currentDifficulty].lives;
             const lc = document.getElementById('ui-lives');
-            lc.innerHTML = '';
-            for(let i=0; i<initialLives; i++) {
-                lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
+            if (lc) {
+                lc.innerHTML = '';
+                for(let i = 0; i < initialLives; i++) {
+                    lc.innerHTML += '<span class="material-symbols-outlined life-heart">favorite</span>';
+                }
             }
             
             if (state.animId) cancelAnimationFrame(state.animId);
@@ -1394,9 +1975,8 @@
                 lastFrameTime: performance.now()
             };
             
-            // audio context resume
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-            
+            playSound('start');
+            setButtonActiveState(true);
             updateUI();
             
             showWaveBanner('WAVE 1', () => {
@@ -1409,21 +1989,27 @@
         function gameOver() {
             state.playing = false;
             if (state.animId) cancelAnimationFrame(state.animId);
+            setButtonActiveState(false);
             
             const minutes = (performance.now() - state.startTime) / 60000;
             const wpm = minutes > 0 ? Math.round((state.correctKeystrokes / 5) / minutes) : 0;
             const acc = state.keystrokes > 0 ? Math.round((state.correctKeystrokes / state.keystrokes) * 100) : 0;
             const rank = getRank(state.wave);
             
-            document.getElementById('res-wave').innerText = state.wave;
-            document.getElementById('res-score').innerText = state.score;
-            document.getElementById('res-wpm').innerText = wpm;
-            document.getElementById('res-acc').innerText = acc + '%';
-            document.getElementById('res-rank').innerText = rank;
+            const rw = document.getElementById('res-wave');
+            const rs = document.getElementById('res-score');
+            const rwp = document.getElementById('res-wpm');
+            const ra = document.getElementById('res-acc');
+            const rk = document.getElementById('res-rank');
+            if (rw) rw.innerText = state.wave;
+            if (rs) rs.innerText = state.score;
+            if (rwp) rwp.innerText = wpm;
+            if (ra) ra.innerText = acc + '%';
+            if (rk) rk.innerText = rank;
             
-            document.getElementById('result-modal').classList.add('show');
+            const resModal = document.getElementById('result-modal');
+            if (resModal) resModal.classList.add('show');
             
-            // Save history
             const hist = JSON.parse(localStorage.getItem('csl_typeblaster_history') || '[]');
             hist.unshift({
                 date: new Date().toLocaleDateString(),
@@ -1442,6 +2028,7 @@
         function loadHistory() {
             const hist = JSON.parse(localStorage.getItem('csl_typeblaster_history') || '[]');
             const tbody = document.getElementById('history-body');
+            if (!tbody) return;
             
             if(hist.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No logs found. Play a round!</td></tr>';
@@ -1450,39 +2037,83 @@
             
             let html = '';
             hist.forEach(h => {
-                html += `<tr>
-                    <td>${h.date}</td>
-                    <td>${h.wave}</td>
-                    <td style="color: #a78bfa; font-weight:700;">${h.score}</td>
-                    <td>${h.wpm}</td>
-                    <td>${h.acc}%</td>
-                    <td style="font-weight:700;">${h.rank}</td>
-                </tr>`;
+                html += '<tr>' +
+                    '<td>' + h.date + '</td>' +
+                    '<td>' + h.wave + '</td>' +
+                    '<td style="color: #a78bfa; font-weight:700;">' + h.score + '</td>' +
+                    '<td>' + h.wpm + '</td>' +
+                    '<td>' + h.acc + '%</td>' +
+                    '<td style="font-weight:700;">' + h.rank + '</td>' +
+                '</tr>';
             });
             tbody.innerHTML = html;
         }
 
-        document.getElementById('btn-start').addEventListener('click', startGame);
-        document.getElementById('btn-reset').addEventListener('click', () => {
-            if(state.playing) {
+        if (btnStart) btnStart.addEventListener('click', startGame);
+        
+        if (startOverlay) {
+            startOverlay.addEventListener('click', () => {
+                if (!state.playing) startGame();
+            });
+        }
+        if (canvas) {
+            canvas.addEventListener('click', () => {
+                if (!state.playing) startGame();
+            });
+        }
+        
+        if (btnReset) {
+            btnReset.addEventListener('click', () => {
                 state.playing = false;
                 if (state.animId) cancelAnimationFrame(state.animId);
-                document.getElementById('start-overlay').classList.remove('hidden');
-                ctx.clearRect(0,0,canvas.width,canvas.height);
-                document.getElementById('ui-target-word').innerHTML = '<span class="untyped-char">WAITING...</span>';
-            }
-        });
-        document.getElementById('btn-play-again').addEventListener('click', () => {
-            document.getElementById('result-modal').classList.remove('show');
-            startGame();
-        });
+                setButtonActiveState(false);
+                if (startOverlay) startOverlay.classList.remove('hidden');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#0a0a10';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                const targetEl = document.getElementById('ui-target-word');
+                if (targetEl) targetEl.innerHTML = '<span class="untyped-char">TYPE TO ENGAGE</span>';
+            });
+        }
+        
+        const btnShare = document.getElementById('btn-share');
+        if (btnShare) {
+            btnShare.addEventListener('click', () => {
+                const text = 'I reached Wave ' + state.wave + ' with ' + state.score + ' points and ' + state.wpm + ' WPM on Type Blaster! Can you beat me? https://www.clickspeedlab.com/type-blaster/';
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text);
+                    btnShare.textContent = 'COPIED!';
+                    setTimeout(() => btnShare.textContent = 'SHARE', 2000);
+                }
+            });
+        }
+        
+        const btnPlayAgain = document.getElementById('btn-play-again');
+        if (btnPlayAgain) {
+            btnPlayAgain.addEventListener('click', () => {
+                const resModal = document.getElementById('result-modal');
+                if (resModal) resModal.classList.remove('show');
+                startGame();
+            });
+        }
 
         loadHistory();
+        
         // Initial draw for canvas background
         ctx.fillStyle = '#0a0a10';
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
     });
-    </script>
+</script>
+
+<script>
+(function(){
+    var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+    
 </body>
 </html>

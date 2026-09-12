@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clickspeedlab.com SEO review</title>
+<style>
+  :root {
+    --bg: #e2e9f3;
+    --ink: #122650;
+    --muted: #4f5f79;
+    --rule: #c2cddd;
+    --rule-strong: #122650;
+  }
+  html { background: var(--bg); color-scheme: light; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: Charter, Georgia, "Times New Roman", serif;
+    line-height: 1.55; margin: 0; padding: 3.5rem 1.5rem 5rem;
+  }
+  .page { max-width: 860px; margin: 0 auto; }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.6rem; letter-spacing: -0.01em;
+    margin: 0.75rem 0 0.25rem; text-wrap: balance;
+  }
+  .subtitle { color: var(--muted); margin: 0 0 2.5rem; font-size: 1.02rem; max-width: 46rem; }
+  .dateline { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.25rem; margin: 3rem 0 0.75rem;
+  }
+  .lede { font-size: 1.05rem; max-width: 46rem; }
+  section > p { max-width: 46rem; }
+  hr.heavy { border: 0; border-top: 2px solid var(--rule-strong); margin: 3rem 0 0; }
+  section .cols:first-of-type { border-top: 1px solid var(--rule); }
+  .cols {
+    display: grid; grid-template-columns: minmax(180px, 5fr) 8fr;
+    gap: 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .row-title { font-size: 1.12rem; margin: 0; }
+  .row-title .tag { display: block; margin-top: 0.35rem; }
+  .cols > div p { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.95rem; }
+  .cols > div p:last-child { margin-bottom: 0; }
+  .cols > div p.fix { color: var(--ink); }
+  .fix b { font-weight: 600; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em; word-break: break-word;
+  }
+  ol { padding-left: 1.3rem; max-width: 44rem; }
+  ol li { margin-bottom: 0.5rem; }
+  ul.plain { list-style: none; padding: 0; max-width: 46rem; }
+  ul.plain li { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); font-size: 0.98rem; }
+  ul.plain li:first-child { border-top: 1px solid var(--rule); }
+  ul.plain .why { color: var(--muted); }
+  footer { margin-top: 4rem; color: var(--muted); font-size: 0.88rem; max-width: 46rem; }
+  @media (max-width: 620px) {
+    .cols { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>clickspeedlab.com</h1>
+    <p class="dateline">September 12, 2026</p>
+    <p class="subtitle">Click Speed Lab is a fast and responsive suite of browser testing tools, but search engines currently receive conflicting directives between its live domain and canonical tags. The primary gap is that live pages on www.clickspeedlab.com canonicalize to non-www addresses that redirect right back to www, and resolving this loop is the single most important action to take this week. This report covers domain alignment, crawler-visible headings, title and description refinements, internal navigation links, and initial keyword opportunities.</p>
+  </header>
+
+  <section>
+    <h2>Where the site stands</h2>
+    <p class="lede">The website delivers thirteen interactive gaming benchmark utilities that load quickly and execute entirely in the browser without server lag. Pages feature valid structured data, clean styling, mobile-responsive layouts, and unrestricted access for search bots in robots.txt.</p>
+    <p class="lede">The main technical issue is an address contradiction across the site. The web server permanently directs traffic to www.clickspeedlab.com, but all canonical tags, sitemap entries, and structured data references tell search engines to index the non-www address. When search bots follow those canonical instructions, they are redirected back to www. In addition, external backlink databases currently record only one referring domain, which limits domain authority for competitive terms.</p>
+  </section>
+
+  <hr class="heavy">
+
+  <section>
+    <h2>If you only do one thing</h2>
+    <p class="lede">Update canonical tags, sitemap entries, and social tags to use the live www.clickspeedlab.com address.</p>
+    <p>A canonical tag is an HTML directive telling search engines which URL represents the official primary version of a page. Currently, every page on www.clickspeedlab.com tells search engines to index the non-www version, which then issues a 301 redirect (a status code meaning moved permanently) right back to www. Aligning these tags prevents indexing confusion and ensures search engines credit ranking signals directly to your live URLs.</p>
+    <ol>
+      <li>In all HTML files, change <code>&lt;link rel="canonical" href="https://clickspeedlab.com/..."&gt;</code> and <code>&lt;meta property="og:url" content="https://clickspeedlab.com/..."&gt;</code> to start with <code>https://www.clickspeedlab.com/...</code>.</li>
+      <li>In <code>sitemap.xml</code> and <code>robots.txt</code>, replace every occurrence of <code>https://clickspeedlab.com/</code> with <code>https://www.clickspeedlab.com/</code> so sitemaps contain only direct, non-redirecting addresses.</li>
+      <li>Check the result in Google Search Console using the URL Inspection tool to confirm the user-declared canonical matches the Google-selected canonical without redirect notices.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Small fixes, in order</h2>
+    <div class="cols">
+      <div><p class="row-title">Homepage main heading is empty in static HTML <span class="mono tag">high</span></p></div>
+      <div>
+        <p>In <code>index.html</code> (lines 329 to 332), the main <code>&lt;h1&gt;</code> heading tag contains empty span elements (<code>&lt;span id="type-line-1"&gt;&lt;/span&gt;</code>). The text is only added by JavaScript animation after the page loads. A crawler (an automated program used by search engines to read web pages) reading raw HTML sees an empty heading.</p>
+        <p class="fix"><b>Fix:</b> Place descriptive text directly in the HTML so search engines can read it immediately, such as <code>&lt;h1 id="hero-title"&gt;Click Speed Test and Gaming Peripheral Diagnostics&lt;/h1&gt;</code>, or preload the initial text in the spans before script execution.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">Dedicated testing tools unlinked in primary navigation <span class="mono tag">medium</span></p></div>
+      <div>
+        <p>The top navigation in <code>index.html</code> (lines 194 and 201) links Kohi and Drag tests to query strings <code>cps-test/?mode=kohi</code> and <code>cps-test/?mode=drag</code>. The dedicated standalone pages <code>kohi-click-test/</code> and <code>drag-click-test/</code> exist in the project and sitemap, but are missing from main navigation menus.</p>
+        <p class="fix"><b>Fix:</b> Update navigation links in <code>index.html</code> to point to <code>./kohi-click-test/</code> and <code>./drag-click-test/</code> so visitors and crawlers can discover both dedicated landing pages directly.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">Seven page titles exceed search result display width <span class="mono tag">low</span></p></div>
+      <div>
+        <p>Seven pages have <code>&lt;title&gt;</code> tags longer than sixty characters, including <code>drag-click-test/index.html</code> at eighty-two characters (<code>Drag Click Test — Measure Surface Friction &amp; CPS Velocity | Click Speed Lab</code>) and <code>kohi-click-test/index.html</code> at seventy-five characters. Search engines typically cut off titles longer than sixty characters with an ellipsis.</p>
+        <p class="fix"><b>Fix:</b> Shorten long titles to between fifty and sixty characters, keeping the main target keyword at the front. For example: <code>Drag Click Test: Measure Drag Clicking CPS | Click Speed Lab</code> (59 characters).</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">Six meta descriptions exceed snippet limit <span class="mono tag">low</span></p></div>
+      <div>
+        <p>Six pages have meta descriptions (the summary text displayed beneath a page title in search results) exceeding 160 characters. For example, <code>wasd-warrior/index.html</code> contains 188 characters and <code>index.html</code> contains 172 characters. Excess text gets truncated in desktop and mobile snippets.</p>
+        <p class="fix"><b>Fix:</b> Shorten descriptions to between 140 and 155 characters so the complete call to action fits inside search snippet boundaries without cutoffs.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">Heading structure skips heading levels <span class="mono tag">low</span></p></div>
+      <div>
+        <p>In four files (<code>index.html</code>, <code>cps-test/index.html</code>, <code>reaction-time-test/index.html</code>, and <code>wasd-warrior/index.html</code>), the document structure jumps directly from an <code>&lt;h1&gt;</code> tag to <code>&lt;h3&gt;</code> tags without an intervening <code>&lt;h2&gt;</code> tag.</p>
+        <p class="fix"><b>Fix:</b> Add an <code>&lt;h2&gt;</code> category heading before each section, or change tool card headers from <code>&lt;h3&gt;</code> to <code>&lt;h2&gt;</code> to maintain a logical outline for search parsers and screen readers.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">Backlink profile concentrated on a single domain <span class="mono tag">low</span></p></div>
+      <div>
+        <p>External backlink records show fifty links originating from only one referring domain (<code>corelumetech.in</code>). No external gaming forums, hardware review sites, or directory links are currently recorded.</p>
+        <p class="fix"><b>Fix:</b> Share utility tools on relevant gaming communities such as peripheral enthusiast forums, Reddit communities (like <code>r/MouseReview</code>), and browser gaming resource lists to build genuine third-party references.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where to focus first</h2>
+    <p>Gaming peripheral diagnostics represent a strong starting focus. Click Speed Lab already possesses zero-latency testing engines for mouse sensors, scroll wheels, and keyboard matrices, which face lower ranking competition than generic click speed tests.</p>
+    <div class="cols">
+      <div><p class="row-title">mouse wheel test <span class="mono tag">2,400 searches/mo</span></p></div>
+      <div>
+        <p>Searchers look for a way to test if their mouse scroll wheel is skipping or jumping. The search difficulty score is very low (2 out of 100), making it an easy term to rank for quickly.</p>
+        <p class="fix"><b>Make:</b> Expand <code>mouse-scroll-test/</code> with a dedicated troubleshooting section explaining how to diagnose dirty mechanical encoders versus optical scroll wheels.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">mouse latency test <span class="mono tag">720 searches/mo</span></p></div>
+      <div>
+        <p>Gamers searching this term want to test click response delay and USB polling frequency. Competition is low with a difficulty score of 10 out of 100.</p>
+        <p class="fix"><b>Make:</b> Add an input latency calculation guide to <code>mouse-polling-rate-test/</code> explaining how polling intervals (125Hz to 8000Hz) influence hardware response times.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">mouse accuracy test <span class="mono tag">590 searches/mo</span></p></div>
+      <div>
+        <p>Shooter game players search this term to evaluate cursor tracking precision and hand steadiness. The difficulty score is 6 out of 100.</p>
+        <p class="fix"><b>Make:</b> Enhance <code>mouse-precision-game/</code> by adding custom target sizes, accuracy percentage scoring, and drills for flick calibration.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div><p class="row-title">keyboard ghosting test <span class="mono tag">390 searches/mo</span></p></div>
+      <div>
+        <p>Keyboard users search this term to test whether simultaneous key presses register without dropped keys. Difficulty is low at 4 out of 100.</p>
+        <p class="fix"><b>Make:</b> Add a visual guide on <code>keyboard-ghosting-test/</code> explaining the difference between 6-key rollover and full n-key rollover (NKRO, the ability to register all keys pressed at once).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Already working</h2>
+    <ul class="plain">
+      <li>Fast client-side script execution. <span class="why">Calculations run instantly in the user's browser without requiring server processing delays.</span></li>
+      <li>Responsive layout across all screens. <span class="why">Interface components, canvas graphs, and buttons adjust cleanly for both mobile and desktop screens.</span></li>
+      <li>Structured data markup in place. <span class="why">Pages already include valid schema code for WebApplication and FAQPage to help search engines understand content.</span></li>
+      <li>Optimized font and asset delivery. <span class="why">Preconnect tags for Google Fonts help eliminate render delays during initial page load.</span></li>
+      <li>Open robots.txt configuration. <span class="why">All testing tools are accessible to search crawlers without accidental disallow blocks.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Reviewed September 12, 2026. Crawl data, technical issue classification, and backlink records provided by OpenSEO. Raw static HTML source files, HTTP server headers, heading hierarchies, character counts, and navigation references verified directly.</p>
+  </footer>
+</div>
+</body>
+</html>

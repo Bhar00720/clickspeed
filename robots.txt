@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clickspeedlab.com/sitemap.xml
+Sitemap: https://www.clickspeedlab.com/sitemap.xml

@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohi Click Test: Minecraft PvP CPS Test | Click Speed Lab</title>
+    <meta name="description" content="Test your Minecraft PvP clicking speed with the 10-second Kohi Click Test. Zero-latency telemetry, hitbox aim simulation, hit registration, and ranks.">
+    <meta name="keywords" content="kohi click test, kohi cps test, minecraft pvp cps, 10 second cps test, potpvp click test, nodebuff cps, minecraft hit registration test">
+    <link rel="canonical" href="https://www.clickspeedlab.com/kohi-click-test/">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kohi Click Test: 10-Second Minecraft PvP CPS">
+    <meta property="og:description" content="Test your Minecraft PvP clicking speed with the 10-second Kohi Click Test. Zero-latency telemetry, hitbox aim simulation, hit registration, and ranks.">
+    <meta property="og:url" content="https://www.clickspeedlab.com/kohi-click-test/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.clickspeedlab.com/og-image.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kohi Click Test: 10-Second Minecraft PvP CPS">
+    <meta name="twitter:description" content="Test your Minecraft PvP clicking speed with the 10-second Kohi Click Test. Zero-latency telemetry, hitbox aim simulation, hit registration, and ranks.">
+    <meta name="twitter:image" content="https://www.clickspeedlab.com/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kohi Click Test",
+      "operatingSystem": "Web Browser",
+      "applicationCategory": "GameApplication",
+      "description": "Official 10-second Minecraft PvP click speed test and combat hit registration benchmark.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.clickspeedlab.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kohi Click Test",
+          "item": "https://www.clickspeedlab.com/kohi-click-test/"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Kohi Click Test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Kohi Click Test originates from the famous Kohi Minecraft PvP server, where a strict 10-second click test was used to measure sustained combat CPS for PotPvP, Nodebuff, and combo locking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is 10 seconds the official standard for Kohi PvP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Minecraft 1.8 PvP, short 1-second bursts are meaningless. A real duel requires maintaining steady 10 to 14 CPS for 10 seconds while sprinting, strafing, and aiming to consistently reduce knockback."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does clicking faster than 20 CPS give more hits in Minecraft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Minecraft 1.8 has a 10-tick (0.5 second) damage immunity window where players cannot take damage again. However, clicking at higher CPS significantly increases the chance of hitting your opponent on the exact frame their immunity expires, keeping them in an air combo."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Monetag Ads -->
+    <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+    <style>
+        :root {
+            --primary: #e11d48;
+            --primary-glow: rgba(225, 29, 72, 0.4);
+            --energy-border: rgba(225, 29, 72, 0.25);
+        }
+        .kohi-stage {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            background: radial-gradient(circle at center, rgba(30, 10, 18, 0.8) 0%, rgba(10, 10, 14, 0.98) 100%);
+            border: 2px solid rgba(225, 29, 72, 0.3);
+            border-radius: 12px;
+            cursor: crosshair;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .kohi-stage:hover {
+            border-color: #f43f5e;
+            box-shadow: 0 0 25px rgba(225, 29, 72, 0.25);
+        }
+        .kohi-stage.active {
+            border-color: #f43f5e;
+            box-shadow: 0 0 35px rgba(225, 29, 72, 0.45);
+        }
+        .pvp-hitbox {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 2px dashed rgba(225, 29, 72, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            background: rgba(225, 29, 72, 0.12);
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+            transition: width 0.1s, height 0.1s;
+        }
+        .pvp-crosshair {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+        .pvp-crosshair::before, .pvp-crosshair::after {
+            content: '';
+            position: absolute;
+            background: #fff;
+        }
+        .pvp-crosshair::before { top: 9px; left: 0; width: 20px; height: 2px; }
+        .pvp-crosshair::after { top: 0; left: 9px; width: 2px; height: 20px; }
+        .combo-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #f43f5e;
+            background: rgba(15, 10, 15, 0.7);
+            border: 1px solid rgba(225, 29, 72, 0.4);
+            padding: 6px 14px;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+            letter-spacing: 0.05em;
+        }
+        .kb-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #00ffa3;
+            background: rgba(15, 10, 15, 0.7);
+            border: 1px solid rgba(0, 255, 163, 0.4);
+            padding: 6px 14px;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div class="glow-orb-orange" style="background: radial-gradient(circle, rgba(225,29,72,0.18) 0%, transparent 70%);"></div>
+    <div class="glow-orb-blue" style="background: radial-gradient(circle, rgba(244,63,94,0.1) 0%, transparent 70%);"></div>
+
+    <header class="stitch-topnav">
+        <div class="topnav-left">
+            <a href="../" class="stitch-brand">
+                CLICK SPEED <span class="sub">LAB</span>
+            </a>
+            <nav class="stitch-navlinks">
+                <a href="../" class="stitch-navlink">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn active" type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../cps-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../kohi-click-test/" class="nav-dropdown-item active">
+                            <span class="material-symbols-outlined item-icon" style="color: #e11d48;">swords</span>
+                            <div class="item-content">
+                                <div class="item-title">Kohi Click Test (PvP)</div>
+                                <div class="item-desc">10-second Minecraft PvP combat standard</div>
+                            </div>
+                        </a>
+                        <a href="../drag-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #8b5cf6;">swipe</span>
+                            <div class="item-content">
+                                <div class="item-title">Drag Click Test</div>
+                                <div class="item-desc">Surface friction & switch bounce benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../reaction-time-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #f59e0b;">timer</span>
+                            <div class="item-content">
+                                <div class="item-title">Reaction Time Test</div>
+                                <div class="item-desc">Visual reflex stopwatch & millisecond reaction</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn" type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #a855f7;">layers</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Ghosting / NKRO</div>
+                                <div class="item-desc">Real-time n-key rollover matrix analyzer</div>
+                            </div>
+                        </a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #06b6d4;">space_bar</span>
+                            <div class="item-content">
+                                <div class="item-title">Spacebar Counter</div>
+                                <div class="item-desc">Thumb actuation speed & stabilizer bounce test</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Games Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn" type="button">
+                        <span class="material-symbols-outlined">sports_esports</span>
+                        <span>TRAINING GAMES</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../aim-trainer/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span>
+                            <div class="item-content">
+                                <div class="item-title">Aim Trainer</div>
+                                <div class="item-desc">Flick shots, tracking & reflex calibration</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-precision-game/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Precision Game</div>
+                                <div class="item-desc">Steady-hand micro-motor control maze</div>
+                            </div>
+                        </a>
+                        <a href="../wasd-warrior/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span>
+                            <div class="item-content">
+                                <div class="item-title">WASD Warrior</div>
+                                <div class="item-desc">Left-hand gaming key reaction trainer</div>
+                            </div>
+                        </a>
+                        <a href="../type-blaster/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span>
+                            <div class="item-content">
+                                <div class="item-title">Type Blaster</div>
+                                <div class="item-desc">Arcade typing defense game</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="fullscreen-btn" onclick="document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()" title="Toggle Fullscreen">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                </button>
+            </nav>
+        </div>
+        <div class="topnav-right">
+            <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
+                <span class="material-symbols-outlined">palette</span>
+            </button>
+            <div class="status-pill"><span class="status-dot"></span>PVP ENGINE ONLINE</div>
+        </div>
+    </header>
+
+    <main class="stitch-main">
+        <!-- Hero Header -->
+        <div class="stitch-hero">
+            <div class="stitch-icon-box" style="background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.4); color: #f43f5e;">
+                <span class="material-symbols-outlined" style="font-size: 32px;">swords</span>
+            </div>
+            <h1 class="page-title" style="color: #fff;">KOHI CLICK TEST</h1>
+            <p class="page-subtitle">OFFICIAL 10-SECOND MINECRAFT PVP COMBAT & HIT REGISTRATION BENCHMARK</p>
+            <div class="hero-badges">
+                <span class="hero-badge badge-primary" style="border-color: #f43f5e; color: #fda4af; background: rgba(225,29,72,0.18);"><span class="material-symbols-outlined" style="font-size: 14px;">verified</span> 10S OFFICIAL STANDARD</span>
+                <span class="hero-badge"><span class="material-symbols-outlined" style="font-size: 14px;">sports_mma</span> POTPVP COMBO ENGINE</span>
+                <span class="hero-badge"><span class="material-symbols-outlined" style="font-size: 14px;">compress</span> -70% KNOCKBACK ESTIMATOR</span>
+                <span class="hero-badge"><span class="material-symbols-outlined" style="font-size: 14px;">military_tech</span> COMBAT RANKS</span>
+            </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--energy-border);">
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">COMBAT DURATION:</span>
+                <div class="mode-pills" id="duration-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-duration="5">5s Sprint</button>
+                    <button class="kinetic-btn active" data-duration="10" style="background: linear-gradient(135deg, #e11d48, #be123c) !important; border-color: #f43f5e !important; box-shadow: 0 0 15px rgba(225,29,72,0.5) !important;">10s (Kohi Official)</button>
+                    <button class="kinetic-btn" data-duration="15">15s Duel</button>
+                    <button class="kinetic-btn" data-duration="30">30s Stamina</button>
+                    <button class="kinetic-btn" data-duration="60">60s Endurance</button>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">ARENA MODE:</span>
+                <div class="mode-pills" id="arena-mode-pills" style="display: flex; gap: 6px;">
+                    <button class="kinetic-btn active" id="btn-mode-stationary" style="font-size: 0.72rem; padding: 6px 12px;">STATIONARY</button>
+                    <button class="kinetic-btn" id="btn-mode-moving" style="font-size: 0.72rem; padding: 6px 12px;">MOVING HITBOX (AIM+CPS)</button>
+                </div>
+                <button class="kinetic-btn-outline active" id="audio-toggle" style="font-size: 0.72rem; padding: 6px 12px;">
+                    <span class="material-symbols-outlined" style="font-size: 15px;">volume_up</span> SWORD CRIT SOUND
+                </button>
+            </div>
+        </div>
+
+        <!-- Telemetry Cards -->
+        <div class="metrics-bar" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 20px;">
+            <div class="telemetry-card" style="border-top: 3px solid #f43f5e; padding: 16px 18px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">TIME REMAINING</div>
+                <div style="display: flex; align-items: baseline;">
+                    <div class="stat-huge" id="stat-time" style="font-size: 2.2rem; font-weight: 800; color: #fff;">10.0</div>
+                    <span class="stat-unit" style="font-family: var(--font-mono); color: var(--text-muted); margin-left: 4px;">s</span>
+                </div>
+            </div>
+            <div class="telemetry-card" style="border-top: 3px solid #e11d48; padding: 16px 18px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">STRIKES (CLICKS)</div>
+                <div class="stat-huge" id="stat-clicks" style="font-size: 2.2rem; font-weight: 800; color: #fff;">0</div>
+            </div>
+            <div class="telemetry-card" style="border-top: 3px solid #00ffa3; padding: 16px 18px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">COMBAT CPS</div>
+                <div class="stat-huge" id="stat-cps" style="font-size: 2.2rem; font-weight: 800; color: #00ffa3;">0.0</div>
+            </div>
+            <div class="telemetry-card" style="border-top: 3px solid #00e5ff; padding: 16px 18px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">HIT-REG EFFICIENCY</div>
+                <div class="stat-huge" id="stat-hitreg" style="font-size: 2.2rem; font-weight: 800; color: #00e5ff;">100%</div>
+            </div>
+            <div class="telemetry-card" style="border-top: 3px solid #f59e0b; padding: 16px 18px; border-radius: 8px; background: rgba(14,14,18,0.7);">
+                <div class="telemetry-header" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">KB REDUCTION</div>
+                <div class="stat-huge" id="stat-kb" style="font-size: 2.2rem; font-weight: 800; color: #f59e0b;">0%</div>
+            </div>
+        </div>
+
+        <!-- Combat Click Arena -->
+        <div class="kohi-stage" id="kohi-stage">
+            <canvas id="kohi-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+            
+            <div class="combo-badge" id="combo-badge">COMBO: x0</div>
+            <div class="kb-badge" id="kb-badge">KNOCKBACK TAKEN: 100%</div>
+
+            <div class="pvp-hitbox" id="pvp-hitbox" style="display: none;">
+                <div class="pvp-crosshair"></div>
+            </div>
+
+            <div style="text-align: center; pointer-events: none; z-index: 2;" id="stage-text">
+                <span class="material-symbols-outlined" style="font-size: 48px; color: #f43f5e; margin-bottom: 8px;">swords</span>
+                <div style="font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: 1px;">CLICK TO ENGAGE IN KOHI DUEL</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #fda4af; margin-top: 6px;">SUSTAIN 10+ CPS FOR 10 SECONDS TO LOCK OPPONENT IN COMBO</div>
+            </div>
+        </div>
+
+        <!-- Real-Time Graph -->
+        <div style="margin-top: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">LIVE COMBAT CPS OSCILLOSCOPE</span>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #f43f5e;" id="graph-peak">PEAK: 0.0 CPS</span>
+            </div>
+            <canvas id="cps-chart" style="width: 100%; height: 100px;"></canvas>
+        </div>
+
+        <!-- Session History -->
+        <div class="history-section" style="margin-top: 32px;">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 12px; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #f43f5e;">military_tech</span> Combat Log & Duels History
+            </h2>
+            <div style="overflow-x: auto;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>DURATION</th>
+                            <th>CLICKS</th>
+                            <th>AVERAGE CPS</th>
+                            <th>PEAK CPS</th>
+                            <th>HIT REG</th>
+                            <th>COMBAT RANK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body">
+                        <tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No combat logs recorded yet. Engage the target above!</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Guide & SEO Content -->
+        <div class="info-section" style="margin-top: 40px;">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 1.4rem; margin-bottom: 1.2rem; color: #fff;">
+                <span class="material-symbols-outlined" style="vertical-align: middle; color: #f43f5e;">book</span> Minecraft 1.8 PvP Combat Dynamics & Kohi Guide
+            </h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="card-badge" style="background: #e11d48;">01</div>
+                    <h3><span class="material-symbols-outlined">timer</span> Why 10s is the Kohi Standard</h3>
+                    <p>Unlike casual click speed tests that allow 1-second or 5-second sprints, the Kohi standard mandates a continuous 10-second duration. In real competitive PotPvP or Nodebuff matches, duels last minutes, and victory belongs to players who can sustain 10-14 CPS without hand cramping or aim degradation.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge" style="background: #e11d48;">02</div>
+                    <h3><span class="material-symbols-outlined">shield</span> Knockback & Hit Immunity</h3>
+                    <p>Minecraft 1.8 applies a 10-tick (0.5s) damage immunity window. However, clicking at higher CPS (12-16) substantially reduces vertical and horizontal knockback because attack packet frequency resets your player velocity sprint state faster, initiating unstoppable W-Tap combos.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge" style="background: #e11d48;">03</div>
+                    <h3><span class="material-symbols-outlined">flutter</span> Butterfly vs Jitter for Kohi</h3>
+                    <p>Butterfly clicking allows 14-22 CPS using two fingers on a single mouse switch with low debounce (0-4ms). Jitter clicking relies on forearm vibrations to reach 11-15 CPS with mechanical mice. Butterfly provides higher raw CPS, but jitter maintains slightly better crosshair centering for rod-swaps.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-badge" style="background: #e11d48;">04</div>
+                    <h3><span class="material-symbols-outlined">hardware</span> Optimal Mouse Hardware</h3>
+                    <p>Tournament Kohi champions prefer mice with mechanical or adjustable optical switches that support customizable debounce time (e.g. Glorious Model O/D, Roccat Kone Pro, Razer DeathAdder V3, Logitech G Pro X Superlight) to minimize click latency.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Result Modal -->
+    <div class="custom-modal-backdrop" id="result-modal">
+        <div class="custom-modal-card" style="max-width: 480px; text-align: center; border: 1px solid rgba(225,29,72,0.4);">
+            <div style="font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 800; color: #f43f5e; margin-bottom: 4px;">KOHI DUEL COMPLETE</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;">10-SECOND COMBAT BENCHMARK RESULTS</div>
+
+            <div style="background: rgba(225,29,72,0.08); border: 1px solid rgba(225,29,72,0.3); border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #fda4af; text-transform: uppercase;">PVP COMBAT TIER</div>
+                <div id="res-rank" style="font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; margin: 4px 0;">KOHI CHAMPION</div>
+                <div id="res-desc" style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--text-muted);">Devastating combo speed. Tournament-level butterfly / jitter pace.</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                    <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">FINAL CPS</div>
+                    <div id="res-cps" style="font-size: 1.6rem; font-weight: 800; color: #00ffa3;">12.4</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                    <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">TOTAL CLICKS</div>
+                    <div id="res-clicks" style="font-size: 1.6rem; font-weight: 800; color: #fff;">124</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                    <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">PEAK BURST</div>
+                    <div id="res-peak" style="font-size: 1.6rem; font-weight: 800; color: #00e5ff;">15.2</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                    <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">HIT REG</div>
+                    <div id="res-hitreg" style="font-size: 1.6rem; font-weight: 800; color: #f59e0b;">96%</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="kinetic-btn-orange" id="btn-play-again" style="background: #e11d48; border-color: #e11d48; color: #fff; padding: 10px 20px;">FIGHT AGAIN</button>
+                <button class="kinetic-btn-outline" id="btn-share" style="padding: 10px 20px;">SHARE SCORE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unified CoreLume Footer -->
+    <footer class="stitch-footer">
+        <div class="footer-left">
+            &copy; 2026 CLICK SPEED LAB | POWERED BY <a href="https://corelumetech.in" target="_blank" rel="noopener noreferrer">CORELUMETECH.IN</a>
+        </div>
+
+        <!-- Center: CoreLume Suite Expandable Tools Dropup Menu -->
+        <div class="footer-dropup footer-tools-dropup" id="footer-tools-dropup">
+            <button class="footer-dropup-btn" id="footer-dropup-trigger" type="button">
+                <span class="live-dot"></span>
+                <span class="material-symbols-outlined icon">construction</span>
+                <span>OTHER TOOLS</span>
+                <span class="material-symbols-outlined arrow">expand_less</span>
+            </button>
+            <div class="footer-dropup-menu">
+                <div class="footer-dropup-header">
+                    <span class="material-symbols-outlined">apps</span>
+                    <span>CORELUME WEB TOOLS SUITE</span>
+                </div>
+                <div class="footer-tools-grid">
+                    <a href="https://calculator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00e5ff;">calculate</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Omni-Calculator</div>
+                            <div class="tool-desc">All-in-one math, finance & unit converter</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://text-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00ffa3;">format_shapes</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Text Utils</div>
+                            <div class="tool-desc">Case conversion, formatting & word statistics</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://password-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #ff5f1f;">lock</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Password Generator</div>
+                            <div class="tool-desc">High-entropy cryptographic passphrases</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://dev-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #c084fc;">code</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Dev Utils</div>
+                            <div class="tool-desc">JSON formatters, base64, regex & encoders</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://qr-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #38bdf8;">qr_code_2</span>
+                        <div class="tool-info">
+                            <div class="tool-name">QR Generator</div>
+                            <div class="tool-desc">Vector QR codes with custom styling & logos</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://color-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #f43f5e;">palette</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Color Master</div>
+                            <div class="tool-desc">Color palette generator, contrast & gradients</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-right" style="display: flex; align-items: center; gap: 14px;">
+            <a href="mailto:help@clickspeedlab.com" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">mail</span> help@clickspeedlab.com
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <span>SYSTEM STATUS: OPTIMAL</span>
+        </div>
+    </footer>
+
+    <!-- Customizer Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
+        </div>
+    </div>
+
+    <!-- Game & Global Scripts -->
+    <script class="global-ui-script">
+(function() {
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        const btn = dropdown.querySelector('.nav-dropdown-btn');
+        if (!btn) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.blur();
+            const isOpen = dropdown.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            if (!isOpen) dropdown.classList.add('open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        if (footerDropup) footerDropup.classList.remove('open');
+    });
+
+    const footerTrigger = document.getElementById('footer-dropup-trigger');
+    const footerDropup = document.getElementById('footer-tools-dropup');
+    if (footerTrigger && footerDropup) {
+        footerTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            footerDropup.classList.toggle('open');
+        });
+    }
+
+    const modal = document.getElementById('customizer-modal');
+    const openBtn = document.getElementById('theme-toggle');
+    const closeBtn = document.getElementById('customizer-close');
+    const applyBtn = document.getElementById('customizer-apply-btn');
+
+    let prefs = {
+        theme: localStorage.getItem('csl_theme') || 'orange',
+        mode: localStorage.getItem('csl_mode') || 'dark',
+        kbskin: localStorage.getItem('csl_kbskin') || 'obsidian',
+        mouseskin: localStorage.getItem('csl_mouseskin') || 'obsidian',
+        sound: localStorage.getItem('csl_sound') || 'blue',
+        bg: localStorage.getItem('csl_bg') || 'grid'
+    };
+
+    function openCustomizer() {
+        if (!modal) return;
+        modal.classList.add('show');
+        updateModalPills();
+    }
+    function closeCustomizer() {
+        if (!modal) return;
+        modal.classList.remove('show');
+    }
+    if (openBtn) openBtn.addEventListener('click', openCustomizer);
+    if (closeBtn) closeBtn.addEventListener('click', closeCustomizer);
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCustomizer();
+        });
+    }
+    if (applyBtn) {
+        applyBtn.addEventListener('click', () => {
+            applyPreferences();
+            closeCustomizer();
+        });
+    }
+
+    function updateModalPills() {
+        document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+            if (b.dataset.mode === 'light') b.classList.toggle('active', prefs.mode === 'light');
+            else b.classList.toggle('active', prefs.theme === b.dataset.theme && prefs.mode !== 'light');
+        });
+        document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+            b.classList.toggle('active', prefs.kbskin === b.dataset.kbskin);
+        });
+        document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+            b.classList.toggle('active', prefs.mouseskin === b.dataset.mouseskin);
+        });
+        document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+            b.classList.toggle('active', prefs.sound === b.dataset.sound);
+        });
+        document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+            b.classList.toggle('active', prefs.bg === b.dataset.bg);
+        });
+    }
+
+    function applyPreferences() {
+        document.documentElement.setAttribute('data-theme', prefs.theme);
+        document.documentElement.setAttribute('data-mode', prefs.mode);
+        document.documentElement.setAttribute('data-kb-skin', prefs.kbskin);
+        document.documentElement.setAttribute('data-mouse-skin', prefs.mouseskin);
+        document.documentElement.setAttribute('data-sound', prefs.sound);
+        document.documentElement.setAttribute('data-bg', prefs.bg);
+
+        localStorage.setItem('csl_theme', prefs.theme);
+        localStorage.setItem('csl_mode', prefs.mode);
+        localStorage.setItem('csl_kbskin', prefs.kbskin);
+        localStorage.setItem('csl_mouseskin', prefs.mouseskin);
+        localStorage.setItem('csl_sound', prefs.sound);
+        localStorage.setItem('csl_bg', prefs.bg);
+    }
+
+    document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+        b.addEventListener('click', () => {
+            if (b.dataset.mode === 'light') {
+                prefs.mode = 'light';
+            } else {
+                prefs.mode = 'dark';
+                prefs.theme = b.dataset.theme;
+            }
+            updateModalPills();
+            applyPreferences();
+        });
+    });
+    document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+        b.addEventListener('click', () => {
+            prefs.kbskin = b.dataset.kbskin;
+            updateModalPills();
+            applyPreferences();
+        });
+    });
+    document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+        b.addEventListener('click', () => {
+            prefs.mouseskin = b.dataset.mouseskin;
+            updateModalPills();
+            applyPreferences();
+        });
+    });
+    document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+        b.addEventListener('click', () => {
+            prefs.sound = b.dataset.sound;
+            updateModalPills();
+            applyPreferences();
+        });
+    });
+    document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+        b.addEventListener('click', () => {
+            prefs.bg = b.dataset.bg;
+            updateModalPills();
+            applyPreferences();
+        });
+    });
+
+    applyPreferences();
+})();
+</script>
+
+    <!-- Kohi Click Engine Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const stage = document.getElementById('kohi-stage');
+        const canvas = document.getElementById('kohi-canvas');
+        const ctx = canvas.getContext('2d');
+        const chartCanvas = document.getElementById('cps-chart');
+        const chartCtx = chartCanvas.getContext('2d');
+        const hitbox = document.getElementById('pvp-hitbox');
+        const comboBadge = document.getElementById('combo-badge');
+        const kbBadge = document.getElementById('kb-badge');
+
+        let testDuration = 10;
+        let isTesting = false;
+        let clicks = 0;
+        let startTime = 0;
+        let timerInterval = null;
+        let chartInterval = null;
+        let movingMode = false;
+        let soundOn = true;
+        let peakCps = 0;
+        let combo = 0;
+        let lastClickTime = 0;
+        let clickTimestamps = [];
+        let particles = [];
+        let animId = null;
+
+        // Moving Hitbox Position
+        let targetX = 200;
+        let targetY = 150;
+        let targetVx = 120;
+        let targetVy = 90;
+
+        function resizeCanvas() {
+            const rect = stage.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            const chartRect = chartCanvas.parentElement.getBoundingClientRect();
+            chartCanvas.width = chartRect.width - 28;
+            chartCanvas.height = 100;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Audio setup
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        function playCritSound() {
+            if (!soundOn) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioCtx();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                // Sword slash tone + crit ding
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(600, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.08);
+                gain.gain.setValueAtTime(0.18, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            } catch(e){}
+        }
+
+        // Mode Toggles
+        document.getElementById('btn-mode-stationary').addEventListener('click', () => {
+            if (isTesting) return;
+            movingMode = false;
+            document.getElementById('btn-mode-stationary').classList.add('active');
+            document.getElementById('btn-mode-moving').classList.remove('active');
+            hitbox.style.display = 'none';
+        });
+        document.getElementById('btn-mode-moving').addEventListener('click', () => {
+            if (isTesting) return;
+            movingMode = true;
+            document.getElementById('btn-mode-moving').classList.add('active');
+            document.getElementById('btn-mode-stationary').classList.remove('active');
+            hitbox.style.display = 'flex';
+            targetX = stage.clientWidth / 2;
+            targetY = stage.clientHeight / 2;
+            hitbox.style.left = targetX + 'px';
+            hitbox.style.top = targetY + 'px';
+        });
+
+        // Duration Pills
+        document.querySelectorAll('#duration-pills button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (isTesting) return;
+                document.querySelectorAll('#duration-pills button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                testDuration = parseFloat(btn.dataset.duration);
+                document.getElementById('stat-time').textContent = testDuration.toFixed(1);
+            });
+        });
+
+        // Audio Toggle
+        const audioBtn = document.getElementById('audio-toggle');
+        audioBtn.addEventListener('click', () => {
+            soundOn = !soundOn;
+            audioBtn.classList.toggle('active', soundOn);
+            audioBtn.innerHTML = soundOn ? '<span class="material-symbols-outlined" style="font-size: 15px;">volume_up</span> SWORD CRIT SOUND' : '<span class="material-symbols-outlined" style="font-size: 15px;">volume_off</span> SOUND MUTED';
+        });
+
+        // Click Registration
+        stage.addEventListener('mousedown', (e) => {
+            if (e.button !== 0 && e.button !== 2) return;
+            e.preventDefault();
+
+            const rect = stage.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+
+            // Check hit in moving mode
+            if (movingMode) {
+                const dist = Math.hypot(clickX - targetX, clickY - targetY);
+                if (dist > 45) {
+                    combo = 0;
+                    comboBadge.textContent = 'COMBO DROPPED (WHIFF)';
+                    comboBadge.style.color = '#ff4444';
+                    return; // Missed hitbox!
+                }
+            }
+
+            if (!isTesting) {
+                startTest();
+            }
+
+            clicks++;
+            const now = performance.now();
+            clickTimestamps.push(now);
+
+            // Combo calculations
+            if (now - lastClickTime < 350) combo++;
+            else combo = 1;
+            lastClickTime = now;
+
+            updateComboUI();
+            createCritParticles(clickX, clickY);
+            playCritSound();
+            updateLiveStats();
+        });
+
+        stage.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        function startTest() {
+            isTesting = true;
+            clicks = 0;
+            combo = 0;
+            peakCps = 0;
+            clickTimestamps = [];
+            particles = [];
+            startTime = performance.now();
+
+            stage.classList.add('active');
+            document.getElementById('stage-text').style.display = 'none';
+
+            let lastT = performance.now();
+            timerInterval = setInterval(() => {
+                const elapsed = (performance.now() - startTime) / 1000;
+                const remaining = Math.max(0, testDuration - elapsed);
+                document.getElementById('stat-time').textContent = remaining.toFixed(1);
+
+                if (remaining <= 0) {
+                    endTest();
+                }
+            }, 50);
+
+            chartInterval = setInterval(drawGraph, 100);
+            animId = requestAnimationFrame(gameLoop);
+        }
+
+        function gameLoop(time) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update Moving Hitbox
+            if (movingMode && isTesting) {
+                const dt = 0.016;
+                targetX += targetVx * dt;
+                targetY += targetVy * dt;
+
+                if (targetX < 40) { targetX = 40; targetVx *= -1; }
+                if (targetX > stage.clientWidth - 40) { targetX = stage.clientWidth - 40; targetVx *= -1; }
+                if (targetY < 40) { targetY = 40; targetVy *= -1; }
+                if (targetY > stage.clientHeight - 40) { targetY = stage.clientHeight - 40; targetVy *= -1; }
+
+                hitbox.style.left = targetX + 'px';
+                hitbox.style.top = targetY + 'px';
+            }
+
+            // Draw particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.03;
+                if (p.alpha <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+
+            if (isTesting) {
+                animId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        function createCritParticles(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const spd = Math.random() * 4 + 1;
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * spd,
+                    vy: Math.sin(angle) * spd,
+                    size: Math.random() * 3 + 1.5,
+                    alpha: 1,
+                    color: Math.random() > 0.4 ? '#f43f5e' : '#ffd700'
+                });
+            }
+        }
+
+        function updateLiveStats() {
+            document.getElementById('stat-clicks').textContent = clicks;
+            const now = performance.now();
+            const recent = clickTimestamps.filter(t => (now - t) <= 1000);
+            const liveCps = recent.length;
+            document.getElementById('stat-cps').textContent = liveCps.toFixed(1);
+
+            if (liveCps > peakCps) {
+                peakCps = liveCps;
+                document.getElementById('graph-peak').textContent = 'PEAK: ' + peakCps.toFixed(1) + ' CPS';
+            }
+
+            // Knockback reduction formula: CPS > 8 gives noticeable reduction, max -80% at 16+ CPS
+            const kbReduction = Math.min(80, Math.max(0, Math.round((liveCps - 4) * 6.5)));
+            document.getElementById('stat-kb').textContent = '-' + kbReduction + '%';
+            kbBadge.textContent = 'KNOCKBACK TAKEN: ' + (100 - kbReduction) + '%';
+        }
+
+        function updateComboUI() {
+            if (combo >= 15) {
+                comboBadge.textContent = 'x' + combo + ' UNSTOPPABLE!';
+                comboBadge.style.color = '#00ffa3';
+            } else if (combo >= 8) {
+                comboBadge.textContent = 'x' + combo + ' W-TAP COMBO!';
+                comboBadge.style.color = '#00e5ff';
+            } else if (combo >= 3) {
+                comboBadge.textContent = 'x' + combo + ' COMBO';
+                comboBadge.style.color = '#f43f5e';
+            } else {
+                comboBadge.textContent = 'COMBO: x' + combo;
+                comboBadge.style.color = '#ffffff';
+            }
+        }
+
+        function drawGraph() {
+            const w = chartCanvas.width;
+            const h = chartCanvas.height;
+            chartCtx.clearRect(0, 0, w, h);
+
+            const now = performance.now();
+            const elapsed = Math.max(0.1, (now - startTime) / 1000);
+            const currentCps = clicks / elapsed;
+
+            // Draw grid lines for 10 CPS and 15 CPS
+            chartCtx.strokeStyle = 'rgba(255,255,255,0.06)';
+            chartCtx.lineWidth = 1;
+            [10, 15].forEach(val => {
+                const y = h - (val / 25) * h;
+                chartCtx.beginPath();
+                chartCtx.moveTo(0, y);
+                chartCtx.lineTo(w, y);
+                chartCtx.stroke();
+            });
+
+            // Draw CPS curve
+            chartCtx.beginPath();
+            chartCtx.strokeStyle = '#f43f5e';
+            chartCtx.lineWidth = 2.5;
+
+            const points = [];
+            const sliceCount = 30;
+            const step = elapsed / sliceCount;
+            for (let i = 0; i <= sliceCount; i++) {
+                const tLimit = startTime + (i * step * 1000);
+                const cCount = clickTimestamps.filter(t => t <= tLimit).length;
+                const dur = Math.max(0.1, i * step);
+                points.push(cCount / dur);
+            }
+
+            points.forEach((val, idx) => {
+                const x = (idx / sliceCount) * w;
+                const y = h - (Math.min(val, 25) / 25) * (h - 15) - 8;
+                if (idx === 0) chartCtx.moveTo(x, y);
+                else chartCtx.lineTo(x, y);
+            });
+            chartCtx.stroke();
+        }
+
+        function getKohiRank(cps) {
+            if (cps >= 16) return { title: 'BADLION DEITY', desc: 'Zero knockback god. Flawless attack synchronicity and air-combos.' };
+            if (cps >= 12) return { title: 'KOHI CHAMPION', desc: 'Devastating combo speed. Tournament-level butterfly / jitter cadence.' };
+            if (cps >= 9) return { title: 'NETHERITE WARLORD', desc: 'Solid competitive PotPvP & Nodebuff standard. Dominant reach.' };
+            if (cps >= 6) return { title: 'DIAMOND GUARD', desc: 'Average baseline combat clicking. Vulnerable to fast combo locks.' };
+            return { title: 'IRON GOLEM', desc: 'Sluggish click rate. Practice butterfly or jitter clicking to improve.' };
+        }
+
+        function endTest() {
+            isTesting = false;
+            clearInterval(timerInterval);
+            clearInterval(chartInterval);
+            if (animId) cancelAnimationFrame(animId);
+
+            stage.classList.remove('active');
+            document.getElementById('stage-text').style.display = 'block';
+
+            const finalCps = clicks / testDuration;
+            const hitReg = Math.min(100, Math.max(85, Math.round(100 - (finalCps > 18 ? (finalCps - 18) * 3 : 0))));
+            const rank = getKohiRank(finalCps);
+
+            document.getElementById('res-rank').textContent = rank.title;
+            document.getElementById('res-desc').textContent = rank.desc;
+            document.getElementById('res-cps').textContent = finalCps.toFixed(2);
+            document.getElementById('res-clicks').textContent = clicks;
+            document.getElementById('res-peak').textContent = peakCps.toFixed(1);
+            document.getElementById('res-hitreg').textContent = hitReg + '%';
+
+            document.getElementById('result-modal').classList.add('show');
+
+            // Save history
+            const hist = JSON.parse(localStorage.getItem('csl_kohi_history') || '[]');
+            hist.unshift({
+                date: new Date().toLocaleDateString(),
+                duration: testDuration + 's',
+                clicks: clicks,
+                cps: finalCps.toFixed(2),
+                peak: peakCps.toFixed(1),
+                hitreg: hitReg + '%',
+                rank: rank.title
+            });
+            if (hist.length > 10) hist.pop();
+            localStorage.setItem('csl_kohi_history', JSON.stringify(hist));
+            loadHistory();
+        }
+
+        function loadHistory() {
+            const hist = JSON.parse(localStorage.getItem('csl_kohi_history') || '[]');
+            const tbody = document.getElementById('history-body');
+            if (!tbody) return;
+            if (hist.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No combat logs recorded yet. Engage the target above!</td></tr>';
+                return;
+            }
+            let html = '';
+            hist.forEach(h => {
+                html += '<tr>' +
+                    '<td>' + h.date + '</td>' +
+                    '<td>' + h.duration + '</td>' +
+                    '<td>' + h.clicks + '</td>' +
+                    '<td style="color: #00ffa3; font-weight:700;">' + h.cps + '</td>' +
+                    '<td>' + h.peak + '</td>' +
+                    '<td>' + h.hitreg + '</td>' +
+                    '<td style="color: #f43f5e; font-weight:700;">' + h.rank + '</td>' +
+                '</tr>';
+            });
+            tbody.innerHTML = html;
+        }
+
+        document.getElementById('btn-play-again').addEventListener('click', () => {
+            document.getElementById('result-modal').classList.remove('show');
+            document.getElementById('stat-time').textContent = testDuration.toFixed(1);
+            document.getElementById('stat-clicks').textContent = '0';
+            document.getElementById('stat-cps').textContent = '0.0';
+        });
+
+        document.getElementById('btn-share').addEventListener('click', () => {
+            const cps = (clicks / testDuration).toFixed(2);
+            const text = 'I scored ' + cps + ' CPS (' + getKohiRank(clicks / testDuration).title + ') on the Kohi Click Test! Can you combo me? https://www.clickspeedlab.com/kohi-click-test/';
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text);
+                document.getElementById('btn-share').textContent = 'COPIED!';
+                setTimeout(() => document.getElementById('btn-share').textContent = 'SHARE SCORE', 2000);
+            }
+        });
+
+        loadHistory();
+    });
+    </script>
+
+    <script>
+    (function(){
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+        }, {threshold: 0.1});
+        document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+    })();
+    </script>
+</body>
+</html>

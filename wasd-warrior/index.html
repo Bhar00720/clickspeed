@@ -8,19 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   
-  <title>WASD Warrior — Gaming Key Reaction Speed Test Online | Click Speed Lab</title>
-  <meta name="description" content="Train your left-hand gaming reflexes with WASD Warrior. Test reaction speed on W-A-S-D, Q-E-R-F, Shift, Space & ability keys. The only browser tool that trains the gaming keyboard cluster.">
+  <title>WASD Warrior: Key Reaction Speed Game | Click Speed Lab</title>
+  <meta name="description" content="Train your left-hand gaming reflexes with WASD Warrior. Test reaction time, keystroke accuracy, and movement speed under pressure in your browser.">
   <meta name="keywords" content="wasd reaction time test, gaming key reaction test, keyboard reaction speed test, left hand trainer, wasd speed test, gaming reflexes test">
   
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="canonical" href="https://clickspeedlab.com/wasd-warrior/">
+  
+  <link rel="canonical" href="https://www.clickspeedlab.com/wasd-warrior/">
   
   <meta property="og:title" content="WASD Warrior — Gaming Key Reaction Speed Test Online | Click Speed Lab">
   <meta property="og:description" content="Train your left-hand gaming reflexes with WASD Warrior. Test reaction speed on W-A-S-D, Q-E-R-F, Shift, Space & ability keys.">
-  <meta property="og:url" content="https://clickspeedlab.com/wasd-warrior/">
+  <meta property="og:url" content="https://www.clickspeedlab.com/wasd-warrior/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Click Speed Lab">
   
@@ -33,7 +33,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "WASD Warrior",
-    "url": "https://clickspeedlab.com/wasd-warrior/",
+    "url": "https://www.clickspeedlab.com/wasd-warrior/",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Any",
     "description": "Train your left-hand gaming reflexes with WASD Warrior. Test reaction speed on W-A-S-D, Q-E-R-F, Shift, Space & ability keys."
@@ -96,13 +96,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://clickspeedlab.com/"
+        "item": "https://www.clickspeedlab.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "WASD Warrior",
-        "item": "https://clickspeedlab.com/wasd-warrior/"
+        "item": "https://www.clickspeedlab.com/wasd-warrior/"
       }
     ]
   }
@@ -112,15 +112,15 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Click Speed Lab",
-    "url": "https://clickspeedlab.com/",
-    "logo": "https://clickspeedlab.com/favicon.svg"
+    "url": "https://www.clickspeedlab.com/",
+    "logo": "https://www.clickspeedlab.com/favicon.svg"
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://clickspeedlab.com/",
+    "url": "https://www.clickspeedlab.com/",
     "name": "Click Speed Lab",
     "description": "Zero-latency mouse and keyboard benchmark tools."
   }
@@ -370,23 +370,23 @@
         box-sizing: border-box;
     }
     .stitch-key.active-glow {
-        border-color: var(--game-theme);
-        color: var(--game-theme);
-        box-shadow: 0 4px 0 rgba(0,229,255,0.6), 0 0 15px rgba(0,229,255,0.4);
-        background: rgba(0,229,255,0.1);
+        border-color: var(--game-theme) !important;
+        color: var(--game-theme) !important;
+        box-shadow: 0 4px 0 rgba(0,229,255,0.6), 0 0 15px rgba(0,229,255,0.4) !important;
+        background: rgba(0,229,255,0.1) !important;
     }
     .stitch-key.pressed-correct {
-        border-color: #00ffa3;
-        color: #00ffa3;
-        box-shadow: 0 0 0 #00ffa3, 0 0 20px rgba(0,255,163,0.5);
-        background: rgba(0,255,163,0.2);
+        border-color: #00ffa3 !important;
+        color: #00ffa3 !important;
+        box-shadow: 0 0 0 #00ffa3, 0 0 20px rgba(0,255,163,0.5) !important;
+        background: rgba(0,255,163,0.2) !important;
         transform: translateY(4px);
     }
     .stitch-key.pressed-wrong {
-        border-color: #ff4444;
-        color: #ff4444;
-        box-shadow: 0 0 0 #ff4444, 0 0 20px rgba(255,68,68,0.5);
-        background: rgba(255,68,68,0.2);
+        border-color: #ff4444 !important;
+        color: #ff4444 !important;
+        box-shadow: 0 0 0 #ff4444, 0 0 20px rgba(255,68,68,0.5) !important;
+        background: rgba(255,68,68,0.2) !important;
         transform: translateY(4px);
     }
     
@@ -584,46 +584,146 @@
     <div class="topnav-left">
         <a href="../" class="stitch-brand">CLICK SPEED <span class="sub">LAB</span></a>
         <nav class="stitch-navlinks">
-            <a href="../" class="stitch-navlink"><span class="material-symbols-outlined">dashboard</span><span>OVERVIEW</span></a>
-            
-            <div class="nav-dropdown">
-                <button class="stitch-navlink nav-dropdown-btn" type="button">
-                    <span class="material-symbols-outlined">mouse</span><span>MOUSE TESTS</span>
-                    <span class="material-symbols-outlined nav-arrow">expand_more</span>
-                </button>
-                <div class="nav-dropdown-menu">
-                    <a href="../cps-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span><div class="item-content"><div class="item-title">Standard CPS Test</div><div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div></div></a>
-                    <a href="../jitter-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span><div class="item-content"><div class="item-title">Jitter Click Test</div><div class="item-desc">Arm muscle tremor technique & safety guide</div></div></a>
-                    <a href="../butterfly-click-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span><div class="item-content"><div class="item-title">Butterfly Click Test</div><div class="item-desc">Two-finger alternating double-click benchmark</div></div></a>
-                    <a href="../mouse-polling-rate-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span><div class="item-content"><div class="item-title">Mouse Polling Rate (Hz)</div><div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div></div></a>
-                    <a href="../mouse-scroll-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span><div class="item-content"><div class="item-title">Scroll Speed & Encoder</div><div class="item-desc">Notches/sec & reverse-scroll fault detector</div></div></a>
+                <a href="../" class="stitch-navlink ">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>OVERVIEW</span>
+                </a>
+
+                <!-- Mouse Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">mouse</span>
+                        <span>MOUSE TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../cps-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--primary);">speed</span>
+                            <div class="item-content">
+                                <div class="item-title">Standard CPS Test</div>
+                                <div class="item-desc">Benchmark clicks per second in 1s, 5s, 10s, 60s</div>
+                            </div>
+                        </a>
+                        <a href="../jitter-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">vibration</span>
+                            <div class="item-content">
+                                <div class="item-title">Jitter Click Test</div>
+                                <div class="item-desc">Arm muscle tremor technique & safety guide</div>
+                            </div>
+                        </a>
+                        <a href="../butterfly-click-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">flutter</span>
+                            <div class="item-content">
+                                <div class="item-title">Butterfly Click Test</div>
+                                <div class="item-desc">Two-finger alternating double-click benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../kohi-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #e11d48;">swords</span>
+                            <div class="item-content">
+                                <div class="item-title">Kohi Click Test (PvP)</div>
+                                <div class="item-desc">10-second Minecraft PvP combat standard</div>
+                            </div>
+                        </a>
+                        <a href="../drag-click-test/" class="nav-dropdown-item">
+                            <span class="material-symbols-outlined item-icon" style="color: #8b5cf6;">swipe</span>
+                            <div class="item-content">
+                                <div class="item-title">Drag Click Test</div>
+                                <div class="item-desc">Surface friction & switch bounce benchmark</div>
+                            </div>
+                        </a>
+                        <a href="../reaction-time-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f59e0b;">timer</span>
+                            <div class="item-content">
+                                <div class="item-title">Reaction Time Test</div>
+                                <div class="item-desc">Visual reflex stopwatch & millisecond reaction</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-polling-rate-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: var(--aero-blue);">track_changes</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Polling Rate (Hz)</div>
+                                <div class="item-desc">Sensor reporting frequency (1000Hz - 8000Hz)</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-scroll-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff9900;">swap_vertical_circle</span>
+                            <div class="item-content">
+                                <div class="item-title">Scroll Speed & Encoder</div>
+                                <div class="item-desc">Notches/sec & reverse-scroll fault detector</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="nav-dropdown">
-                <button class="stitch-navlink nav-dropdown-btn" type="button">
-                    <span class="material-symbols-outlined">keyboard</span><span>KEYBOARD TESTS</span>
-                    <span class="material-symbols-outlined nav-arrow">expand_more</span>
-                </button>
-                <div class="nav-dropdown-menu">
-                    <a href="../keyboard-ghosting-test/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span><div class="item-content"><div class="item-title">Keyboard Matrix & NKRO</div><div class="item-desc">Simultaneous rollover & ghosting check</div></div></a>
-                    <a href="../spacebar-counter/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span><div class="item-content"><div class="item-title">Spacebar Speed Test</div><div class="item-desc">Spacebar counter & TikTok challenge benchmark</div></div></a>
+
+                <!-- Keyboard Diagnostics Expandable Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn " type="button">
+                        <span class="material-symbols-outlined">keyboard</span>
+                        <span>KEYBOARD TESTS</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../keyboard-ghosting-test/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #c084fc;">grid_view</span>
+                            <div class="item-content">
+                                <div class="item-title">Keyboard Matrix & NKRO</div>
+                                <div class="item-desc">Simultaneous rollover & ghosting check</div>
+                            </div>
+                        </a>
+                        <a href="../spacebar-counter/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #f43f5e;">space_bar</span>
+                            <div class="item-content">
+                                <div class="item-title">Spacebar Speed Test</div>
+                                <div class="item-desc">Spacebar counter & TikTok challenge benchmark</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="nav-dropdown open">
-                <button class="stitch-navlink nav-dropdown-btn active" type="button">
-                    <span class="material-symbols-outlined">sports_esports</span><span>GAMES</span>
-                    <span class="material-symbols-outlined nav-arrow">expand_more</span>
-                </button>
-                <div class="nav-dropdown-menu">
-                    <a href="../aim-trainer/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span><div class="item-content"><div class="item-title">Aim Trainer</div><div class="item-desc">Flick, tracking & precision aim drills</div></div></a>
-                    <a href="../mouse-precision-game/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span><div class="item-content"><div class="item-title">Mouse Precision Game</div><div class="item-desc">Steady-hand maze navigation challenge</div></div></a>
-                    <a href="../wasd-warrior/" class="nav-dropdown-item active"><span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span><div class="item-content"><div class="item-title">WASD Warrior</div><div class="item-desc">Left-hand gaming key reaction trainer</div></div></a>
-                    <a href="../type-blaster/" class="nav-dropdown-item"><span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span><div class="item-content"><div class="item-title">Type Blaster</div><div class="item-desc">Arcade typing defense game</div></div></a>
+
+                <!-- Games Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="stitch-navlink nav-dropdown-btn active" type="button">
+                        <span class="material-symbols-outlined">sports_esports</span>
+                        <span>GAMES</span>
+                        <span class="material-symbols-outlined nav-arrow">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../aim-trainer/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #ff4444;">my_location</span>
+                            <div class="item-content">
+                                <div class="item-title">Aim Trainer</div>
+                                <div class="item-desc">Flick, tracking & precision aim drills</div>
+                            </div>
+                        </a>
+                        <a href="../mouse-precision-game/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #00ffa3;">route</span>
+                            <div class="item-content">
+                                <div class="item-title">Mouse Precision Game</div>
+                                <div class="item-desc">Steady-hand maze navigation challenge</div>
+                            </div>
+                        </a>
+                        <a href="../wasd-warrior/" class="nav-dropdown-item active">
+                            <span class="material-symbols-outlined item-icon" style="color: #00e5ff;">gamepad</span>
+                            <div class="item-content">
+                                <div class="item-title">WASD Warrior</div>
+                                <div class="item-desc">Left-hand gaming key reaction trainer</div>
+                            </div>
+                        </a>
+                        <a href="../type-blaster/" class="nav-dropdown-item ">
+                            <span class="material-symbols-outlined item-icon" style="color: #a78bfa;">rocket_launch</span>
+                            <div class="item-content">
+                                <div class="item-title">Type Blaster</div>
+                                <div class="item-desc">Arcade typing defense game</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            
+                <button class="fullscreen-btn" onclick="document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()" title="Toggle Fullscreen">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                </button>
+            </nav>
     </div>
     <div class="topnav-right">
         <button class="topnav-icon-btn" id="theme-toggle" title="Switch Theme Palette" style="cursor: pointer;">
@@ -634,12 +734,12 @@
   </header>
 
   <main class="stitch-main">
-      <div class="game-hero" data-aos="fade-down">
+      <div class="game-hero">
           <h1><span class="material-symbols-outlined">gamepad</span> WASD WARRIOR</h1>
           <p>LEFT-HAND GAMING KEY REACTION & ABILITY CHORDING TRAINER</p>
       </div>
 
-      <div class="dashboard" data-aos="fade-up">
+      <div class="dashboard">
           <div class="settings-panel">
               <div class="setting-group">
                   <span class="setting-label">MODE</span>
@@ -700,7 +800,7 @@
           </div>
 
           <div id="kb-scale-wrapper" class="kb-scale-standard" style="transition: transform 0.2s ease;">
-<div class="keyboard-container" id="kb-container" data-tilt>
+<div class="keyboard-container" id="kb-container">
               <div class="kb-instruction" id="kb-instruction">
                   <div class="inst-title" id="inst-title">SINGLE KEY</div>
                   <div id="inst-desc">Press the highlighted key as fast as you can. 20 rounds.</div>
@@ -741,44 +841,114 @@
           </div>
 
           <div class="key-chart-area" id="key-chart-area" style="display: none;">
-              <h3>KEY-BY-KEY BREAKDOWN</h3>
+              <h2>KEY-BY-KEY BREAKDOWN</h2>
               <div class="chart-bars" id="chart-bars-container">
               </div>
           </div>
       </div>
 
       <div class="content-section">
-          <div class="info-card" data-aos="fade-up">
+          <div class="info-card">
               <h3><span class="badge">1</span> What is WASD Warrior?</h3>
               <p>WASD Warrior is a specialized reaction trainer built exclusively for the left-hand gaming cluster. Unlike standard typing tests, it focuses on the critical zone used in shooters, MMOs, and MOBAs: W-A-S-D for movement, Q-E-R-F for abilities, and modifier keys like Shift and Space. It trains your muscle memory and reduces cognitive load during intense gameplay.</p>
           </div>
-          <div class="info-card" data-aos="fade-up">
+          <div class="info-card">
               <h3><span class="badge">2</span> How to Improve Left-Hand Reflexes?</h3>
               <p>Reaction time is partly genetic, but muscle memory is entirely trainable. By consistently practicing the Single Key and Combo Chain modes, you condition your brain to map visual cues directly to specific finger movements without conscious thought. Start slow, focus on accuracy over speed, and your reaction times will naturally decrease.</p>
           </div>
-          <div class="info-card" data-aos="fade-up">
+          <div class="info-card">
               <h3><span class="badge">3</span> What Do The Modes Test?</h3>
               <p><strong>Single Key:</strong> Tests pure visual-motor reaction time for individual keys. Identifies which fingers/keys you are slowest on.<br>
               <strong>Combo Chain:</strong> Simulates ability chording and macro execution. Tests sequence memory and multi-finger coordination.<br>
               <strong>Survival:</strong> A stress test that narrows your reaction window, simulating high-pressure clutch situations in competitive games.</p>
           </div>
-          <div class="info-card" data-aos="fade-up">
+          <div class="info-card">
               <h3><span class="badge">4</span> Understanding Your Score & Rank</h3>
               <p>Scores are based on average reaction time. <strong>GODLIKE</strong> (&lt;180ms) represents elite esports potential. <strong>MASTER</strong> (180-250ms) is excellent for competitive play. <strong>PRO</strong> (250-350ms) is standard for dedicated gamers. If you score higher, don't worry—regular practice will quickly move you up the ranks!</p>
           </div>
       </div>
   </main>
 
-  <footer class="stitch-footer">
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888;">CLICK SPEED LAB v3.1</span>
-        <span style="color: #333;">|</span>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #666;">ZERO-LATENCY ENGINE</span>
-    </div>
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #555;">© 2025 Click Speed Lab. All rights reserved.</span>
-    </div>
-  </footer>
+      <!-- Unified CoreLume Footer -->
+    <footer class="stitch-footer">
+        <div class="footer-left">
+            &copy; 2026 CLICK SPEED LAB | POWERED BY <a href="https://corelumetech.in" target="_blank" rel="noopener noreferrer">CORELUMETECH.IN</a>
+        </div>
+
+        <!-- Center: CoreLume Suite Expandable Tools Dropup Menu -->
+        <div class="footer-dropup footer-tools-dropup" id="footer-tools-dropup">
+            <button class="footer-dropup-btn" id="footer-dropup-trigger" type="button">
+                <span class="live-dot"></span>
+                <span class="material-symbols-outlined icon">construction</span>
+                <span>OTHER TOOLS</span>
+                <span class="material-symbols-outlined arrow">expand_less</span>
+            </button>
+            <div class="footer-dropup-menu">
+                <div class="footer-dropup-header">
+                    <span class="material-symbols-outlined">apps</span>
+                    <span>CORELUME WEB TOOLS SUITE</span>
+                </div>
+                <div class="footer-tools-grid">
+                    <a href="https://calculator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00e5ff;">calculate</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Omni-Calculator</div>
+                            <div class="tool-desc">All-in-one math, finance & unit converter</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://text-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #00ffa3;">format_shapes</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Text Utils</div>
+                            <div class="tool-desc">Case conversion, formatting & word statistics</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://password-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #ff5f1f;">lock</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Password Generator</div>
+                            <div class="tool-desc">High-entropy cryptographic passphrases</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://dev-tools.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #c084fc;">code</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Dev Utils</div>
+                            <div class="tool-desc">JSON formatters, base64, regex & encoders</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://qr-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #38bdf8;">qr_code_2</span>
+                        <div class="tool-info">
+                            <div class="tool-name">QR Generator</div>
+                            <div class="tool-desc">Vector QR codes with custom styling & logos</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                    <a href="https://color-generator.corelumetech.in/" target="_blank" rel="noopener noreferrer" class="footer-tool-item">
+                        <span class="material-symbols-outlined tool-icon" style="color: #f43f5e;">palette</span>
+                        <div class="tool-info">
+                            <div class="tool-name">Color Master</div>
+                            <div class="tool-desc">Color palette generator, contrast & gradients</div>
+                        </div>
+                        <span class="material-symbols-outlined ext-icon">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-right" style="display: flex; align-items: center; gap: 14px;">
+            <a href="mailto:help@clickspeedlab.com" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px;">mail</span> help@clickspeedlab.com
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <span>SYSTEM STATUS: OPTIMAL</span>
+        </div>
+    </footer>
 
   <div class="custom-modal-backdrop" id="result-modal">
       <div class="custom-modal-card">
@@ -804,92 +974,329 @@
       </div>
   </div>
 
-  <div class="custom-modal-backdrop" id="customizer-modal">
-      <div class="custom-modal-card" style="max-width: 420px;">
-          <h2 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">
-              <span class="material-symbols-outlined" style="vertical-align: middle; color: var(--primary);">palette</span>
-              Lab Theme
-          </h2>
-          <div id="pref-theme-pills" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px;">
-              <button data-theme="orange" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,95,31,0.4); background: rgba(255,95,31,0.1); color: #ff5f1f; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟠 OBSIDIAN</button>
-              <button data-theme="cyan" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,229,255,0.4); background: rgba(0,229,255,0.1); color: #00e5ff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🔵 CYBER</button>
-              <button data-theme="emerald" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(0,255,163,0.4); background: rgba(0,255,163,0.1); color: #00ffa3; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟢 EMERALD</button>
-              <button data-theme="purple" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(167,139,250,0.4); background: rgba(167,139,250,0.1); color: #a78bfa; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">🟣 NEON</button>
-              <button data-mode="light" class="active" style="padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); color: #ffffff; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; cursor: pointer;">⚪ LIGHT</button>
-          </div>
-          <div style="display: flex; gap: 8px;">
-              <button id="customizer-save" class="kinetic-btn-orange" style="flex: 1; padding: 10px;">SAVE</button>
-              <button id="customizer-close" class="kinetic-btn-outline" style="flex: 1; padding: 10px;">CLOSE</button>
-          </div>
-      </div>
-  </div>
-
-  <script class="global-ui-script">
-  (function() {
-      document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              const dropdown = this.closest('.nav-dropdown');
-              const isOpen = dropdown.classList.contains('open');
-              document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-              if (!isOpen) dropdown.classList.add('open');
-          });
-      });
-      document.addEventListener('click', () => {
-          document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      });
   
-      let currentTheme = localStorage.getItem('csl_theme') || 'light';
-      function applyTheme(theme) {
-          currentTheme = theme;
-          if (theme === 'orange') {
-              document.documentElement.removeAttribute('data-theme');
-              document.documentElement.removeAttribute('data-mode');
-          } else if (theme === 'light') {
-              document.documentElement.setAttribute('data-mode', 'light');
-              document.documentElement.removeAttribute('data-theme');
-          } else {
-              document.documentElement.setAttribute('data-theme', theme);
-              document.documentElement.removeAttribute('data-mode');
-          }
-          localStorage.setItem('csl_theme', theme);
-          document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(p => {
-              p.classList.remove('active');
-              if (theme === 'light' && p.dataset.mode === 'light') p.classList.add('active');
-              else if (p.dataset.theme === theme) p.classList.add('active');
-          });
-      }
-      applyTheme(currentTheme);
-  
-      const themeBtn = document.getElementById('theme-toggle');
-      const customizerModal = document.getElementById('customizer-modal');
-      const customizerClose = document.getElementById('customizer-close');
-      const customizerSave = document.getElementById('customizer-save');
-      if (themeBtn && customizerModal) {
-          themeBtn.addEventListener('click', () => customizerModal.classList.add('show'));
-      }
-      if (customizerClose) customizerClose.addEventListener('click', () => customizerModal.classList.remove('show'));
-      if (customizerSave) customizerSave.addEventListener('click', () => customizerModal.classList.remove('show'));
-      document.querySelectorAll('[id$="pref-theme-pills"] button').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-              const t = e.target.dataset.theme;
-              const m = e.target.dataset.mode;
-              if (t) applyTheme(t);
-              if (m) applyTheme(m);
-          });
-      });
-  })();
-  </script>
+    <!-- Customizer Modal -->
+    <div class="custom-modal-backdrop" id="customizer-modal">
+        <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
+            </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
+            </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
+        </div>
+    </div>
+
+    <script class="global-ui-script">
+(function() {
+    // --- 1. TopNav & Footer Dropdowns ---
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        const btn = dropdown.querySelector('.nav-dropdown-btn');
+        if (!btn) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.blur();
+            const isOpen = dropdown.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            if (!isOpen) dropdown.classList.add('open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        const footerDropup = document.getElementById('footer-tools-dropup');
+        if (footerDropup) footerDropup.classList.remove('open');
+    });
+
+    const footerTrigger = document.getElementById('footer-dropup-trigger');
+    const footerDropup = document.getElementById('footer-tools-dropup');
+    if (footerTrigger && footerDropup) {
+        footerTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            footerDropup.classList.toggle('open');
+        });
+    }
+
+    // --- 2. Customizer Modal Open / Close ---
+    const customizerModal = document.getElementById('customizer-modal');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const customizerCloseBtn = document.getElementById('customizer-close');
+    const customizerApplyBtn = document.getElementById('customizer-apply-btn');
+    const customizerSaveBtn = document.getElementById('customizer-save');
+
+    function openCustomizer() {
+        if (customizerModal) {
+            updateModalPills();
+            customizerModal.classList.add('show');
+        }
+    }
+    function closeCustomizer() {
+        if (customizerModal) {
+            customizerModal.classList.remove('show');
+        }
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', openCustomizer);
+    if (customizerCloseBtn) customizerCloseBtn.addEventListener('click', closeCustomizer);
+    if (customizerApplyBtn) customizerApplyBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+    if (customizerSaveBtn) customizerSaveBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+
+    if (customizerModal) {
+        customizerModal.addEventListener('click', (e) => {
+            if (e.target === customizerModal) closeCustomizer();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeCustomizer();
+    });
+
+    // --- 3. Preferences & Switch Acoustics Audio Synthesis ---
+    let labAudioCtx = null;
+    window.playSwitchSound = function(soundOverride) {
+        const currentSound = soundOverride || prefs.sound;
+        if (currentSound === 'off') return;
+        try {
+            if (!labAudioCtx) labAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (labAudioCtx.state === 'suspended') labAudioCtx.resume();
+            
+            const osc = labAudioCtx.createOscillator();
+            const gain = labAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(labAudioCtx.destination);
+            const now = labAudioCtx.currentTime;
+
+            if (currentSound === 'blue') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1900, now);
+                osc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.035);
+            } else if (currentSound === 'brown') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.045);
+                osc.start(now);
+                osc.stop(now + 0.045);
+            } else if (currentSound === 'red') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.038);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.038);
+                osc.start(now);
+                osc.stop(now + 0.038);
+            } else if (currentSound === 'cream') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.04);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            }
+        } catch (err) {
+            // AudioContext not allowed or not supported
+        }
+    };
+
+    // State Manager
+    let prefs = {
+        theme: localStorage.getItem('csl_theme') || 'light',
+        mode: localStorage.getItem('csl_mode') || 'light',
+        kbSkin: localStorage.getItem('csl_kb_skin') || 'obsidian',
+        mouseSkin: localStorage.getItem('csl_mouse_skin') || 'obsidian',
+        sound: localStorage.getItem('csl_sound') || 'blue',
+        bg: localStorage.getItem('csl_bg') || 'grid'
+    };
+
+    // Reconcile mode & theme
+    if (prefs.mode === 'light' || prefs.theme === 'light') {
+        prefs.mode = 'light';
+        prefs.theme = 'light';
+    }
+
+    function updateModalPills() {
+        document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+            if (prefs.mode === 'light' && b.dataset.mode === 'light') b.classList.add('active');
+            else if (prefs.mode !== 'light' && b.dataset.theme === prefs.theme) b.classList.add('active');
+            else b.classList.remove('active');
+        });
+        document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.kbskin === prefs.kbSkin);
+        });
+        document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.mouseskin === prefs.mouseSkin);
+        });
+        document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.sound === prefs.sound);
+        });
+        document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+            b.classList.toggle('active', b.dataset.bg === prefs.bg);
+        });
+    }
+
+    function applyPreferences() {
+        // 1. Theme & Mode
+        if (prefs.mode === 'light') {
+            document.documentElement.setAttribute('data-mode', 'light');
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            document.documentElement.removeAttribute('data-mode');
+            if (prefs.theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', prefs.theme);
+            }
+        }
+
+        // 2. Skins & Atmospheres
+        document.documentElement.setAttribute('data-kb-skin', prefs.kbSkin);
+        document.documentElement.setAttribute('data-mouse-skin', prefs.mouseSkin);
+        document.documentElement.setAttribute('data-bg', prefs.bg);
+
+        // 3. Update pill UI
+        updateModalPills();
+
+        // 4. Save to localStorage
+        localStorage.setItem('csl_theme', prefs.theme);
+        localStorage.setItem('csl_mode', prefs.mode);
+        localStorage.setItem('csl_kb_skin', prefs.kbSkin);
+        localStorage.setItem('csl_mouse_skin', prefs.mouseSkin);
+        localStorage.setItem('csl_sound', prefs.sound);
+        localStorage.setItem('csl_bg', prefs.bg);
+    }
+
+    // Pill Click Listeners
+    document.querySelectorAll('#pref-theme-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (b.dataset.mode === 'light') {
+                prefs.mode = 'light';
+                prefs.theme = 'light';
+            } else {
+                prefs.mode = 'dark';
+                prefs.theme = b.dataset.theme;
+            }
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.kbSkin = b.dataset.kbskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.mouseSkin = b.dataset.mouseskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.sound = b.dataset.sound;
+            applyPreferences();
+            window.playSwitchSound(prefs.sound);
+        });
+    });
+
+    document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.bg = b.dataset.bg;
+            applyPreferences();
+        });
+    });
+
+    // Initialize on load
+    applyPreferences();
+})();
+</script>
+
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-      if (typeof AOS !== 'undefined') AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 40 });
-      if (typeof VanillaTilt !== 'undefined') VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 6, speed: 400, glare: true, "max-glare": 0.12, scale: 1.01 });
-
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       let audioCtx;
       
@@ -1187,6 +1594,7 @@
           targetCode = activeCodes[Math.floor(Math.random() * activeCodes.length)];
           keyMap[targetCode].classList.add('active-glow');
           startTime = performance.now();
+          updateMetricsDisplay();
       }
 
       function nextComboTarget() {
@@ -1460,5 +1868,16 @@
       });
   });
   </script>
+
+<script>
+(function(){
+    var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+    
 </body>
 </html>
