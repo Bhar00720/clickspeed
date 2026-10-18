@@ -578,23 +578,184 @@
             </div>
         </div>
 
-        <section class="info-section">
-            <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">Mouse Polling Rate Guide & Benchmark Standards</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--text-muted); font-family: var(--font-heading); font-size: 1rem; margin-top: 0;">125 Hz (Office Standard)</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0;">8.0ms report interval. Sufficient for desktop office work, unsuitable for competitive esports.</p>
+        <section class="info-section" style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--energy-border);">
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem;">Mouse Polling Rate (Hz), Sensor Latency & Esports Benchmark Standards</h2>
+        <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.6; max-width: 820px; margin-bottom: 2rem;">
+            Polling rate measures how frequently your gaming mouse transmits cursor coordinates and button state packets to your operating system. Higher reporting frequencies dramatically compress input delay, smooth cursor micro-steps, and align tracking with high-refresh gaming monitors.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: var(--primary); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">timer</span>
+                    USB Report Interval & Latency
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    Report interval is the mathematical reciprocal of frequency: <strong>Latency = 1000 / Hz</strong>. A standard 125Hz office mouse has an 8.0ms delay between sensor readouts. Upgrading to 1000Hz drops hardware reporting delay to 1.0ms, while cutting-edge 8000Hz mice transmit packets every <strong>0.125 milliseconds (125 microseconds)</strong>, virtually eliminating packet-delay variance.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">show_chart</span>
+                    Sensor Jitter & Interval Variance
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    A mouse that averages 1000Hz can still feel erratic if its timestamp intervals bounce erratically between 0.3ms and 2.5ms. This is known as <strong>polling interval jitter</strong>. Flawless optical sensors (such as PixArt PAW3395, PAW3950, and Focus Pro 30K/35K) maintain tight interval standard deviations under 0.05ms, ensuring consistent cursor acceleration.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">memory</span>
+                    CPU Overhead & In-Game Stutter
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    At 8000Hz, your PC must handle 8,000 hardware interrupts per second. In older game engines or unoptimized titles, this flood of OS input calls can bottleneck the main game thread, causing severe micro-stutters and frame drops. Enabling <strong>Raw Input Buffer</strong> in game settings bypasses Windows OS message queues to feed raw data directly into the game engine.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: #c084fc; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">wifi_channel</span>
+                    2.4GHz Dongle Placement & Interference
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    Wireless 4K and 8K mice require clean RF spectrum. Plugging your 4K/8K receiver directly into a rear motherboard USB 3.0 port can cause radio-frequency interference from USB 3.0 high-speed data clocks. Always use the included USB extender cable to place the dongle within <strong>15–20 cm (6–8 inches)</strong> of your mousepad.
+                </p>
+            </div>
+        </div>
+
+        <!-- Polling Rate Comparison Table -->
+        <div style="margin-bottom: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: var(--primary);">table_chart</span>
+                Mouse Polling Rates Compared: Latency, Interval & CPU Load
+            </h3>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Polling Rate</th>
+                            <th>Report Interval</th>
+                            <th>Delay Savings vs 1K</th>
+                            <th>CPU Overhead</th>
+                            <th>Recommended Display</th>
+                            <th>Best Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--text-muted);">125 Hz</td>
+                            <td>8.00 ms</td>
+                            <td>-7.00 ms (Slower)</td>
+                            <td>Negligible (&lt;0.1%)</td>
+                            <td>60Hz Standard</td>
+                            <td>Basic office work & non-gaming tasks</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #fff;">500 Hz</td>
+                            <td>2.00 ms</td>
+                            <td>-1.00 ms (Slower)</td>
+                            <td>Very Low (&lt;0.5%)</td>
+                            <td>60Hz – 144Hz</td>
+                            <td>Casual gaming & conserving battery</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #00e5ff;">1000 Hz</td>
+                            <td>1.00 ms</td>
+                            <td>Baseline (0.0 ms)</td>
+                            <td>Low (1–2%)</td>
+                            <td>144Hz – 240Hz</td>
+                            <td>Competitive esports universal standard</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #00ffa3;">2000 Hz</td>
+                            <td>0.50 ms</td>
+                            <td>0.50 ms faster</td>
+                            <td>Moderate (2–4%)</td>
+                            <td>240Hz – 360Hz</td>
+                            <td>Sweet spot for high-refresh wireless mice</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #f59e0b;">4000 Hz</td>
+                            <td>0.25 ms</td>
+                            <td>0.75 ms faster</td>
+                            <td>Medium-High (4–8%)</td>
+                            <td>360Hz – 540Hz</td>
+                            <td>Pro FPS esports with modern multi-core CPUs</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #ff5f1f;">8000 Hz</td>
+                            <td>0.125 ms</td>
+                            <td>0.875 ms faster</td>
+                            <td>High (8–15%+)</td>
+                            <td>540Hz OLED / Fast-TN</td>
+                            <td>Absolute lowest input latency on enthusiast PCs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Troubleshooting Guide -->
+        <div style="background: rgba(14,14,18,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; margin-bottom: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #00ffa3;">tune</span>
+                How to Fix 4000Hz & 8000Hz Mouse Stutter in Games
+            </h3>
+            <p style="color: var(--on-surface-variant); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+                If your FPS drops or your crosshair stutters when moving your mouse quickly in Valorant, CS2, or Fortnite:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00e5ff;">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00e5ff; font-weight: 700; margin-bottom: 4px;">STEP 1</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">Enable Raw Input Buffer</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">In game settings (General &gt; Mouse), turn ON <strong>Raw Input Buffer</strong>. This allows the game engine to read polling packets directly from the hardware driver without passing through the single-threaded Windows message queue.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1rem; margin-top: 0;">1000 Hz (Esports Standard)</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0;">1.0ms report interval. Standard for gaming mice, providing ultra-responsive tracking with zero perceptible lag.</p>
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid var(--primary);">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-bottom: 4px;">STEP 2</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">Dedicated USB Port (Direct to CPU)</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Plug your 4K/8K dongle into a rear motherboard USB port wired directly to the CPU lanes (check your motherboard manual). Avoid front-panel case headers, passive hubs, or ports shared with external hard drives or webcams.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1rem; margin-top: 0;">4000 Hz – 8000 Hz (Hyper-Polling)</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0;">0.25ms – 0.125ms intervals. Advanced tracking matched with 240Hz+ monitors for absolute zero input delay.</p>
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00ffa3;">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00ffa3; font-weight: 700; margin-bottom: 4px;">STEP 3</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">Drop from 8K to 2K/4K</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">If your CPU is mid-range (e.g. Ryzen 5 5600 or Core i5-12400), set polling rate to <strong>2000Hz or 4000Hz</strong> in vendor software. 2000Hz delivers 0.5ms delay (a 50% latency reduction vs 1K) with only a fraction of the CPU overhead.</p>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Polling Rate FAQ -->
+        <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1.2rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
+                Mouse Polling Rate FAQ
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">What is a good polling rate for gaming?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;"><strong>1000Hz</strong> is the gold standard for competitive gaming, providing 1.0ms delay and broad game support. For players with high-refresh monitors (240Hz+) and high-tier CPUs, <strong>2000Hz or 4000Hz</strong> provides perceptibly smoother cursor tracking and lower micro-stutter without overwhelming the system.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Does high polling rate increase accuracy or DPI?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">No. Polling rate and DPI are completely separate. DPI (Dots Per Inch) determines how many pixels your cursor moves per inch of physical travel. Polling rate (Hz) determines how often that position is communicated to the computer. Higher polling rate does not change your mouse sensitivity, but it makes fast flicks and micro-adjustments feel noticeably more immediate.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">How does this browser tool measure polling rate with microsecond accuracy?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Our diagnostic engine tracks high-resolution timestamps via <code>performance.now()</code> on raw <code>pointermove</code> DOM events. By calculating the inter-packet delta interval between successive hardware reports over a sliding 250ms window, the tool measures real-time frequency, peak report frequency, and interval stability without synthetic interpolation.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Can I overclock my USB polling rate in Windows?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Modern gaming mice allow you to switch polling rates directly in their official companion software (e.g. Razer Synapse, Logitech G Hub, Pulsar Fusion, Lamzu Driver) without driver hacks. For older office mice, community tools like <code>SweetLow's Atsiv / hidusbf</code> can attempt USB port overclocking, though this can introduce instability on modern secure-boot Windows 11 systems.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Why does my polling rate show drops during fast movement?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Occasional reporting dips can indicate USB port packet drops, aggressive wireless power-saving modes, or CPU throttling. If using wireless, ensure your receiver is unobstructed and within 20cm of your mousepad. Also verify that Windows USB Selective Suspend is disabled in Power Options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <!-- Custom Benchmark Results Modal (Replaces Native Alert) -->

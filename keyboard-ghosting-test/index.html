@@ -730,23 +730,176 @@
             </div>
         </div>
 
-        <section class="info-section">
-            <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">Mechanical Keyboard Ghosting, NKRO & Matrix Diagnostic Guide</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--velocity-orange); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">What is Keyboard Ghosting?</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Ghosting occurs when multiple keys are pressed simultaneously on a standard membrane or unoptimized keyboard matrix, and the controller registers an unpressed key (a "ghost"). Gaming keyboards use discrete diodes to guarantee anti-ghosting.</p>
+        <section class="info-section" style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--energy-border);">
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem;">Mechanical Keyboard Ghosting, Key Jamming & NKRO Matrix Guide</h2>
+        <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.6; max-width: 820px; margin-bottom: 2rem;">
+            Whether you are testing a brand-new mechanical keyboard for N-Key Rollover (NKRO), checking for switch chatter and debounce issues, or diagnosing why your sprint-jump-crouch combo drops inputs in tactical shooters, this guide explains keyboard matrix circuits and how to verify hardware performance.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: var(--primary); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">electrical_services</span>
+                    The Keyboard Matrix & Ghosting
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    To save microcontroller pins, keyboards wire switches in a grid of intersecting rows and columns. In cheap membrane keyboards without diodes, pressing three keys that share rows and columns creates an unintended closed circuit loop. The controller cannot determine whether the fourth corner was pressed, causing a false <strong>"ghost key"</strong> to trigger.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">block</span>
+                    Key Jamming & Blocking
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    To prevent ghost keys from ruining your typing, budget keyboards implement <strong>key blocking (jamming)</strong>. When an ambiguous matrix combination occurs, the controller simply ignores the third keypress. In competitive games, this causes disastrous failures, such as your character failing to jump while sprinting diagonally (<code>W + D + Space</code>).
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">verified</span>
+                    Full NKRO & Individual Diodes
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    True gaming mechanical keyboards place a discrete <strong>Schottky diode on every single switch</strong>. These diodes act as one-way electrical valves, preventing current from leaking back across intersecting row/column traces. With diodes in place, a keyboard achieves <strong>Full NKRO</strong>, registering all 104+ keys pressed at the exact same moment.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <h3 style="color: #c084fc; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">sensors</span>
+                    Hall Effect & Rapid Trigger
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                    Modern magnetic keyboards (such as Wooting, SteelSeries Apex Pro, and DrunkDeer) eliminate physical switch contacts entirely. By reading magnetic flux via Hall Effect sensors, they track exact millimeter travel continuously, enabling <strong>Rapid Trigger</strong> (resetting the key instantly upon upward travel) and native, hardware-level Full NKRO.
+                </p>
+            </div>
+        </div>
+
+        <!-- Rollover Comparison Table -->
+        <div style="margin-bottom: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: var(--primary);">table_chart</span>
+                Keyboard Rollover Standards Compared
+            </h3>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Standard</th>
+                            <th>Simultaneous Keys</th>
+                            <th>Circuit Architecture</th>
+                            <th>Ghosting Risk</th>
+                            <th>Gaming Suitability</th>
+                            <th>Typical Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--text-muted);">2-Key Rollover (2KRO)</td>
+                            <td>2 alphanumeric keys</td>
+                            <td>Cheap unoptimized membrane</td>
+                            <td style="color: #ff4444;">High (Frequent blocking)</td>
+                            <td>Poor (Unplayable for esports)</td>
+                            <td>Basic office & laptop keyboards</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #f59e0b;">Zone Anti-Ghosting</td>
+                            <td>6–10 keys in WASD zone</td>
+                            <td>Selective trace routing</td>
+                            <td style="color: #f59e0b;">Blocked outside gaming zone</td>
+                            <td>Acceptable for casual gaming</td>
+                            <td>Entry-level membrane gaming boards</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #00e5ff;">6-Key Rollover (6KRO)</td>
+                            <td>6 keys + modifiers</td>
+                            <td>Standard USB HID Boot Protocol</td>
+                            <td style="color: #00ffa3;">Zero (clean USB reporting)</td>
+                            <td>Good (Sufficient for most FPS)</td>
+                            <td>Older mechanicals & BIOS mode</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #00ffa3;">Full N-Key Rollover (NKRO)</td>
+                            <td>Unlimited (all 104+ keys)</td>
+                            <td>Discrete diode per mechanical switch</td>
+                            <td style="color: #00ffa3;">Zero (True hardware isolation)</td>
+                            <td>Esports tournament standard</td>
+                            <td>Custom mechanicals, Ducky, Keychron</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #c084fc;">Hall Effect Magnetic</td>
+                            <td>Unlimited + Analog Travel</td>
+                            <td>Solid-state magnetic flux sensors</td>
+                            <td style="color: #00ffa3;">Zero (No physical contacts)</td>
+                            <td>Peak competitive advantage (Rapid Trigger)</td>
+                            <td>Wooting 60HE, Razer Huntsman V3 Pro</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Essential Gaming Combinations to Test -->
+        <div style="background: rgba(14,14,18,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; margin-bottom: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #00e5ff;">sports_esports</span>
+                Essential Multi-Key Gaming Combinations to Benchmark Above
+            </h3>
+            <p style="color: var(--on-surface-variant); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+                Hold down the following real-world competitive game combinations on the interactive keyboard stage above to test for blocking:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid var(--primary);">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-bottom: 4px;">FPS TACTICAL COMBO</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">W + Shift + Space + R</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Sprinting forward while jump-reloading. If your keyboard cannot register all 4 simultaneously, your reload will drop or your sprint velocity will stall.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">6KRO vs Full NKRO</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;"><strong>6KRO</strong> registers up to 6 simultaneous alphanumeric keys over standard USB HID descriptors. <strong>Full NKRO</strong> (N-Key Rollover) enables unlimited simultaneous keystrokes with discrete matrix scanning.</p>
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00e5ff;">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00e5ff; font-weight: 700; margin-bottom: 4px;">DIAGONAL STRAFE COMBO</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">W + D + Space + C / Ctrl</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Slide-jumping diagonally in Apex Legends or Call of Duty. Low-tier membrane keyboards routinely drop the slide crouch key during diagonal inputs.</p>
                 </div>
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0;">Latency & Switch Diagnostics</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">This tool measures real-time switch hold duration, actuation consistency, and key debounce timing to detect failing or double-clicking mechanical switches.</p>
+                <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00ffa3;">
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00ffa3; font-weight: 700; margin-bottom: 4px;">RHYTHM / FIGHTING COMBO</div>
+                    <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">D + F + J + K (Osu! Mania / FNF)</h4>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Simultaneous 4-key and 7-key chord drops. Measures actuation consistency and detects switch chatter (accidental double-strikes) on mechanical switches.</p>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Keyboard FAQ Section -->
+        <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1.2rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
+                Keyboard Ghosting & Matrix FAQ
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">How do I know if my keyboard has ghosting?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Use the interactive keyboard visualizer above. Press and hold down 3 or more keys located near each other (for example, hold down <strong>Q, W, and A</strong> simultaneously, then press <strong>S</strong>). If the S key fails to light up, your keyboard is experiencing key blocking to prevent matrix ghosting.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Can keyboard ghosting be fixed with software or drivers?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">No. Ghosting and key jamming are physical hardware limitations caused by how the copper traces are printed on the keyboard's internal circuit board. If a membrane keyboard lacks physical diodes, no software update or driver tweak can enable true N-Key Rollover.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">What is key chatter or switch bounce?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Mechanical switches use flexible metal contact leaves that physically vibrate (bounce) for 2 to 5 milliseconds when pressed. Keyboard firmware uses a debounce timer to ignore these vibrations. When a mechanical switch degrades or oxidizes, the bounce exceeds the debounce threshold, causing a single keypress to register twice (e.g. typing "hheelloo").</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Does USB polling rate matter for mechanical keyboards?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Most standard keyboards scan at 1000Hz (1.0ms scan rate), which is more than fast enough for human typing. High-end gaming keyboards (such as Corsair K100, Razer Huntsman V3, or Wooting) scan at 4000Hz to 8000Hz, reducing key scan latency from 1ms down to 0.125ms for competitive rhythm and tactical shooter players.</p>
+                </div>
+                <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">What is the test's APM (Actions Per Minute) metric?</h4>
+                    <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Actions Per Minute (APM) measures the speed at which you execute discrete keystrokes over a sliding time window. High APM (200–400+ APM) is a hallmark of elite Real-Time Strategy (StarCraft 2) and MOBA (League of Legends) players.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
         <!-- Footer -->

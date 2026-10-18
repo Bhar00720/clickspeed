@@ -202,10 +202,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is a good CPS score in Click Speed Tests?",
+              "name": "What is an average CPS score for normal users and gamers?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "An average casual player clicks between 6.0 and 8.0 CPS. Competitive gamers using butterfly clicking or jitter clicking reach between 10.0 and 16.0 CPS, while advanced drag-clicking techniques can exceed 20+ CPS."
+                "text": "The average casual computer user clicks between 6.0 and 6.8 CPS using standard single-finger tapping. Practiced gamers typically achieve 7.5 to 9.5 CPS. Competitive Minecraft PvP players using jitter clicking reach 12 to 15 CPS, while butterfly clicking can achieve 16 to 22+ CPS depending on mouse switch debounce settings."
               }
             },
             {
@@ -213,15 +213,31 @@
               "name": "What is Butterfly Clicking vs Jitter Clicking?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Butterfly clicking involves alternating two fingers on a single mouse button to double click frequency. Jitter clicking involves vibrating arm and hand muscles to generate rapid burst clicks on the switch."
+                "text": "Butterfly clicking involves alternating your index and middle fingers on the same mouse button in a rhythmic sequence, effectively doubling actuation opportunities. Jitter clicking relies on tensing the forearm muscle to produce controlled tremors, sending rapid bursts of clicks through a single finger. Butterfly clicking yields higher peak CPS (15-22+) with less physical fatigue, whereas jitter clicking maintains better crosshair micro-aiming."
               }
             },
             {
               "@type": "Question",
-              "name": "Does mouse debounce time affect CPS?",
+              "name": "How does mouse debounce time impact CPS and double-clicking?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Lower debounce time (0ms - 4ms) allows the mouse switch to register rapid successive actuations and double clicks, whereas higher debounce times filter out rapid clicks to prevent accidental double-clicks."
+                "text": "Mechanical switches vibrate when contacts close, causing switch chatter. Debounce algorithms prevent false double-clicks by ignoring subsequent signals within a set delay (usually 8ms-16ms). Gaming mice with adjustable debounce (such as Glorious, Endgame Gear, or Roccat) allow lowering debounce to 0ms-4ms, permitting intentional double-clicks per stroke during butterfly and drag clicking to drastically inflate CPS."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a high CPS score get you banned on Minecraft servers like Hypixel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Most competitive multiplayer servers utilize automated anti-cheat software (such as Watchdog or GrimAC) that analyzes click intervals, consistency, and standard deviation. Unnatural click consistency, burst frequencies exceeding 20-25 CPS, or macro software will trigger automated bans. Left-click butterfly clicking with 0ms debounce is restricted or bannable on several competitive networks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which mouse switches are best for competitive click speed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For butterfly and drag clicking, mechanical switches with crisp leaf snap and customizable debounce firmware—such as Kailh GM 8.0, Omron 20M, or TTC Dustproof Gold—are preferred. For competitive tactical shooters (Valorant, CS2) where accidental double-clicking is detrimental, optical switches (Razer Optical Gen-3, Lightforce) provide superior zero-debounce speed and immunity to switch chatter."
               }
             }
           ]
@@ -639,20 +655,142 @@
         </div>
 
         <!-- SEO Content -->
-        <section class="info-section">
-            <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">Click Speed Techniques & CPS Ranking Tiers</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--velocity-orange); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Regular Clicking</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Standard finger actuation delivering steady 6-9 CPS. Highly accurate for precision aiming in FPS titles.</p>
+        <section class="info-section" style="margin-top: 40px; margin-bottom: 50px;">
+            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em;">
+                Click Speed Benchmarks & Performance Tiers
+            </h2>
+            <p style="color: var(--on-surface-variant); font-size: 0.92rem; line-height: 1.7; margin-bottom: 24px;">
+                Clicks Per Second (CPS) measures how many discrete switch actuations you can register in a one-second window. In fast-paced games—from tactical shooters and RTS titles to competitive Minecraft 1.8 PvP and rhythm games—your CPS determines how quickly you can trigger weapon cycles, bridge across voids, cast spells, and cancel animations.
+            </p>
+
+            <!-- CPS Benchmark Table -->
+            <div style="background: rgba(14, 14, 18, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; overflow-x: auto; margin-bottom: 35px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; min-width: 580px;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 95, 31, 0.08);">
+                            <th style="padding: 14px 18px; color: var(--velocity-orange); font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase;">CPS Tier</th>
+                            <th style="padding: 14px 18px; color: #fff; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase;">CPS Range</th>
+                            <th style="padding: 14px 18px; color: #fff; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase;">Actuation Method</th>
+                            <th style="padding: 14px 18px; color: #fff; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase;">Best Suited For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                            <td style="padding: 12px 18px; font-weight: 700; color: #94a3b8;">Casual / Turtle</td>
+                            <td style="padding: 12px 18px; font-family: var(--font-mono); color: var(--aero-blue);">1.0 - 5.9 CPS</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Standard finger press (single finger)</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">General browsing, turn-based strategy, casual desktop use</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
+                            <td style="padding: 12px 18px; font-weight: 700; color: #38bdf8;">Standard Gamer</td>
+                            <td style="padding: 12px 18px; font-family: var(--font-mono); color: var(--aero-blue);">6.0 - 9.5 CPS</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Controlled index finger tapping</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">FPS tap-firing (Valorant, CS2), MOBA target selection, APM bursts</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                            <td style="padding: 12px 18px; font-weight: 700; color: #00ffa3;">High-Speed / Cheetah</td>
+                            <td style="padding: 12px 18px; font-family: var(--font-mono); color: var(--aero-blue);">10.0 - 14.5 CPS</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Jitter clicking (forearm tremor)</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Minecraft standard PvP, spam-fire weapons, quick reaction trades</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
+                            <td style="padding: 12px 18px; font-weight: 700; color: var(--velocity-orange);">Master / Butterfly</td>
+                            <td style="padding: 12px 18px; font-family: var(--font-mono); color: var(--velocity-orange);">15.0 - 19.5 CPS</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Dual-finger butterfly alternating</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Competitive 1.8 PvP combo locking, reduced knockback physics</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 18px; font-weight: 800; color: #ff0055;">Godlike / Drag Master</td>
+                            <td style="padding: 12px 18px; font-family: var(--font-mono); color: #ff0055;">20.0 - 30.0+ CPS</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Drag clicking (friction vibration)</td>
+                            <td style="padding: 12px 18px; color: var(--on-surface-variant);">Godbridging, telly bridging, ultra-burst mechanic exploitation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-bottom: 18px;">
+                Biomechanics & Mechanical Differences Between Clicking Styles
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 35px;">
+                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 22px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: var(--velocity-orange); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">touch_app</span> Regular Clicking
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        Standard clicking engages the <em>flexor digitorum superficialis</em> muscle in the forearm, flexing the index finger directly into the switch shell. While capped at approximately 6 to 9 CPS for most players, it delivers maximum palm stability and micro-adjustment control for precision tactical shooters like Counter-Strike 2 and Valorant.
+                    </p>
                 </div>
-                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Butterfly Clicking</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Alternating two fingers on the same mouse button to register 15-25 CPS. Requires low debounce switches.</p>
+                <div class="info-card" style="background: rgba(14,14,18,0.6); padding: 22px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">flutter</span> Butterfly Clicking
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        Both index and middle fingers rest on the primary mouse button, alternating actuations like flutter kicks. When paired with mechanical switches configured to low debounce (0ms-4ms), each finger strike creates micro-vibrations that can register two clicks per stroke, rocketing scores into the 16-24 CPS stratosphere without severe hand strain.
+                    </p>
                 </div>
-                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Jitter Clicking</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Vibrating forearm muscles to trigger rapid 11-16 CPS bursts without dual-finger alternating techniques.</p>
+                <div class="info-card" style="background: rgba(14, 14, 18, 0.6); padding: 22px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">vibration</span> Jitter Clicking
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        Jitter clicking induces rapid, voluntary myoclonus (tremors) in the forearm and wrist tendons, translating rapid vibrations down the stiffened fingertip onto the switch. This delivers blistering 11-15 CPS bursts, but introduces noticeable tracking jitter and can cause tendon fatigue if practiced without periodic stretching and rest.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hardware Science: Debounce Time & Switches -->
+            <div style="background: rgba(14, 14, 18, 0.6); padding: 26px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 35px;">
+                <h3 style="color: #fff; font-family: var(--font-heading); font-size: 1.15rem; margin-top: 0; margin-bottom: 12px;">
+                    Hardware Engineering: Switch Debounce, Polling Rates & Double-Click Registration
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px;">
+                    When a traditional mechanical mouse switch (such as an Omron, Kailh, or Huano microswitch) is actuated, the internal spring leaves collide and physically bounce against each other before settling into firm contact. This phenomenon is known as <strong>contact bounce</strong>. Without firmware filtering, a single physical finger press would register as 3 to 5 erroneous clicks.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 6px; border-left: 3px solid var(--velocity-orange);">
+                        <strong style="color: #fff; font-size: 0.88rem; display: block; margin-bottom: 6px;">Mechanical Leaf Switches (Adjustable Debounce)</strong>
+                        <p style="color: var(--on-surface-variant); font-size: 0.82rem; line-height: 1.6; margin: 0;">
+                            Mice like the Model O or Endgame Gear XM1 allow adjusting debounce latency down to 2ms or 0ms in software. This allows high-CPS gamers to capitalize on switch chatter to achieve authentic double-clicks per tap.
+                        </p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 6px; border-left: 3px solid var(--aero-blue);">
+                        <strong style="color: #fff; font-size: 0.88rem; display: block; margin-bottom: 6px;">Optical Light-Beam Switches (Zero Debounce)</strong>
+                        <p style="color: var(--on-surface-variant); font-size: 0.82rem; line-height: 1.6; margin: 0;">
+                            Modern esports mice (Razer Viper V3 Pro, Logitech G Pro X Superlight 2) employ infrared optical shutters. There is no physical contact bounce, eliminating switch latency completely—meaning accidental double-clicking is impossible, but butterfly double-tapping cannot be exploited.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frequently Asked Questions -->
+            <h2 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-bottom: 20px;">
+                Frequently Asked Questions About Click Speed (CPS)
+            </h2>
+            <div style="display: grid; gap: 14px;">
+                <div style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <h3 style="color: #fff; font-size: 0.98rem; font-weight: 700; margin-top: 0; margin-bottom: 8px;">What is a good CPS score for gaming?</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        For tactical shooters like CS2 and Valorant, 6 to 8 CPS is ideal because crosshair accuracy and micro-adjustments trump raw speed. For Minecraft 1.8 PvP and bridging, 12 to 16 CPS gives you a tangible advantage in registering hits first and resetting damage immunity ticks.
+                    </p>
+                </div>
+                <div style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <h3 style="color: #fff; font-size: 0.98rem; font-weight: 700; margin-top: 0; margin-bottom: 8px;">Can high CPS get you banned in competitive servers?</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        Yes. Servers like Hypixel monitor click standard deviation and peak rates. While legitimate jitter or butterfly clicking up to ~20 CPS is often tolerated on right-click (for block placing), excessive left-click butterfly clicking with 0ms debounce or macro software will trigger automated anti-cheat watchdogs.
+                    </p>
+                </div>
+                <div style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <h3 style="color: #fff; font-size: 0.98rem; font-weight: 700; margin-top: 0; margin-bottom: 8px;">Does high CPS hurt your hand or wrist?</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        Intense jitter clicking places strain on the carpal tunnel and flexor tendons due to prolonged muscular tension. If you experience aching, tingling, or joint soreness, discontinue immediately, stretch your wrists, and consider switching to butterfly clicking or relaxed finger-tapping.
+                    </p>
+                </div>
+                <div style="background: rgba(14, 14, 18, 0.6); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <h3 style="color: #fff; font-size: 0.98rem; font-weight: 700; margin-top: 0; margin-bottom: 8px;">Why do my CPS scores vary between 1s, 5s, and 10s tests?</h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.86rem; line-height: 1.65; margin-bottom: 0;">
+                        In a 1-second sprint test, players achieve burst rates of 12-18 CPS because stamina is not a factor. In 5-second and 10-second tests, muscular fatigue and click interval variance cause CPS to settle to your true sustainable threshold. Use the 10-second test to measure your true competitive APM.
+                    </p>
                 </div>
             </div>
         </section>

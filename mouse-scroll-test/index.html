@@ -521,23 +521,174 @@
         </div>
 
         <!-- SEO Hardware Knowledge & Diagnostic Guide -->
+        <!-- SEO Hardware Knowledge & Diagnostic Guide -->
         <section class="info-section" style="margin-bottom: 4rem;">
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff;">Mouse Scroll Wheel Hardware & Encoder Diagnostics</h2>
+            <h2 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff;">Mouse Scroll Wheel Hardware & Encoder Diagnostics</h2>
+            <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.6; max-width: 820px; margin-bottom: 2rem;">
+                The mouse scroll wheel is one of the most failure-prone mechanical components in modern gaming mice. Whether you are benchmarking peak wheel velocity for rapid bunny-hopping in FPS games or diagnosing reverse-scrolling stutter, this guide breaks down encoder mechanics, failure modes, and hardware fixes.
+            </p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
                 <div class="info-card">
-                    <h3 style="color: var(--primary); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Optical vs. Mechanical Encoders</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Mechanical encoders use internal physical brush contacts that suffer from wear and dust buildup over time. Optical encoders (such as TTC Gold Optical or Razer optical wheels) use infrared beams for zero mechanical contact wear and indefinite lifespan.</p>
+                    <h3 style="color: var(--primary); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">sync_problem</span>
+                        Reverse-Scroll Glitch Explained
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                        When your screen jumps upwards while you are scrolling downwards, your mouse is suffering from a <strong>quadrature phase error</strong>. Mechanical encoders rely on two alternating contact pins (Phase A and Phase B). When dust or dried conductive grease insulates one contact, the mouse microcontroller misinterprets the pulse sequence as a reverse turn. Our live glitch monitor above flags every single reverse tick in real-time.
+                    </p>
                 </div>
                 
                 <div class="info-card">
-                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Detecting Reverse-Scroll Glitches</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">When scroll wheels jump up while scrolling down, it indicates encoder contact oxidation or dust contamination. Our real-time glitch monitor detects these single-tick reverse phase anomalies instantly to determine if your hardware requires cleaning or replacement.</p>
+                    <h3 style="color: var(--aero-blue); font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
+                        Optical vs. Mechanical Encoders
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                        Standard mechanical encoders (such as TTC Gold, Kailh Black, or Alps) use physical metal wiper blades rubbing against a stator ring. Over 1–2 years, contact wear and micro-dust inevitably cause jitter. <strong>Optical encoders</strong> use an infrared light gate interrupted by wheel spokes, providing zero mechanical friction wear and immunity to contact oxidation.
+                    </p>
                 </div>
 
                 <div class="info-card">
-                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0;">Scroll Speed (NPS & PPS)</h3>
-                    <p style="color: var(--on-surface-variant); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">Notches Per Second (NPS) measures the raw rate of discrete mechanical steps actuated by your finger. High-end free-spin wheels (like Logitech MagSpeed or Razer Hyperscroll) can exceed 200+ NPS in unlocked inertia mode.</p>
+                    <h3 style="color: #00ffa3; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">speed</span>
+                        Notches Per Second (NPS) vs PPS
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                        <strong>NPS (Notches Per Second)</strong> measures the physical tactile clicks actuated by your wheel each second. Standard stepped scrolling achieves 20–45 NPS during fast finger flicks. <strong>PPS (Pixels Per Second)</strong> measures virtual document travel. Free-spin inertial wheels (like Logitech MagSpeed or Razer Hyperscroll) can exceed 200+ NPS in unlocked frictionless mode.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3 style="color: #c084fc; font-family: var(--font-heading); font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">tune</span>
+                        Detents & Steps (12 vs 16 vs 24)
+                    </h3>
+                    <p style="color: var(--on-surface-variant); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+                        Mouse wheels are engineered with distinct tactile detents. Most gaming mice feature <strong>24-step wheels</strong> (15° rotation per notch) for high precision in weapon selection and inventory scrolling. Tactical FPS mice (like Zowie EC series) often use <strong>16-step encoders</strong> with heavy, deeply notched tactile resistance to prevent accidental weapon switches during intense gunfights.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Encoder Comparison Table -->
+            <div style="margin-bottom: 3rem;">
+                <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">table_chart</span>
+                    Gaming Mouse Encoders Comparison & Lifespan
+                </h3>
+                <div class="data-table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Encoder Model</th>
+                                <th>Sensor Type</th>
+                                <th>Tactile Feel & Steps</th>
+                                <th>Rated Lifespan</th>
+                                <th>Common Mice</th>
+                                <th>Dust Resistance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">TTC Gold Dustproof</td>
+                                <td>Mechanical Rotary</td>
+                                <td>Crisp, medium-heavy 24 steps</td>
+                                <td>1,000,000 to 2,000,000 cycles</td>
+                                <td>Logitech G Pro X Superlight (mod), Lamzu, Pulsar</td>
+                                <td style="color: #00ffa3;">High (Enclosed casing)</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">Kailh Black Core / Red</td>
+                                <td>Mechanical Rotary</td>
+                                <td>Smooth, light-medium steps</td>
+                                <td>800,000 to 1,500,000 cycles</td>
+                                <td>Endgame Gear, Ninjutso, VGN Dragonfly</td>
+                                <td style="color: #f59e0b;">Moderate</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">ALPS Alpine</td>
+                                <td>Mechanical Rotary</td>
+                                <td>Very heavy, pronounced notches (16/24 step)</td>
+                                <td>1,000,000 cycles</td>
+                                <td>Zowie EC / FK series, Vaxee Outset</td>
+                                <td style="color: #f59e0b;">Moderate</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">Razer Gen-3 Optical</td>
+                                <td>Infrared Optical Gate</td>
+                                <td>Light, ultra-smooth detents</td>
+                                <td>10,000,000+ cycles</td>
+                                <td>Razer DeathAdder V3 Pro, Viper V2 Pro</td>
+                                <td style="color: #00ffa3;">Immune (No contact wear)</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">Logitech MagSpeed</td>
+                                <td>Electromagnetic Induction</td>
+                                <td>Dual Mode (Tactile SmartShift or Free-Spin)</td>
+                                <td>Indefinite (Magnetic)</td>
+                                <td>Logitech MX Master 3S, MX Anywhere</td>
+                                <td style="color: #00ffa3;">Immune (Solid metal core)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- DIY Troubleshooting Section -->
+            <div style="background: rgba(14,14,18,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; margin-bottom: 3rem;">
+                <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: #00e5ff;">build</span>
+                    How to Fix a Skipping Mouse Wheel (Step-by-Step DIY Guide)
+                </h3>
+                <p style="color: var(--on-surface-variant); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+                    Before replacing your mouse or desoldering the encoder switch, test these proven non-invasive fixes:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                    <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid var(--primary);">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-bottom: 4px;">METHOD 1</div>
+                        <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">The Rapid Inverted Friction Roll</h4>
+                        <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Unplug the mouse. Turn it upside down against a clean microfiber cloth or deskpad. Apply moderate downward pressure and roll the wheel vigorously back and forth for 30–45 seconds. This sweeps micro-lint and hair caught in the axle teeth.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00e5ff;">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00e5ff; font-weight: 700; margin-bottom: 4px;">METHOD 2</div>
+                        <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">Compressed Air Blast</h4>
+                        <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Attach the thin straw nozzle to a can of compressed air. Direct high-velocity short bursts into both the left and right gap beside the scroll wheel while rotating the wheel. This expels loose debris trapped inside the encoder wheel disc.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 6px; border-left: 3px solid #00ffa3;">
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00ffa3; font-weight: 700; margin-bottom: 4px;">METHOD 3</div>
+                        <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem;">Fast-Drying Electronic Contact Cleaner</h4>
+                        <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin: 0;">If dust isn't the culprit, oxidized grease is insulating the contacts. Apply 1–2 drops of quick-drying electrical contact cleaner (e.g. WD-40 Specialist Contact Cleaner, NOT standard WD-40) into the encoder opening, spin the wheel 50 times, and allow 15 minutes to dry before plugging in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1.2rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
+                    Frequently Asked Questions (FAQ)
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                        <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Why does my mouse scroll wheel jump up when scrolling down?</h4>
+                        <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">This reverse-scrolling symptom is known as encoder bounce or phase stutter. In mechanical encoders, two contact pins create pulses as the wheel turns. Dust, hair, or degraded factory lubricant creates momentary open circuits, causing the microcontroller to misread the pulse order and register reverse scroll ticks.</p>
+                    </div>
+                    <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                        <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Can software or driver issues cause mouse scroll jumping?</h4>
+                        <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">While 90% of scroll jumping is physical encoder wear, software conflicts can occur. Windows "Scroll inactive windows when I hover over them" can cause jitter in multi-monitor setups. Additionally, conflicting vendor software (e.g., running Razer Synapse and Logitech G Hub simultaneously) or smooth-scrolling browser flags can cause unnatural scroll leaps.</p>
+                    </div>
+                    <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                        <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">What is a good scroll speed score on this test?</h4>
+                        <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">For standard stepped mechanical gaming mice, sustained single-finger scrolling reaches <strong>20 to 45 NPS</strong>. Peak fast flick bursts can hit <strong>50 to 80 NPS</strong>. Unlocked free-spin inertia wheels (like Logitech MagSpeed or G502 dual-mode wheels) can exceed <strong>200+ NPS</strong>.</p>
+                    </div>
+                    <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                        <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">Can I replace a broken mouse scroll wheel encoder myself?</h4>
+                        <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Yes. Standard mechanical mouse encoders are inexpensive (typically $1 to $3 each) and use a standard 3-pin solder footprint with varying heights (9mm, 10mm, 11mm, 12mm, 13mm, or 14mm). If your mouse is out of warranty and cleaning fails, desoldering the old encoder and installing a dustproof TTC Gold encoder will restore the mouse to better-than-factory condition.</p>
+                    </div>
+                    <div style="background: rgba(14,14,18,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px;">
+                        <h4 style="font-family: var(--font-heading); font-size: 0.98rem; color: #fff; margin: 0 0 8px;">How does this browser test measure scroll wheel speed with zero latency?</h4>
+                        <p style="font-size: 0.88rem; color: var(--on-surface-variant); line-height: 1.6; margin: 0;">Our diagnostic engine hooks directly into the browser's native non-passive <code>wheel</code> DOM event listener, capturing high-resolution <code>performance.now()</code> microsecond timestamps for every delta pulse without middleware overhead or server lag.</p>
+                    </div>
                 </div>
             </div>
         </section>
