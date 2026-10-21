@@ -1,0 +1,35 @@
+# Click Speed Lab
+
+> Zero-latency browser-native gaming peripheral testing suite engineered for esports athletes, competitive gamers, and hardware enthusiasts. Built on the Web Audio API and high-resolution sub-millisecond monotonic timer architecture (`performance.now()`).
+
+Click Speed Lab provides scientific diagnostic benchmarks for computer mice and mechanical keyboards. All testing logic executes 100% client-side with strict zero keystroke logging.
+
+## Core Mouse Diagnostics
+
+- [CPS Test](https://www.clickspeedlab.com/cps-test/): Benchmark clicks per second in 1s, 5s, 10s, and 60s windows with real-time velocity curves, switch debounce analysis, and performance tier rankings.
+- [Mouse Polling Rate Test](https://www.clickspeedlab.com/mouse-polling-rate-test/): Test USB sensor reporting frequency up to 8000Hz (0.125ms delay), calculate interval jitter variance, detect hardware dropouts, and verify high-polling compatibility.
+- [Mouse Scroll Speed & Wheel Encoder Test](https://www.clickspeedlab.com/mouse-scroll-test/): Diagnose faulty rotary encoders (TTC Gold, Kailh, Alps), calculate scroll notches per second (NPS), pixels per second, and detect reverse-scroll hardware glitches.
+- [Butterfly Click Test](https://www.clickspeedlab.com/butterfly-click-test/): Two-finger alternating click test measuring double-click switch chatter and high CPS burst potential.
+- [Jitter Click Test](https://www.clickspeedlab.com/jitter-click-test/): High-frequency forearm muscle tremor benchmark with safety guidelines and fatigue tracking.
+- [Drag Click Test](https://www.clickspeedlab.com/drag-click-test/): Surface friction and bounce test measuring ultra-high burst actuation for Minecraft bridging.
+- [Kohi Click Test](https://www.clickspeedlab.com/kohi-click-test/): 10-second Minecraft PvP combat clicking standard with hitbox accuracy simulation.
+- [Reaction Time Test](https://www.clickspeedlab.com/reaction-time-test/): Millisecond visual reflex stopwatch measuring human motor reaction time against esports benchmarks.
+
+## Keyboard Matrix Diagnostics
+
+- [Keyboard Ghosting & NKRO Matrix Test](https://www.clickspeedlab.com/keyboard-ghosting-test/): Interactive physical keyboard matrix mapping simultaneous key presses, testing 6KRO USB HID limits vs true diode-isolated N-Key Rollover (NKRO).
+- [Spacebar Counter & Speed Test](https://www.clickspeedlab.com/spacebar-counter/): Rapid spacebar actuation counter measuring thumb speed and switch rebound consistency.
+
+## Skill Training Games
+
+- [Aim Trainer](https://www.clickspeedlab.com/aim-trainer/): Flick shot, target tracking, and reflex aim precision drills with accuracy metrics.
+- [Mouse Precision Game](https://www.clickspeedlab.com/mouse-precision-game/): Steady-hand cursor control maze test tracking micro-adjustments and cursor drift.
+- [WASD Warrior](https://www.clickspeedlab.com/wasd-warrior/): Left-hand gaming reflex trainer testing movement key response time under pressure.
+- [Type Blaster](https://www.clickspeedlab.com/type-blaster/): Arcade typing defense game benchmark testing words per minute (WPM) and keystroke accuracy.
+
+## Engineering & Methodology
+
+- [About Click Speed Lab](https://www.clickspeedlab.com/about/): Hardware benchmark methodology, sub-millisecond timing architecture, and laboratory standards.
+- [Contact Support](https://www.clickspeedlab.com/contact/): Hardware anomaly reporting, partnership inquiries, and telemetry support.
+- [Privacy Policy](https://www.clickspeedlab.com/privacy/): Data protection disclosures, local storage usage, and zero keystroke logging guarantee.
+- [Terms of Service](https://www.clickspeedlab.com/terms/): Usage guidelines, anti-bot policy, and diagnostic disclaimers.

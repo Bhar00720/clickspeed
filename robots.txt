@@ -1,4 +1,25 @@
 User-agent: *
 Allow: /
 
+# Explicit AI Search Engine & Citability Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Agent & Machine Discovery
+# LLMs specification: https://www.clickspeedlab.com/llms.txt
 Sitemap: https://www.clickspeedlab.com/sitemap.xml
