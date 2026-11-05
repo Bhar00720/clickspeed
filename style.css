@@ -65,7 +65,7 @@
   /* Spacing */
   --unit: 4px;
   --gutter: 24px;
-  --topnav-h: 64px;
+  --topnav-h: 70px;
   --footer-h: 36px;
 }
 
@@ -3714,14 +3714,106 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
     font-weight: 600;
 }
 
-
-
 /* ==========================================================================
-   Click Speed Lab — Modern Minimalist Design System Enhancements
+   Click Speed Lab — Modern Minimalist & Light Studio Design System
    ========================================================================== */
 
-/* 1. Modern Dark Background & Smooth Typography */
-body {
+/* 1. Header Offset & Content Clearance (Guarantees Headings Never Hide Behind Topnav) */
+:root {
+  --topnav-h: 70px;
+  --footer-h: 36px;
+}
+
+.stitch-topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  min-height: var(--topnav-h);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.stitch-main {
+  margin-left: 0;
+  padding-top: calc(var(--topnav-h) + 36px) !important;
+  padding-bottom: calc(var(--footer-h) + 32px) !important;
+  padding-left: 36px !important;
+  padding-right: 36px !important;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Page Header & Hero Structure */
+.page-header, .stitch-hero {
+  margin-top: 12px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Navbar & Safe Clearances */
+@media (max-width: 1150px) {
+  .stitch-topnav {
+    height: auto;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .stitch-main {
+    padding-top: 135px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .stitch-topnav {
+    padding: 8px 12px;
+  }
+  .stitch-main {
+    padding-top: 155px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .page-header, .stitch-hero {
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+}
+
+/* 2. De-slop & Performance */
+.scanline {
+  display: none !important;
+}
+.glow-orb-orange, .glow-orb-blue {
+  opacity: 0.25 !important;
+  filter: blur(80px) !important;
+  animation: none !important;
+}
+.bg-grid {
+  opacity: 0.35 !important;
+}
+.clip-nick, .clip-slant, .clip-slant-reverse {
+  clip-path: none !important;
+  border-radius: 12px !important;
+}
+
+/* 3. Modern Rounded Card Geometry */
+.telemetry-card, .info-card, .graph-card, .race-container, .mc-card {
+  border-radius: 12px !important;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.telemetry-card:hover, .info-card:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* 4. DEFAULT (DARK OBSIDIAN THEME) */
+html:not([data-mode="light"]) body {
   background-color: #09090b !important;
   background-image: radial-gradient(circle at 50% -20%, rgba(255, 95, 31, 0.06), transparent 70%) !important;
   color: #f4f4f5 !important;
@@ -3729,52 +3821,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 2. De-slop & Performance: Disable laggy full-screen moving scanlines & heavy blur orbs */
-.scanline {
-  display: none !important;
-}
-.glow-orb-orange, .glow-orb-blue {
-  opacity: 0.3 !important;
-  filter: blur(80px) !important;
-  animation: none !important;
-}
-.bg-grid {
-  opacity: 0.4 !important;
-}
-
-/* 3. Modern Rounded Card Geometry (Replacing Jagged Polygon Clips) */
-.clip-nick, .clip-slant, .clip-slant-reverse {
-  clip-path: none !important;
-  border-radius: 12px !important;
-}
-
-/* 4. Modern Minimalist Cards */
-.telemetry-card, .info-card, .graph-card, .race-container {
-  border-radius: 12px !important;
+html:not([data-mode="light"]) .telemetry-card,
+html:not([data-mode="light"]) .info-card,
+html:not([data-mode="light"]) .graph-card,
+html:not([data-mode="light"]) .race-container,
+html:not([data-mode="light"]) .mc-card {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   background: #121217 !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  color: #f4f4f5 !important;
 }
-.telemetry-card:hover, .info-card:hover {
+
+html:not([data-mode="light"]) .telemetry-card:hover,
+html:not([data-mode="light"]) .info-card:hover {
   border-color: rgba(255, 95, 31, 0.35) !important;
-  transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* 5. Sleek Glassmorphic Top Navigation */
-.stitch-topnav {
+html:not([data-mode="light"]) .stitch-topnav {
   background: rgba(9, 9, 11, 0.88) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
-.stitch-brand {
+
+html:not([data-mode="light"]) .stitch-brand {
   letter-spacing: -0.01em !important;
   font-weight: 800 !important;
 }
-.stitch-navlink {
+
+html:not([data-mode="light"]) .stitch-navlink {
   font-size: 0.82rem !important;
   font-weight: 600 !important;
   color: #a1a1aa !important;
@@ -3782,11 +3859,13 @@ body {
   border-radius: 8px !important;
   transition: color 0.15s ease, background 0.15s ease !important;
 }
-.stitch-navlink:hover, .stitch-navlink.active {
+html:not([data-mode="light"]) .stitch-navlink:hover,
+html:not([data-mode="light"]) .stitch-navlink.active {
   color: #ffffff !important;
   background: rgba(255, 255, 255, 0.06) !important;
 }
-.nav-dropdown-menu {
+
+html:not([data-mode="light"]) .nav-dropdown-menu {
   background: rgba(18, 18, 23, 0.98) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
@@ -3795,17 +3874,18 @@ body {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
   padding: 8px !important;
 }
-.nav-dropdown-item {
+
+html:not([data-mode="light"]) .nav-dropdown-item {
   border-radius: 8px !important;
   transition: background 0.15s ease !important;
 }
-.nav-dropdown-item:hover, .nav-dropdown-item.active {
+html:not([data-mode="light"]) .nav-dropdown-item:hover,
+html:not([data-mode="light"]) .nav-dropdown-item.active {
   background: rgba(255, 255, 255, 0.06) !important;
   color: #ffffff !important;
 }
 
-/* 6. Modern Interactive Buttons */
-.kinetic-btn {
+html:not([data-mode="light"]) .kinetic-btn {
   border-radius: 8px !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   background: rgba(255, 255, 255, 0.04) !important;
@@ -3814,19 +3894,19 @@ body {
   font-weight: 600 !important;
   transition: all 0.15s ease !important;
 }
-.kinetic-btn:hover {
+html:not([data-mode="light"]) .kinetic-btn:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
-.kinetic-btn.active {
+html:not([data-mode="light"]) .kinetic-btn.active {
   background: var(--primary) !important;
   color: #000000 !important;
   font-weight: 700 !important;
   border-color: var(--primary) !important;
   box-shadow: 0 0 14px rgba(255, 95, 31, 0.35) !important;
 }
-.kinetic-btn-orange {
+html:not([data-mode="light"]) .kinetic-btn-orange {
   background: var(--primary) !important;
   color: #000000 !important;
   font-weight: 700 !important;
@@ -3835,36 +3915,330 @@ body {
   box-shadow: 0 2px 10px rgba(255, 95, 31, 0.3) !important;
   transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease !important;
 }
-.kinetic-btn-orange:hover {
+html:not([data-mode="light"]) .kinetic-btn-orange:hover {
   opacity: 0.94 !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 16px rgba(255, 95, 31, 0.45) !important;
 }
-.kinetic-btn-orange:active {
-  transform: translateY(1px) !important;
-}
 
-/* 7. Esports Tactile Click Stage */
-.clickzone-stage {
+html:not([data-mode="light"]) .clickzone-stage {
   border-radius: 16px !important;
   border: 2px dashed rgba(255, 95, 31, 0.4) !important;
   background: radial-gradient(circle at center, rgba(255, 95, 31, 0.04) 0%, rgba(18, 18, 23, 0.92) 100%) !important;
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease !important;
 }
-.clickzone-stage:hover {
+html:not([data-mode="light"]) .clickzone-stage:hover {
   border-color: var(--primary) !important;
   border-style: solid !important;
   background: radial-gradient(circle at center, rgba(255, 95, 31, 0.08) 0%, rgba(18, 18, 23, 0.96) 100%) !important;
 }
-.clickzone-stage:active {
+html:not([data-mode="light"]) .clickzone-stage:active {
   transform: scale(0.995) !important;
   border-color: var(--aero-blue) !important;
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.2) !important;
 }
 
-/* 8. Modern Footer */
-.stitch-footer {
+html:not([data-mode="light"]) .stitch-footer {
   background: rgba(9, 9, 11, 0.96) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: #71717a !important;
+}
+
+/* ==========================================================================
+   5. COMPLETE LIGHT STUDIO PALETTE & CONTRAST RECTIFICATION
+   ========================================================================== */
+html[data-mode="light"] body,
+body[data-mode="light"] {
+  background-color: #f8fafc !important;
+  background-image: none !important;
+  color: #0f172a !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Top Navigation in Light Studio */
+html[data-mode="light"] .stitch-topnav,
+body[data-mode="light"] .stitch-topnav {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-mode="light"] .stitch-brand,
+body[data-mode="light"] .stitch-brand {
+  color: #0f172a !important;
+}
+html[data-mode="light"] .stitch-brand .sub,
+body[data-mode="light"] .stitch-brand .sub {
+  color: var(--velocity-orange) !important;
+}
+
+html[data-mode="light"] .stitch-navlink,
+body[data-mode="light"] .stitch-navlink {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+}
+html[data-mode="light"] .stitch-navlink:hover,
+body[data-mode="light"] .stitch-navlink:hover {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+}
+html[data-mode="light"] .stitch-navlink.active,
+body[data-mode="light"] .stitch-navlink.active {
+  color: #0f172a !important;
+  background: #e2e8f0 !important;
+  font-weight: 700 !important;
+}
+
+html[data-mode="light"] .nav-dropdown-menu,
+body[data-mode="light"] .nav-dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+}
+html[data-mode="light"] .nav-dropdown-item,
+body[data-mode="light"] .nav-dropdown-item {
+  color: #0f172a !important;
+}
+html[data-mode="light"] .nav-dropdown-item:hover,
+body[data-mode="light"] .nav-dropdown-item:hover {
+  background: #f1f5f9 !important;
+}
+html[data-mode="light"] .item-title,
+body[data-mode="light"] .item-title {
+  color: #0f172a !important;
+}
+html[data-mode="light"] .item-desc,
+body[data-mode="light"] .item-desc {
+  color: #64748b !important;
+}
+
+/* Headings & Text in Light Studio */
+html[data-mode="light"] h1,
+html[data-mode="light"] h2,
+html[data-mode="light"] h3,
+html[data-mode="light"] h4,
+html[data-mode="light"] .page-title,
+html[data-mode="light"] #hero-title,
+html[data-mode="light"] .page-header h1,
+html[data-mode="light"] .zone-main,
+body[data-mode="light"] h1,
+body[data-mode="light"] h2,
+body[data-mode="light"] h3,
+body[data-mode="light"] h4,
+body[data-mode="light"] .page-title,
+body[data-mode="light"] #hero-title,
+body[data-mode="light"] .page-header h1,
+body[data-mode="light"] .zone-main {
+  color: #0f172a !important;
+}
+
+html[data-mode="light"] p,
+html[data-mode="light"] .page-subtitle,
+html[data-mode="light"] .page-header-subtitle,
+html[data-mode="light"] .zone-sub,
+body[data-mode="light"] p,
+body[data-mode="light"] .page-subtitle,
+body[data-mode="light"] .page-header-subtitle,
+body[data-mode="light"] .zone-sub {
+  color: #475569 !important;
+}
+
+/* Big Metrics / Numbers in Light Studio */
+html[data-mode="light"] .stat-huge,
+html[data-mode="light"] #stat-time,
+html[data-mode="light"] #stat-clicks,
+html[data-mode="light"] #stat-cps,
+html[data-mode="light"] #stat-peak,
+body[data-mode="light"] .stat-huge,
+body[data-mode="light"] #stat-time,
+body[data-mode="light"] #stat-clicks,
+body[data-mode="light"] #stat-cps,
+body[data-mode="light"] #stat-peak {
+  color: #0f172a !important;
+}
+html[data-mode="light"] .stat-unit,
+html[data-mode="light"] .mc-label,
+html[data-mode="light"] .telemetry-header,
+body[data-mode="light"] .stat-unit,
+body[data-mode="light"] .mc-label,
+body[data-mode="light"] .telemetry-header {
+  color: #64748b !important;
+}
+
+/* Cards & Surfaces in Light Studio */
+html[data-mode="light"] .telemetry-card,
+html[data-mode="light"] .info-card,
+html[data-mode="light"] .graph-card,
+html[data-mode="light"] .race-container,
+html[data-mode="light"] .mc-card,
+html[data-mode="light"] .telemetry-side-panel,
+html[data-mode="light"] .custom-modal-card,
+html[data-mode="light"] .test-status-banner,
+body[data-mode="light"] .telemetry-card,
+body[data-mode="light"] .info-card,
+body[data-mode="light"] .graph-card,
+body[data-mode="light"] .race-container,
+body[data-mode="light"] .mc-card,
+body[data-mode="light"] .telemetry-side-panel,
+body[data-mode="light"] .custom-modal-card,
+body[data-mode="light"] .test-status-banner {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+html[data-mode="light"] .telemetry-card:hover,
+html[data-mode="light"] .info-card:hover,
+body[data-mode="light"] .telemetry-card:hover,
+body[data-mode="light"] .info-card:hover {
+  border-color: rgba(255, 95, 31, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Click Stages in Light Studio */
+html[data-mode="light"] .clickzone-stage,
+html[data-mode="light"] .kohi-stage,
+html[data-mode="light"] .drag-stage,
+html[data-mode="light"] .keyboard-stage,
+html[data-mode="light"] .stitch-canvas-wrap,
+body[data-mode="light"] .clickzone-stage,
+body[data-mode="light"] .kohi-stage,
+body[data-mode="light"] .drag-stage,
+body[data-mode="light"] .keyboard-stage,
+body[data-mode="light"] .stitch-canvas-wrap {
+  background: #ffffff !important;
+  border: 2px dashed rgba(255, 95, 31, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-mode="light"] .clickzone-stage:hover,
+html[data-mode="light"] .kohi-stage:hover,
+html[data-mode="light"] .drag-stage:hover,
+body[data-mode="light"] .clickzone-stage:hover,
+body[data-mode="light"] .kohi-stage:hover,
+body[data-mode="light"] .drag-stage:hover {
+  background: #fffaf7 !important;
+  border-color: var(--primary) !important;
+}
+
+/* Controls Bar & Status Pill in Light Studio */
+html[data-mode="light"] .controls-bar,
+body[data-mode="light"] .controls-bar {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html[data-mode="light"] .status-pill,
+body[data-mode="light"] .status-pill {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+html[data-mode="light"] .topnav-icon-btn,
+html[data-mode="light"] .fullscreen-btn,
+body[data-mode="light"] .topnav-icon-btn,
+body[data-mode="light"] .fullscreen-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+html[data-mode="light"] .hero-badge,
+body[data-mode="light"] .hero-badge {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+/* Buttons in Light Studio */
+html[data-mode="light"] .kinetic-btn,
+body[data-mode="light"] .kinetic-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+}
+html[data-mode="light"] .kinetic-btn:hover,
+body[data-mode="light"] .kinetic-btn:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+html[data-mode="light"] .kinetic-btn.active,
+body[data-mode="light"] .kinetic-btn.active {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 2px 10px rgba(255, 95, 31, 0.35) !important;
+}
+html[data-mode="light"] .kinetic-btn-orange,
+body[data-mode="light"] .kinetic-btn-orange {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+}
+html[data-mode="light"] .kinetic-btn-outline,
+body[data-mode="light"] .kinetic-btn-outline {
+  background: transparent !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+html[data-mode="light"] .kinetic-btn-outline:hover,
+body[data-mode="light"] .kinetic-btn-outline:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Light Studio Footer */
+html[data-mode="light"] .stitch-footer,
+body[data-mode="light"] .stitch-footer {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+html[data-mode="light"] .stitch-footer a,
+body[data-mode="light"] .stitch-footer a {
+  color: #475569 !important;
+}
+
+/* Clean text shimmers in Light Studio */
+html[data-mode="light"] .anim-shimmer,
+body[data-mode="light"] .anim-shimmer {
+  background: none !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: initial !important;
+  animation: none !important;
+}
+
+/* Ensure any hardcoded white inline text is converted to readable dark slate */
+html[data-mode="light"] *[style*="color: #fff"],
+html[data-mode="light"] *[style*="color:#fff"],
+html[data-mode="light"] *[style*="color: white"],
+html[data-mode="light"] *[style*="color:white"],
+html[data-mode="light"] *[style*="color: #ffffff"],
+html[data-mode="light"] *[style*="color:#ffffff"],
+body[data-mode="light"] *[style*="color: #fff"],
+body[data-mode="light"] *[style*="color:#fff"],
+body[data-mode="light"] *[style*="color: white"],
+body[data-mode="light"] *[style*="color:white"],
+body[data-mode="light"] *[style*="color: #ffffff"],
+body[data-mode="light"] *[style*="color:#ffffff"] {
+  color: #0f172a !important;
+}
+
+/* Keep active buttons white */
+html[data-mode="light"] .kinetic-btn.active,
+html[data-mode="light"] .kinetic-btn-orange,
+html[data-mode="light"] button.kinetic-btn.active *,
+html[data-mode="light"] .kinetic-btn-orange *,
+body[data-mode="light"] .kinetic-btn.active,
+body[data-mode="light"] .kinetic-btn-orange,
+body[data-mode="light"] button.kinetic-btn.active *,
+body[data-mode="light"] .kinetic-btn-orange * {
+  color: #ffffff !important;
 }
