@@ -101,7 +101,7 @@
 
     <!-- Monetag Ads -->
     <style>
-        :root {
+        html:not([data-theme]):not([data-mode="light"]) {
             --primary: #e11d48;
             --primary-glow: rgba(225, 29, 72, 0.4);
             --energy-border: rgba(225, 29, 72, 0.25);
@@ -707,9 +707,9 @@
         </div>
     </div>
 
-    <!-- Game & Global Scripts -->
     <script class="global-ui-script">
 (function() {
+    // --- 1. TopNav & Footer Dropdowns ---
     document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.nav-dropdown-btn');
         if (!btn) return;
@@ -737,119 +737,214 @@
         });
     }
 
-    const modal = document.getElementById('customizer-modal');
-    const openBtn = document.getElementById('theme-toggle');
-    const closeBtn = document.getElementById('customizer-close');
-    const applyBtn = document.getElementById('customizer-apply-btn');
+    // --- 2. Customizer Modal Open / Close ---
+    const customizerModal = document.getElementById('customizer-modal');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const customizerCloseBtn = document.getElementById('customizer-close');
+    const customizerApplyBtn = document.getElementById('customizer-apply-btn');
+    const customizerSaveBtn = document.getElementById('customizer-save');
 
+    function openCustomizer() {
+        if (customizerModal) {
+            updateModalPills();
+            customizerModal.classList.add('show');
+        }
+    }
+    function closeCustomizer() {
+        if (customizerModal) {
+            customizerModal.classList.remove('show');
+        }
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', openCustomizer);
+    if (customizerCloseBtn) customizerCloseBtn.addEventListener('click', closeCustomizer);
+    if (customizerApplyBtn) customizerApplyBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+    if (customizerSaveBtn) customizerSaveBtn.addEventListener('click', () => {
+        applyPreferences();
+        closeCustomizer();
+    });
+
+    if (customizerModal) {
+        customizerModal.addEventListener('click', (e) => {
+            if (e.target === customizerModal) closeCustomizer();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeCustomizer();
+    });
+
+    // --- 3. Preferences & Switch Acoustics Audio Synthesis ---
+    let labAudioCtx = null;
+    window.playSwitchSound = function(soundOverride) {
+        const currentSound = soundOverride || prefs.sound;
+        if (currentSound === 'off') return;
+        try {
+            if (!labAudioCtx) labAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (labAudioCtx.state === 'suspended') labAudioCtx.resume();
+            
+            const osc = labAudioCtx.createOscillator();
+            const gain = labAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(labAudioCtx.destination);
+            const now = labAudioCtx.currentTime;
+
+            if (currentSound === 'blue') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1900, now);
+                osc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.035);
+            } else if (currentSound === 'brown') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.045);
+                osc.start(now);
+                osc.stop(now + 0.045);
+            } else if (currentSound === 'red') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.038);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.038);
+                osc.start(now);
+                osc.stop(now + 0.038);
+            } else if (currentSound === 'cream') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.04);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            }
+        } catch (err) {
+            // AudioContext not allowed or not supported
+        }
+    };
+
+    // State Manager
     let prefs = {
-        theme: localStorage.getItem('csl_theme') || 'orange',
-        mode: localStorage.getItem('csl_mode') || 'dark',
-        kbskin: localStorage.getItem('csl_kbskin') || 'obsidian',
-        mouseskin: localStorage.getItem('csl_mouseskin') || 'obsidian',
+        theme: localStorage.getItem('csl_theme') || 'light',
+        mode: localStorage.getItem('csl_mode') || 'light',
+        kbSkin: localStorage.getItem('csl_kb_skin') || 'obsidian',
+        mouseSkin: localStorage.getItem('csl_mouse_skin') || 'obsidian',
         sound: localStorage.getItem('csl_sound') || 'blue',
         bg: localStorage.getItem('csl_bg') || 'grid'
     };
 
-    function openCustomizer() {
-        if (!modal) return;
-        modal.classList.add('show');
-        updateModalPills();
-    }
-    function closeCustomizer() {
-        if (!modal) return;
-        modal.classList.remove('show');
-    }
-    if (openBtn) openBtn.addEventListener('click', openCustomizer);
-    if (closeBtn) closeBtn.addEventListener('click', closeCustomizer);
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeCustomizer();
-        });
-    }
-    if (applyBtn) {
-        applyBtn.addEventListener('click', () => {
-            applyPreferences();
-            closeCustomizer();
-        });
+    // Reconcile mode & theme
+    if (prefs.mode === 'light' || prefs.theme === 'light') {
+        prefs.mode = 'light';
+        prefs.theme = 'light';
     }
 
     function updateModalPills() {
         document.querySelectorAll('#pref-theme-pills button').forEach(b => {
-            if (b.dataset.mode === 'light') b.classList.toggle('active', prefs.mode === 'light');
-            else b.classList.toggle('active', prefs.theme === b.dataset.theme && prefs.mode !== 'light');
+            if (prefs.mode === 'light' && b.dataset.mode === 'light') b.classList.add('active');
+            else if (prefs.mode !== 'light' && b.dataset.theme === prefs.theme) b.classList.add('active');
+            else b.classList.remove('active');
         });
         document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
-            b.classList.toggle('active', prefs.kbskin === b.dataset.kbskin);
+            b.classList.toggle('active', b.dataset.kbskin === prefs.kbSkin);
         });
         document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
-            b.classList.toggle('active', prefs.mouseskin === b.dataset.mouseskin);
+            b.classList.toggle('active', b.dataset.mouseskin === prefs.mouseSkin);
         });
         document.querySelectorAll('#pref-sound-pills button').forEach(b => {
-            b.classList.toggle('active', prefs.sound === b.dataset.sound);
+            b.classList.toggle('active', b.dataset.sound === prefs.sound);
         });
         document.querySelectorAll('#pref-bg-pills button').forEach(b => {
-            b.classList.toggle('active', prefs.bg === b.dataset.bg);
+            b.classList.toggle('active', b.dataset.bg === prefs.bg);
         });
     }
 
     function applyPreferences() {
-        document.documentElement.setAttribute('data-theme', prefs.theme);
-        document.documentElement.setAttribute('data-mode', prefs.mode);
-        document.documentElement.setAttribute('data-kb-skin', prefs.kbskin);
-        document.documentElement.setAttribute('data-mouse-skin', prefs.mouseskin);
-        document.documentElement.setAttribute('data-sound', prefs.sound);
+        // 1. Theme & Mode
+        if (prefs.mode === 'light') {
+            document.documentElement.setAttribute('data-mode', 'light');
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            document.documentElement.removeAttribute('data-mode');
+            if (prefs.theme === 'orange') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', prefs.theme);
+            }
+        }
+
+        // 2. Skins & Atmospheres
+        document.documentElement.setAttribute('data-kb-skin', prefs.kbSkin);
+        document.documentElement.setAttribute('data-mouse-skin', prefs.mouseSkin);
         document.documentElement.setAttribute('data-bg', prefs.bg);
 
+        // 3. Update pill UI
+        updateModalPills();
+
+        // 4. Save to localStorage
         localStorage.setItem('csl_theme', prefs.theme);
         localStorage.setItem('csl_mode', prefs.mode);
-        localStorage.setItem('csl_kbskin', prefs.kbskin);
-        localStorage.setItem('csl_mouseskin', prefs.mouseskin);
+        localStorage.setItem('csl_kb_skin', prefs.kbSkin);
+        localStorage.setItem('csl_mouse_skin', prefs.mouseSkin);
         localStorage.setItem('csl_sound', prefs.sound);
         localStorage.setItem('csl_bg', prefs.bg);
     }
 
+    // Pill Click Listeners
     document.querySelectorAll('#pref-theme-pills button').forEach(b => {
-        b.addEventListener('click', () => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
             if (b.dataset.mode === 'light') {
                 prefs.mode = 'light';
+                prefs.theme = 'light';
             } else {
                 prefs.mode = 'dark';
                 prefs.theme = b.dataset.theme;
             }
-            updateModalPills();
-            applyPreferences();
-        });
-    });
-    document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
-        b.addEventListener('click', () => {
-            prefs.kbskin = b.dataset.kbskin;
-            updateModalPills();
-            applyPreferences();
-        });
-    });
-    document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
-        b.addEventListener('click', () => {
-            prefs.mouseskin = b.dataset.mouseskin;
-            updateModalPills();
-            applyPreferences();
-        });
-    });
-    document.querySelectorAll('#pref-sound-pills button').forEach(b => {
-        b.addEventListener('click', () => {
-            prefs.sound = b.dataset.sound;
-            updateModalPills();
-            applyPreferences();
-        });
-    });
-    document.querySelectorAll('#pref-bg-pills button').forEach(b => {
-        b.addEventListener('click', () => {
-            prefs.bg = b.dataset.bg;
-            updateModalPills();
             applyPreferences();
         });
     });
 
+    document.querySelectorAll('#pref-kb-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.kbSkin = b.dataset.kbskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-mouse-skin-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.mouseSkin = b.dataset.mouseskin;
+            applyPreferences();
+        });
+    });
+
+    document.querySelectorAll('#pref-sound-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.sound = b.dataset.sound;
+            applyPreferences();
+            window.playSwitchSound(prefs.sound);
+        });
+    });
+
+    document.querySelectorAll('#pref-bg-pills button').forEach(b => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prefs.bg = b.dataset.bg;
+            applyPreferences();
+        });
+    });
+
+    // Initialize on load
     applyPreferences();
 })();
 </script>

@@ -506,16 +506,74 @@
     <!-- Customization Modal -->
     <div class="custom-modal-backdrop" id="customizer-modal">
         <div class="custom-modal-card" style="max-width: 620px; text-align: left; max-height: 85vh; overflow-y: auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB PREFERENCES</h2>
-                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem;">&times;</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: var(--primary);">tune</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin: 0; color: #fff;">LAB CUSTOMIZATION & PREFERENCES</h2>
+                </div>
+                <button id="customizer-close" style="background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1;">&times;</button>
             </div>
-            <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
-                <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
-                <button class="kinetic-btn active" data-theme="emerald">Matrix Emerald</button>
-                <button class="kinetic-btn" data-mode="light">Light Studio</button>
+
+            <!-- 1. Color Palette & Mode -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">1. Color Palette & Lighting Theme</label>
+                <div class="mode-pills" id="pref-theme-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-theme="orange">Velocity Orange</button>
+                    <button class="kinetic-btn" data-theme="cyan">Cyber Cyan</button>
+                    <button class="kinetic-btn" data-theme="emerald">Matrix Emerald</button>
+                    <button class="kinetic-btn" data-theme="purple">Synthwave Violet</button>
+                    <button class="kinetic-btn" data-mode="light">Light Studio</button>
+                </div>
             </div>
+
+            <!-- 2. Keyboard Keycap Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">2. Keyboard Keycap Theme</label>
+                <div class="mode-pills" id="pref-kb-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-kbskin="obsidian">Obsidian Black</button>
+                    <button class="kinetic-btn" data-kbskin="retro">Retro 90s Classic</button>
+                    <button class="kinetic-btn" data-kbskin="chalk">Chalk Minimal</button>
+                    <button class="kinetic-btn" data-kbskin="cyberpunk">Cyberpunk 2077</button>
+                    <button class="kinetic-btn" data-kbskin="pudding">Pudding RGB</button>
+                </div>
+            </div>
+
+            <!-- 3. Mouse Hardware Skin -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">3. Mouse Hardware Skin</label>
+                <div class="mode-pills" id="pref-mouse-skin-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-mouseskin="obsidian">Obsidian Stealth</button>
+                    <button class="kinetic-btn" data-mouseskin="ghost">Ghost White</button>
+                    <button class="kinetic-btn" data-mouseskin="cyberpunk">Cyberpunk Racer</button>
+                    <button class="kinetic-btn" data-mouseskin="honeycomb">Honeycomb Mesh</button>
+                </div>
+            </div>
+
+            <!-- 4. Switch Acoustics Audio -->
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">4. Switch Acoustics Profile</label>
+                <div class="mode-pills" id="pref-sound-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-sound="blue">Blue Clicky</button>
+                    <button class="kinetic-btn" data-sound="brown">Brown Thock</button>
+                    <button class="kinetic-btn" data-sound="red">Red Linear</button>
+                    <button class="kinetic-btn" data-sound="cream">Cream Pop</button>
+                    <button class="kinetic-btn" data-sound="off">Mute / Off</button>
+                </div>
+            </div>
+
+            <!-- 5. Background Atmosphere -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">5. Background Atmosphere</label>
+                <div class="mode-pills" id="pref-bg-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="kinetic-btn" data-bg="grid">Laser Grid</button>
+                    <button class="kinetic-btn" data-bg="matrix">Matrix Digital</button>
+                    <button class="kinetic-btn" data-bg="clean">Clean Minimal</button>
+                </div>
+            </div>
+
+            <button class="kinetic-btn-orange" id="customizer-apply-btn" style="width: 100%; padding: 12px; font-size: 0.85rem;">
+                SAVE & APPLY PREFERENCES
+            </button>
         </div>
     </div>
 

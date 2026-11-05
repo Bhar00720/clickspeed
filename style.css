@@ -1565,13 +1565,13 @@ button { font-family: inherit; }
     background: #111118;
     max-height: 90vh;
     overflow-y: auto;
-    border: 1px solid rgba(255, 95, 31, 0.4);
+    border: 1px solid var(--primary-glow, rgba(255, 95, 31, 0.4));
     border-radius: 12px;
     padding: 32px;
     max-width: 500px;
     width: 90%;
     text-align: center;
-    box-shadow: 0 0 60px rgba(0,0,0,0.9), 0 0 30px rgba(255, 95, 31, 0.2);
+    box-shadow: 0 0 60px rgba(0,0,0,0.9), 0 0 30px var(--primary-glow, rgba(255, 95, 31, 0.2));
     transform: scale(0.95);
     transition: transform 0.25s ease-out;
 }
@@ -4251,5 +4251,74 @@ body[data-mode="light"] .kinetic-btn.active,
 body[data-mode="light"] .kinetic-btn-orange,
 body[data-mode="light"] button.kinetic-btn.active *,
 body[data-mode="light"] .kinetic-btn-orange * {
+  color: #ffffff !important;
+}
+
+
+/* ==========================================================================
+   LAB PREFERENCE MODAL COHESION ENGINE
+   ========================================================================== */
+.custom-modal-card .mode-pills {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-mode="light"] .custom-modal-card .mode-pills {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-mode="light"] .custom-modal-card h2 {
+  color: #0f172a !important;
+}
+
+[data-mode="light"] .custom-modal-card div[style*="border-bottom"] {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-mode="light"] .custom-modal-card button#customizer-close,
+[data-mode="light"] .custom-modal-card button#global-customizer-close {
+  color: #64748b !important;
+}
+
+[data-mode="light"] .custom-modal-card button#customizer-close:hover,
+[data-mode="light"] .custom-modal-card button#global-customizer-close:hover {
+  color: #0f172a !important;
+}
+
+/* Save / Apply button sync with primary theme */
+#customizer-apply-btn,
+#global-customizer-save {
+  background: var(--primary) !important;
+  border: none !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 10px var(--primary-glow, rgba(255, 95, 31, 0.3)) !important;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#customizer-apply-btn:hover,
+#global-customizer-save:hover {
+  opacity: 0.94 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px var(--primary-glow, rgba(255, 95, 31, 0.45)) !important;
+}
+
+html:not([data-mode="light"]) #customizer-apply-btn,
+html:not([data-mode="light"]) #global-customizer-save {
+  color: #000000 !important;
+}
+
+html:not([data-mode="light"])[data-theme="purple"] #customizer-apply-btn,
+html:not([data-mode="light"])[data-theme="purple"] #global-customizer-save {
+  color: #ffffff !important;
+}
+
+html[data-mode="light"] #customizer-apply-btn,
+html[data-mode="light"] #global-customizer-save {
   color: #ffffff !important;
 }
