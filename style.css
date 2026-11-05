@@ -98,18 +98,15 @@
 }
 
 /* ── Text & Element Animations ─────────────────────────── */
-@keyframes textShimmer {
-  0% { background-position: -200% center; }
+/* stripped laggy rule */
   100% { background-position: 200% center; }
 }
 
-@keyframes heroGlowPulse {
-  0%, 100% { filter: drop-shadow(0 0 10px var(--primary-glow)); }
+/* stripped laggy rule */
   50% { filter: drop-shadow(0 0 25px var(--primary-glow)) drop-shadow(0 0 45px var(--primary-glow)); }
 }
 
-@keyframes badgeFloat {
-  0%, 100% { transform: translateY(0px); }
+/* stripped laggy rule */
   50% { transform: translateY(-4px); }
 }
 
@@ -174,60 +171,21 @@ button { font-family: inherit; }
 }
 
 /* ── Background Atmosphere ──────────────────────────────── */
-.bg-grid {
-  position: fixed; inset: 0;
-  background-size: 40px 40px;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-  pointer-events: none;
-  z-index: -2;
-}
+/* stripped laggy rule */
 
-.scanline {
-  position: fixed; inset: 0;
-  width: 100%; height: 100px;
-  background: linear-gradient(0deg, rgba(0,229,255,0) 0%, rgba(0,229,255,0.04) 50%, rgba(0,229,255,0) 100%);
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: -1;
-  animation: scanlineAnim 8s linear infinite;
-}
-@keyframes scanlineAnim {
-  0%   { transform: translateY(-100px); }
+/* stripped laggy rule */
+/* stripped laggy rule */
   100% { transform: translateY(100vh); }
 }
 
-.glow-orb-orange {
-  position: fixed; top: 0; right: 0;
-  width: 800px; height: 800px;
-  background: rgba(255,95,31,0.05);
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none; z-index: -1;
-  transform: translate(30%, -30%);
-}
+/* stripped laggy rule */
 
-.glow-orb-blue {
-  position: fixed; bottom: 0; left: 0;
-  width: 600px; height: 600px;
-  background: rgba(0,229,255,0.04);
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none; z-index: -1;
-  transform: translate(-30%, 30%);
-}
+/* stripped laggy rule */
 
 /* ── Chamfer / Clip Shapes ──────────────────────────────── */
-.clip-nick {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
-}
-.clip-slant {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
-}
-.clip-slant-reverse {
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-}
+/* stripped laggy rule */
+/* stripped laggy rule */
+/* stripped laggy rule */
 
 /* ── Top Navigation Bar ─────────────────────────────────── */
 .stitch-topnav {
@@ -1773,11 +1731,8 @@ button { font-family: inherit; }
   background: #f4f6f9;
   color: #0f172a;
 }
-[data-mode="light"] .bg-grid {
-  background-image: linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
-}
-[data-mode="light"] .scanline { display: none; }
+[data-mode="light"] /* stripped laggy rule */
+[data-mode="light"] /* stripped laggy rule */
 [data-mode="light"] .stitch-topnav, 
 [data-mode="light"] .stitch-footer {
   background: rgba(255, 255, 255, 0.95);
@@ -1961,24 +1916,17 @@ button { font-family: inherit; }
 }
 [data-rgb="stealth"] .m-rgb-strip,
 [data-rgb="stealth"] .glow-orb-orange,
-[data-rgb="stealth"] .glow-orb-blue {
-  display: none !important;
-}
+[data-rgb="stealth"] /* stripped laggy rule */
 
 /* ── Background Atmosphere Modes ─────────────────────────── */
 [data-bg="clean"] .bg-grid,
 [data-bg="clean"] .scanline,
 [data-bg="clean"] .glow-orb-orange,
-[data-bg="clean"] .glow-orb-blue {
-  display: none !important;
-}
+[data-bg="clean"] /* stripped laggy rule */
 [data-bg="matrix"] {
   background: #020b06 !important;
 }
-[data-bg="matrix"] .bg-grid {
-  background-image: linear-gradient(to bottom, rgba(0,255,163,0.08) 1px, transparent 1px) !important;
-  background-size: 100% 8px !important;
-}
+[data-bg="matrix"] /* stripped laggy rule */
 
 
 /* ==========================================================================
@@ -3597,7 +3545,7 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
 }
 
 /* Scanline hidden in light mode */
-[data-mode="light"] .scanline { display: none !important; }
+[data-mode="light"] /* stripped laggy rule */
 
 /* Shimmer text animation for light mode */
 [data-mode="light"] .anim-shimmer {
@@ -3714,3 +3662,181 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
     font-weight: 600;
 }
 
+
+
+/* ==========================================================================
+   Click Speed Lab — Modern Minimalist Esports Design System
+   ========================================================================== */
+:root {
+  --obsidian-deep: #09090b;
+  --obsidian-surface: #121217;
+  --surface: #121217;
+  --surface-container: #18181b;
+  --surface-container-high: #202024;
+  --surface-variant: #27272a;
+  --velocity-orange: #FF5F1F;
+  --primary: #FF5F1F;
+  --aero-blue: #00E5FF;
+  --color-emerald: #10b981;
+  --signal-white: #ffffff;
+  --on-surface: #f4f4f5;
+  --on-surface-variant: #d4d4d8;
+  --text-muted: #71717a;
+  --outline: rgba(255, 255, 255, 0.1);
+  --energy-border: rgba(255, 255, 255, 0.08);
+  --energy-border-strong: rgba(255, 95, 31, 0.4);
+}
+
+body {
+  background-color: #09090b !important;
+  background-image: radial-gradient(circle at 50% -20%, rgba(255, 95, 31, 0.05), transparent 70%) !important;
+  color: var(--on-surface) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Neutralize AI-slop decorative overlays */
+.scanline, .glow-orb-orange, .glow-orb-blue, .bg-grid {
+  display: none !important;
+}
+
+/* Remove jagged polygon clips */
+.clip-nick, .clip-slant, .clip-slant-reverse {
+  clip-path: none !important;
+  border-radius: 12px !important;
+}
+
+/* Modern Card Surfaces */
+.telemetry-card, .info-card, .graph-card, .race-container {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #121217 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.telemetry-card:hover, .info-card:hover {
+  border-color: rgba(255, 95, 31, 0.35) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Modern Top Navigation Bar */
+.stitch-topnav {
+  background: rgba(9, 9, 11, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.stitch-brand {
+  letter-spacing: -0.01em !important;
+  font-weight: 800 !important;
+}
+
+.stitch-navlink {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: #a1a1aa !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  transition: color 0.15s ease, background 0.15s ease !important;
+}
+.stitch-navlink:hover, .stitch-navlink.active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.nav-dropdown-menu {
+  background: rgba(18, 18, 23, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+  padding: 8px !important;
+}
+
+.nav-dropdown-item {
+  border-radius: 8px !important;
+  transition: background 0.15s ease !important;
+}
+.nav-dropdown-item:hover, .nav-dropdown-item.active {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Modern Buttons */
+.kinetic-btn {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #d4d4d8 !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.15s ease !important;
+}
+.kinetic-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.kinetic-btn.active {
+  background: var(--primary) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 14px rgba(255, 95, 31, 0.35) !important;
+}
+
+.kinetic-btn-orange {
+  background: var(--primary) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(255, 95, 31, 0.3) !important;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease !important;
+}
+.kinetic-btn-orange:hover {
+  opacity: 0.92 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(255, 95, 31, 0.45) !important;
+}
+.kinetic-btn-orange:active {
+  transform: translateY(1px) !important;
+}
+
+/* Tactile Click Stage */
+.clickzone-stage {
+  border-radius: 16px !important;
+  border: 2px dashed rgba(255, 95, 31, 0.4) !important;
+  background: radial-gradient(circle at center, rgba(255, 95, 31, 0.04) 0%, rgba(18, 18, 23, 0.9) 100%) !important;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease !important;
+}
+.clickzone-stage:hover {
+  border-color: var(--primary) !important;
+  border-style: solid !important;
+  background: radial-gradient(circle at center, rgba(255, 95, 31, 0.08) 0%, rgba(18, 18, 23, 0.95) 100%) !important;
+}
+.clickzone-stage:active {
+  transform: scale(0.995) !important;
+  border-color: var(--aero-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2) !important;
+}
+
+/* Streamlined Typography & Shimmers */
+.anim-shimmer {
+  background: none !important;
+  color: #ffffff !important;
+  animation: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+.anim-glow-pulse, .anim-badge-float {
+  animation: none !important;
+}
+
+/* Footer Refinements */
+.stitch-footer {
+  background: rgba(9, 9, 11, 0.95) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}

@@ -34,7 +34,7 @@
 
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.min.css">
     
     <style>
         .mouse-hz-grid {
@@ -262,17 +262,10 @@
 }
     </script>
     <!-- Monetag In-Page Push & Vignette Ads -->
-    <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <!-- AOS (Animate On Scroll) Library -->
     
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="scanline"></div>
-    <div class="glow-orb-orange"></div>
-    <div class="glow-orb-blue"></div>
-
     <header class="stitch-topnav">
         <div class="topnav-left">
             <a href="../" class="stitch-brand">
@@ -976,36 +969,6 @@
     
     
     
-    <script>
-        (function() {
-            // Immediate AOS Init
-            function initAnimations() {
-                if (typeof AOS !== 'undefined') {
-}
-                if (typeof VanillaTilt !== 'undefined') {
-}
-            }
-
-            // Parallax scroll effect on background glow orbs
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const orbOrange = document.querySelector('.glow-orb-orange');
-                const orbBlue = document.querySelector('.glow-orb-blue');
-                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
-                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
-            }, { passive: true });
-
-            initAnimations();
-            window.addEventListener('load', function() {
-                if (typeof AOS !== 'undefined') AOS.refresh();
-            });
-        })();
-    </script>
-
-
-    
-    
-
     <!-- GLOBAL UI & THEME ENGINE -->
     <script>
 (function() {
