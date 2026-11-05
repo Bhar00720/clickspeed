@@ -3714,3 +3714,157 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
     font-weight: 600;
 }
 
+
+
+/* ==========================================================================
+   Click Speed Lab — Modern Minimalist Design System Enhancements
+   ========================================================================== */
+
+/* 1. Modern Dark Background & Smooth Typography */
+body {
+  background-color: #09090b !important;
+  background-image: radial-gradient(circle at 50% -20%, rgba(255, 95, 31, 0.06), transparent 70%) !important;
+  color: #f4f4f5 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. De-slop & Performance: Disable laggy full-screen moving scanlines & heavy blur orbs */
+.scanline {
+  display: none !important;
+}
+.glow-orb-orange, .glow-orb-blue {
+  opacity: 0.3 !important;
+  filter: blur(80px) !important;
+  animation: none !important;
+}
+.bg-grid {
+  opacity: 0.4 !important;
+}
+
+/* 3. Modern Rounded Card Geometry (Replacing Jagged Polygon Clips) */
+.clip-nick, .clip-slant, .clip-slant-reverse {
+  clip-path: none !important;
+  border-radius: 12px !important;
+}
+
+/* 4. Modern Minimalist Cards */
+.telemetry-card, .info-card, .graph-card, .race-container {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #121217 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.telemetry-card:hover, .info-card:hover {
+  border-color: rgba(255, 95, 31, 0.35) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 5. Sleek Glassmorphic Top Navigation */
+.stitch-topnav {
+  background: rgba(9, 9, 11, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+.stitch-brand {
+  letter-spacing: -0.01em !important;
+  font-weight: 800 !important;
+}
+.stitch-navlink {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: #a1a1aa !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  transition: color 0.15s ease, background 0.15s ease !important;
+}
+.stitch-navlink:hover, .stitch-navlink.active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+.nav-dropdown-menu {
+  background: rgba(18, 18, 23, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+  padding: 8px !important;
+}
+.nav-dropdown-item {
+  border-radius: 8px !important;
+  transition: background 0.15s ease !important;
+}
+.nav-dropdown-item:hover, .nav-dropdown-item.active {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+}
+
+/* 6. Modern Interactive Buttons */
+.kinetic-btn {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #d4d4d8 !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.15s ease !important;
+}
+.kinetic-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.kinetic-btn.active {
+  background: var(--primary) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 14px rgba(255, 95, 31, 0.35) !important;
+}
+.kinetic-btn-orange {
+  background: var(--primary) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(255, 95, 31, 0.3) !important;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease !important;
+}
+.kinetic-btn-orange:hover {
+  opacity: 0.94 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(255, 95, 31, 0.45) !important;
+}
+.kinetic-btn-orange:active {
+  transform: translateY(1px) !important;
+}
+
+/* 7. Esports Tactile Click Stage */
+.clickzone-stage {
+  border-radius: 16px !important;
+  border: 2px dashed rgba(255, 95, 31, 0.4) !important;
+  background: radial-gradient(circle at center, rgba(255, 95, 31, 0.04) 0%, rgba(18, 18, 23, 0.92) 100%) !important;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease !important;
+}
+.clickzone-stage:hover {
+  border-color: var(--primary) !important;
+  border-style: solid !important;
+  background: radial-gradient(circle at center, rgba(255, 95, 31, 0.08) 0%, rgba(18, 18, 23, 0.96) 100%) !important;
+}
+.clickzone-stage:active {
+  transform: scale(0.995) !important;
+  border-color: var(--aero-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2) !important;
+}
+
+/* 8. Modern Footer */
+.stitch-footer {
+  background: rgba(9, 9, 11, 0.96) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #71717a !important;
+}

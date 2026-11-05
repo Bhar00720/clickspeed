@@ -36,7 +36,7 @@
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.min.css">
     
     <!-- JSON-LD -->
     <script type="application/ld+json">
@@ -137,12 +137,7 @@
       ]
 }
     </script>
-    <!-- Monetag In-Page Push & Vignette Ads -->
-    <script>(function(s){s.dataset.zone='11641934',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <script>(function(s){s.dataset.zone='11641938',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <!-- AOS (Animate On Scroll) Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
+    <!-- Performance Optimized -->
     <style>
         @keyframes blinkCursor {
             0%, 100% { border-color: transparent; }
@@ -843,104 +838,28 @@
         // Initial calculation
         updateCalc();
 
-        // Canvas Hero Animation
+        // Canvas Hero Ambient Engine (Static, Zero-CPU, Instant Paint)
         const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        let gridPoints = [];
-
-        function resize() {
-            const rect = canvas.parentElement.getBoundingClientRect();
-            width = rect.width;
-            height = rect.height;
-            canvas.width = width;
-            canvas.height = height;
-            initGrid();
-        }
-
-        function initGrid() {
-            gridPoints = [];
-            const spacing = 40;
-            for (let x = 0; x < width; x += spacing) {
-                for (let y = 0; y < height; y += spacing) {
-                    gridPoints.push({ x, y, glow: 0 });
-                }
-            }
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-                if (this.y < 0) this.y = height;
-                if (this.y > height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(255, 102, 0, 0.5)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 30; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            
-            // Draw grid points
-            gridPoints.forEach(point => {
-                point.glow *= 0.9; // fade glow
-                
-                // Check distance to particles
-                particles.forEach(p => {
-                    const dx = p.x - point.x;
-                    const dy = p.y - point.y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    if (dist < 60) {
-                        point.glow = Math.max(point.glow, 1 - (dist / 60));
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            function drawHeroBg() {
+                const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : { width: window.innerWidth, height: 350 };
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const spacing = 48;
+                ctx.fillStyle = 'rgba(255, 95, 31, 0.18)';
+                for (let x = 16; x < canvas.width; x += spacing) {
+                    for (let y = 16; y < canvas.height; y += spacing) {
+                        ctx.beginPath();
+                        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+                        ctx.fill();
                     }
-                });
-                
-                if (point.glow > 0.05) {
-                    ctx.fillStyle = `rgba(0, 255, 204, ${point.glow * 0.5})`;
-                    ctx.beginPath();
-                    ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
-                    ctx.fill();
                 }
-            });
-
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
-            requestAnimationFrame(animate);
+            }
+            window.addEventListener('resize', drawHeroBg, { passive: true });
+            drawHeroBg();
         }
-
-        window.addEventListener('resize', resize);
-        
-        // Start animation after a short delay to ensure layout is done
-        setTimeout(() => {
-            resize();
-            initParticles();
-            animate();
-        }, 100);
 
     
         
@@ -1159,85 +1078,8 @@
     </script>
         
 
-    <!-- Interactive Animation & FX Libraries -->
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 700,
-                    easing: 'ease-out-cubic',
-                    once: true,
-                    offset: 40
-                });
-            }
-            if (typeof VanillaTilt !== 'undefined') {
-                VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card'), {
-                    max: 6,
-                    speed: 400,
-                    glare: true,
-                    "max-glare": 0.12,
-                    scale: 1.01
-                });
-            }
-        });
-    </script>
-
-
-    <!-- Interactive Animation, Tilt & Scroll FX Engine -->
-    
-    
-    
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script>
-        (function() {
-            // Immediate AOS Init
-            function initAnimations() {
-                if (typeof AOS !== 'undefined') {
-                    AOS.init({
-                        duration: 800,
-                        easing: 'ease-out-cubic',
-                        once: false,
-                        mirror: true,
-                        offset: 50
-                    });
-                }
-                if (typeof VanillaTilt !== 'undefined') {
-                    VanillaTilt.init(document.querySelectorAll('.telemetry-card, .info-card, .mc-card, .graph-card, .telemetry-side-panel'), {
-                        max: 8,
-                        speed: 400,
-                        glare: true,
-                        "max-glare": 0.15,
-                        scale: 1.02
-                    });
-                }
-            }
-
-            // Parallax scroll effect on background glow orbs
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const orbOrange = document.querySelector('.glow-orb-orange');
-                const orbBlue = document.querySelector('.glow-orb-blue');
-                if (orbOrange) orbOrange.style.transform = 'translateY(' + (scrolled * 0.15) + 'px)';
-                if (orbBlue) orbBlue.style.transform = 'translateY(' + (-scrolled * 0.12) + 'px)';
-            }, { passive: true });
-
-            initAnimations();
-            window.addEventListener('load', function() {
-                if (typeof AOS !== 'undefined') AOS.refresh();
-            });
-        })();
-    </script>
-
-
-    
-    
+    <!-- Clean FX Suite -->
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <!-- GLOBAL UI & THEME ENGINE -->
     <script class="global-ui-script">
@@ -1306,409 +1148,7 @@
     
     
     
-    <!-- 3D Wireframe Background Engine (INTERACTION MULTICOLOR) -->
-    <script class="global-3d-bg-engine">
-    (function() {
-        const canvas = document.getElementById('global-3d-bg');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let scrollY = 0;
-        
-        let mouseState = { left: false, right: false, scrollOffset: 0 };
-        let activeKeys = []; 
-
-        window.addEventListener('mousedown', (e) => {
-            if (e.button === 0) mouseState.left = true;
-            if (e.button === 2) mouseState.right = true;
-        });
-        window.addEventListener('mouseup', (e) => {
-            if (e.button === 0) mouseState.left = false;
-            if (e.button === 2) mouseState.right = false;
-        });
-        window.addEventListener('wheel', (e) => {
-            mouseState.scrollOffset += (e.deltaY > 0 ? 1 : -1) * 2;
-        }, { passive: true });
-
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width * window.devicePixelRatio;
-            canvas.height = height * window.devicePixelRatio;
-            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        window.addEventListener('scroll', () => {
-            scrollY = window.scrollY;
-        }, { passive: true });
-
-        const kbLayout = [
-            { u: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2], labels: ['Esc','1','2','3','4','5','6','7','8','9','0','-','=','Bksp'] },
-            { u: [1.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.5], labels: ['Tab','Q','W','E','R','T','Y','U','I','O','P','[',']','\\'] },
-            { u: [1.75, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.25], labels: ['Caps','A','S','D','F','G','H','J','K','L',';','\'','Enter'] },
-            { u: [2.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.75], labels: ['Shift','Z','X','C','V','B','N','M',',','.','/','Shift'] },
-            { u: [1.25, 1.25, 1.25, 6.25, 1.25, 1.25, 1.25, 1.25], labels: ['Ctrl','Win','Alt','Space','Alt','Fn','Men','Ctrl'] }
-        ];
-
-        const charToKey = {};
-        let kIdx = 0;
-        kbLayout.forEach(row => {
-            row.labels.forEach(label => {
-                charToKey[label.toUpperCase()] = kIdx;
-                kIdx++;
-            });
-        });
-        charToKey[' '] = charToKey['Space'];
-        charToKey['-'] = charToKey['-'];
-
-        window.triggerCanvasKey = (char) => {
-            const up = char.toUpperCase();
-            if (charToKey[up] !== undefined) {
-                activeKeys.push({ index: charToKey[up], time: performance.now() });
-            }
-        };
-
-        function drawMouseCase(ctx) {
-            ctx.beginPath();
-            ctx.moveTo(35, -60);
-            ctx.bezierCurveTo(65, -60, 75, -20, 75, 25); 
-            ctx.bezierCurveTo(75, 80, 50, 100, 0, 100);    
-            ctx.bezierCurveTo(-50, 100, -75, 80, -75, 25); 
-            ctx.bezierCurveTo(-75, -20, -65, -60, -35, -60); 
-            ctx.closePath();
-            ctx.stroke();
-            
-            ctx.beginPath();
-            ctx.moveTo(65, -10); ctx.bezierCurveTo(70, 10, 70, 35, 60, 65);
-            ctx.moveTo(-65, -10); ctx.bezierCurveTo(-70, 10, -70, 35, -60, 65);
-            ctx.stroke();
-            
-            ctx.beginPath();
-            ctx.roundRect(-80, 10, 8, 15, 2);
-            ctx.roundRect(-80, 30, 8, 15, 2);
-            ctx.stroke();
-        }
-
-        function drawMouseDetails(ctx, leftPressed, rightPressed, multiGrad) {
-            ctx.save();
-            ctx.strokeStyle = multiGrad; // MULTICOLOR OUTLINE FOR BUTTONS AND WHEEL
-            if (leftPressed) ctx.translate(0, 3);
-            ctx.beginPath();
-            ctx.moveTo(-6, -55);
-            ctx.lineTo(-32, -55);
-            ctx.bezierCurveTo(-55, -55, -65, -20, -65, 10);
-            ctx.lineTo(-6, 20);
-            ctx.closePath();
-            if (leftPressed) {
-                ctx.fillStyle = multiGrad; // MULTI COLOR FILL
-                ctx.globalAlpha = 0.9;
-                ctx.fill();
-            }
-            ctx.globalAlpha = 1.0;
-            ctx.stroke();
-            ctx.restore();
-
-            ctx.save();
-            if (rightPressed) ctx.translate(0, 3);
-            ctx.beginPath();
-            ctx.moveTo(6, -55);
-            ctx.lineTo(32, -55);
-            ctx.bezierCurveTo(55, -55, 65, -20, 65, 10);
-            ctx.lineTo(6, 20);
-            ctx.closePath();
-            if (rightPressed) {
-                ctx.fillStyle = multiGrad; // MULTI COLOR FILL
-                ctx.globalAlpha = 0.9;
-                ctx.fill();
-            }
-            ctx.globalAlpha = 1.0;
-            ctx.stroke();
-            ctx.restore();
-
-            ctx.beginPath();
-            ctx.roundRect(-9, -40, 18, 32, 5);
-            ctx.stroke();
-
-            ctx.beginPath();
-            for(let i=0; i<6; i++) {
-                let y = -35 + ((i * 5 + mouseState.scrollOffset) % 30);
-                if (y < -35) y += 30; 
-                if (y >= -38 && y <= -10) {
-                    ctx.moveTo(-6, y);
-                    ctx.lineTo(6, y);
-                }
-            }
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.roundRect(-5, 0, 10, 8, 2);
-            ctx.roundRect(-5, 12, 10, 8, 2);
-            ctx.stroke();
-
-            ctx.beginPath();
-            const cy = 65;
-            for (let i = 0; i < 6; i++) {
-                const angle = (i * Math.PI) / 3;
-                ctx.lineTo(Math.cos(angle)*15, cy + Math.sin(angle)*15);
-            }
-            ctx.closePath();
-            ctx.moveTo(-8, cy); ctx.lineTo(8, cy);
-            ctx.stroke();
-            ctx.fillStyle = ctx.strokeStyle;
-            ctx.globalAlpha = 0.2;
-            ctx.fill();
-            ctx.globalAlpha = 1.0;
-        }
-
-        function drawKeyboardCase(ctx) {
-            ctx.beginPath();
-            ctx.roundRect(-175, -70, 350, 140, 12);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.roundRect(-168, -63, 336, 126, 6);
-            ctx.stroke();
-        }
-
-        function drawKeyboardKeys(ctx, keysPressedNow, fillGrad) {
-            ctx.strokeStyle = fillGrad; // MULTICOLOR OUTLINE FOR ALL KEYCAPS
-            const unit = 21; 
-            const gap = 3;   
-            let startY = -56;
-            let keyIndex = 0;
-
-            ctx.font = 'bold 7px "JetBrains Mono", monospace';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-
-            for(let r=0; r<kbLayout.length; r++) {
-                const row = kbLayout[r];
-                let startX = -162; 
-                
-                for(let c=0; c<row.u.length; c++) {
-                    const u = row.u[c];
-                    const label = row.labels[c];
-                    const keyWidth = (u * unit) - gap;
-                    const keyHeight = unit - gap;
-                    
-                    const isPressed = keysPressedNow.includes(keyIndex);
-                    
-                    ctx.save();
-                    if (isPressed) {
-                        ctx.translate(0, 5); 
-                        ctx.fillStyle = fillGrad; // MULTI COLOR FILL
-                        ctx.globalAlpha = 0.95; 
-                    }
-
-                    ctx.beginPath();
-                    ctx.roundRect(startX, startY, keyWidth, keyHeight, 4);
-                    if (isPressed) ctx.fill();
-                    ctx.stroke();
-
-                    ctx.globalAlpha = isPressed ? 1.0 : 0.4;
-                    ctx.beginPath();
-                    ctx.roundRect(startX + 3, startY + 2, keyWidth - 6, keyHeight - 6, 2);
-                    ctx.stroke();
-
-                    if (!isPressed) {
-                        ctx.globalAlpha = 0.8;
-                        ctx.fillStyle = ctx.strokeStyle;
-                    } else {
-                        ctx.fillStyle = '#000'; // Black text on glowing bright neon
-                    }
-                    ctx.fillText(label, startX + keyWidth/2, startY + keyHeight/2);
-
-                    ctx.restore();
-                    
-                    startX += (u * unit);
-                    keyIndex++;
-                }
-                startY += unit;
-            }
-        }
-
-        let time = 0;
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            time += 0.04; 
-            const now = performance.now();
-            
-            activeKeys = activeKeys.filter(k => now - k.time < 150);
-            const keysPressedNow = activeKeys.map(k => k.index);
-            
-            const rootStyle = getComputedStyle(document.documentElement);
-            const rawPrimary = rootStyle.getPropertyValue('--primary').trim() || '#ff5f1f';
-            let r=255, g=95, b=31;
-            if (rawPrimary.startsWith('#') && rawPrimary.length === 7) {
-                r = parseInt(rawPrimary.substring(1,3), 16);
-                g = parseInt(rawPrimary.substring(3,5), 16);
-                b = parseInt(rawPrimary.substring(5,7), 16);
-            }
-            
-            // RGB to HSL
-            let rNorm = r/255, gNorm = g/255, bNorm = b/255;
-            let cMax = Math.max(rNorm, gNorm, bNorm), cMin = Math.min(rNorm, gNorm, bNorm);
-            let d = cMax - cMin;
-            let h = 0;
-            if (d !== 0) {
-                if (cMax === rNorm) h = ((gNorm - bNorm) / d) % 6;
-                else if (cMax === gNorm) h = (bNorm - rNorm) / d + 2;
-                else h = (rNorm - gNorm) / d + 4;
-            }
-            h = Math.round(h * 60);
-            if (h < 0) h += 360;
-            let l = (cMax + cMin) / 2;
-            let s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1));
-            s = Math.round(s * 100);
-            l = Math.round(l * 100);
-
-            const isLight = document.documentElement.getAttribute('data-mode') === 'light';
-            const baseAlpha = isLight ? 0.6 : 1.0; 
-            
-            // Single color for borders
-            const colorTop = `rgba(${r},${g},${b}, ${baseAlpha})`;
-            
-            // Multi-Color Gradient exclusively for HIGHLIGHTS & INTERACTIONS
-            const activeGrad = ctx.createLinearGradient(-150, -150, 150, 150);
-            activeGrad.addColorStop(0, `hsla(${(h + 45) % 360}, 100%, 65%, 1.0)`);
-            activeGrad.addColorStop(0.5, `hsla(${h}, 100%, 65%, 1.0)`);
-            activeGrad.addColorStop(1, `hsla(${(h - 45 + 360) % 360}, 100%, 65%, 1.0)`);
-            
-            ctx.lineJoin = 'round';
-            ctx.lineCap = 'round';
-            
-            const mX = width - 120; 
-            const mY = height * 0.5 - scrollY * 0.1 + Math.cos(time*0.2)*10;
-            const mRot = 0.1; 
-            
-            const kX = width * 0.25;
-            const kY = height * 0.65 - scrollY * 0.15 + Math.cos(time*0.4)*15;
-            const kRot = -0.15;
-            
-            // --- RENDER KEYBOARD ---
-            ctx.save();
-            ctx.translate(kX, kY);
-            ctx.scale(1.5, 1.5);
-            ctx.transform(1, 0.4, -0.6, 1, 0, 0); 
-            ctx.rotate(kRot);
-            
-            ctx.lineWidth = 1.5;
-            
-            // Base Color Borders
-            for(let layer = 0; layer < 3; layer++) {
-                ctx.save();
-                ctx.translate(0, (2 - layer) * 8); 
-                
-                if (layer === 2) {
-                    ctx.strokeStyle = colorTop;
-                    ctx.shadowColor = colorTop;
-                    ctx.shadowBlur = 15;
-                    drawKeyboardCase(ctx);
-                    drawKeyboardKeys(ctx, keysPressedNow, activeGrad); // Pass grad just for fill
-                } else if (layer === 1) {
-                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.4})`; 
-                    drawKeyboardCase(ctx);
-                } else {
-                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.15})`; 
-                    drawKeyboardCase(ctx);
-                }
-                ctx.restore();
-            }
-            ctx.restore();
-
-            // --- DATA CABLE (Twiggle Loop & Double Stroke) ---
-            ctx.save();
-            
-            const kbWorldX = kX + 80;
-            const kbWorldY = kY - 90;
-            
-            const p0 = {x: kbWorldX, y: kbWorldY};
-            const loopCenter = {x: width * 0.5, y: height * 0.35 + Math.cos(time)*20};
-            const pEnd = {x: width * 0.6, y: height * 0.45}; 
-            
-            function drawCablePath() {
-                ctx.moveTo(p0.x, p0.y);
-                ctx.bezierCurveTo(p0.x + 100, p0.y - 100, loopCenter.x - 100, loopCenter.y - 100, loopCenter.x, loopCenter.y - 40);
-                ctx.bezierCurveTo(loopCenter.x + 100, loopCenter.y - 40, loopCenter.x + 100, loopCenter.y + 40, loopCenter.x, loopCenter.y + 40);
-                ctx.bezierCurveTo(loopCenter.x - 100, loopCenter.y + 40, loopCenter.x - 100, loopCenter.y - 40, loopCenter.x, loopCenter.y);
-                ctx.bezierCurveTo(loopCenter.x + 50, loopCenter.y + 40, pEnd.x - 50, pEnd.y - 50, pEnd.x, pEnd.y);
-            }
-
-            ctx.beginPath();
-            drawCablePath();
-            ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.25})`; // Base color jacket
-            ctx.lineWidth = 10;
-            ctx.stroke();
-
-            ctx.beginPath();
-            drawCablePath();
-            ctx.strokeStyle = activeGrad; // Multi-color active data core!
-            ctx.lineWidth = 3;
-            ctx.setLineDash([8, 12]);
-            ctx.lineDashOffset = -time * 40; 
-            ctx.stroke();
-            ctx.setLineDash([]);
-            
-            ctx.translate(pEnd.x, pEnd.y);
-            ctx.rotate(0.5);
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(-20, -12);
-            ctx.lineTo(-12, 0);
-            ctx.lineTo(-20, 12);
-            ctx.closePath();
-            ctx.fillStyle = activeGrad; // Multi-color arrow
-            ctx.shadowColor = colorTop;
-            ctx.shadowBlur = 20;
-            ctx.fill();
-            ctx.restore();
-
-            // --- RENDER MOUSE ---
-            ctx.save();
-            ctx.translate(mX, mY);
-            ctx.scale(1.6, 1.6);
-            ctx.transform(1, 0.4, -0.6, 1, 0, 0); 
-            ctx.rotate(mRot);
-            
-            ctx.lineWidth = 1.5;
-            
-            for(let layer = 0; layer < 3; layer++) {
-                ctx.save();
-                ctx.translate(0, (2 - layer) * 8);
-                
-                if (layer === 2) {
-                    ctx.strokeStyle = colorTop;
-                    ctx.shadowColor = colorTop;
-                    ctx.shadowBlur = 25;
-                    drawMouseCase(ctx);
-                    drawMouseDetails(ctx, mouseState.left, mouseState.right, activeGrad);
-                } else if (layer === 1) {
-                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.4})`;
-                    drawMouseCase(ctx);
-                } else {
-                    ctx.strokeStyle = `rgba(${r},${g},${b}, ${baseAlpha * 0.15})`;
-                    drawMouseCase(ctx);
-                }
-                ctx.restore();
-            }
-            
-            ctx.restore();
-
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-    })();
-    </script>
-
-
-
-
-
-
-
-
+    
     <!-- Typing Animation Engine -->
     <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1743,14 +1183,8 @@
         if (el2) el2.textContent = "";
         setTimeout(typeWriter, 500);
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY === 0 && (i1 === line1.length && i2 === line2.length)) {
-                el1.textContent = "";
-                el2.textContent = "";
-                i1 = 0; i2 = 0; window.pausedTyping = false;
-                setTimeout(typeWriter, 300);
-            }
-        });
+        // Clean single-shot heading complete
+    
     });
     </script>
 
