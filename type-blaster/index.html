@@ -1289,6 +1289,7 @@
 
         let state = {
             playing: false,
+            waveTransition: false,
             wave: 1,
             score: 0,
             lives: 3,
@@ -1612,7 +1613,21 @@
             targetEl.innerHTML = html;
         }
 
-        function triggerHit(packetIndex, speedBonus) {
+                function checkWaveCompletion() {
+            if (!state.playing || state.lives <= 0 || state.waveTransition) return;
+            if (state.packets.length === 0) {
+                state.waveTransition = true;
+                state.wave++;
+                showWaveBanner('WAVE ' + state.wave, () => {
+                    state.waveTransition = false;
+                    if (state.playing && state.lives > 0) {
+                        spawnWave();
+                    }
+                });
+            }
+        }
+
+function triggerHit(packetIndex, speedBonus) {
             if (!state.packets[packetIndex]) return;
             const p = state.packets[packetIndex];
             playSound('pow');
@@ -1630,12 +1645,7 @@
             updateTargetUI();
             updateUI();
             
-            if(state.packets.length === 0) {
-                state.wave++;
-                showWaveBanner('WAVE ' + state.wave, () => {
-                    spawnWave();
-                });
-            }
+            checkWaveCompletion();
         }
 
         function triggerMiss() {
@@ -1798,6 +1808,7 @@
                     if(state.targetIndex === i) state.targetIndex = determineTargetIndex();
                     else if(state.targetIndex > i) state.targetIndex--;
                     updateTargetUI();
+                    checkWaveCompletion();
                 }
             }
             
@@ -1964,6 +1975,7 @@
             state = {
                 ...state,
                 playing: true,
+                waveTransition: true,
                 wave: 1,
                 score: 0,
                 lives: initialLives,
@@ -1986,6 +1998,7 @@
             
             showWaveBanner('WAVE 1', () => {
                 state.lastFrameTime = performance.now();
+                state.waveTransition = false;
                 spawnWave();
                 state.animId = requestAnimationFrame(loop);
             });
@@ -1993,6 +2006,7 @@
         
         function gameOver() {
             state.playing = false;
+            state.waveTransition = false;
             if (state.animId) cancelAnimationFrame(state.animId);
             setButtonActiveState(false);
             
