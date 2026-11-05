@@ -3738,7 +3738,7 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
 
 .stitch-main {
   margin-left: 0;
-  padding-top: calc(var(--topnav-h) + 36px) !important;
+  padding-top: 140px !important;
   padding-bottom: calc(var(--footer-h) + 32px) !important;
   padding-left: 36px !important;
   padding-right: 36px !important;
@@ -3748,16 +3748,16 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
   box-sizing: border-box;
 }
 
-/* Page Header & Hero Structure */
-.page-header, .stitch-hero {
-  margin-top: 12px;
-  margin-bottom: 32px;
+/* Page Header & Hero Structure across all pages & games */
+.page-header, .stitch-hero, .game-hero {
+  margin-top: 24px !important;
+  margin-bottom: 32px !important;
   position: relative;
   z-index: 2;
 }
 
 /* Responsive Navbar & Safe Clearances */
-@media (max-width: 1150px) {
+@media (max-width: 1280px) {
   .stitch-topnav {
     height: auto;
     padding: 10px 16px;
@@ -3765,9 +3765,20 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
     gap: 8px;
   }
   .stitch-main {
-    padding-top: 135px !important;
+    padding-top: 160px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .stitch-topnav {
+    padding: 10px 14px;
+  }
+  .stitch-main {
+    padding-top: 180px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -3776,13 +3787,13 @@ html[data-mode="light"][data-kb-skin="obsidian"] body.heatmap-on .stitch-key.hea
     padding: 8px 12px;
   }
   .stitch-main {
-    padding-top: 155px !important;
+    padding-top: 195px !important;
     padding-left: 14px !important;
     padding-right: 14px !important;
   }
-  .page-header, .stitch-hero {
-    margin-top: 8px;
-    margin-bottom: 24px;
+  .page-header, .stitch-hero, .game-hero {
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
   }
 }
 
